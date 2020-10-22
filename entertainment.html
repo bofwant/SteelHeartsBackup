@@ -1,0 +1,4069 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - entertainment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="entertainment.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Ship Events / entertainment</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 01:10 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="727934203081130023" id="message-727934203081130023">
+                <div class="chatlog__content">
+                    <div class="markdown">A wonderful stage with all kinds of instruments and entertainment implements so any guildie can gift their peers with a peek of their hidden talents.
+
+Somehow, a music perfect for the occasion can be heard around the top deck, the source being this amazing construction. <span class="chatlog__edited-timestamp" title="01-Jul-20 01:10 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="entertainment.html_Files/e02461275e8ae95ba95a7f683d808d07.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="entertainment.html_Files/e02461275e8ae95ba95a7f683d808d07.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="727952750851391680" id="message-727952750851391680">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 03:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="727974303685018092" id="message-727974303685018092">
+                <div class="chatlog__content">
+                    <div class="markdown">Pendragon stepped onto the stage bored. he looked around at the instruments and picked up a violin &quot;I never had a lesson.&quot; he muttered before attempting to play it (12 performance) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 03:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="727976527160934480" id="message-727976527160934480">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Never, you say..? Not half bad for a complete amateur, then.&quot; The Yuan-Ti gives some mild applause, wandering up to the stage to look over the collection of instruments. &quot;If I were a more generous man, I might even say it was a hidden talent, waiting to be brought forth. But ah, where are my manners? I am Atakhi, pleased to make your acquaintance.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="727982584000151613" id="message-727982584000151613">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Pendragon northlight&quot; he said &quot;I have no musical talent, that was goofing around and dumb luck. &quot; the aasimar set the violin down and moved to step off the stage. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="727984844830670859" id="message-727984844830670859">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Dumb luck rarely produces such sounds, but if that is the view you wish to take, I will not fault you your decision.&quot; Atakhi produces his own violin from its carrying mount, not trusting any instrument but his own to produce sound in a way that is just so, and settles in, preparing to play. <span class="chatlog__edited-timestamp" title="01-Jul-20 04:33 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 05:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="727994684357738618" id="message-727994684357738618">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;cool, cool I&#39;m gonna go see what else this event has before we have sit down and watch the union between iri and mors.&quot;  Pendragon said not feeling comfortable with the flowery speech and being the only other one in the theartre. &quot;I think theres food, an arena and then the chapel&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 05:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="727995640298340463" id="message-727995640298340463">
+                <div class="chatlog__content">
+                    <div class="markdown">The Yuan-Ti pays the Aasimar no further mind, beginning his one-man performance, aided by a Minor Illusion to add backing instrumentation, taking his solo and turning it into a grand, orchestral affair. The result is... Simply beautiful. (22 Performance) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 06:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="728007256850956322" id="message-728007256850956322">
+                <div class="chatlog__content">
+                    <div class="markdown">Penn remained for the yuan-ti&#39;s performance. the samurai&#39;s skills were of violence, his art was wounds, broken bones  not music. he gave Atakhi a clap when he done. <span class="chatlog__edited-timestamp" title="01-Jul-20 06:01 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 06:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="728009925111840859" id="message-728009925111840859">
+                <div class="chatlog__content">
+                    <div class="markdown">The music came to a close, and the snake-man relaxed, setting his instrument away. &quot;Good acoustics in this place... I rather like it.&quot; His attention finally returns to his crowd of one, and he brings a hand to his chin in contemplation of Pendragon. &quot;You, on the other hand, look distinctly uncomfortable. You tell yourself that this is not a place for you, no? And yet, only one attempt given, and it did not offend the ears. I do believe that you are underestimating yourself... But still, it is not my place to judge.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 07:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="728029404504260670" id="message-728029404504260670">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;was never meant for the stage, I&#39;m more conformable being a warrior than a entertainer. &quot; he said &quot;pretty sure that was a flook. I&#39;m going to go see what else going on, if I see any bards or music types I&#39;ll send them here so you lot can play together&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="728037640544321626" id="message-728037640544321626">
+                <div class="chatlog__content">
+                    <div class="markdown">Pendragon leaves for the <span class="mention">#arena</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="728039668641300590" id="message-728039668641300590">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;FerrYYYY!&quot; Thrin walks into what looks like the entertainment area, barefoot and hatless, which has happened maybe three times ever. The wizard walks up to a yuan-ti further away and waves him down. &quot;Hey, have you seen a tall red tiefling? Cool music by the way. Sounds nice.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="728040518696697949" id="message-728040518696697949">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;A red tiefling... Can&#39;t say that I have, no. Was he meant to be meeting you here?&quot; The snek man chuckles, expression quirking up into a smirk. &quot;Ah, should I clear out to give you some privacy?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="728040992283951195" id="message-728040992283951195">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;It&#39;s fine. We aren&#39;t meeting, I&#39;m just looking for him to show off my new clothes. Figured he might be here.&quot; They wave off the offer, though there&#39;s some sense that they wouldn&#39;t mind if he did. &quot;Big idiot... Anyway I&#39;m Thrin. You?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="728042990236598364" id="message-728042990236598364">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Atakhi. Pleased to make your acquaintance...&quot; The Bard gives an overdramatic bow, clearly amused with the whole situation. &quot;But, since you&#39;re obviously quite excited to meet with this person, allow me to step out of your way. I&#39;ll be sure to send him here if I find him, of course.&quot; He begins making his way to the exit, only stopping just before he reaches the door, turning about to get one last quip in. &quot;After all, it&#39;d be a shame if your boyfriend missed the sight of you all dolled up for him, no?&quot; And with that, he laughs his way out of the entertainment area. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="728043988312915969" id="message-728043988312915969">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin turns beet red and an indignant shriek follows Atakhi out  &quot;Oh my gods he isn&#39;t my <em>boyfriend</em>, you weirdo!&quot;
+They reach up to pull down their wide brimmed hat, only to remember that they decided not to wear one. More embarrassed squealing ensues. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="728045730907815956" id="message-728045730907815956">
+                <div class="chatlog__content">
+                    <div class="markdown">Well, isn&#39;t this just a perfect time for said tall red tiefling to show up, brow already raised at the sight of the changeling in such a state. &quot;Odd, usually the blushing and squealing doesn&#39;t start until <em>after</em> I&#39;ve entered the room. What&#39;s got ya so worked up, Thrinny?&quot; And of course, given that this is a formal event, said tiefling is also out of his armor and heavier gear for once- though, given that he&#39;s still not exactly the type for fineries, his choice of outfit more or less consists of a sleeveless tunic, simple trousers, and a very slightly nicer pair of boots. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="728047781444452402" id="message-728047781444452402">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin stops immediately, thought their face remains bright red. &quot;N- it&#39;s nothing. Dumbass. Guess who suckered a guy into buying me a nice outfit? This guy!&quot; The changeling spins to show off their nice pants and tucked-in vest with all the dangles and jewelry and pretty things. &quot;Innit nice!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="728048873117057065" id="message-728048873117057065">
+                <div class="chatlog__content">
+                    <div class="markdown">Ferisso looks over the wizard&#39;s outfit, giving an approving smile. &quot;Nice, indeed...&quot; He snickers and shakes his head after the explanation of where it&#39;d come from caught up with him. &quot;Didn&#39;t need to sucker anyone for it, though. I&#39;d have spared the cash if you told me you wanted something nice. Then again, maybe you just wanted to surprise me with the new look, ah?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 08:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="728051322468827197" id="message-728051322468827197">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;That, and the guy offered to buy it too. So it was only like, half suckering. It was mostly morally sound.&quot; They climb on the tiefling Paladin&#39;s back like a kid. &quot;So where you been idiot?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="728052588238602344" id="message-728052588238602344">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ironically enough, trying to find an outfit that didn&#39;t leave my upper half exposed if worn without armor. I really need to get in the habit of actually buying shirts...&quot; He laxly scratches the back of his head. &quot;And you did wanna make it a surprise, huh? Well, it looks excellent on you... Then again, so do most outfits, ya handsome brat.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="728055259313995858" id="message-728055259313995858">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hey, I work hard to come up with looks that can wear basically anything.&quot; Thrin laughs. &quot;And I have some decent money now too! Garg and his stupid boat paid really well. I can get you some shirts if you wanna.&quot; Stupid snake and his stupid jokes aside, they were still family. They still took care of each other. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="728056083603783680" id="message-728056083603783680">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Nah, I got my own windfall on the way, don&#39;t you worry about me. &#39;Sides, if you really wanna see me in a bunch&#39;a different outfits, all ya had to do was ask.&quot; The tiefling grins playfully, figuring he&#39;d continue the work of whoever had caused that blush earlier and tease Thrin some more. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="728057216904462446" id="message-728057216904462446">
+                <div class="chatlog__content">
+                    <div class="markdown">They smack the back of Ferry&#39;s head from their easy vantage point. It&#39;s a pretty good hit for them. &quot;<em>I</em> want you to not look like you&#39;re fucking homeless every time you take off your armour, you horndog. If this is your nice outfit for a wedding, I&#39;m kind of scared to see how barren your dresser drawers are.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="728058775679795222" id="message-728058775679795222">
+                <div class="chatlog__content">
+                    <div class="markdown">He just sorta rolls with the smack, it&#39;s not as though the wizard was particularly strong or whatnot. &quot;Hey, I don&#39;t look like I&#39;m homeless, I look like I&#39;m perpetually shirtless, which you know for fact is a damn good look on me. Look at these muscles and tell me the world isn&#39;t a sadder place when they&#39;re covered up, I dare ya!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="728060516907352084" id="message-728060516907352084">
+                <div class="chatlog__content">
+                    <div class="markdown">They cackle and reply sarcastically, &quot;You&#39;re so right, the world would miss your abs, Ferisso. Let&#39;s go make an attempt at socializing, ey? Pretend we aren&#39;t idiot babies.&quot; 
+They make no attempt to get off their brother&#39;s shoulders. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="728060955421835314" id="message-728060955421835314">
+                <div class="chatlog__content">
+                    <div class="markdown">He snorts, but makes no attempt at countermanding Thrin. &quot;Right-o. Dining hall or top deck, d&#39;ya think? Both are prob&#39;ly gonna be crowded.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="728061699432906791" id="message-728061699432906791">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Uhhhhhhhh top deck? I suspect Garg is gonna be with the food and I kinda want to avoid him as long as possible. I think he&#39;s still wanting to killy ass dead, Sine be damned.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 09:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="728062757936693248" id="message-728062757936693248">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well, let&#39;s be off, then.&quot; Still carrying the Changeling on his shoulders, the tiefling heads out and up toward the <span class="mention">#mingling</span> area. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 11:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="728096456543698977" id="message-728096456543698977">
+                <div class="chatlog__content">
+                    <div class="markdown">You know who enjoys wandering? Warrez, dog is always getting into some sort of trouble but for once he&#39;s actually managing to behave himself. Of course this isn&#39;t stopping Kor from keeping a close eye on the lovable mutt...he doesn&#39;t exactly know how the old boy might react to all the new space to explore. Regardless would Kor follow Warrez to this grand space, the old dog eventually flopping right on down onto a spot he considered comfy enough. &quot;Eh? Oh I see here, nice big music room an yer gunna take a nap aintcha? Lazy ass.&quot; Sighing did Kor end up deciding to at least attempt to rest his legs near Warrez, choosing to produce his familiar Lyre for the old dog. &quot;Fine...let&#39;s enjoy a quick tune or two together aye? Unless ye go an pass out on me.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 12:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="728105639846608897" id="message-728105639846608897">
+                <div class="chatlog__content">
+                    <div class="markdown">Well in the process of ensuring his Lyre was alright did a single movement of his fingers produce a particularly offensive sour note that made him and Warrez cringe in unison, Kor letting out a grunt afterward. &quot;Bah...damn hands, cooperate now..&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 01:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="728301172750024805" id="message-728301172750024805">
+                <div class="chatlog__content">
+                    <div class="markdown">Taking his time to calm himself down and shake his hand out a bit did Kor then try again, a soft tune springing to life and slowly joining the other sounds within the room, Warrez seemed untrusting for a moment before resting his head against the floor. <span class="chatlog__edited-timestamp" title="02-Jul-20 03:07 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 11:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="729182402529722420" id="message-729182402529722420">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The wonderful dwarf was hopping and skipping along, but something was...off. Instead of the usual sound of her boots hitting the floor, the prevailing noise was...a voice. A voice trying its absolute hardest to sing, despite the apparent inexperience.</em>
+
+&quot;...And don&#39;t forget, I&#39;m with you in the dark!&quot;
+
+<em>And as she finished the little song, she did a flourish and looking over the room with such a wide grin, her face showing as her mask hung on her hip.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 12:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="729189091257876480" id="message-729189091257876480">
+                <div class="chatlog__content">
+                    <div class="markdown">The current sight in the room consisted of a Centaur sitting down, Lyre in hand playing away, a soft tune filling the air. Laying up against the side of the Centaur would be an older looking dog who&#39;s currently very much asleep and audibly snoring. Kor was happy to see Warrez snoozing again...even if the old boy was a pain in his ass. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 01:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="730294806873505884" id="message-730294806873505884">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The lovely lady peers over to the fantastic duo, hoping right over with a smile.</em>
+
+&quot;Helloooo!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 01:34 AM</span>
+
+            <div class="chatlog__message " data-message-id="730295615271075862" id="message-730295615271075862">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hmm?&quot; Curiously did Kor look up at the distant voice and give a nod before also nodding toward the sleeping dog, he whispered as audibly as he could manage. &quot;Aye careful lass, just gottem ta rest, dun want em to wake up ya see.&quot;
+
+He continued with this wonderfully soft tune of his, strumming away at the Lyre with a smile creeping across his face. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 03:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="730324653192642561" id="message-730324653192642561">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ooohhh... that&#39;s my bad. I was just so excited! Got my voice again!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 03:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="730325220510138378" id="message-730325220510138378">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;It&#39;s fine, just be a little careful round Warrez, he&#39;s havin&#39; a nice little snooze for now.&quot; As he spoke did he momentarily stop playing to pet away at the old dog. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">09-Jul-20 01:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="730843229158768691" id="message-730843229158768691">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>With light steps made by her legs, Juma made her way towards the entertainment room, wanting to see how it looked inside of the room. Her eyes were busy looking the decorations, letting her eyes enjoy the views. Then, when she saw the Dwarf and an unknown person with her, she just walked near of them, not jumping into the stage though. Her eyes were looking the pair with curiosity, as her face was showing a smile~</em>
+
+<em>Juma was wearing a strapless red top and arabic harem pants with the same color~</em> <span class="chatlog__edited-timestamp" title="09-Jul-20 01:59 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">09-Jul-20 04:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="730889404083601440" id="message-730889404083601440">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faith was nodding towards Kor, thinking about petting the dog, right up until Juma came in. Her face lights up and she hops up and down!</em>
+
+&quot;Jumaaa! It&#39;s so good to see you!&quot;
+<em>She suddenly looks back to Kor, worried.</em>
+&quot;Oh I&#39;m so sorry, did I wake him?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">09-Jul-20 05:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="730891417844449370" id="message-730891417844449370">
+                <div class="chatlog__content">
+                    <div class="markdown">&#39;&#39;Hey Fai- Wait.&#39;&#39;
+
+<em>A bit stunned by the voice of the Dwarf, Juma would literally walk faster towards Faith, with her gaze pinned on her. Did she talk right now? She said her name and all! That was... marvelous! As she reached Faith, she gave the Dwarf a tight hug!</em>
+
+&#39;&#39;I can hear your voice at least! Hehe~&#39;&#39;
+
+<em>Juma said with a excited tone of voice applied on her words, but without saying it loudly. She didn&#39;t want to woke up the dog!</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">09-Jul-20 05:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="730897508665917461" id="message-730897508665917461">
+                <div class="chatlog__content">
+                    <div class="markdown">Letting out a sigh did Kor gently pat Warrez and resume playing after the sleeping dog let out a soft grunt.
+
+&quot;Inside voices alright? No shoutin&#39; or hollerin&#39; okay? I dun wan em ta wake up cranky.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">12-Jul-20 06:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="731997883590770769" id="message-731997883590770769">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faith hugs Juma as tight as she can.</em>
+&quot;I know, I&#39;m so excited! I just adore this day! I want to sing, dance...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">13-Jul-20 10:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="732243115645337733" id="message-732243115645337733">
+                <div class="chatlog__content">
+                    <div class="markdown">&#39;&#39;Well, you already danced one day... or tried to do it. Maybe you can try to sing now~&#39;&#39;
+
+<em>The lips of the Dancer released a chuckle when she felt that tight hug. With her right hand placed on the head of Faith, she started to caress her hair as her gaze was placed on Kor.</em>
+
+&#39;&#39;I think we didn&#39;t present ourselves yet. I&#39;m Juma.&#39;&#39;
+
+<em>She said with a friendly smile decorating her face.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">13-Jul-20 11:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="732259995973845002" id="message-732259995973845002">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Kor...an the sleeping one is Warrez.&quot; He said in reply, simply ceasing his attempt at the Lyre for now. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 04:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="732877019267858462" id="message-732877019267858462">
+                <div class="chatlog__content">
+                    <div class="markdown">&#39;&#39;Nice to meet you, Kor~&#39;&#39;
+
+<em>Juma said with a friendly smile decorating her face as she lowered her head a bit, being unable to give him a bow because... well, she was being hugged tightly! Then, her gaze got placed on the sleeping dog.</em>
+
+&#39;&#39;And nice to meet you, Warrez.&#39;&#39;
+
+<em>She said as lower as she could to not wake up the animal from his sleeping state~</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/c2c31bbea2dd71ec79609b09172ab072.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Dungeon Master#0000" data-user-id="733006041410830388" style="">Dungeon Master</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">15-Jul-20 01:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="733006042870579220" id="message-733006042870579220">
+                <div class="chatlog__content">
+                    <div class="markdown">Suddenly the soft ambient music stopped, changing into a one more animated and classic. A very strange but fitting nuptial march. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 03:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="733048149509144677" id="message-733048149509144677">
+                <div class="chatlog__content">
+                    <div class="markdown">&#39;&#39;Oh...?&#39;&#39;
+
+<em>As the ears of Juma heard that change of music, her head would look at Faith. She was caressing her hair with her right hand yet.</em>
+
+&#39;&#39;Seems like it&#39;s going to start, Faith! We should go.&#39;&#39;
+
+<em>Juma said with a friendly tone of voice applied on her words, placing her stare on Kor as she was ending the phrase.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 03:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="733048684362727424" id="message-733048684362727424">
+                <div class="chatlog__content">
+                    <div class="markdown">Kor was still...and Warrez was snoring while still laid against the Centaur. &quot;I um...I can&#39;t move...you lot have fun, I&#39;m going ta sit &#39;ere and uh...deal wit Warrez I suppose.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 03:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="733048717157990502" id="message-733048717157990502">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She nods quickly as she slightly weakens her hug.</em>
+&quot;I would love to sing later, of course. But let&#39;s go!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 04:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="733051523809935460" id="message-733051523809935460">
+                <div class="chatlog__content">
+                    <div class="markdown">&#39;&#39;Well, I&#39;ll talk with you someday then, Kor. It was a pleasure to meet you!&#39;&#39;
+
+<em>Juma said with a happy tone of voice as she slowed the pats as well. Then, when her mouth got closed, she would lower her gaze, looking at Faith directly on her eyes. Her smile was still being showed on her face!</em>
+
+&#39;&#39;Lets move then, Faith. We have to see that special moment!&#39;&#39;
+
+<em>After release those words, the Dancer would start walking towards the exit of the room as she took the hand of Faith with a gentle held. She wanted to see that special moment in the <span class="mention">#mingling</span>!</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 04:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="733052967024066742" id="message-733052967024066742">
+                <div class="chatlog__content">
+                    <div class="markdown">Kor would simply stay where he was, sighing and patting Warrez with a smile. &quot;Well...least ya won&#39;t be causin&#39; mischief.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/4792405fe85a81f907972d5b28aa1a51.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mors - Fancy armor#0000" data-user-id="733006041410830388" style="">Mors - Fancy armor</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">23-Jul-20 05:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="735967342827405382" id="message-735967342827405382">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors walked into the entertainment area while carrying Irithriel like a princess. the green minions were walking behind them while carrying the big warhammer between the three of them.
+
+The two blue ones instead of picking some seats, had rushed towards the stage... Apparently the little shits wanted to participate in the show.
+
+Seeing this the overlord just sighed and moved forward, sitting on the front row while still holding his pregnant wife. &quot;Are you going to participate little moon?&quot; Mors asked where softly. Only her could see through the shadows of his helmet and see the soft smile he had for her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/46572a8749d71f29a6c45fb29c6cf6ee.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0000" data-user-id="733006041410830388" style="">Bofwant</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">23-Jul-20 05:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="735967814128762990" id="message-735967814128762990">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant escorted Sela towards the area. When they arrived some members were already taking their seats and knowing that his love was not one for crowds the healer decided to pick a seat around the back. &quot;Shall we sit at the back?&quot; Bofwant asked Sela, still wanting to let her choose from where she wanted to see this event. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="733006041410830388" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">23-Jul-20 05:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="735968723713916969" id="message-735968723713916969">
+                <div class="chatlog__content">
+                    <div class="markdown">The shaking pirate arrived while holding the barrel of rum over one shoulder and leaning over Hal with his other arm. Garg stopped as soon as he saw where the people was sitting and while he didn&#39;t mind sitting at the front, he was not a fan of crowded places... Yet Hal wanted to speak with the bride. &quot;Here we are Shadow girl... Are you gonna speak with the other fucking princess?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/da6e0bac47e7073cc106ef574095144f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Irithriel Ravenwood#0000" data-user-id="733006041410830388" style="">Irithriel Ravenwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">24-Jul-20 11:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="736244410248986746" id="message-736244410248986746">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel looked up at Mors, not minding that the sweet little blues had rushed onto the stage. Instead, she merely nodded and smiled, her gray eyes sparkling with eager delight to do something whimsical and fun. “Yes, my beast. I do love singing and I wouldn’t mind a chance to play my pan flute either.” The girl sighed happily, just basking in the fact that they’d publicly declared their love for each other and were now properly recognized as husband and wife. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/3de3c635fba23244e0424f5d4c17b96d.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Selaphiel Rookwood#0000" data-user-id="733006041410830388" style="">Selaphiel Rookwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">24-Jul-20 11:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="736244411242905711" id="message-736244411242905711">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela’s arm had linked with Bofwant’s, her free hand reaching across to rest against his arm. The red head smiled and nodded. “Yes, please. I’ve a feeling it’s going to get loud and rowdy. But it should still be nice to see what everyone will share.” The girl scanned the area and noticed the seats Bofwant had been referring to and followed him, as they found the perfect place to both watch and listen. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="733006041410830388" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">24-Jul-20 11:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="736244411733770321" id="message-736244411733770321">
+                <div class="chatlog__content">
+                    <div class="markdown">Hal shook her head, smiling all the while. “Oh Captain,” she began, giggling softly at being referred to as a princess. It wasn’t a title she’d heard very often, though it was strangely nice coming from the shark. “Irithriel is my house’s true princess. My aunt stole the throne. I’d always known, but it had been easy to overlook since for a long time I’d thought she’d loved me and our people. But...” She sighed then. “I had been wrong there.” The girl frowned a little, hoping her friend harbored no ill will. “But yes, I’d like to go see her for a few minutes. Just to catch up.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 11:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="736246578670469221" id="message-736246578670469221">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer walked in with Thrin and Ferisso. Seeing the blue minions on stage, he wondered what they were going to do.
+“So, what are we going to do here?” Cheer asked his buddies. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 02:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="736292556475859004" id="message-736292556475859004">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I figured we were gonna watch whatever show the bride was gonna put on. I ain&#39;t the performing sort, and Thrin&#39;s... Well, put bluntly, my sib&#39;s too drunk to let out of arm&#39;s reach.&quot; Fer scratches the back of his head, still carefully holding the changeling steady on their feet to keep them from falling over. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 02:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="736293079614488616" id="message-736293079614488616">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin cackles loudly as they sway and lean into Ferisso&#39;s hand. &quot;I could get away any second I wanted to, <em>mister fancy knight. Mister &#39;I follow the law like a chump&#39;</em>.&quot; <span class="chatlog__edited-timestamp" title="24-Jul-20 02:46 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 02:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="736293827370811576" id="message-736293827370811576">
+                <div class="chatlog__content">
+                    <div class="markdown">“Well, I am a performer in many ways, so I might have a go.” Cheer said. “But, as always, ladies first. And Thrin might like hearing it whilst he rests.
+Cheer then placed his hand on Thrin’s head to give head pats. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 03:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="736299875687202978" id="message-736299875687202978">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden enters the entertainment area and smiles at the group joi ing the entertainment. Phantom come flying in at his side with Bary on top. Heading straight for the newly weds to say hi finally. Warden nods to the dragonborn companion as she goes to take her seat to watch the show. She might join later for something. Warden however takes his seat in the back. Being how tall he is he didnt want to block anyone&#39;s view. Sitting down she chuckles as he watches phantom sniffing around to find Irithriel and Mors.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 03:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="736303250638372895" id="message-736303250638372895">
+                <div class="chatlog__content">
+                    <div class="markdown">With all the folks filtering in and looking off toward the stage it was actually easy to miss the Centaur and his dog more off toward one of the walls, just lazing together. Warrez was at least awake now, panting happily as he looked about for the time being, and Kor was gently petting the good old boy for the time being. Though now with everyone starting to enter the room was Warrez&#39; gaze shifting about and taking in all the unfamiliar faces, he stayed at ease but still somewhat alert as to the movement and shifting of the many distant folk within this area now, Kor on the other hand didn&#39;t seem to care in the slightest about the influx of people...long as no one was exceptionally loud he&#39;d be happy. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 04:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="736319773746528397" id="message-736319773746528397">
+                <div class="chatlog__content">
+                    <div class="markdown">While everyone was finding their seats and chatting amongst themselves, a very pretty and well dressed ghost took to the stage. It was Carmine Lily, first mate and right hand to Cassius himself. Her semi translucent body shimmered, as she all but floated to the middle of the vast space meant for anyone daring enough to share their talents. The ghostly girl fluffed her gown and cleared her throat, before finally clapping to get everyone’s attention. 
+
+“Good afternoon, our beloved Steel Hearts!” Carmine began, her smile growing, her laughter infectious. “The stage is yours and the show is what you lovely guild mates decide to make of it.” Her eyes sparkled. “Please, form a line and come on up! Introduce yourself, let us know what you plan to share! Our beautiful bride,” she continued, though gesturing towards Irithriel. “Has a passion for the arts and entertainment, for the amazing delights her fellow guildies would like to share, as they shock and amaze! So please, don’t be shy. As I said... the stage is now yours. So sit back and enjoy the show!”
+
+Carmine Lily clapped, encouraging the audience to do the same. This was all for the bride. For irithriel. Cassius himself would be keeping an eye on who participated and just what skills the participants possessed. It was wise to know one’s guild and how they might help each other when jobs came their way. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="entertainment.html_Files/image0.png">
+                                    <img class="chatlog__attachment-thumbnail" src="entertainment.html_Files/image0.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 06:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="736351145978494997" id="message-736351145978494997">
+                <div class="chatlog__content">
+                    <div class="markdown">Nathan stands up... not above the crowd but about head height to most that were sitting down. He chuckles claps away with the crowd. Making his way to the front of the crowd he heads towards the newly weds.* &quot;Irithriel I presume. Lovely to meet you and your very large husband here.&quot; <em>He gives a bow to the two in a respectful manner.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/4792405fe85a81f907972d5b28aa1a51.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mors - Fancy armor#0000" data-user-id="733006041410830388" style="">Mors - Fancy armor</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">24-Jul-20 08:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="736385806209384519" id="message-736385806209384519">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors just tightened his grip around his wife, his big armored hands resting over her swollen belly as he listened to the ghost that was in the stage.
+
+When Nathan came closer, evil glowing eyes quickly fixed on him but since he couldn&#39;t feel any threats coming from the Halfling, Mors just grunter in acknowledgement but was happy to let Irithriel to speak with the small man.
+----
+
+Meanwhile up in the stage, the pair of blue minions were the first in the line for the talent show, they looked extremely eager to perform.
+
+As soon as Carmine gave them a chance they rushed to the center of the stage, not even waiting to be introduced or anything. With big grins on their little faces they both made a respectful bow to the public and then turned to face eachother.
+
+One of them, the one at the left of the stage, opened his mouth as wide as it could... And the other one just stuck it&#39;s hand inside and pulled out it&#39;s companions tongue.
+
+A few seconds passed before the right minion used his free hand to start playing the tongue, the sound very low like a bass. The left minion used it&#39;s free hands to hit it&#39;s belly making it sound like a small drumm. Quickly the magic of the stage joined them, providing the rest of the instruments for their song.
+
+After a few notes the right minion started to sing in a weird language, one that Iri had heard before from Mors. That secret language of his and his minions.
+
+It was obviously a slow yet animated love song and while not the best performance... It was interesting to watch and listen.
+
+After finishing they both bowed respectfully before starting to giggle like crazy and jumping away to join the other minions (who were looking very embarrassed) in the public.
+
+<a href="https://youtu.be/XBD_2KaMP_I">https://youtu.be/XBD_2KaMP_I</a> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 09:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="736387396471357662" id="message-736387396471357662">
+                <div class="chatlog__content">
+                    <div class="markdown">It was...quite the display really, Kor could definitely say he&#39;d never seen something like it but he wasn&#39;t sure if that was a good or bad thing. While Kor had contemplated what the hell he&#39;d just gone and seen it appeared Warrez was already making the rounds about this room and sniffing at all the folk here. The old dog hadn&#39;t ever been given an opportunity to be amidst so many people at once before this and honestly the chance to acquire a new repertoire of smells was far too enticing. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 09:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="736389666651111444" id="message-736389666651111444">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer applauded the performance with a big smile on his face. This was his element. He felt he could do better, but these minions were too cute and hard-working to ignore.
+“What did you guys think?” Cheer whispered to a Thrin and Ferry. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/46572a8749d71f29a6c45fb29c6cf6ee.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0000" data-user-id="733006041410830388" style="">Bofwant</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">24-Jul-20 09:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="736390351417376838" id="message-736390351417376838">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant just smiled at Sela. Honestly he wasn&#39;t a fan of crowds and loud places either, too many triggers, too many memories of war.
+
+After the couple sat down he just interwined his fingers with hers, providing some comfort and enjoying just spending time with her.
+
+After the words of Carmine he just smiled, &quot;This will be interesting my love.&quot; He told Sela.... And indeed, that first presentation had been.... Weird, not bad but weird. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="733006041410830388" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">24-Jul-20 09:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="736392130938929257" id="message-736392130938929257">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Alright shadow girl&quot; Garg just growled and walked with Hal towards the front row. He noticed the ghost girl explaining the event but dismissed it, he was here to just laugh at the fuckers that were going to make fool of themselves.
+
+The shaking captain sat a couple of seats away from Mors and Irithriel, noticing the Halfling that was also there. Garg just growled and gestured with his head to the seat besides him so Hal would sit and be close enough to speak with Irithriel. &quot;Here we are shadow girl...&quot; He growled, his tail moving to play with the hem of Hal&#39;s dress as soon as she sat down, and opened the barrel, noticing that was emptier than before. &quot;The fuck?!....&quot; He growled to himself but just shook his head and scoped some more on his mug before closing the barrel again and enjoying the show.
+
+After the little fuckers were done Garg just had a raised eyebrow. &quot;The fuck was that?&quot; He wondered out loud. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 09:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="736392852011220993" id="message-736392852011220993">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;That was... Something, certainly. I&#39;ll admit I didn&#39;t expect the things to have any sort of talent. Good for them, I guess..?&quot; Ferisso hums thoughtfully at the minions&#39; performance, a little impressed, but mostly just weirded out. These things seemed so unnatural... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 09:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="736394602185097227" id="message-736394602185097227">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin finds it legitimately hilarious. They&#39;ll regret laughing after their hangover because its uh.... Not worth the reaction, but for now they&#39;re incredibly amused. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 09:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="736399581180461088" id="message-736399581180461088">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>With her usual friendly smile decorating her face, Juma made her way towards the entertainment area, seeing that it was more lively now than she was before. She was wearing her usual dancer clothing, but... seems like there were some people using the place, so she just stood there to observe the scene~</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 10:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="736406713049153677" id="message-736406713049153677">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Interesting...&quot; Uthal said as the minions performed, sitting largely by himself on the side closes to the arena; he wanted to be the first one there, especially if it meant a chance to fight again. Perhaps he could take on the Warden once more, or even Garg...Or Mors himself! Yes, to fight the groom....That would be <em>invigorating</em>. He would likely be fighting his hardest to showcase his worth to his mate.
+
+Even so, he was still taken by the splendor of the performance; it was definitely showy, and despite him not understanding a word it was clear the little ones were trying their hearts. And when they finished he would applaud them, probably one of the few who did, some of the others laughing and others seeming to wonder what they witnessed. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 10:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="736409522142445658" id="message-736409522142445658">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot comes in, seeing that things have been settling down from a recent event.
+She saw that maybe this was a talent show.
+She decided that maybe this was another time to lay low and watch everyone else do their thing.
+So, she sat in a spot where she’d be relatively alone. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 11:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="736420539945582643" id="message-736420539945582643">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok walks in &quot;so whats going on here, uthal?&quot; The blood hunter asks the hunter </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 11:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="736420907161223258" id="message-736420907161223258">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker follows the half orc, watching curiously. &quot;talent show? That seems fun...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">24-Jul-20 11:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="736424778268803072" id="message-736424778268803072">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;A display of people&#39;s talents; Mors&#39; little ones put on a rather amusing and splendid display. I could not follow their actions, but I enjoyed their performance.&quot; Uthal said to Rok, adding &quot;I would go up myself....But I am not that well versed in the arts. It is a stage better suited for those that are.&quot; <span class="chatlog__edited-timestamp" title="25-Jul-20 12:08 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 12:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="736433092255940669" id="message-736433092255940669">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I&#39;m not great with performing, my sisters are bards.&quot; Rok said &quot;won&#39;t hurt to try, lone hunter&quot; <span class="chatlog__edited-timestamp" title="25-Jul-20 12:02 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 04:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="736680297382543421" id="message-736680297382543421">
+                <div class="chatlog__content">
+                    <div class="markdown">&#39;&#39;Well.. Lets do a small try then~&#39;&#39;
+
+<em>Juma said for herself before she moved towards the scenary with conviction. She was a dancer in the past, and this would be like steal a candy from a child... with the difference that Juma didn&#39;t like stealing candies to child. That was odd and strange. Her feet guided her to the scenary, placing herself on the center of it.</em> <em><strong>&#39;Time to have fun, hehe~&#39;&#39;</strong></em> <em>She thought as her body would start the performance of her belly dance.</em>
+
+<em>Maybe she was a bit nervous? Her moves weren&#39;t as her usual ones, but able to connect the steps and not fall on the floor.</em> <span class="chatlog__edited-timestamp" title="25-Jul-20 04:26 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 04:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="736688183915315280" id="message-736688183915315280">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok applauded for juma before stepping up and grabbing a lute. &quot;Sorry everyone, my skills are more cookin&#39;, and fightin&#39;&quot; he said before singing an old orcish song of his clan while playing the lute. It umm didnt sound good, but rok was putting his heart into it. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 05:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="736694692191928391" id="message-736694692191928391">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Once the half orc climbs down from the stage. Phantom quickly runs up to the top of the stage. He and Warden use to do a song together when he was a pup and he wanted to show that. He stands up and gets all excited but just before he starts. Phantom forgets the words. So he instead improvised. Barking growling and howling in a sequence of notes. Hitting every cord perfectly like it was something out of a storybook. Of course no one could understand him. Or so he thought. To anyone he could. He was singing about how much fun he has had on the shit with his new friends. Meeting bary and everyone else. Receiving fresh food and pets all day long for as long as he likes. It didnt flow in the words of animals but in human ears. It was a breathtaking display of happiness. When he finishes the song he does a little spin and barks happily at the crowd. Waiting for their responce.</em> <span class="chatlog__edited-timestamp" title="25-Jul-20 05:22 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 05:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="736698254829289492" id="message-736698254829289492">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hmmm...I might consider it; the competitor in me wishes to try...&quot; Uthal said, the half-orc&#39;s words seeming to have emboldened him. There was  one thing that was common amongst his people as entertainment. Tying into a game they used to play; but the trees around here would  likely not be of the same sturdiness...He&#39;d need something.
+
+Uthal watched several of the new performers; he was actually entranced by the dancing of the one named Juma. She moved so fluidly it was kind of enrapturing in a way, her body gracefully sliding and gliding across the strange. Then came the half-orc; it wasn&#39;t the best, but Uthal had heard far worse.
+
+And then came the interesting bit of Phantom and Warden&#39;s duet. He couldn&#39;t understand at first, at least not until he focused; his eyes closed as Phantom&#39;s words rang through him, telling a tale of how he found joy and purpose. And when the number was finished, Uthal clapped loudly, his applause thunderous, his voice loud as he bellowed, &quot;Spectacular!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 05:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="736698983359185049" id="message-736698983359185049">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin applauds, practically draped over their brother&#39;s forearm that&#39;s trying to keep them held up. It&#39;s unclear if they&#39;re even cognizant of what&#39;s happening, despite having insisted that the three of them go to the talent show. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 05:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="736700466536120390" id="message-736700466536120390">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer had been enjoying the festivities thus far, although there were clear differences in the quality of the performances when compared. He felt that he could wipe the floor with some of these performances. So, he got out his signature purple lute, ready for the next opportunity to play his stuff.
+He also winked at Ferisso and Thrin. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/3de3c635fba23244e0424f5d4c17b96d.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Selaphiel Rookwood#0000" data-user-id="733006041410830388" style="">Selaphiel Rookwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">25-Jul-20 05:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="736701138602164265" id="message-736701138602164265">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela nodded and smiled, leaning her weary head against Bofwant’s shoulder. The girl seemed rather tired, though it was apparent she was also enjoying herself, and most certainly her present company. “These little displays have been interesting,” she said softly. “But not too bad. It’s actually fun seeing what others can do.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="733006041410830388" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">25-Jul-20 05:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="736701139461865552" id="message-736701139461865552">
+                <div class="chatlog__content">
+                    <div class="markdown">Hal grinned at Garg and nodded. She was situated and happy and looking out at the stage before them. “You know,” she said. “I think I might try playing my instrument. After that, I’ll make sure to see Iri.” Hal reaches for her pan flute and held it up for Garg to see and she giggled softly. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 05:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="736701399936532480" id="message-736701399936532480">
+                <div class="chatlog__content">
+                    <div class="markdown">The blood hunter sat back down and watched the rest of the guild preforming. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 10:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="736775524323426324" id="message-736775524323426324">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker nudges Rok. &quot;Hey, I have my ukulele, how&#39;d ya like another performance? You heard me play wonderwall right? Think I&#39;m good enough to play a little ditty for the bride?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/46572a8749d71f29a6c45fb29c6cf6ee.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0000" data-user-id="733006041410830388" style="">Bofwant</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 01:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="736996509924720680" id="message-736996509924720680">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Yes...&quot; Bofwant answered to Sela, &quot;It is quite interesting to see our guild members hidden talents.&quot; He commented as he kept watching the presentations. 
+
+Mors minions had been quite unique. The dancer certainly had know what she was doing, the best one so far and while Rok had certainly out a lot of effort it lacked charisma in his humble opinion. Then there was Warden&#39;s dog. &quot;Not only impressive in the battlefield but in the stage too.&quot; Bofwant said with a chuckle after Phantom&#39;s song. &quot;I wonder who will be next.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="733006041410830388" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 01:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="736999267268427786" id="message-736999267268427786">
+                <div class="chatlog__content">
+                    <div class="markdown">Garg had been laughing after the weid thing the blue creatures did. Actually, he had seen the blue creatures swimming in the baths before so he had tested his powers on them and had managed to understand the weird song by reading their simple minds.... Which made it actually weirder.
+
+Then he saw Juma&#39;s sexy dance. &quot;Ha! Look at that! Something actually decent in this shithole!&quot; He roared and then moved to whisper in Hal&#39;s ear. &quot;But don&#39;t worry shadow girl, I still prefer how you move...&quot; And gave her a teasing nibble before he returned to watching the show and drinking his rum.
+
+He had no words for the Orc&#39;s and the dog&#39;s songs, he kinda liked them but still the others had been better.
+
+&quot;Go on then.&quot; Garg answered to Hal, &quot;Show these fuckers how good is the boogeyman of the seas&#39;s crew!&quot; He cheered, encouraging Hal to play something. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/4792405fe85a81f907972d5b28aa1a51.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mors - Fancy armor#0000" data-user-id="733006041410830388" style="">Mors - Fancy armor</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 01:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="737005571730833540" id="message-737005571730833540">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors just watched the show in silence. Be wasn&#39;t a particular fan of this kind of entertainment but it was pleasant.
+
+He noticed that the small man was still there so he just grunted, &quot;We will speak later. My mate is enjoying her gift.&quot; He declared to Nathan and made a gesture with his head for the halfling to get lost. He could say whatever he wanted after the show was over.
+
+
+Meanwhile the pair of blue minions were a very happy crowd, clapping and cheering at every single one of the presentations like it was the best thing in the world... Even the green ones joined by clapping, less cheery but still enjoying themselves. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="737012398648459265" id="message-737012398648459265">
+                <div class="chatlog__content">
+                    <div class="markdown">Before the bard can convince themself otherwise, Parker makes their way up to the stage and greets the couple before going up to play. They smile politely, trying not to show their nervousness to the beautiful elf and very decked out Goliath.
+&quot;Hi, we haven&#39;t met, but I&#39;m really happy for you. Hopefully I can uhm.. <em>actually</em> play well. Got a song I really like... Anyway bye!&quot; 
+They hop onto the stage and strum a few cords. They address the crowd for a moment, trying not to focus on faces but rather the feeling of strings beneath their fingers. &quot;This is a. A love song from my world. Can&#39;t really speak for it&#39;s popularity, but I really enjoy it so... Here you go! This is called <em>Emmylou</em> by First Aid Kit.&quot;
+As they play, they&#39;re a bit disappointed at a few slips on notes, and the number of lines they forget how to sing properly. All in all its a nice performance, but nothing really special. It goes on a little longer than is possibly necessary, in spots where the bard needs a moment to recall a verse. In the end they pretend nothing went wrong, and bow slightly before turning bright red. They dash off the stage and return to their new friend&#39;s side in the crowd. <span class="chatlog__edited-timestamp" title="26-Jul-20 02:25 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 03:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="737025229536100484" id="message-737025229536100484">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer decided it was time to prove what a Bard can really do.
+“Alright, I’m heading onto the stage.” Cheer said to his fellows. With his purple lute in hand, he made his way to the stage after Parker went back down to the audience. He recognized him as the man he was teaching his knowledge of monsters to. He smiled, knowing he has time to improve.
+Once he made his way onto the stage, he sat and crossed his legs near his body.
+“To all who do not know, my name is Cheer.” The Tiefling started. “I’m not really much more than a lover boy who knows a thing or two about monsters and magic. But, I do know one thing I can do: master this lute in my hands. Like so.”
+He then began to play a song with no lyrics. The melody was soulful, in a way only a soul who knows melancholy would understand. And yet, it had the panache of a noble. The song itself was played immaculately, as Cheer’s fingers were on point the entire time. Once he finished 5 minutes worth of playing, he stood up to bow, and exited stage left.
+(Reference song below)
+<a href="https://youtu.be/fZYzuIGDYGs">https://youtu.be/fZYzuIGDYGs</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCDlz9C2bhSW6dcVn_PO5mYw">The Met</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=fZYzuIGDYGs">
+                                                    <div class="markdown">&quot;Lachrimae&quot; by John Dowland</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Christopher Morrongiello performs &quot;Lachrimae&quot; (ca. 1590s) by John Dowland (1563–1626), Cambridge University Library manuscript DD.2.11. Filmed in the Chapel from Le Ch&#226;teau de la Bastie d&#39;Urf&#233; at The Metropolitan Museum of Art.
+
+Featured Instrument:
+Attributed to Wendelin Tief...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="entertainment.html_Files/maxresdefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="entertainment.html_Files/maxresdefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 06:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="737079197226369047" id="message-737079197226369047">
+                <div class="chatlog__content">
+                    <div class="markdown">Ferisso applauded Cheer&#39;s showing with great regard, cheering (no pun intended), whistling loudly, and nearly dropping Thrin in the excitement of seeing his fellow tiefling putting on such a grand display for all gathered. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 06:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="737079355242577992" id="message-737079355242577992">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin lifts a fist in drunken solidarity </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/da6e0bac47e7073cc106ef574095144f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Irithriel Ravenwood#0000" data-user-id="733006041410830388" style="">Irithriel Ravenwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 09:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="737126970986594335" id="message-737126970986594335">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel turned towards the halfling and gave him a sweet smile. “Nice to meet you as well,” she replied, nuzzling closer to Mors, since his grip suddenly tightened. “I do hope you’re enjoying this wonderful display of talent. I plan to take my own turn once all the guests have had their own,” she went on. “I might no longer be amongst the other nobles and royals within the fairy courts, but I still recall the proper etiquette my family taught me.” The pretty elf giggled, her gaze once more back to the stage before them all. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/3de3c635fba23244e0424f5d4c17b96d.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Selaphiel Rookwood#0000" data-user-id="733006041410830388" style="">Selaphiel Rookwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 09:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="737126971166818326" id="message-737126971166818326">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela giggled softly, her red head leaning against Bofwant’s shoulder. “I wonder what others might do. It’s actually fairly interesting to see. I bet under the right circumstances, it could be helpful and useful too. So I plan to pay attention,” she continued, just happy to be with her love at such a joyous occasion. So much darkness filled up her life. Bofwant was one constant light now that he’d found her, so sharing this day with him truly meant the world to her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="733006041410830388" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 09:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="737126972316057700" id="message-737126972316057700">
+                <div class="chatlog__content">
+                    <div class="markdown">Hal blushed, though it was nice to hear Garg say without hesitation that he only had eyes for her. Tummy fluttering, she then nodded, clutching her pan pipe. “Well, I will. Everyone has been pretty decent so far. I hope I can add to the festivities. And I hope Iri enjoys it. It’ll be so nice to catch up with her afterwards.” The red head smiled and stood up, though she leaned towards Garg to give him a kiss, before she went up onto the stage with her instrument in hand. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/da6e0bac47e7073cc106ef574095144f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Irithriel Ravenwood#0000" data-user-id="733006041410830388" style="">Irithriel Ravenwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 09:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="737126972693414011" id="message-737126972693414011">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel’s eyes widened, as she saw Hal walk up on stage. “My beast!” she exclaimed. “That’s a friend from my childhood! My distant cousin! Halanaestra!” At that, she just waved happily at her friend, her expression making it clear she was excited to see the Ellorenthi girl. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="733006041410830388" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Jul-20 10:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="737131890196086845" id="message-737131890196086845">
+                <div class="chatlog__content">
+                    <div class="markdown">Hal smiled when she saw that Iri was looking her way. She had to admit it was good to see her friend again. And it would be even better when they had a chance to reconnect. The red head gave the Phiarlan princess a wave, and then looked over at Garg and gave him a smile meant just for him. At that, she began playing her pan flute, the music quite beautiful, moving her entirely while she played. She’d chosen a song from her past, unfortunately something not everyone present would know. As such, most were either not paying attention or didn’t seem to get her choice. But no matter. Seeing Iri giving her an encouraging applause was enough. The only other thing she needed was for Garg to have enjoyed her contribution. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 10:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="737132543257608283" id="message-737132543257608283">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Nathan smiles and takes off his hat in a bow again.</em> &quot;Aye. I am enjoying it. I just wanted to give my congrats in person.&quot; <em>He returns his hat one more time.</em> &quot;Now if you excuse me, I have a talent show to win.&quot; <em>He spins on his heel and heads to get in line.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 10:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="737139077475991573" id="message-737139077475991573">
+                <div class="chatlog__content">
+                    <div class="markdown">Uthal continued to watch, seeing the one named Hal having gone up and started to play; indeed, he was getting excited. And he eventually decided to join in. Turning back to Rok, he then said, &quot;Wish me luck; I might win, but I feel as if a display of strength is in order&quot;. He knew what he was going to do; but he would need some supplies, but where would he get them?
+
+As he stood he would watch on as Hal would play her piece; she was doing rather good! <span class="chatlog__edited-timestamp" title="26-Jul-20 11:02 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 10:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="737139860812464160" id="message-737139860812464160">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden watches and smiles. For someone so troubled she can make beautiful music. He could feel her turmoil and the anger in her music and the pain in her breath. He understood her choice of the song, knowing a fraction of her past. When the song ended he stood up and clapped loudly. He knew what it was like to lose family and he now promised to help her get him back. This was the Mission he set forth for himself. That no one lose their family again.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 11:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="737150687993004104" id="message-737150687993004104">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Alor and Melmie step up onto the stage. Looking at eachother they smile. Knowing they cna do this. Suddenly a light fog enveloped the dancers feet, swirling and moving with them as they begin their dance. Melmie smiles and contorts her body, transforming into a large white wolf. Snarling at first, she raises her head up into the air. A low and deep howl fills the open air around the crowd as she charges. Alor counters with a shield block to push her to the side. But instead of stepping she trips and rolls backwards landing onto her ass. Melmie tries to do the same but slides and ends up on her back. the two look at eachother and just kinda give a embarrassed shrug. Getting back up they go for it again. The next few dancing attacks go to plan as the scene draws to an end of the movement poetry. Many trips and falls happen but they just adds to the amusement for the crowd. Eventually Alor and melmie take one more glance at eachother, knowing it is the time for the final act. Alor crouches down and looks up into the air, her back to the crowd this time. Mel does one more gowl before charging. Expecting to jump through Alor&#39;s frost breath she lunches a little too early. Instead of flying over Alor to spread the ice sprinkles across the room she slams int Alor. Both Alor and Melmie tumble and fall down off the stage. Rolling and eventually coming to rest on the floor in front of the crowd. Out of breath and tired they remain there. thinking about what justtranspired. Alor couldnt help but laugh. Leaning over she plants a small kiss on the wolfies head. An understanding and promise that it was okay for what happened. Her smile not leaving her face.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 11:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="737154032497590352" id="message-737154032497590352">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Alor wouldn&#39;t be able to see the face of Melmie, but she was a bit annoyed by that fail. She trained for this for sooo long... Just to fail like that! But, when she received that little kiss on her wolfie head, she would get a bit surprised during some seconds... before she let the Wildshape end, shaping into her normal form. Then, the Chameleon Girl would release a light giggle from her lips. Her eyes had some tears by the frustration of not being able to do something better, but... she just pat the head of the Dragonborn twice.</em>
+
+&#39;&#39;Melmie wants to sit now!&#39;&#39;
+
+<em>With her face showing a bright smile, Melmie would attempt to get up from the floor... but she wouldn&#39;t keep her balance well by a sudden strike of pain that received on her right leg and fell once more... Curiously, her body fell over Alor&#39;s once more, but with her lips falling against the lips of the Dragonborn, giving her an unexpected, strange and, maybe, quick kiss right there. Her cheeks would show a little blush, but not by the kiss. She was blushing by that strange fall that she had.</em>
+
+&#39;&#39;Weell... Melmie can&#39;t get up properly, hehe... Will Alor help her to get up?&#39;&#39; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Jul-20 07:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="737446078705696958" id="message-737446078705696958">
+                <div class="chatlog__content">
+                    <div class="markdown">Carmine Lily had stood off to the side, her translucent body levitating slightly, while she watched. After the last pair performed, she clapped loudly and turned towards the audience. But not after giving both Mors and Irithriel a nod and smile. “Fellow Steel Hearts! Will any more perform for our lovely show? This is a final call before we move on to other events, as we celebrate today’s joyous occasion!” The ghostly girl fluffed her dress and scanned the crowd, waiting to see if anyone else wished to have a go on a stage. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">27-Jul-20 07:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="737451990203760660" id="message-737451990203760660">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I shall!&quot; Uthal said loudly, having been standing at the side; after seeing Alor and Melmie&#39;s performance, he was more emboldened than ever before. He&#39;d never really performed in the traditional sense, but this was a ceremonial rite among the Katho-Olavi, and in some ways a means for each of the Katho-Olavi to test themselves. A game, most would call it. To prove that no amount of force could ever cloud their sense of self, they would find the largest boulder and with only their heads, crack it open. 
+
+But...It seemed there were no boulders here, only things called &#39;cinderblocks&#39;. They seemed sturdy enough, able to resist his pressure by just squeezing. It took some time to set up, but then Uthal had a thought: There was one thing he had done before...Granted to some it might seem suicidal, but this was his own way of performing the rite. 
+
+And soon, there was a stack of cinderblocks probably twelve high, held in place by simple braces. &quot;To those who may not know me, I am Uthal Lonehunter Katho-Olavi! For you all and especially for the bride Irithriel and the groom Mors, I give a rite of my clan! A display of force that demonstrates the determination in all living things! The will to become like the mountain! To surpass it even and show that no matter the obstacle, no matter the challenge, it is will that shapes us! That molds us and makes us stronger!&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="737453196737511444" id="message-737453196737511444">
+                <div class="chatlog__content">
+                    <div class="markdown">And then he started to climb up a small ladder, up to an elevated platform, where he stood unflinchingly ready a few feet above the stack of blocks. &quot;This is a rite our tribe called <span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">&quot;Break the Worry from your mind!&quot;</span></span>&quot; he would say, the name spoken in Giant but then he would add, &quot;In common, some might know it was &#39;Stone-Head&#39;. With only the weight of the world and my own head, I will shatter these blocks as a testament to our drive! And to you, Irithriel and Mors, allow this to show what it means to face the fates head-on! As I know you both are capable of doing!&quot; And without much warning, he would then leap from the platform.
+
+And his aim was impeccable; a loud &quot;CRACK&quot; thundered as he arched his back before driving it forward, the block shattering loudly as his own weight and gravity would carry him downward, each block breaking and spewing dust as he would go down one by one. His grunts could be heard in the few seconds, teeth grit as he pushed down against the reaction force wanting to wrench his head back; he would then land with a heavy &#39;THUD&#39;; unfortunately, there was about one and a half-blocks remaining, the second to last having been cracked and fractured with missing pieces, as well as the last block having broken in small fractures but still intact. 
+
+Here, Uthal stood, his white-green skin covered in a fine mist of cinderblock dust and bits of the blocks themselves, giving a heavy sigh before he slammed both arms against his chest, shouting in Giant <span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">&quot;I am the mountain!&quot;</span></span> before relaxing his posture once more, making his way off the stage shortly after. <span class="chatlog__edited-timestamp" title="27-Jul-20 07:36 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">27-Jul-20 09:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="737482291340640318" id="message-737482291340640318">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot shrugged. She might have known a thing or two about dancing from books, but only pictures and theoretical stuff. She stood up and raised her hand.
+“I’m next.” She said. She then left Libra at her seat, and moved to the stage.
+“I am Margot.” She announced. “If you don’t like blood, then I question why you became an adventurer.”
+With that said, she outstretched her hands, took a deep breath, and began to dance. Trailing with her palms were waves of crimson blood, flowing almost like water. This dance was something that she saw illustrated in a book back when she was labeled as the Ravenriver household’s bastard child by her own flesh and blood. And now here she was, dancing like the family members that were allowed to have a life. And she was into it, to the point where the hemomancy on display paled in comparison to her dancing. After little over a minute, her dance was done. She nodded to the audience before making her way back to her spot.
+(Reference video (there is no singing, and the water is blood: <a href="https://youtu.be/hXgKubNksQ0)">https://youtu.be/hXgKubNksQ0)</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCx7TNXEsAmyZEORPeLcUv-g">Anyelou</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=hXgKubNksQ0">
+                                                    <div class="markdown">Fire Emblem Fates - Azura Dance Dark Song [Extended] [English] [No ...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">New Perfect Version, i hope you like it:
+
+<a href="https://www.youtube.com/watch?v=vGX7NtPqTo8">https://www.youtube.com/watch?v=vGX7NtPqTo8</a></div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="entertainment.html_Files/maxresdefault%20%281%29.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="entertainment.html_Files/maxresdefault%20%281%29.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/46572a8749d71f29a6c45fb29c6cf6ee.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0000" data-user-id="733006041410830388" style="">Bofwant</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">28-Jul-20 12:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="737525560279957556" id="message-737525560279957556">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant just nodded at Sela&#39;s words and kept enjoying the presentations. He enjoyed the nice ones like Cheer and Hal&#39;s songs... even Parker&#39;s had been enjoyable for him. &quot;It&#39;s very nice to see our guild mates practicing something different than war... Appreciating the beauty of the world.&quot;
+Then he became a little worried for the more dangerous ones like Uthal&#39;s ritual and Alor and melmie&#39;s display. Margot&#39;s was specially disturbing for the healer, all the blood triggering his worst memories. His grip on Sela&#39;s hand tightened a little and his hand was shaking but no matter what he kept his eyes open, ready to provide medical assistance if something got out of hand. Even after it was done he was obviously disturbed by it and just remained silent trying to gather himself. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="733006041410830388" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">28-Jul-20 12:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="737527715388719134" id="message-737527715388719134">
+                <div class="chatlog__content">
+                    <div class="markdown">Garg just kept enjoying the show. &quot;Fucking boring!! Get me my money!!&quot; He screamed at cheer, even if his act had been the best one. He had been too busy refilling his drink to properly react to Parker&#39;s one but then he cheered at Hal&#39;s, &quot;Haha! That&#39;s it shadow girl!!&quot; He roared happily and once Hal returned he pulled her for an awkward drunken weird kiss.
+
+Then he couldn&#39;t stop laughing at the ones of Alor and Melmie, so was his laugh that he totally missed the short but impressive ritual of the Goliath. Finally there was Margot&#39;s and he actually growled at the sight of so much blood, the thing just making him hungry again. &quot;Fuck... I wanna some meat now...&quot; He growled to himself and decided to kept drinking for now. He&#39;ll eat later at that banquet thing the guild master had mentioned. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/4792405fe85a81f907972d5b28aa1a51.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mors - Fancy armor#0000" data-user-id="733006041410830388" style="">Mors - Fancy armor</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">28-Jul-20 12:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="737528972027625564" id="message-737528972027625564">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors had stopped paying attention to the show, instead bhe had closed his eyes and focused on the nice feeling of being a newly wed. He just remained there happy to hear his wife enjoyment and to feel their son sometimes reacting to his mother&#39;s voice with a small kick.
+
+Meanwhile the blue minions were the happiest of crowds. They clapped, laughed, screamed and cheered at everything. No matter how good or bad they liked it. The green ones while a little less loud than the blue ones were still enjoying themselves and cheering for the crowd as well. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 07:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="737815300216586262" id="message-737815300216586262">
+                <div class="chatlog__content">
+                    <div class="markdown">Uthal sat as the mage took the stage, putting his attention on the act. He would watch in surprise and interest as blood of all things materialized around them; he was no expert in magic, and thus did not know there was an entire branch of it focused to the manipulation of such fluid. He would watch as delicate patterns were made, the surface of the red fluid shining visibly in the light, the eerie silence creating a tense atmosphere.
+
+And when it was done, Uthal was speechless; he wasn&#39;t entirely sure what to say in response to that. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 09:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="737844436373078086" id="message-737844436373078086">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Nathan watches the performance and chuckles. He jumps up onto the table and yells to the roof</em> &quot;BLOOD FOR THE BLOOD GOD.&quot; <em>While clapping. It was the most creative performance he had seen tonight that&#39;s for sure.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 09:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="737845241150701698" id="message-737845241150701698">
+                <div class="chatlog__content">
+                    <div class="markdown">Ferisso applauds the various showings, and especially what seems to have been the finale. What a fun experience this all had been... Now, if only the halfling would stop making a fool of himself, and a mockery of the event. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 09:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="737847169691680839" id="message-737847169691680839">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok frowned when margot used blood magic to perform. He had to go through the 9 hells to use the rites and curses snd he just frowns as people clapped for her </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 09:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="737849348888592495" id="message-737849348888592495">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin looks up at the loud shout of the little halfling and copies along. 
+&quot;Blood- blood god blood for god blood!&quot;
+.... They did their best. <span class="chatlog__edited-timestamp" title="28-Jul-20 09:50 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 11:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="737867028559298660" id="message-737867028559298660">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faith couldn&#39;t wait to finally sing her song! She mentally practiced, studied every word... she took the stage, gave a little twirl, and tried to sing to the gentle, but quickening beat. Her sung in Celestial, creating a mystical sort of feel... if her voice wasn&#39;t so rough. A few voice cracks, sometimes singing too slow or fast... so she tries some casting! A few fizzling firebolts, gentle waves of healing... that were way too pleasurable for this setting. A firebolt might have wizzed by someone&#39;s head, too. But she stopped singing and gave another little twirl, looking so happy despite the outcome.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 11:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="737868636076769280" id="message-737868636076769280">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>As Juma heard the performance of the Dwarf, she would release a muffled giggle by the emotion of hear Faith talk... and sing! With little jumps made by her legs, she would try to get the attention of the Dwarf, waving at her with both hands while she was jumping on the place. She was pretty happy to hear her after a loooong time...</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 11:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="737880684974178334" id="message-737880684974178334">
+                <div class="chatlog__content">
+                    <div class="markdown">Carmine Lily was applauding, clearly enjoying the show. The ghostly girl had been excited for this ever since Cassius had mentioned Lady Irithriel’s wishes. Oh the joys of having bards on board! It meant constant excitement and entertainment. 
+
+“Just wonderful!” Carmine Lily praised, her eyes watching Faith exit the stage. She then looked over at Iri and gestured the bride have her turn to wrap things up. “Lady Irithriel!” she exclaimed. “Please, give us a song to end this marvelous show you’ve all managed to put on today.” <span class="chatlog__edited-timestamp" title="28-Jul-20 11:54 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/da6e0bac47e7073cc106ef574095144f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Irithriel Ravenwood#0000" data-user-id="733006041410830388" style="">Irithriel Ravenwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">28-Jul-20 11:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="737880774912770131" id="message-737880774912770131">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel looked up at Mors and grinned. Carefully, she stood up, one hand caressing her swollen belly. Taking her time, she made it onto the stage and just waved at everyone, her eyes seeking out her childhood friend—Hal. She gave her friend a smile and then turned to look at Mors. 
+
+“Thank you all for coming to this,” Iri started. “And thank you to the Clays for allowing this at all. You’ve been so generous, an extended family. It’s just nice sharing this special day with everyone.” 
+
+Practically beaming, Iri then began to sing. It was hardly her best—perhaps she was tired, it had been a long day, especially in her current condition—but her performance was memorable nonetheless and that was all that mattered to her. Just having fun on a joyous day with those who mattered the most. When she finished, she gave Carmine Lily a nod and made her way back to Mors. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/4792405fe85a81f907972d5b28aa1a51.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mors - Fancy armor#0000" data-user-id="733006041410830388" style="">Mors - Fancy armor</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Jul-20 08:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="738014581657436251" id="message-738014581657436251">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors remained as he was, ignoring all acts and the crowd reaction to them until he felt his wife move away from his lap. He opened his glowing eyes and saw her slowly go towards the stage and than thank the fools for being here like the proper queen she was, thing that just made him smile. A secret smile that no one would be able to see thanks to the shadows that his golden helmet casted over his face even without the mouthpiece to cover it.
+
+Like always the overlord greatly enjoyed the melodious voice of his mate and once she was done he stood from his chair and walked towards the steps leading up to the stage meeting Irithriel halfway and scooping her up in his arms again. He knew she got tired easily now and he honestly enjoyed carrying her around. &quot;That was glorious my wife.&quot; He told her softly.
+
+Then he turned around and looked at the rowdy minions. His shook his head and sighed a little. Mors scanned the crowd and his eyes found a couple of guild members that looked promise for a good fight, specially the hunter. &quot;Now we will fight.&quot; He declared, his thundering eachoing voice easily heard around the whole area. And with that the overlord started to walk away with his pregnant elf in his arms and a group of minions carrying his big warhammer as they went towards the <span class="mention">#arena</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="733006041410830388" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Jul-20 08:53 AM</span>
+
+            <div class="chatlog__message " data-message-id="738016251640807514" id="message-738016251640807514">
+                <div class="chatlog__content">
+                    <div class="markdown">Garg was busy refilling his mug full of sharkin rum when he heard the big armored bastard&#39;s words. He grinned and looked at Hal, &quot;Well shadow girl, looks like there&#39;s more fucking fun to have!&quot; He cheered and closed the barrel so he could pick it up. Even as drunk as he was, his balance was perfect. &quot;Come on! You can talk to the other princess while we make some cash...&quot; He growled her and started to walk away. Even if he lost the bets this time it would be worth it. There was nothing as amusing for a sharkin pirate to see a good fight and get some side cash.
+
+And with that the Drunk captain went towards the <span class="mention">#arena</span> carrying a barrel of rum over his right shoulder and a drink on his other hand. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/46572a8749d71f29a6c45fb29c6cf6ee.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0000" data-user-id="733006041410830388" style="">Bofwant</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Jul-20 08:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="738017813863596062" id="message-738017813863596062">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant smiled at Faith&#39;s display. Even if her voice wasn&#39;t the best he could see all the effort she put into it. That act made him remember when he had to watch over the children that were rescued by the watchers or when his brother spent days working on a new something to show him.
+
+Then there was the bride. A good finale even if it hadn&#39;t been the best one. &quot;Look at that my love. Your cousin knows the bride... Maybe you are related too?&quot; Bofwant told Sela before the groom made his announcement. &quot;Well, it seems that it&#39;s time for the tournament.&quot; He said as he stood from his chair and turned around to offer his arm to his love. &quot;Shall we?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 01:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="738081344621379697" id="message-738081344621379697">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer stood up from his seat. Hard-working performances were seen all around. He certainly did not expect Margot of all people to join in on the fun, but it was really nice. He was a bit weirded out by the blood, though.
+He did feel like talking with Faith, though. She looked like she could be great with enough practice put in. Surely, there would be a great performance out of this.
+So, he stood up.
+“Ferry, you can go where you’d like, as long as Thrin comes with you.” Cheer said to the Paladin. “I want to talk to someone while I’m here.” <span class="chatlog__edited-timestamp" title="29-Jul-20 01:12 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 01:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="738081788638920724" id="message-738081788638920724">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Melmie showed some curiosity towards that event. Fight? Maybe that place was filled with food... A food fight?! That idea made her body move towards the exit of the room and making her way towards the <span class="mention">#arena</span></em>
+
+
+<em>Juma would be pretty motivated to go to that event, feeling herself pretty confident about her skill with her dual shortswords! She made her way towards that place as well!</em>
+
+&#39;&#39;I&#39;ll go to there as well! Sounds pretty funny!&#39;&#39; <span class="chatlog__edited-timestamp" title="29-Jul-20 02:05 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 01:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="738088315852685474" id="message-738088315852685474">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok smiling from iri&#39;s performance and the thought of having a larger familu added more fire to his belly. The pair was meant to be the protector, he walked into the <span class="mention">#arena</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 02:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="738097700880253110" id="message-738097700880253110">
+                <div class="chatlog__content">
+                    <div class="markdown">Uthal clapped at the end of Irithriel&#39;s performance; no better way to end a spectacular show than to have one of the newly-weds-to-be perform the final act. It was quite ann interesting start to this grand ceremony, but then he heard Mors&#39; announcement; a tournament! Yes, more options to fight! He wondered how it might be done; there were so many ways it could be! 
+
+&quot;<span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">Yes! Let us fight!&quot;</span></span> he would shout excitedly in Giant, going forward with eagerness into the <span class="mention">#arena</span> . </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 02:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="738103681823801435" id="message-738103681823801435">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot decided to follow some of the others to the <span class="mention">#arena</span>. But now she was wondering what in blazes Cheer was up to. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/da6e0bac47e7073cc106ef574095144f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Irithriel Ravenwood#0000" data-user-id="733006041410830388" style="">Irithriel Ravenwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Jul-20 02:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="738108003462414427" id="message-738108003462414427">
+                <div class="chatlog__content">
+                    <div class="markdown">(*Irithriel exits to <span class="mention">#arena</span> *) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/3de3c635fba23244e0424f5d4c17b96d.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Selaphiel Rookwood#0000" data-user-id="733006041410830388" style="">Selaphiel Rookwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Jul-20 02:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="738108004330635425" id="message-738108004330635425">
+                <div class="chatlog__content">
+                    <div class="markdown">(*Sela exits to <span class="mention">#arena</span> *) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="733006041410830388" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Jul-20 02:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="738108005526274068" id="message-738108005526274068">
+                <div class="chatlog__content">
+                    <div class="markdown">(*Hal exits to <span class="mention">#arena</span> *) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 03:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="738109691103805461" id="message-738109691103805461">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker follows Rok to the <span class="mention">#arena</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 03:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="738120164608049164" id="message-738120164608049164">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Eh? Sure, Cheer. Probably just gonna bring Thrin back to their room at this point, they&#39;re a little too conked out to keep goin&#39;, I think. Have to set aside some water for the morning, too, looks like it&#39;ll be a killer hangover.&quot; The crimson tiefling waves off his blueberry counterpart, not too bothered about splitting up for the time being. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 03:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="738122519378133034" id="message-738122519378133034">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Alright, thank you!&quot; The blueberry said to the strawberry. He then went over to Faith.
+&quot;Hello!&quot; Cheer greeted the Dwarf. &quot;May I speak with you for a second?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 04:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="738123734791094303" id="message-738123734791094303">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin complains loudly, but there&#39;s really no argument to be made, considering that they aren&#39;t even holding up their own body. 
+&quot;Fuck you Ferry, M fine. You don&#39; knoll- know. You don&#39;t know shit sir.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/46572a8749d71f29a6c45fb29c6cf6ee.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0000" data-user-id="733006041410830388" style="">Bofwant</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Jul-20 04:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="738127850988634243" id="message-738127850988634243">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant escorted Sela to the <span class="mention">#arena</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 04:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="738135164974268538" id="message-738135164974268538">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden, Alor, and Nathan all follow the group at different times.</em> exit to <span class="mention">#arena</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 07:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="738170172170567750" id="message-738170172170567750">
+                <div class="chatlog__content">
+                    <div class="markdown">Carmine Lily just waved, as everyone made their way over to the arena. They all seemed certainly eager to fight. Perhaps they’d all been cooped up inside the ship for too long... well, it definitely had the ghost girl pondering. With smile gracing her lips and a twinkle in her eye, the sweet dispositioned girl merely fluffed out her dress and then made her own way over to the arena. After all, she wouldn’t miss this. (<em>exit to <span class="mention">#arena</span></em>) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 07:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="738172694603759656" id="message-738172694603759656">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer decides to save the conversation for later, and leaves to the <span class="mention">#arena</span>. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="entertainment.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 07:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="738173452980322424" id="message-738173452980322424">
+                <div class="chatlog__content">
+                    <div class="markdown">Well, seems the show&#39;s over, so Fer&#39;s just gonna go ahead and drag the drunken changeling off to bed. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 144 message(s)</div>
+</div>
+
+</body>
+</html>
