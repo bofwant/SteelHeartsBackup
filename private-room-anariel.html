@@ -1,0 +1,1036 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - private-room-2-anariel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="private-room-anariel.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Archive - Miscellaneous / private-room-2-anariel</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-19 04:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="615284794724581412" id="message-615284794724581412">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="private-room-anariel.html_Files/d89fefdbbfb448342b1d8e7df1cfd1e2.png">
+                                    <img class="chatlog__attachment-thumbnail" src="private-room-anariel.html_Files/d89fefdbbfb448342b1d8e7df1cfd1e2.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-19 04:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="615286703862579223" id="message-615286703862579223">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="darkangel76#8091">@Iri | Sela | Hal - FERTILE</span> 
+As she walked, she would immediately take notice that the path way didn&#39;t make a lick of sense.  Parcival led her downstairs.  Made a right, then down one hall of cabins.  Then upstairs, the another right, and another hall of the same doors.  This was... impossible.  The ship wasn&#39;t more then eighty feet wide from outside and yet... the length of the hall made that confusing to consider.
+
+Parcival.  &quot;You are not a trusting woman.&quot;  The ghost said, showing no sign of intended harm, if anything she could attack him, as much as it would do...   They came to a room just like the others.  &quot;Wait a moment.&quot;  He then walked through the door... not a single barrier stopping him.
+
+There was a series of metal chunks, gears turning, and  pulleys and wheels, and then the door opened, only plated with wood, but much thicker.  &quot;Please, make yourself comfortable.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615287056519790653" id="message-615287056519790653">
+                <div class="chatlog__content">
+                    <div class="markdown">The room was just filled with... THINGS, odds and ends.  Mostly rolls of silks, heaps of boxes, curtains covering furniture.  It looked more like a storage closet, but there was some shiny things in here, thought quite different from a gold vault.  There was a cushion on one part of the room next to a mirror and beside some expensive looking dresses. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615287161708740679" id="message-615287161708740679">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I will need a moment to be presentable.  Please, consider what you would consider... Payment.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-19 05:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="615289690085392524" id="message-615289690085392524">
+                <div class="chatlog__content">
+                    <div class="markdown">This was indeed magic. Space altering magic. Anariel scowled, realizing that the inner dimensions of the airship were not equal to those on the outside. It made it difficult to determine one’s bearings, which was was north versus south or east versus west. She smiled weakly mentally giving a point to these undead creatures running the airship. Once she and Parcival entered the so-called treasury, the eladrin girl let her eyes roam its vast expanse. She wasn’t quite sure what she’d been expecting, though it certainly wasn’t this. She frowned a bit, her hand reaching into her pocket to stroke little Scamp, as the mouse quietly tittered from behind the thin material. 
+
+“This is the treasury?” Anariel asked, skepticism lacing every word. Her fingers moved to tug on her lip in frustration. Deciding against taking a seat for the time being, the silvery-haired elf began to pace. “Before we discuss payment,” she started. “I have a question.” She stopped abruptly, turning to face Parcival though he seemed to be gone from her view. “And the apparition leaves,” she muttered in thieves’ cant, her frustration only growing. “If you’re still here,” she went on, resuming common once more. “Why was I locked in my room? I can tell the others were not,” she continued, having been observant enough to gather that the others were already acquainted. “So answer me. Why me?” <span class="chatlog__edited-timestamp" title="25-Aug-19 08:18 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-19 09:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="615356235784650765" id="message-615356235784650765">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ooh?  You noticed.&quot;  He said with a slight sound of impressment.  There was a  slight haughtiness to his words among the nobility of his demeanor.  He had disappeared around a curtain in one corner, though there was a slight glow as she asks her question.
+
+&quot;Its quite simple really.&quot;  There was an oddness to his words now.  Rather than having a kind of after echo to his words, he suddenly sounded much more coherent, much more , normal sounding.  There was a flicker of a curtain... and a different person was in his place.
+
+<a href="https://i.pinimg.com/564x/e0/74/e0/e074e050f641f0ca21ad9f9cc5ef6144.jpg">https://i.pinimg.com/564x/e0/74/e0/e074e050f641f0ca21ad9f9cc5ef6144.jpg</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="private-room-anariel.html_Files/e074e050f641f0ca21ad9f9cc5ef6144.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="private-room-anariel.html_Files/e074e050f641f0ca21ad9f9cc5ef6144.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="615356736429359122" id="message-615356736429359122">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;For safety.  Well, it was for safety.  Lord Cassius was to meet with some other adventurers.  Carmine was summoning another spirit for the engines, and that is always a trying time.  If you stayed in your room, you would have been completely safe.  It will not happen again, I assure you.&quot;  He came back into the room, his hands folded into his sleeves.
+
+&quot;Before you ask, this is a body I keep for myself, for guests.  I assure you there is no other tricks at play.  I am quite dead.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-19 09:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="615359648022659074" id="message-615359648022659074">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel shifted her stance slightly, her steally eyes glancing about the room. She was about to call out again when she heard Parcival’s voice. No longer did he sound otherworldly, but rather... corporeal... instead. She eyed him carefully, taking in this new form, as he slowly made his approach. At least this one was pleasing to the eye. 
+
+“My safety?” Anariel then asked, her fingers moving to twist and tug at her hair. “Why wouldn’t you tell me? I’m invited aboard and then left alone with no word,” she went on, carefully averting her gaze. Her face showed annoyance, yet beneath she was flustered, a nervousness growing deep in the pit of her tummy. Something was going on with this airship and she wanted to know what it was. 
+
+“Why weren’t the others locked away then?” Anariel continued to prod. “Did you not think me capable?” The eladrin pouted slightly, a plump lower lip jutting out, as she stood there. Crossing her arms beneath her breasts, she headed towards the plush couch, sitting on its edge, her spine rigid, while she waited for Parcival’s further explanations. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">26-Aug-19 09:40 AM</span>
+
+            <div class="chatlog__message " data-message-id="615540978643763227" id="message-615540978643763227">
+                <div class="chatlog__content">
+                    <div class="markdown">He began to busy himself by going to one of the dressers.  He would keep talking as he began to layer box after box beside him.  He looked over his shoulder though.  &quot;That is just the way the guild master is.  He likes too... umm, test people.  See what they do when they are on their own.  I completely understand.  Its a tactic I disapprove of.  But bare in mind, he&#39;s inviting essentially mercenaries into his home.  Some of them like you.&quot;  He said, teasingly, playfully.
+
+&quot;Always appreciating the bottom line.&quot;  He carried the stack of boxes with him towards her, laying them on the floor, while he himself took a knee.  Very prim, proper, very foreign.  
+
+&quot;I&#39;m actually not quite sure.&quot;  he said.  &quot;About the same time, that spectre had us all enthralled with that bell of hers.  I have lost my senses, same as everyone else.  If I had to guess-&quot;  he raised his eyes to look at her.... her pout.  She looked so moody, so innocent and pure.  He cracked a smile, then a laugh.  
+
+It seemed mockingly but then he recovered.  &quot;Forgive me.  I&#39;m sorry, I was a bit taken back by how pretty you look when your annoyed.  Don&#39;t worry, I wont make a habit of it.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615541067571396635" id="message-615541067571396635">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;My guess, is they came on just at the same time as the problems.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615541177919340565" id="message-615541177919340565">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;So they were out of their rooms before we had a chance to offer them some.  Trust me, there is no question to your capabilities.  If anything we owe you a great debt.&quot;  He pulls out one box, the contents, JEWELRY, lots of precious stones and jewelry.    &quot;Something that we can hopefully repay.&quot; <span class="chatlog__edited-timestamp" title="26-Aug-19 09:41 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">26-Aug-19 10:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="615549048740642826" id="message-615549048740642826">
+                <div class="chatlog__content">
+                    <div class="markdown">A test? Anariel narrowed her eyes slightly. She supposed that answer would do. For now. Still, it didn’t explain all the other oddities, but she decided she’d find that out in due course. So long as she was on the airship, she’d do what she could to understand its layout and hopefully manage a means to places where she could find any other hidden trinkets this worn out thing held. 
+
+With an only slightly satisfied sigh, Anariel let her arms relax. Once resting by her side, her slender fingers gripping the edge of the cushion she sat upon, she looked back over at Parcival. For a moment her eyes widened and she felt a rush of heat sweep along face, her neck. This ghost-man was trying to make her uncomfortable. She knew it. Her gut told her to stay on guard. Despite her blush, and the small fluster that washed over her senses, she blinked it away and set her eyes on the box of jewelry. 
+
+“All of this?” Anariel stated, more than asked. “This is my payment?” She eyed Parcival warily, waiting for the catch, a finger twirling a snowy lock about it until the tip began to turn an odd shade of purple. “So I can bring this back to my room and consider all the contents within this box as my own?” She wanted him to say it, to agree. Only then would she be sure that no one from the undead crew would question her sudden hoard... or the missing box from the so-called treasury. 
+
+“Can you ensure that this makes it safely to my room?” Anariel continued. She didn’t want the others to know what she’d been given, especially before she’d had the chance to inspect any of it. Though her thoughts suddenly strayed to the sensible one she’d seen up on the deck. That man with the devilish smile who, much like herself, understood that this was a job and that meant everything came at a price. Yes. She’d ask him to help her inspect the strange hoard. But only him. For now. <span class="chatlog__edited-timestamp" title="26-Aug-19 10:30 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 05:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="615835949426933780" id="message-615835949426933780">
+                <div class="chatlog__content">
+                    <div class="markdown">He set out the box before her, and then was going to reach the other boxes he had, but immediately this seemed to get her attention.  Of course, typical.  &quot;We don&#39;t carry a coffer of gold.  Its actually less hassel and less questions to offer precious stones as payment.  Harder to track since any gold piece could be enchanted.   Changes hands less frequently.&quot;  He let the boxes lay where they are.
+
+He looked at the contents of the jewelry for a moment.  His hand sifting through the contents, the sound of hard gemstones and jewels getting pushed and shoved out of the way.   &quot;You can have the whole box if that is your wish, but, I must ask if I can hold onto this, its quite valuable...&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="private-room-anariel.html_Files/White_Chain___55188.png">
+                                    <img class="chatlog__attachment-thumbnail" src="private-room-anariel.html_Files/White_Chain___55188.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615836336900931624" id="message-615836336900931624">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;The rest is yours, but you&#39;ll need to get a proper fence for it if you want the full value.&quot;  He tittered.  &quot;And in this town, you&#39;re liable to get swindled.&quot;  He spoke as if he knew who to go to.  He was a mysterious man and seemed to play head games with her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 05:28 AM</span>
+
+            <div class="chatlog__message " data-message-id="615840174160740352" id="message-615840174160740352">
+                <div class="chatlog__content">
+                    <div class="markdown">She doesn&#39;t recall what the pendant might be, and her sticky fingers get his attention.
+
+His hand catches hers... surprisingly gently and warm.  &quot;Don&#39;t keep anything in these robes.&quot;  he reminds her, finding her attempt to steal more endearing than anything.  &quot;But if you&#39;d like to touch something else, I can accommodate.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 05:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="615842746791624707" id="message-615842746791624707">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel eyed the necklace Parcival seemed to prize above all others, her gray eyes taking in every fine detail—its shape, design, and make. She’d have to remember it and perhaps see if another might know what it was and why it seemed so precious to the ghost man. Something about it and the way the ghost-man didn’t even want her touching it made her guard go up, those walls she had become stronger. 
+
+While Parcival admired the pendant, his attention seemingly elsewhere, the eladrin decided to see if there was anything else he might be hiding. After all, he didn’t want her or anyone else getting a hold of his precious pendant. With baited breath, she carefully reached for his robes, her hand quietly slipping into a small slit. But no sooner had she tried, Parcival grabbed her wrist, making her cheeks tinge the palest of pinks. Anariel recoiled, pulling her hand away, her eyes then moving to the box that he’d agreed would be hers. She’d evaluate everything inside, leaving nothing unturned. If there was coin to be had, she’d get it. 
+
+“I think I’d like to touch my treasure box,” Anariel huffed, clearly flustered, yet also eager to go through the contents inside. Moving to pick the thing up, she then gave the ghost-man a look. “I’d like to be escorted back,” she demanded, her lips pursed in a pout, as she tightly held onto her new hoard of valuables. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 05:48 AM</span>
+
+            <div class="chatlog__message " data-message-id="615844962285780992" id="message-615844962285780992">
+                <div class="chatlog__content">
+                    <div class="markdown">He smiled gently and stacked the other boxes, their contents to remain a mystery for now.  &quot;Of course Miss NightShadow.  You have your prize.&quot;  The Penalty around his neck starting to dissipate.  He set the unassuming boxes back on his shelf before he walked over to the thick vault like door.  He played with a few of the mechanisms, seemingly that it would lock when the door shut.  It seemed like he was going to remain in that body.
+
+He looked at her being, wholly untrusting of him or the situation.   It was like she was expecting him to pull a knife or something.   Take her belongings.  She was a cautious one.  &quot;Tell me.&quot;  He began in conversation.   &quot;If you get the money, what are your intentions?  Do you have a dream you are trying to acquire.  Some past sin to repay?  I know its none of my business but... you are part of a Guild.  You&#39;ll need to trust the man or woman beside you.  And I know for a lot of people, that can be more difficult than any battle.&quot;  He waited by the door, waiting for her to leave. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 06:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="615848091580366848" id="message-615848091580366848">
+                <div class="chatlog__content">
+                    <div class="markdown">Holding onto her box, Anariel exited the room. Though, she’d watched Parcival work the vault door’s locks with great interest. She wondered if any of her trusty tools might be able to work them. Or, if a powerful magic also kept that door closed tight. It was a question she’d have to answer later. For now, she wanted to get her payment somewhere safe. Somewhere she could properly inspect everything and determine either its use or value. 
+
+“My business is my own,” Anariel stated plainly. There was no anger in her voice, just a flat tone of someone saying what she believed. She might be part of a guild. But those people needed to earn her trust. It wasn’t something easily given. And once broken almost impossible to repair. Besides, she didn’t want to reveal her hope to one day retire and make the life for herself that her guardian had tried so desperately to give her in his final years of living. 
+
+“Only those who’ve earned my trust are worthy of knowing me, seeing me,” Anariel muttered softly under her breath in thieves’ cant. Sighing then, she began making her way down the dimly lit hall. “You must understand,” she continued, resuming common once more. “In the world I come from, a man will slit your throat just because of your looks. So you’ll have to excuse me for not wanting to divulge my life story to those I barely know.” At that, she gave Parcival a nod, her snowy hair falling forward over her shoulders, and resumed walking back to the main area of the airship. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-anariel.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 06:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="615849728609091614" id="message-615849728609091614">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Kind of selfish that others has to do all that work.  They also need to trust you.  Maybe they come from the same place.  Food for thought.&quot; 
+
+He leads her back... A DIFFERENT WAY... maddeningly, then how she remembers, but a turn and shes back in the hall.  &quot;Im going to make sure nothing was damaged in that last attack.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615849757679550466" id="message-615849757679550466">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>End of Scene</strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 20 message(s)</div>
+</div>
+
+</body>
+</html>

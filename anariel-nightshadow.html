@@ -1,0 +1,1166 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - anariel-nightshadow</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="anariel-nightshadow.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Archive - Characters1 / anariel-nightshadow</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Aug-19 10:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="614291338791485468" id="message-614291338791485468">
+                <div class="chatlog__content">
+                    <div class="markdown">—Information—
+<strong>Name</strong>: Anariel Nightshadow
+<strong>Orientation</strong>: Heterosexual Submissive
+<strong>His/Her Kinks</strong>: BDSM (she is submissive—tendency to call certain men ‘Sir’ if they trigger her sub mindset…doesn’t necessarily mean she’ll view them sexually; leans towards D/brat or D/lg), being tied up, sensory play (blindfolds, heat/ice), hair pulling, spanking, vaginal, anal (receiving), oral (giving/receiving), biting/scratching, minor blood play (small cuts, small amounts of blood exchange), marking (typically by biting, scratching, bruising... possibly by tattooing), rough sex, angels/demons/monsters/humanoids, consensual non con/pseudo non con, consensual, romance.
+<strong>His/Her Limits</strong>: Scat, most bathroom-related stuff, vomit, hyper-anything, true non con, face slapping, cheating, poly. 
+<strong>Gender</strong>: Female
+<strong>Age</strong>: 50 years (equivalent to ~20 years in human years)
+<strong>Alignment</strong>: CN
+<strong>Personality Traits</strong>: cautious, slow to truly trust, observant, shy, quiet, flusters more easily than she’d like to admit. <span class="chatlog__edited-timestamp" title="05-Sep-19 09:23 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="614291356679929857" id="message-614291356679929857">
+                <div class="chatlog__content">
+                    <div class="markdown">—Backstory—
+<strong>Backstory:</strong>
+Anariel was separated from her parents and people as a small child. All alone, she happened upon an old curmudgeon who lived his life as a thief on the streets. Conflicted, he reluctantly took her in under his wings. He found a jeweled necklace in her possession and held onto the precious trinket, thinking that it would sell for a pretty penny. Every time the man attempted to sell it, he found himself deciding against it and continuing to just hold onto it for safe keeping. As the young eladrin girl grew, he taught her what he could about survival in the only way he knew how: that the only one you could truly rely on was yourself and to make the best of whatever skills you happen to acquire. He honed her into a decent thief, the two making their way as pickpockets and stealing small items from the various folk of the city. On his death bed, the girl&#39;s reluctant guardian returned the necklace he could never bring himself to sell. He explained to her that she was separated from her family and that she should try and look for them so that she&#39;s no longer alone once he passed. She took her necklace and rather than deciding to look back into her past, she decided to forge ahead into the future and see where that would take her instead. On her travels, she keeps her little mouse--Scamp--in her pocket, a comfort and friend reminding her of her lost guardian.
+
+—Appearance—
+<strong>Height:</strong> 5’0”
+<strong>Weight:</strong> 100lbs
+<strong>Picture or face claim:</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="614291414016196612" id="message-614291414016196612">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariel-nightshadow.html_Files/image0.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="anariel-nightshadow.html_Files/image0.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">23-Aug-19 01:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="614506628133158912" id="message-614506628133158912">
+                <div class="chatlog__content">
+                    <div class="markdown">Time zone: Eastern </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Aug-19 01:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="614871623735967946" id="message-614871623735967946">
+                <div class="chatlog__content">
+                    <div class="markdown"><s>Fixing a couple minor errors (not the math, that&#39;s ok). &gt;.&lt;</s>
+Ignore the pdf and follow the link instead. &gt;///&lt;
+<a href="https://www.dndbeyond.com/profile/merrylaine/characters/12919527">https://www.dndbeyond.com/profile/merrylaine/characters/12919527</a> <span class="chatlog__edited-timestamp" title="25-Sep-19 10:20 AM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariel-nightshadow.html_Files/5E_CharacterSheet_Fillable-Anariel.pdf">
+Attachment: 5E_CharacterSheet_Fillable-Anariel.pdf (6.61 MB)                            </a>
+                    </div>
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(18,18,18,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.dndbeyond.com/profile/merrylaine/characters/12919527">
+                                                    <div class="markdown">Anariel Nightshadow</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">D&amp;D Beyond Character Sheet</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="https://www.dndbeyond.com/Content/1-0-575-0/skins/Waterdeep/images/Waterdeep_opengraph.png">
+                                            <img class="chatlog__embed-thumbnail" src="https://www.dndbeyond.com/Content/1-0-575-0/skins/Waterdeep/images/Waterdeep_opengraph.png" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 11:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="615927162624802816" id="message-615927162624802816">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Newly Acquired Inventory (Add to Sheet):</strong></u>
+• <s>16gp</s> (see consumables tracker)
+• Bracelet (plans for Carric to identify/inspect)
+• Pendant (plans for Carric to identify/inspect)
+• Ring (plans for Carric to identify/inspect)
+• 1 healing potion
+• 1 fine gown from Thorrin
+• studded leather (wear)
+• 20 arrows
+• Clothes, cold weather
+• Dragon Eye Amulet - the eye of Corona Dawn
+(Note: Add 180gp to 10gp from urchin background, this replaces what is currently on submitted sheet)
+
+<u><strong>Consumables Tracker:</strong></u>
+• <s>24hp</s> 31hp
+• <s>190gp</s> <s>206gp</s> <s>400gp</s> <s>354gp</s> 254gp
+• <s>20 arrows</s> <s>40 arrows</s> 37 arrows
+• <s>5 days rations</s> 4 days rations
+• Filled waterskin (currently filled with water)
+• 1000 ball bearings
+• 5 candles
+• 2 flasks of oil
+<s>• 1 healing potion</s> <span class="chatlog__edited-timestamp" title="10-Oct-19 11:28 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-19 02:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="617066147619012610" id="message-617066147619012610">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Promises Made So Far:</strong></u>
+• Lucas: 1) help him get a pearl; 2) remain in his sight as much as able
+• Thorrin: 1) to remember his kindness towards her; 2) to have lunch with him off the airship, most likely somewhere in the surrounding forest
+
+<u><strong>Long Term Goals:</strong></u>
+• Move back to the city Alain had moved them to (ie, Waterdeep) and build a new life for herself, one that is happy and safe and where she finally is no longer alone—gaining trusted friends and eventually someone to share her life with. 
+• Plans to travel to Pioneer, is now seeking those who will accompany her.
+
+<u><strong>Side Goals:</strong></u>
+<s>• Either identify or learn about the three jewelry items (necklace with pendant, ring, bracelet with familiar pendant) found in a chest given to her by Parcival.</s>
+<s>• To meet the wizard (Carric).</s>
+• Learn about Parcival’s past and current motivations.
+<s>• Acquire some healing potions.</s>
+• Find our what is bothering Lucas.
+<s>• Job 4 - Rescue Lady Amala.</s> <span class="chatlog__edited-timestamp" title="05-Oct-19 04:38 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617066735941713943" id="message-617066735941713943">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Information Learned</strong></u>
+• Airship is bigger on the inside, the layout constantly changing; windows are actually vents. 
+• Parcival speaks/understands thieves’ cant.
+• Parcival wouldn’t let her touch a necklace similar to a bracelet she found; told it was of great value. 
+• Lucas has a key he pick pocketed off of Larami Clay. 
+• The ship has a forge run by Thorrin; the forge also deals with potions and clothes making. 
+• Thorrin and Asheye are childhood friends, neither recognize the surname Clay.
+• The hidden vents are maintenance tunnels, spiders roam them. 
+• There is yet another Clay—Edgar. <span class="chatlog__edited-timestamp" title="04-Sep-19 11:39 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617068377889833071" id="message-617068377889833071">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Acquaintences, Friends, Etc</strong></u>
+<em>Has been introduced (in some way) to:</em>
+• Cassius Clay - does not trust
+• Lucas - is currently confusing her by being hot then cold then hot etc. 
+• Parcival Clay - does not trust, he frightens her
+• Carmine Lilly Clay - does not trust
+• Larami Clay - does not trust 
+• Opal - inconclusive thoughts about her
+• Nepione - inconclusive thoughts about her
+• Asheye Brocktree - considers him friendly
+• Thorrin - considers him friendly, her original thoughts being reconsidered after his acts of kindness; he has earned her trust and offered her protection; he’s become her romantic interest. 
+• Carric - respects him as a scholarly elven elder.
+• Nepione - met during a job, the succubus loaned her a costume, considers her friendly. 
+• Mimi - met her at the Pit of Rose Petals, is unsure what to think. 
+• Winter - a white-furred kitten on board the Steel Hearts; is looked after by the mechanical dragon, Corona Dawn. 
+• Corona Dawn - a mechanical dragon living in the engine room of the Steel Hearts; cares for Winter the kitten; wants to journey to the Feywild with her. 
+• Mors - unsure, but happy he aided against the harpies. 
+• Whispered Winds - unsure but hopeful, happy he knows her parents and will guide her and Thorinn to her new home in the Feywild. 
+
+<u><strong>Relationships:</strong></u>
+• Lucas - felt an initial pull, but he quickly seemed to want to be distant for no apparent reason, his actions confusing her and his manner suddenly quite moody, so she pulled away to give him space, glad to have not gotten too attached; considers him a good friend. 
+• Thorrin - found him friendly and he eased her into feeling comfortable around him, this trust making her feel that first pull, those feelings are only increased by his kindness towards her and his bold desire to protect her and keep her safe. <span class="chatlog__edited-timestamp" title="09-Oct-19 08:46 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 06:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="617487726052376606" id="message-617487726052376606">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>OOC Revealed History:</strong></u>
+• Her guardian’s name was Alain. 
+• She and her guardian were ambushed almost resulting in her capture to be sold into the sex trade. 
+• She got her scar during the ambush.
+• Her guardian wanted her to have a safe, happy and quiet life; her guardian also didn’t wanted her ending up alone with no friends or significant other.
+• Alluding to her guardian raising her to be a ‘rogue’.
+• Her guardian is dead.
+• She and her guardian moved south to a safer city; it was during this move that they were ambushed and she received her scar; the incident changed Alain forever from not just wanting to provide a safer place for his adopted daughter, but a new life that was safe, happy and where she was surrounded by those who would care for/look out for her. 
+• Her past experiences with others, especially men, haven’t been the best; she’s clearly been the victim of harassment, assault, or worse. 
+• She was raised in Neverwinter.
+• She and her guardian journeyed along the High Road to move to Waterdeep. 
+• In her past, she was obviously involved in trafficking of some sort.
+• Something bad happened near the Sword Mountains, involving bad men and talks of a journey to Trademeet. <span class="chatlog__edited-timestamp" title="05-Sep-19 01:29 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617487811913973760" id="message-617487811913973760">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>IC Revealed History:</strong></u>
+• She has explained her arrival and earliest experiences with Parcival Clay on the Steel Heart to Lucas and Thorrin. 
+• She has a difficult time approaching others and making friends.
+• Carric has identified the jewelry given to her by Parcival; Lucas was present for the reveal. 
+• Lucas has agreed to go to Pioneer; Thorrin has agreed to go to Pioneer and has offered her his protection. 
+• She has shared the information about the jewelry and her worries about Parcival with Thorrin.
+<strong>• She and Thorinn parted ways with the guild while on a special mission within the Feywild. Thorinn and she were accompanied by Whisper to a hold her family had fled to due to the war tearing apart the Feywild. This was the start of her life together with Thorinn.</strong> <span class="chatlog__edited-timestamp" title="20-May-20 11:18 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">03-Sep-19 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="618511568413655089" id="message-618511568413655089">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Item Reveals:</strong></u>
+• Lucas’ stolen key: stolen from Larami Clay by Lucas; emblem shows it belongs to the Crimson Dragon—the crown of Eire’s personal guard.
+• Ring: mountain design is of an actual mountain range called Storm Giant’s Falls in Eire, the topaz marks the mountains’ only town of Pioneer, there is also a tiny diamond to the right of the topaz—its significance is currently unknown.
+• Bracelet: arcane focus; allows for ‘find familiar’ (matches the necklace that Parcival has). 
+• Pendant Necklace: death magic, crystal is meant for holding a soul.
+• Parental Token (amulet): opens a portal to a wintry area of the Feywild; is a key of sorts to a castle in the Feywild. <span class="chatlog__edited-timestamp" title="26-Sep-19 09:54 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-19 08:53 AM</span>
+
+            <div class="chatlog__message " data-message-id="619153194731307008" id="message-619153194731307008">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Visual Reference For Some Items:</strong></u>
+<a href="https://www.pinterest.com/merediths0131/anariel-nightshadow-dd-5e/?sender=650137033616046401&invite_code=419d84c578b14174b46a2e96986bfdc0">https://www.pinterest.com/merediths0131/anariel-nightshadow-dd-5e/?sender=650137033616046401&amp;invite_code=419d84c578b14174b46a2e96986bfdc0</a> <span class="chatlog__edited-timestamp" title="05-Oct-19 09:11 AM">(edited)</span></div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,255,255,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.pinterest.com/merediths0131/anariel-nightshadow-dd-5e/?sender=650137033616046401&amp;invite_code=419d84c578b14174b46a2e96986bfdc0">
+                                                    <div class="markdown">Anariel Nightshadow - D&amp;D 5e</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Discover recipes, home ideas, style inspiration and other ideas to try.</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="anariel-nightshadow.html_Files/7a64ecd9626e38f41f3467b7f1b0e9b4.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="anariel-nightshadow.html_Files/7a64ecd9626e38f41f3467b7f1b0e9b4.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="619153437606543360" id="message-619153437606543360">
+                <div class="chatlog__content">
+                    <div class="markdown">• Arcane focus - Allows caster/user/wearer to learn ‘Find Familiar’. Able to be attuned. Emblem is a rabbit’s paw. Matches a necklace owned by Parcival Clay. <span class="chatlog__edited-timestamp" title="05-Sep-19 09:24 AM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariel-nightshadow.html_Files/image0%20%281%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="anariel-nightshadow.html_Files/image0%20%281%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="619153601188593686" id="message-619153601188593686">
+                <div class="chatlog__content">
+                    <div class="markdown">• Necklace with Crystal Pendant - Used in ‘death magic’. Used to capture souls. <span class="chatlog__edited-timestamp" title="05-Sep-19 08:55 AM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariel-nightshadow.html_Files/image0%20%282%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="anariel-nightshadow.html_Files/image0%20%282%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="619154086847315977" id="message-619154086847315977">
+                <div class="chatlog__content">
+                    <div class="markdown">• Intricately Designed Ring - Map of the mountain range Storm Giant’s Falls. Topaz chip shows where the town of Pioneer is located. Diamond chip is still unknown but suspected to locate something else important. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariel-nightshadow.html_Files/image0%20%283%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="anariel-nightshadow.html_Files/image0%20%283%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="619154299049738260" id="message-619154299049738260">
+                <div class="chatlog__content">
+                    <div class="markdown">• Fine Gown - Made specifically for Anariel by Thorrin as a gift. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariel-nightshadow.html_Files/image0%20%284%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="anariel-nightshadow.html_Files/image0%20%284%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">05-Sep-19 01:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="619226192171761684" id="message-619226192171761684">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Faer&#251;n Background Information:</strong></u>
+Along the Sword Coast of Faer&#251;n, are several port towns/cities all connected by The High Road. Near the northern most end of this well known road is the city of Neverwinter. It’s surrounded by the Neverwinter Wood to the east. Following the road south, there’s a stronghold and a mountain range known as The Sword Mountains. Traveling further south past these mountains, and then along the Trade Way, takes travelers to the city of Baldur’s Gate and the region known as Anm. In Amn, there is a town known for its trade, both legal and otherwise. It is known for its human trafficking of sex slaves. Near the southern end of The High Road is the city of Waterdeep. Waterdeep is considered a much safer place when compared to Neverwinter, and several other cities and towns as well. Waterdeep’s safety is renowned thanks the lords who now run the city tightly under their ever watchful eye. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Sep-19 10:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="619536677547016203" id="message-619536677547016203">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel’s current outfit for Job 4. Borrowed from Nepione: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariel-nightshadow.html_Files/image0%20%285%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="anariel-nightshadow.html_Files/image0%20%285%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#127831;" title="&#127831;" src="anariel-nightshadow.html_Files/1f357.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128153;" title="&#128153;" src="anariel-nightshadow.html_Files/1f499.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">17-Sep-19 09:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="623697169001742366" id="message-623697169001742366">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Level 4:</strong></u>
+• Feat - sharpshooter
+• HP = 31
+• AC = 15 (now has studded leather armor) <span class="chatlog__edited-timestamp" title="04-Oct-19 08:15 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariel-nightshadow.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-19 10:53 AM</span>
+
+            <div class="chatlog__message " data-message-id="626430968290345008" id="message-626430968290345008">
+                <div class="chatlog__content">
+                    <div class="markdown"><s>Thorinn upgrades her studded leather +1 (Blessing of the Forge spell, upgrade remains unless spell is recast on another object). AC is now 16.</s> <span class="chatlog__edited-timestamp" title="05-Oct-19 04:40 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 21 message(s)</div>
+</div>
+
+</body>
+</html>

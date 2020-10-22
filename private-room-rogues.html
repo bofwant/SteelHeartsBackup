@@ -1,0 +1,972 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - private-room-6-rogues</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="private-room-rogues.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Archive - Miscellaneous / private-room-6-rogues</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 07:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="615863632986767363" id="message-615863632986767363">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://cdn.discordapp.com/attachments/615165325532463114/615264050376343569/819ec278-de17-445a-b072-456d3b0dbbbc.png">https://cdn.discordapp.com/attachments/615165325532463114/615264050376343569/819ec278-de17-445a-b072-456d3b0dbbbc.png</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="private-room-rogues.html_Files/819ec278-de17-445a-b072-456d3b0dbbbc.png">
+                                            <img class="chatlog__embed-thumbnail" src="private-room-rogues.html_Files/819ec278-de17-445a-b072-456d3b0dbbbc.png" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 07:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="615867837394976768" id="message-615867837394976768">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Gent#1427">@Gent</span> <span class="mention" title="darkangel76#8091">@Iri | Sela | Hal - FERTILE</span> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615868108631965726" id="message-615868108631965726">
+                <div class="chatlog__content">
+                    <div class="markdown">The room holds a small wash sink, closet, dresser, and a simple bed. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 09:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="615897150433525789" id="message-615897150433525789">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel looked up into the charmer’s eyes, his body moving closer to hers than she’d expected. For a moment, she couldn’t even hold his gaze, her gray eyes finding the floor and staring at it for a long, hard moment. She suddenly felt warm, her cloak unexpectedly heavy, so she sucked in a breath and let her eyes find his once more. She was met with a grin that lit up his face, the tone of his voice rich and smooth. “I...” she started, before finally clearing her throat. “Nice to meet you, Lucas,” she managed, her own voice having a thick and throaty tone. She winced slightly, hoping Lucas didn’t notice. At that, her heart began to race. 
+
+“I think one of those rooms will do nicely,” Anariel added, her arms adjusting to better hold onto the box. Without further hesitation—and needing a moment to collect herself—she headed toward the nearest unoccupied room. Carefully, she set down the box, her arms aching a bit from carrying something so awkward and heavy. She rubbed at them, gently massaging her muscles to work out the knots from carrying her haul. 
+
+The eladrin again looked over at Lucas, her eyes finding his, as she moved to kneel down on the floor. She bit her lower lip then, her gaze moving to the box as she carefully opened it up. “There’s so much here,” she commented, eyes wide, her hands reaching into the shinies and letting her fingers brush against everything. “If you find your gem,” she mumbled. “It’s yours.” She had no need for magical baubles. In the hands of the trickster, however... especially if he was an ally... Now that would be invaluable. <span class="chatlog__edited-timestamp" title="27-Aug-19 09:29 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615897160013316126" id="message-615897160013316126">
+                <div class="chatlog__content">
+                    <div class="markdown">“We should set aside anything we are unsure of and bring it to the wizard fellow,” Anariel then suggested, silvery tendrils falling in front of her face. She tried to blow them out of the way, but gave up and finally brushed at it. “Do you know the wizard well?” she then asked. “Can he be trusted?” Her eyes remained fixed on the treasure, her words having two meanings as she spoke them—can the wizard be trusted... can <em>you</em> be trusted. She bit down on her lip again, turning to face Lucas with cheeks that had become a light rosy pink. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 10:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="615914948769611776" id="message-615914948769611776">
+                <div class="chatlog__content">
+                    <div class="markdown">To you utter dismay and annoyance, alot of these gems are fake, more akin to polished glass then anything of any practical value on chains and bands of non pure silver, gold plating, and other cheaper metals.  They were designed for decoration, nothing more.  (12 pieces of Simple Jewelry, 4gp each)  For a few probably infuriating moments, you think you&#39;ve been duped...  This is hardly a treasure trove, and more a merchant wife&#39;s jewelry box. <span class="chatlog__edited-timestamp" title="27-Aug-19 10:33 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615915303343489034" id="message-615915303343489034">
+                <div class="chatlog__content">
+                    <div class="markdown">There was a few interesting little items though... </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615915473833295902" id="message-615915473833295902">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="private-room-rogues.html_Files/images.png">
+                                    <img class="chatlog__attachment-thumbnail" src="private-room-rogues.html_Files/images.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615915654096093184" id="message-615915654096093184">
+                <div class="chatlog__content">
+                    <div class="markdown">A Rose Quartz on a string, this seems not like the others.  Namely this thing is super cheap on its own.  (6 silver) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615915970313191471" id="message-615915970313191471">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="private-room-rogues.html_Files/il_340x270.png">
+                                    <img class="chatlog__attachment-thumbnail" src="private-room-rogues.html_Files/il_340x270.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615916145643487234" id="message-615916145643487234">
+                <div class="chatlog__content">
+                    <div class="markdown">This silver pedant would look very familiar to Anariel, namely because it&#39;s a near copy of the pendant Parcival took out with him.  This one is on a bracelet though... <span class="chatlog__edited-timestamp" title="27-Aug-19 10:31 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615916432672423956" id="message-615916432672423956">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="private-room-rogues.html_Files/20150822091247-58beb0a9-sm.png">
+                                    <img class="chatlog__attachment-thumbnail" src="private-room-rogues.html_Files/20150822091247-58beb0a9-sm.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="615916640751583311" id="message-615916640751583311">
+                <div class="chatlog__content">
+                    <div class="markdown">At the bottom of the box, this ring appears to be made of brass, but the craftsmanship is almost unreal.  Why would someone put so much work into something so trivial? </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 10:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="615919628790661188" id="message-615919628790661188">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Even though Anariel was trying to hide her emberrassment, it didn&#39;t seem to fool Lucas too much, but gladly for her he didn&#39;t notice her wincing at all</em> &quot;It&#39;s nice to meet you too... I hope we can get along in the future pretty well...&quot; <em>The male rogue said it in response to her kind words before the two of them started going towards a room</em>
+
+<em>As the two of them were walking, he noticed that she was carrying a heavy load which made him feel a little bad for himself, but he probably wasn&#39;t any stronger than her despite his appearance, so he just let that one slide, though he knew that he could improve his chanced with her by acting like a true gentleman. After the box was opened, he took out a cheaper piece of glass, seeming to be dumbfounded for a while about what it looked like, but he set it back soon to the box since he didn&#39;t know what to think of it</em>
+
+&quot;Well... During the fight with the crew he almost killed me once... He probably couldn&#39;t see anything but he went straight towards me, so I&#39;m a little unsure...&quot; <em>he said it while showing his lower arm which was attacked by shocking grasp before, soon continuing</em> &quot;On top of that, he was the first one to point at me after ripping that ghoul&#39;s dress, so I would rather not trust him <em>too</em> much...&quot; <em>he then tilted his head a bit while sitting down beside her</em> &quot;But hey, can you keep a secret?&quot; <em>he asked it with a wink since he knew that someone who can use thieves&#39; cant was smart enough to do so, and then pulled out a fancy key, which he got off of Larami</em> &quot;I found this in the pockets of someone who seemed important enough... I would like to find out what this can open help me with it~...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 10:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="615920845126238292" id="message-615920845126238292">
+                <div class="chatlog__content">
+                    <div class="markdown">The key is very strange... it seems too short to open anything.  Yeah its pretty but maybe just a bauble, a trinket?  Nothing more. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 11:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="615925676293488660" id="message-615925676293488660">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel pursed her lips, a feeling of fluster and frustration washing over her. She didn’t like the story Lucas had shared regarding the wizard, but their options were slim at best. She refused to place any trust in the undead... for now. After all, that Parcival tried to swindle them with his fancy words and sparkly gems. All of it a mere facade to the truth that lied beneath. She scowled then, suddenly tugging on a snowy lock, as she tried to think on their options. 
+
+“I’m unsure what some of these items are and some set off my senses,” Anariel muttered, her fingers tracing the designs of a few different items that stood out in comparison to the rest. She was at a loss and Lucas didn’t seem to recognize any of them either. The eladrin sighed, giving her hair a final tug before she held up the bracelet with the familiar design. 
+
+“I... I don’t know what this is,” Anariel admitted, her face feeling even warmer than before. Why was she reacting this way? This was a job. And he... her gray eyes looked over at Lucas. And he was just another mercenary. Wasn’t he? Pouting slightly, frustrated with herself, she tried to concentrate on the strangely designed bracelet. “But I’ve seen this before,” she went on. “In the treasury. Parcival had taken a necklace very similar to this and claimed it was of great value.” She frowned a bit. “I’m unsure about this wizard as well,” she went on. “But we only have so many options on learning what these things are.” She paused a moment. “I’d rather deal with him than someone in town. I know where the wizard sleeps.” There was determination in her voice, that need to ‘know’. 
+
+“But we can split this amongst ourselves,” Anariel continued, her words slowing as she gauged Lucas’ reactions. “I... I suggest an alliance,” she offered, divvying up the gold and jewelry so that they each had an equal share. She kept the stranger trinkets aside for the time being. Looking up at Lucas, she gave him a smile and offered him her hand. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 11:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="615928999893270581" id="message-615928999893270581">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Lucas seemed to consider her words carefully, not saying anything right away, but when he heard her mention the alliance between the two of them, and saw her hand being raised he looked surprised. After looking over at her face, he started smiling a bit, but it wasn&#39;t like his smiles before. This time it looked like he was smiling genuinely, though it didn&#39;t show his emotions too clearly, except for that he was happy about her offer</em> 
+
+<em>He then shook her hand, giving a small nod, his smile widening a bit</em> &quot;Okay, an alliance for now might be good... But if we do that then I will have to ask you a favor... As long as we are allies, I don&#39;t want either of us to disappear for a longer period of time... I&#39;m sure you know how it is... Not wanting the other person to mess with you and all...&quot; <em>His words made it clear that he wasn&#39;t the one who trusted easily, though something told her from his voice that she has earned a place that not many people have earned before</em>
+
+<em>After that he took the ring up, looking at it for a few seconds before putting it back down. He didn&#39;t seem to be too intrigued by the bracelet, or the pendant since he didn&#39;t know anything about them, though soon he took a few pieces of jewelry, which was his share of things, feeling like he has just recieved a fine payment in advance for their alliance</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 11:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="615933074605211649" id="message-615933074605211649">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas’ smile made Anariel’s breath catch for a moment, the eladrin suddenly shifting her gaze back down to the floor. She let her hand become enfolded in his, as they shook—a promise, an oath. His palm was warm against her own, her muscles going tense until the brief contact was lost and she was able to look up into his eyes once more. She nodded then, biting down on that plump lower lip. 
+
+“Yes, Sir,” Anariel mumbled, surprised at herself, a nervous flutter settling within her tummy. Where had that come from? She gasped softly, immediately adjusting and grabbing her share of the loot. “You have my word,” she mumbled. “I do not break my promises,” she then added, making it clear that much like him, she took her own words seriously and returned the sentiment in kind. 
+
+“Perhaps together we can ask for the wizard’s assistance on these other items?” Anariel asked, rather than demanded. This was an alliance, though why did it just feel right to let this charmer call the shots? It was baffling her. Confusing her. It was making it difficult to think. “Do you know where he went? Maybe these trinkets will be useful after all.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="private-room-rogues.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-19 11:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="615936375002234920" id="message-615936375002234920">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The blonde man seemed to take note of the way she was acting, but right now he didn&#39;t want to do anything that he could regret later on. He liked the fact that Anariel seemed to be charmed by his way of speaking - something that he has clearly practiced quite a lot already - but for now he was focused on figuring out what sort of items they have just found</em>
+
+<em>He soon stood up, streching his back off a little which was making him feel amazing, and offered her a hand to help her stand up after she would collect the the jewels, soon speaking again</em> &quot;Well, the last time I saw him he was walking towards one of the rooms with the old hag who held the bell, but I think we could do something useful while waiting for him to come back...*
+
+<em>He then walked out of the room, going towards the <span class="mention">#quarters-deck</span> .</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 19 message(s)</div>
+</div>
+
+</body>
+</html>

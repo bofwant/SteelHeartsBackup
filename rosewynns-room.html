@@ -1,0 +1,1765 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - rosewynns-room</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="rosewynns-room.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">ARCHIVE - CHARACTERS2 / rosewynns-room</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">08-Nov-19 07:47 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="642510446728970241" id="message-642510446728970241">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose’s room decor: <span class="chatlog__edited-timestamp" title="08-Nov-19 07:47 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="rosewynns-room.html_Files/image0.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="rosewynns-room.html_Files/image0.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="642510467302031390" id="message-642510467302031390">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">29-Nov-19 10:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="649987713692336128" id="message-649987713692336128">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose went back to her room and shut the door behind herself. She had to admit the place had definitely been decorated to her liking. She noticed that the things she’d need for Lily had somehow found their way to the place... she wondered if such magic had been Edgar’s doing or if the airship just knew how to properly provide in certain circumstances. No matter. She was grateful. 
+
+Finding the table that would serve nicely as a neat, Rose went to work setting it up for the little Kenku. Once satisfied, she carefully placed the satchel and Lily within it and let her sleep. She needed her own as well, her body still quite poorly from her time on the Ice Breaker. The eladrin peeled off most of her clothes and let them lie in a heap on the floor. In nothing but her underthings, she then walked over to her bed and turned down the sheets. Without care, she flopped onto the soft mattress and just curled up, white hair fanning atop her pillow. The girl smiled, feeling snug and comfortable, letting sleep take its hold, so she could rest and heal up to full recovery. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">30-Nov-19 04:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="650440640395739186" id="message-650440640395739186">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">02-Jan-20 08:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="662457042719735842" id="message-662457042719735842">
+                <div class="chatlog__content">
+                    <div class="markdown">When they arrived at her door, Rose moved to open it and gestured for Edgar to follow. She then removed her satchel and set it aside, so that Lily could continue her sleep. The baby had just eaten, so she’d be set for quite some time. 
+
+“Well, this is my room,” Rose said sheepishly, her dress tugging on her body, each curve on display. “Do you like it?” she then asked, hoping Edgar did. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="662457091788898375" id="message-662457091788898375">
+                <div class="chatlog__content">
+                    <div class="markdown">( <span class="mention" title="ShwiggityShwah#6420">@ShwiggityShwah</span> ) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 07:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="662622235550547988" id="message-662622235550547988">
+                <div class="chatlog__content">
+                    <div class="markdown">Whiskers certainly did.  He bolted through Edgars legs into the room to explore it, probably thinking it was some kind of tundra landscape.  He chuckled,  &quot;oh come off it Whiskers go back home.&quot;  He gave the weasel some scritches on his head before it scanpered back out.
+
+The invitation in made him have to take a breath.  Finally some privacy... okay easy.  &quot;I do, Im sensing a theme.  The serenity of the winter morning after a snowfall.  Special and perfect.&quot;  He looked at her darkened figure and how it contrasted the rest of it.  It reminded him.
+
+&quot;You wouldnt mind if I take this-&quot;  he tapped the leather and bots of metal padding he wore.  &quot;I swear I dont know how people wear this all day.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 07:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="662624085838397450" id="message-662624085838397450">
+                <div class="chatlog__content">
+                    <div class="markdown">It was hard for the eladrin not to giggle at Whiskers antics. Rose just smiled and waved him off, as if he were a regular person just ending his visit. It hardly mattered to her that he was a weasel. He was indeed a friend. 
+
+Rose blushed, when Edgar complimented her living space. It wasn’t much, but it was hers. And he was quite right. It had a kiss of winter about it. Something she appreciated very much. 
+
+“Oh, by all means,” Rose said with a nod. She wasn’t sure how others worse such heavy armor either. She would stick to her leathers and hides. Tough, durable, and easy to move in. Plus, it wasn’t hard and unforgiving like metal. “My own armor is quite soft,” she went on, cheeks reddening even more. “Supple leathers for me.” At that, she looked over at him, her smile growing. “Do you need help removing it?” she then asked of Edgar. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 12:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="662700495814524968" id="message-662700495814524968">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I mean, I can see- why it pays to-&quot;  the fact that he had the armor put on him by someone else did bot exactly prepare him for when he needed to take it off.  The buckles hooked around his crotch, along back and side, numerous ties, belts and straps.  It made it hard for him to get his stuff off.  And while he tried to be cool, suave, him reaching for a belt under his arm quickly dashed that hope.
+
+Sincerely he looked like he was trying to contort himself, even sticking his tongue out.  Atleast he got the arms and leg bracers. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="662700600307351582" id="message-662700600307351582">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Almost got it... almost... erp, i just tightened it.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 05:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="662774554325811251" id="message-662774554325811251">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose bit down on her lower lip, her blush darkening the more Edgar struggled with the armor. Though he looked good in it, she wondered if leathers and hide might be more fitting. Perhaps they’d make an outing of it together. It was something she thought might be fun. 
+
+With a soft gasp, Rose found herself nodding and immediately moving closer to the ranger so as to assist. “I... I’m not used to this sort of armor,” she admitted, icy eyes looking up into Edgar’s orange. “But I’ve seen it before.” The girl gave him a gentle nudge for him to sit down on the edge of her bed. 
+
+Rose approached Edgar, her lithe body standing before him. Slowly, she crouched down and brought her hands close. Fingers searching for straps and starting to loosen them about his body. They brushed against him. It couldn’t be helped, and the blood rising to her skin only served to heat the room further, the tension she felt growing thick, heavy... thrilling. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 10:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="662844098717417493" id="message-662844098717417493">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;The reasonings was heavier the better.  I&#39;m beginning... to see the cons.&quot;  He gave one more reach before Rose came over and directed him to the bed.  He was embarrassed but she was right, and he did as she suggested.  He held up his arm allowing access to it.
+
+Then the realization came over him as she stood before him, his eyes noticing how her waist curves in from her hips, how the dark dress clung to her form.  Billowing, elegant, sleek, and as his eyes drifted upwards, he noticed her chest, and her blushing face.  His smile faded, the moment striking him.  She was going to disrobe him.
+
+Looking into her face, she came to the same realization.  He bit his lip a little before he watched her undo him.  His eyes lidded slowly, words taken from his throat.  Little by little, she took the armor from him, exposing the loose shirt underneath, and the muscles from essentially farm work underneath that.  He didn&#39;t say a word, merely observing, merely listening and feeling his heart try to leap out of his chest....
+
+Tension mounting, the last piece slipped over his arm, leaving him exposed to her, only a top and trousers left on him and the collar hung low over his chest, scratches speckled his skin, a life of work with his animals.  He looked into her eyes.  He done it many times that day, but there was something different.  Not even their first kiss held the same weight.  He reaches out towards her slowly.  She feels his hands on her shoulders.  There was hesitation, there was a moment that it wasn&#39;t what she deserved, but kneeling before him like this, so close he could smell her... he was nearly trembling as she was.  
+
+Fingertips touch her, caress her shoulders, her back and pulling her to him.  He kisses her gently.  Not deeply, mostly cause he silently looked in her eyes.  Her taste fresh on his lips.  His hands embrace around her shoulder, her upper back... she can feel fingertips under the line of her dress... until it gets to the lace... and he pulls a strand- </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="662844110180188190" id="message-662844110180188190">
+                <div class="chatlog__content">
+                    <div class="markdown">loose... The fabric around her chest slackens ever so slightly. <span class="chatlog__edited-timestamp" title="03-Jan-20 10:26 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">04-Jan-20 10:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="663203046490243121" id="message-663203046490243121">
+                <div class="chatlog__content">
+                    <div class="markdown">As Rose slipped the last bit of Edgar’s armor away from his body, her icy eyes caught sight of the man sitting there quietly before her. He looked more at ease with the heavy plate removed, the ranger built to roam the wilds much like she was. His arms pulled her close, enveloping her within his warmth. The eladrin had been kneeling before him, a girl tending her knight just before some secret tryst. 
+
+But was this secret? No. No. It most definitely was not. But it definitely wasn’t something she’d expected when she’d agreed to find her place on board the Steel Hearts. Rose wondered if Mr Clay had any idea that she and Edgar.....
+
+Rose’s thoughts were cut short when Edgar’s lips found hers, his hands urging her closer still. She felt him reach around, loosening the laces that fastened the frock she was wearing. The very one Carmine had made sure she’d find. Immediately, she felt her face grow hot, the heat consuming her whole, as it worked its way along her body. Those delightful tingles returned, each touch causing her to fall even deeper under his spell. When those pleasant sensations settled between her legs, the dullest of throbs, she couldn’t help but let out a moan. <span class="chatlog__edited-timestamp" title="04-Jan-20 10:17 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">05-Jan-20 02:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="663262997082275852" id="message-663262997082275852">
+                <div class="chatlog__content">
+                    <div class="markdown">One lace, then another, then another, each ribbon fell from his mornings and soon only her shoulders and bust remained all that was left to keep up hee dress.  She didnt recoil, she didn&#39;t react then to answer his panting breath other then a hitched one of her own.
+
+He pust his lips to her neck, her cheek, but it was only to whisper to her, his hands at her shoulder.
+
+&quot;We just met Rose, but I&#39;ve fallen so hard for you.  I never felt this way.  Honestly, Truly.  All I want is to be here for you.&quot;
+
+His hands began to grace and slide down her shoulders.. his fingers coiling and teasing around.  The loose frabric, pulling it down... she could feel it tug at her breasts, unseen as he was holding her close.
+
+&quot;Say any word, and Ill honor it Rose.  I just-dont want to screw up anything.&quot; He held his head close, cheek to cheek.  &quot;I think im falling in love with you Rose.. I cant help it.&quot; He whispers, just as he frees her chest from the gown. <span class="chatlog__edited-timestamp" title="05-Jan-20 09:06 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">05-Jan-20 03:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="663282501350850560" id="message-663282501350850560">
+                <div class="chatlog__content">
+                    <div class="markdown">Could this honestly be happening? Rose thought to herself. She hardly thought of herself as a creature anyone could ever desire. Yet, here was this man quite clearly doing so. His gentle touches, the way way his breath tickled her skin... she was beside herself, her mind getting lost as these new sensations took over. 
+
+“Edgar...” Rose mumbled, her head tilting to give Edgar better access to that sensitive spot on her neck. He was rewarded with a shiver, a breathy sigh indicating that his actions felt good and were welcomed. The girl moved closer to the ranger, his hands making work of her dress, causing it to slip mostly free from her body. His words came next. Words she never expected any man to utter to her at all. Her. Someone even her own family chose to ignore and cast out. She’d been a reject, a bother. Yet this man... wanted her. 
+
+And oh she couldn’t help it. Rose wanted him too. Perhaps it was the idea of someone actually longing for her company. Someone finding her beautiful. Or maybe it was just the words he’d chosen to share. All of it had an effect, drawing her in like a moth to a flame, uncaring if they’d get burned in the process. 
+
+Just then, Rose felt her dress fall completely from her body. Her chest now exposed for Edgar to see. The man still couldn’t see her back, that ugly gnarled scar working its way along her spine. It was hideous and a wonder. It was miraculous she was even alive and able to walk at all. Looking up at Edgar, she blushed harder, hoping the man like what he saw. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="663282511756918804" id="message-663282511756918804">
+                <div class="chatlog__content">
+                    <div class="markdown">“You couldn’t screw up if you tried,” Rose then said, her icy eyes closing, as she braced herself for something ruining the moment. That something being herself. Not him. Not ever him. “I... I don’t want you to stop whatever this is that is happening,” she then admitted, making herself vulnerable to the man. “I... I know I’m falling for you. I... I don’t even have to guess anymore.” She took a shaky breath then, her bared breasts rubbing against him, as her arms moved to hold onto him, terrified the moment would suddenly end. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">05-Jan-20 02:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="663449100234260481" id="message-663449100234260481">
+                <div class="chatlog__content">
+                    <div class="markdown">The barest hint of a grin as he pulled back a little.  She accepted him, and for a moment it seemed his eyes teared a little.  He took a deep breath of her scent.  He eased her head towards him, they were in eachothers grasp and all he wanted was to kiss her, kiss her deeply.  Over and over, passionately.  His mouth opened and he used his tongue to show her his eagerness, his gratitude.  He even got off the bed, and he began to kneel into her, pressing his body against hers as a wanton need to feel her skin on his became all consuming.  
+
+He took only a second from the growing heat and desire to remove his shirt.  His form was lean, toned.  He spent his life taking care of animals, and even with a group as rich and magic as the clays, he had the physique of a stable boy.  He was only in his britches now, and he could feel the warmth of her full warm breasts push against him, her ironically hiding her vision of the varies scratches and injuries from his rough and tumble life.
+
+Minutes of coiling tongues and hands running over her back, down her waist in an ever tightening grip.  It felt like he needed to hold onto her as hard as he could or she&#39;d slip away.  She feel him at the small of her back before going on her arms.  He pulled his mouth back and began to stand, pulling her with him, her elvish features were all he watched.
+
+The he stepped back, to observe her slender.  A real woman, but- no she was beyond words.  Elves were so slender, so lean, but her pale white skin speckled with reds, and pinks... he felt his mouth water, his head go funny with need.  He leaned in again, and he suckled on her neck, meanwhile, he began to untie, remove his briches... he was beyond hard, throbbing and erect. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="663449373019209733" id="message-663449373019209733">
+                <div class="chatlog__content">
+                    <div class="markdown">Stripping himself, he pulled her around her room gently, turning her so that her back was to the bed... he led her to lie back, his body looking to the climb over her, her neck and throat and lips and heaving breath driving him forward.... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">05-Jan-20 03:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="663468880605478912" id="message-663468880605478912">
+                <div class="chatlog__content">
+                    <div class="markdown">Edgar hadn’t noticed her scar. Or, if he did, he was very good at pretending it didn’t bother him. No matter. Rose just hoped it didn’t ruin everything that seemed to be happening right then and there. The eladrin was lost to exquisite touches and feeling, a barrage of sensations assaulting her all at once. And how she didn’t want any of it to stop. All these lonely years, she hadn’t realized just how pent up she’d become, how much she longed for another to desire her wholly and completely. 
+
+It was like a dream. One the girl had no intentions of waking from any time soon, if she could help it. Rose sighed softly, her mouth moving with Edgar’s, while their tongues continued their dance. She noticed the ranger slowly moving to remove even more. Overcome with emotion, she instinctively found herself suddenly helping him. 
+
+Rose wasn’t sure exactly how it happened. But she suddenly found herself lying on her back upon her soft bed, Edgar hovering above. He was between her legs, thighs open in some sort of invitation. As he moved up along her, their eyes meeting, she felt his body gently brush against her sex. It had gotten so hot and... wet. The girl closed her eyes then and swallowed hard. 
+
+“I want this, Edgar...” Rose encouraged, her voice trembling along with her body. All of this was so very new, but her mind and body urged her on, her sex dripping, as if begging for more. More only from this man alone. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">06-Jan-20 08:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="663906093503873035" id="message-663906093503873035">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Me too.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">06-Jan-20 09:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="663912251031289856" id="message-663912251031289856">
+                <div class="chatlog__content">
+                    <div class="markdown">Edgar crawled atop her, his hand propping himself but also craddling her neck and her face, a bit of his hand draping through her white hair.  She closed her eyes, and he could feel her sex begin to heat up, drip with wanton need.  Edgar felt his mouth go dry as he tried to figure out just how to please her.  He didn&#39;t want to admit that she was his first and he hoped it wouldn&#39;t show... he heard stories.  Read the books.  It wasn&#39;t the same.  He&#39;d just have to follow his heart.  It was all about her... just listen, she&#39;ll let you know.
+
+He lowered his mouth, not to her face but to her neck.  His mouth embraces the side of her throat.  His lips danced playfully against her pure skin.  He trailed his kisses, running down and around.  Slowly, he got harder, his mouth suckling at her skin, turning it pink, making it sting just a little bit before his tongue massaged it away.  If he heard anything from her, he&#39;d go harder, but with his knees braced his hands were free...
+
+Hand slid up her body from her stomach until it reached her chest.  She&#39;d feel him palm her, firm supple breasts craddled in a pair of rough callosed hands but he was dexterious, giving.  He rolled them gently, up, down, his fingers squeezing, palms warming them.  He found her center, circles of pinks and softness of tender flesh he pushed against the pink trying to stimulate, trying to see if he could make it harden to his touch. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="663912992454475796" id="message-663912992454475796">
+                <div class="chatlog__content">
+                    <div class="markdown">Still kissing, licking, turning red marks into agonizing purple as he marked her, one of his eager hands would reach between them, lower... lower   finger tips ghosting over her body as it trailed over chest, stomach, and mound, edging closer and closer to that heat... that wet smolder moistness.  Inching little, but little he found the top of her flower, the prominent bead sticking out in order to feel the bottom of his member as his body rubbed against her.  He was tentative, teasing at first.... and then he pushed, he rubbed. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">07-Jan-20 11:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="664122358952361984" id="message-664122358952361984">
+                <div class="chatlog__content">
+                    <div class="markdown">That kiss of winter her room usually held had melted into scorching hot, burning embers. The heat was rising and so was the tension between the two. Rose looked up into Edgar’s gentle face, his roughened hands seeming so sure, as they moved to touch her. The eladrin hadn’t known what to expect, but she was ready and willing. She hissed softly, when he palmed her breasts, his fingers working the nipple into a hardened peak. Her back arched then and he was rewarded with a groan that took her by surprise.
+
+Rose’s body was doing things she didn’t wholly understand, but she went with it. Edgar didn’t seem to mind, so she decided it was natural enough. She sighed, turning her head so that his mouth could get its fill of her neck, the flesh so very tender now. He was leaving strange marks on her body. Marks that for some reason excited her. Why? Did it matter? She had no idea... this was her first. But oh she was enjoying it. 
+
+Writhing beneath Edgar’s weight, Rose felt his hands slide down. Caressing, touching, teasing. The girl reached for him then, a sign of encouragement, as her senses were bombarded with feeling. His fingers then found her heat, that soft wet between her legs. Her grip on him tightened, his fingers now teasing her clit. “Nnnggg...” she moaned, her hips tilting, while her legs ended up spreading before him. She had no idea why they’d ended up that way. But, it felt right, so she didn’t dwell on it. His hands were like magic, making her body warm and wet. Strange slurps struck her ears, when she felt him push against her heaving cunt. It was a strange sensation and made her body crave more. Just what was all this? Ugh, she didn’t want him to stop. Overcome with sensation, she then turned her head and planted feather light kisses all along his jaw. Yes, she was ready for this, wanting to share herself with this man. This one person who saw her as something more. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/adb75fa35940da1632fba08595beac66.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ippo#0399" data-user-id="345139848157462538" style="">Ippo</span>
+
+
+        <span class="chatlog__timestamp">07-Jan-20 02:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="664170115633512508" id="message-664170115633512508">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>At some point, there is a knocking on the door--strangely at less half the door&#39;s height--followed by a scurrying that fades in the distance.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Jan-20 05:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="664212439193223214" id="message-664212439193223214">
+                <div class="chatlog__content">
+                    <div class="markdown">Her groan drove him forward, his inhaled as she didn’t, feeling the weight of the moment they would share.&#160; He grined, sneaking a peak at her closed eyes and breathless sighs. How could she have become more beautiful?&#160; It was like she was starting to glisten, the sweat of their bodies coiling together in touch was beginning to bead on their skin.&#160; Their hearts like thunder hammering at sea. Her groaning back made him take a moment, releasing her shoulder and neck to dig into her chest.&#160; His lips and taste and touch went between her perky mounds. She would hear a sigh of ecstacy and a caress of lips and tongue over so soft and forbidden place.&#160; He wondered if he was the first? He wanted to be the last...
+
+His taste lapped over her taut nipple, smearing her with saliva, breath pooling against the fine hairs, making skin goose and prickle.&#160; A wash of desire, of wanton need. How could he hold himself? When her body relaxed he remain, mouth lapping at her, turning fair skin the slightest pink.&#160; Her taste intoxicating, the impossible texture of something firm and of swan down.
+
+His eyes looking up at her as he buried his face into her chest.&#160; When she turned to look his way, he responded in kind, being there for her soft kiss, hands beginning to caress him and he joined in kind.&#160; Raising his body to meet hers. She kissed his jaw and he turned his head to meet her. Several kisses were shared, several pin pricks of sweetness rushing over him.&#160; “How could I be so lucky?” He whispered, eyes closed. “Every touch, and taste, and sound... Im under you spell.” </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="664212500987904000" id="message-664212500987904000">
+                <div class="chatlog__content">
+                    <div class="markdown">He felt her needy cunt heave into his hands.&#160; His hand pushed back. It was an odd angle but he gripped her by it, his fingers tips immediately feeling how she oozed, how she drooled.&#160; “It’s burning me Rose.” He sighed as a finger slid through her crevice, spliting her petals, smearing her nectar. Back and forth, back and forth, faster, faster.&#160; He wanted to see if he could get more of those delicious sounds. “It’s driving me crazy.” He whispered 
+
+He withdrew his hand, agonizingly as he firmly gripped her spread legs, almost a smack it itself as he gripped the thick part of her thigh, lowering himself onto her.&#160; He grinded his hips, the lower part of his member seeming to rub against her, not as fast as his fingers, but enough to grind it between their shaking bodies. “I want you Rose.&#160; I want you forever.” He said as hands snaked under her arm, trying to hold her as best he was able while atop her.&#160;&#160;
+<em>Knock knock Knock</em>
+The Sudden interruption made Edgar jump a little.&#160; He turned his head a little but then with heady breath.&#160; “Should- should we answer that?”
+But it turned out the mysterious knocker ran off.&#160; Curious though. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">07-Jan-20 11:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="664313115441233950" id="message-664313115441233950">
+                <div class="chatlog__content">
+                    <div class="markdown">Panting softly, Rose felt Edgar grab at her thighs, his strong grip holding them apart. She could feel her heated sex dripping for him, slowly pulsing out its want and need, an invitation calling him home. The girl’s chest was rising and falling, hard breaths, while her heart hammered hard. Muscles taut in anticipation. Already this man had worked up her body, making it do things she’d never thought possible. 
+
+“I feel you, Edgar,” Rose whimpered. Edgar’s hand was leaving no curve unexplored. Every inch of her body was at the mercy of his touch, his attention. She could hear the gentle slip and slide of his his fingers, as they traced her dripping slit. When he finally positioned himself between her wide open legs, she was about to come undone... yes, he was to be her first, but somehow she knew he’d be the last. Her only. It made her want to give him all the more. Everything. 
+
+“I’m all yours, Edgar... just yours...” Rose said, lust and something more in her voice. “You have me forever... nnnggg...” She was ready. Despite her fears and worries, she wanted this. All of it. Caught up in the moment, the girl didn’t even hear the knock, so when Edgar mentioned it, she was taken off guard. “Wh... what?” she asked, breathless and in need. “I didn’t hear anything,” she said, her hips bucking up against him, while he pressed his own hips back. “Nnnggg... Edgar... it aches so badly between my legs... so badly...” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 12:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="664505112563286065" id="message-664505112563286065">
+                <div class="chatlog__content">
+                    <div class="markdown">“You’re right.”&#160; He concluded, letting it be.&#160;&#160;
+He fell into her sweet words, his own sultry words echoed a response so much sweeter.&#160; Maybe he was into more then he thought. Wanting only to whispered earth and lewd poetry about desire and wantoness.&#160; He whispered one last time before they would go over that threshold. “Guide me.” 
+
+Both would feel him try to use only his hips to enter her, join with her.&#160; While she was spread and open and winking, her slim wonderful form still held a virgin’s tightness.&#160; His head smeared itself between her folds, a bucking motion striking her bead... then applying pressure but not entering.&#160; He would adjust himself, hold himself and with his words, hopefully she would too, his cock engorged and just as hot, even thrumming in her touch.&#160; He’d sigh softly when it rested in her delicate hands, positioning just over her waiting sex.
+
+Head hit the spot and Edgar pushed his hips and with a squelch and a groan from him, they were connected.
+
+He should have trained her with his fingers, because her walls closed in around the intruder like a vice, seeking to boil him alive in a furnace of pleasure.&#160; He could only slide in so much, her form slowly molding to accept him. He pulled back slowly, and pushed in. “Ooh... gods.” He said as his face laid back against her neck, that way he could feel her body as he slide himself over her, feeling her back arch, her breasts press against him, and savoring the breath in his ear.&#160; He tightened his grip as he found the motion to push her, spread her, go deeper, deeper. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="664505164375261186" id="message-664505164375261186">
+                <div class="chatlog__content">
+                    <div class="markdown">She would resist but it tightened more to keep him in than keep him out.&#160; Her leaking juices providing all the lubrication she’d near as head and shaft molded itself.&#160; She would begin to feel her body rock, his hips driving into her while hand and grip kept her from moving.&#160; If she’d turn to face him, he’d kiss her through moans, tongue entwining with her. A little faster, a little harder as he went, more and more, pushing in pulling back.&#160; He hand gripped her back, finger nails marking her skin... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 07:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="664617772357124097" id="message-664617772357124097">
+                <div class="chatlog__content">
+                    <div class="markdown">It felt strange, yet wonderful, as Rose brought her hands down and gently encircled Edgar’s cock. It was like velvet coated steel. Soft, yet hard. Her slicked up sex quivered, slight shudders of anticipation when she felt his weeping tip gently rest against her molten heat. The tight little entrance was heaving, little pulses of readiness, as her legs remained open and wide. 
+
+Just then, Rose felt Edgar give the first push. She grunted softly, her hands gripping his arms tightly, as she forced herself to bear his welcomed invasion. Her icy eyes pricked with tears from the sudden jolt of pain, but they faded quickly into tears of joy at being one with this man above her. 
+
+Rose turned her head, cheeks pink, eyes shining. She looked up at Edgar, her little cunt adjusting to his length, his girth. “M-more...” she whimpered, not wanting him to stop, wanting to savor and enjoy. To let her body learn. “I want you to be my first...” she then divulged, her blush deepening, her breaths coming harder. “I want you to be my last...” Those words made her vulnerable and she hoped he wouldn’t run. Leave her behind like so many were wont to do. Moaning again, she moved so he could claim her lips if he so pleased, her hands relaxing, as her body began accommodating. As her body showed signs of ease. Yes. She was ready. No regrets. None. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">09-Jan-20 03:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="664913963200413696" id="message-664913963200413696">
+                <div class="chatlog__content">
+                    <div class="markdown">He noticed a tear.&#160; He hurt her, and his face one a quick expression of concern before she gripped him and smiled back at him.&#160; He still made sure to take a moment and wipe her eyes.
+
+She requested more, she didn’t need to.&#160; He drove ever onward, he wanted those tickles of pain to be washed away, ripping past them to the pleasure underneath.&#160; He was spurned now by her words. She whispered into his ear, like a symphony. Like music.&#160;&#160;
+<em>”My first.”</em>
+The words rang in his ear.&#160; So she was- he was- Rose, why did you give him such a gift?
+<em>”My last.”</em>
+She was reading his mind.&#160; She swore she felt him tremble with that, and it was more then just the burning of his loins.&#160;&#160;
+Her body was almost welcoming him, he barely needed to push anymore, only feeling the gushing heat stuff and fill her, the motions causing her pussy to weep with every wax and wane.&#160; After one of their shared kisses. His hand went to her face, caressing it, gripping her to look at him. “You’re my Rose.” It was a surprisingly... commanding tone. As if he claimed her suddenly.&#160; A pet name. His eyes traced over her face as the sweat from his brow began to soak into his brown hair. “I’m never letting you go.” He said to her, whispering as his cheek met her, labored breath underneath as the room began spinning.&#160; 
+
+He began go harder, waiting his body to appreciate her just as much as his head, his heart.&#160; His body rocked against her, the bed shaking. A little more, a little more, the head of his getting so close to her edge, but the shaft just kept coming, just seemed to have more ramming cock behind it.&#160; His body slid and rubbed against her, his hands beginning to agonizingly explore her body. She felt as hot as fire, as soft as swan down. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="664913976035115018" id="message-664913976035115018">
+                <div class="chatlog__content">
+                    <div class="markdown">Her shoulders were lifted from the bed, and her backside seemed to roll as he was forcing her to push up from the bed, the force driving his hips.&#160; It wasn’t fast... it was deliberate and hard. He wanted to feel that ache of withdrawal before ramming her again. Each time, his skin prickled, his heart welled up a little bit as his loins throbbed.&#160;&#160;
+“My f-first and l-last... I h-hoped my first love would be like it...”&#160; he managed to say between beated breaths. “It’s you my Rose...” He finally admitted. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">09-Jan-20 07:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="664981142469869591" id="message-664981142469869591">
+                <div class="chatlog__content">
+                    <div class="markdown">A wave of intense heat washed over Rose at Edgar’s words. It was enough that she’d never expected someone much as herself to be in this very predicament, let alone with a man such as the ranger currently between her thighs. With a soft gasp, she held on even tighter, letting her body adjust, her little cunt swallow him whole. “Nnnggg... Edgar...” she whimpered, happy tears falling. “I’m all yours...” 
+
+Rose was beside herself, still processing the moment the two were sharing. Rather than think, she focused on how Edgar felt, his hips pushing, thrusting. Slapping. With every crash, the girl let out soft needy grunts, her body bouncing beneath him, while her hips tried to find their own rhythm until they finally moved in time to the pace the ranger was setting. “More... more...” she begged, panting harder, as the pain gave way to sweet pleasure. 
+
+The bed squeaked beneath their weight, the legs scraping the floor, while the headboard thumped against the wall in a very definite beat. “Edgar... Edgar... I... nngg...” The girl was truly lost, intoxicated with pleasure only Edgar could hope to deliver. Her body was his to take and claim, to do with as he saw fit. Her breasts bounced and rolled, those supple mounds moving nicely, flesh rippling, while those pink nipples stood at sharp attention. More of her juices gushed between her legs, thighs glistening, as wet sounds of Edgar’s balls slapping against her struck her ears. “Oh god...” she moaned, unable to hold back her words any longer. “Feels good... nnggg... feels so good, Edgar... I give all of myself to you.” It was a promise and so much more. In that moment and forever after, she knew to whom she now belonged. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 09:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="665554012602499085" id="message-665554012602499085">
+                <div class="chatlog__content">
+                    <div class="markdown">Bodies gyrating, he sighed and heaved.  His arms gripping up and down her body as he flexed, hands splayed to feel how she was in the middle of their coitus, the wet slaps losing time between.  His hungry mouth kissed her face, her neck, her throat.  His mouth took in one of her tits, holding it while the rest bounced freely.  She felt sucking, teeth.  Her lover going wild as the animals he cared for.  Each word driving him.... the room thrummed like hunting drums, their wails like mating calls.
+
+He was getting close, her body slurping him in.  He felt his base be sucked in, his tip hitting her deep inside, her legs shaking.  He was melting, electricity, pangs and pricks as her body washed over him.  He felt something surging in him.  
+
+He knew what was coming.  And he dreaded it.  He didnt want this to end, a bit of his selfishness and possessiveness wanting to keep this going.  Wanting more.  He waited for a particular groan the bell of her voice between his ears.  
+
+&quot;Rose.  Turn over.&quot;  He told her between beated breaths. <span class="chatlog__edited-timestamp" title="11-Jan-20 10:09 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665554419131351070" id="message-665554419131351070">
+                <div class="chatlog__content">
+                    <div class="markdown">His mind went to dark, savage places.  Wanting to pin her down, and ravish her, have her quivering body below and at his mercy, feel her juicy thighs deeper. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 10:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="665558126426062902" id="message-665558126426062902">
+                <div class="chatlog__content">
+                    <div class="markdown">Groaning, grunting, Rose arched hard, forcing her breasts upward in perfect display for Edgar to further torment and tease. She couldn’t think anymore, her sole focus the man looming above her, so needed and welcomed. His voice was what kept her grounded, as she succumbed to this strange heady feeling that suddenly washed over her. 
+
+Suddenly, Rose heard Edgar’s command. Body close, quivering hard, she just nodded in compliance. “Yes, Sir,” she whispered, ragged panting breaths, while she moved into the position he demanded. The eladrin got on all fours, legs spread, while she tilted her hips in presentation. He would see her glistening cunt, her juices dripping from it without care. She was a mess, in need as her clit swelled further and twitched. 
+
+Rose glanced over her shoulder then, knowing that Edgar would now see her back. And that horribly ugly scar. It would be a shock compared to the rest of her flawless body and she hoped it didn’t deter or ruin this moment they were sharing. Never had she felt like this. This insane need to be taken. Controlled. She was his and she wanted him to claim. The only man who could. The only man she wanted to belong to now that they’d found each other. 
+
+Biting down on her lip with anticipation, Rose felt dread and worry flood her briefly. Oh how she hoped Edgar would still want her just as completely as before. Just like she wanted him... taking, claiming. His. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 11:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="665753344111018022" id="message-665753344111018022">
+                <div class="chatlog__content">
+                    <div class="markdown">He didn&#39;t think he had it in him, and he definitely didn&#39;t think she&#39;d do it.  Edgar had seen the books and raunchy tales.  Taking a woman from behind, all fours, pent over, pinned down.  Confidence and she&#39;d do anything.  He thought for a moment why would they, but here Rose was.  Pure and perfect... showing him her perfect ass and dripping flower, already nearly destroyed by his cock.  She looked back at him, waiting for him to mount her.  The rush was.... overwhelming.
+
+He positioned himself behind her, his mouth open in anticipation.  He was out of her for too long, and entering her again was effortless. It fit like lock and key, a natural state.  He groaned as he felt her again, his hands on her hips as he pushed forward.  The slap of skin came next as he pushed in to his limit, feeing her end, cervix keeping him from stirring her womb.  He pulled back and pushed again, her cheeks welling up with the effort and his balls smacking her against her clit, the droplets falling onto her bed.  &quot;F--fuck... Rose- it feels even better.&quot;  
+
+Thats when he noticed her scar... and he wanted to notice, even putting his hand on its edge, it was a noise from her and her trembling form as she wrapped tightly around his shaft that snapped him out of it.  She was his Rose.  &quot;Your... perfect Rose.&quot;  He raised a hand as he leaned over her, she felt a smack pinken her skin just above one of her cheeks as he leaned over her, &quot;My first and last...&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665753875235733514" id="message-665753875235733514">
+                <div class="chatlog__content">
+                    <div class="markdown">His hands went around her and palmed her shaking orbs, now looking bigger and fuller form this angle.  They felt warm, heavy in his hands.  Leaning over her like this, she felt his weight, and his thrusts were so deep it was more a vibration, a grinding motion that still managed to make the bed shake.  Edgar kissed her shoulder, her back, his sighs and moans growing louder.  She felt his cock twitch and tense.  &quot;Rose... I&#39;m so close-&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Jan-20 01:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="665790252899893251" id="message-665790252899893251">
+                <div class="chatlog__content">
+                    <div class="markdown">All her fears washed away, as Edgar’s hands gripped her hips and she felt him thrust against her. Rose grunted softly, while he resheathed himself, her little cunt fitting him like a glove perfectly tailored for him. The ranger didn’t hesitate. He just took, and she gave, elated as euphoria took over. She could feel his hands trace up her back, fingers on her scar. Still taking. 
+
+Edgar’s thrusts grew harder, faster, his meaty balls lavishing her angry clit with perfect slaps of skin on skin. “Nnggg... nnggg...” Her little body bounced roughly, Rose falling to her elbows, her hands gripping the sheets now for support. She could hear him. His desire and need, as he took without mercy, relentlessly claiming her dripping hole that she’d presented him. 
+
+Rose was getting close. She knew it. Sensations consuming her, as this overwhelming burn ignited deep in her core. Oh god. She was going to explode. Her body vulnerable and ready. Just then, she felt the smack, the sting, his hand and weight, as he moved over her and grabbed her swinging breasts with primal fury. That was when she lost it. Crying out, as pleasure took over, body shuddering beneath his, as he announced his own need for release. 
+
+“I’m cumming for you, Edgar!” Rose cried, her cunt gripping Edgar’s cock tighter still. Muscles pulsing hard in furious ripples, bringing him deeper, wanting him more. The girl whimpered, as she screamed out his name. “Edgar...! Edgar...!” It was the only word she knew right then. The only word that mattered. “Feels so good... nngg...” Her face fell against the bed then, her little cunt begging for him to fill her up, coat her womb. “Fill me, Edgar...” she then begged. “Please... I want it. I... I need it...” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">13-Jan-20 03:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="666356751611985930" id="message-666356751611985930">
+                <div class="chatlog__content">
+                    <div class="markdown">He tried to warn her, but she was as he was.&#160; An animal. Given into basest carnal desires. Fleshy, lascivious, ravenous.&#160;&#160;
+She felt his teeth and her back in another assaultingly savage kiss.&#160; It was like he was trying to silence himself from screaming by having his mouth dig into her skin right behind her shoulder.&#160; Her taste, her sounds, her smell, her touch, that oh so mind shattering touch. Her insides squeezed him as his hips did the rest, tearing into her with wild abandon, pumping to breaking and stir her womb.&#160; She tightened up, her body surging to her screams. His hands kept her chest steady, another sharp ache to add to every other sensation as she was pulled closer and closer into his thrusting gyrating form.&#160;&#160;
+Her body fell from his face as she gripped the sheets, and it was like he was driving her into the bed, only her shakey needs and twitching vibrating member keeping her just barely in the air.&#160; He released her chest and instead pushed her into the bed. For someone so kind, he cretainly was demanding in bed, almost unapologetic of how he treated her. And yet she screamed, she begged. It urged him onward.&#160; This was just a taste of fantasies in store.
+Times in the future to share.&#160; Hope they feel even better then I do right now Rose.&#160; She couldn’t see his reddened face, but how he was smiling, lovestruck and lusting.
+
+Her shoulders pinned, fingers marking pure white skin.&#160; “Louder... louder!” He seemed to snarl but only to distract himself for a precious few seconds “Its tightenin- Gods Rose, fff-mmmff~~”&#160; . </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="666356767218991114" id="message-666356767218991114">
+                <div class="chatlog__content">
+                    <div class="markdown">Its all he can say as a few more strong piercing slaps rip into her and echo into the room. He lays a single thrust to the base as he finally explodes, her body finally able to break his will and have him burst.&#160; A groan follows that fills the room, her insides growing stuffed and hot as his seed fills her tight little cunt, and then overflows around the walls of it, already adding to the mess of her bed. He continues, trying to make ecstacy last forever, each thrust makes his muscles flex and just a little more drip out.&#160;&#160;
+He saw stars, the world spinning and going numb to anything except a release that made his very hair stand on end, even down to his toes.&#160; He finally had to stop, so dizzy he could barely even control his nerves. The grip on Rose loosening, he stayed inside her, his member losing some of its rigidity in the post coitus but atleast stopping to open his eyes. Viewing Rose in her ‘state’ and giving a soft “You okay?”&#160; He asked, his hands now placed gently against her cheek </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">13-Jan-20 08:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="666441881474957313" id="message-666441881474957313">
+                <div class="chatlog__content">
+                    <div class="markdown">Never had Rose expected this darker side to emerge from her ranger. As his words washed over her, she felt a thrill run down along her spine. It was as if her mind, body and soul longed to be possessed by this man and would be. Panting, grunting, her groans grew into screams. Louder and louder until she was certain they could be heard throughout the ship. Edgar was merciless, driving his hips hard against her rear, his cock buried deep within her sopping wet folds. Her cunt gripped him hard, urging his release. 
+
+“Nnnggg... god...” Rose cried out when she felt Edgar explode deep within her womb, coating her utterly and completely. A claimed eladrin. His eladrin. His Rose in winter and for all time. Her little body took everything he gave, bearing the marks he gave her with pride and strange beauty. 
+
+When things slowed, the heat and tension giving way to something more, Rose glanced over her shoulder. Immediately, Edgar was there, his hand gentle upon her flushed face. She nuzzled his palm and nodded. “Yes... yes, I am...” she whispered, body shuddering, head spinning. The sound of his voice kept her grounded, his warmth made her feel safe. His touch only confirmed that she was protected, so long as he was near. 
+
+Rose turned her body then, looking up at Edgar with icy blue eyes. “You... you’re... you’re amazing,”’she whispered, blush darkening, as she kept her eyes fixed to his. She could feel minor stings and that her body felt sore and spent and... just wonderful. “I like how I feel with you. I...” The girl bit down on her lip, making it clear she felt vulnerable in that very moment. “I want this forever... I... Is that wrong or weird or...” She was looking to him for answers. For validation. And how she hoped he felt the same as she did. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Jan-20 12:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="667040302036418571" id="message-667040302036418571">
+                <div class="chatlog__content">
+                    <div class="markdown">Slipping from her was a profoundly disheartening experience.&#160; Against the warm sweetness of her womb, the world itself was so lonely and cold.&#160; But it was an experience that was short lived. This allowed her to fall to her side, and he made sure to saddle up next to her, uncaring of the mess they made.&#160; It was there’s. Made together.&#160;&#160;
+
+The young man’s smile was one of more relief.&#160; Her reassurances were more relieving then he realized.&#160; “Good. I- I didn’t know what came over me.” Through baited breaths his hand made gestures.&#160; “I just- felt you, and your sounds, and- I don’t know it was like Mmmm.” He flexed. She brought out a kind of excitement in him.&#160; An alpha personality where he was normally so delicate and sweet. He looked back to her, and saw that her beautiful perfect skin was marred with spots of red, purple, particularly at her neck where he marked her with a kiss.&#160;&#160;
+
+He reached out to gently stroke her cheek, she could take it as invitation to cuddle up into him.&#160; She said he was amazing. He shoke his head a little trying to be humble. He barely knew what he was doing, going with just felt good, felt right.&#160; “I have you to inspire me. I could be the perfect man and you’d still deserve better.” He would pull her to him, have head against head. “I’ll try.”&#160;&#160;
+She gave him such sweet whispers.&#160; Something to small made his heart melt.&#160; Tighten his hands on her back. He chuckled, being lost in the moment before she looked up to him those big bright eyes.&#160; Forever? He could do forever. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="667040316267823134" id="message-667040316267823134">
+                <div class="chatlog__content">
+                    <div class="markdown">He reached his hands from underneath to hold her cheek. “Of course it isn’t. Atleast I hope not.&#160; Otherwise I’m weird and wrong too.” He chuckled. Gods he was cheesey.
+
+“I think its like-“&#160; Now getting into full on pillow talk.&#160; “You find that special someone. And when you’re with them, it feels like- you’re home.&#160; I think that’s love what feels like. I mean- gods I’m terrible at this.” He laughed, feeling so corny and embarrassed, but maybe he just had he jitters.&#160; He let the moment pass as he got lost in her eyes, pulling her close enough that their legs would entwine.&#160;&#160;
+She wanted this forever.&#160; “Stay with me.” He commanded, in a whisper. Before kissing her again, slowly.&#160; “Forever.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">15-Jan-20 02:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="667074609933451270" id="message-667074609933451270">
+                <div class="chatlog__content">
+                    <div class="markdown">Edgar’s touch was enough invitation for Rose to move closer and just cuddle up, her tiny body curled up against him. She was sore between her legs, muscles aching and stinging. She knew she looked a mess, but it didn’t matter. This ranger wanted her and not just for her body it seemed. Horace had lectured her quite thoroughly about the dangers of giving oneself to another. The old man had refused, but he’d wanted her to make her own choice. And more importantly, informed choices. The eladrin was certain Horace would approve of her choice, the old curmudgeon probably even liking him. She smiled then, imagining if the two had ever had a chance to meet. But it was an impossible dream. A silly one. 
+
+Suddenly, tears formed in Rose’s bright eyes. She looked up at Edgar then and just smiled. It was thrilling to know he had this darker side meant just for her—a secret for just the two of them to share. She nodded then, reaching for him, nuzzling his neck much like one of his pets. “You’re my home,” she whispered. “You’re perfect as you are.” When he pulled back, she felt her breath catch. Oh, he was so wonderful and he didn’t even know it. How could someone like him not know? She bit down on her lip, feeling the man pulling her closer, their bodies tangled, a perfect knot. “For... forever...” she whispered, her lips then captured by his. 
+
+This kiss was slow and deep, hardly rushed and meant to savor. So Rose just closed her eyes and let instincts take over, her body molding to his, bending to Edgar’s will. She was his and would be from now on. She’d found love and, most importantly, her home. Yes, Horace would be happy for her. And in that moment, while she and Edgar just relished the others presence, she knew the old man would be smiling his approval. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">17-Jan-20 01:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="667790166051782712" id="message-667790166051782712">
+                <div class="chatlog__content">
+                    <div class="markdown">She began to cry, a notion that Edgar felt a little guilty for.&#160; He had hurt her, or treated her unkindly. But she was smiling. Cozying closer.&#160; He felt her hair under his chin, against his neck, the occasional warmth of her cheek.&#160; It gave him goosebumps, particularly when her legs entwined with his own. She whispered.&#160; He wanted to respond to the contrary. By why argue. He’d show her through his actions. He had to fight and protect her.&#160; He had to keep her safe and close. He’d only just begun... A long road ahead.
+He kissed his first and last.&#160; Bodies roiling in post blissful elegance.&#160; Their bodies, sweaty, spent, bruised couldn’t get close enough.&#160; Chest, legs, arms, hips. Every way they could touch eachother. Edgar spent minutes with mouth open with her.&#160; Savoring her touch, twisting and coiling and pulling her to him. She even seemed to be scooped from her reclining position and rolled atop him, for his arms and hands to better stroke her back, a knee raised for her to straddle.&#160; How many times they had to recoil to take an agonizing breath only to fall back into each others mouth. The rubbing and twisting, it was almost a wonder that the either didn’t attempt for round two, but the tingle within him, particularly at her loving, spattered mound.&#160;&#160;
+He pulled back a little to catch a needy gasp, moonlit eyes and starlight hair cascading all around him.&#160; He moved a hand to have a stray strand to move behind her elven ears. And then, he started giggling. He sputtered and laughed to himself.&#160; Maybe it was completely out of ‘oh my gods, I’m in love...’ jitters or a combination of a few things. “This whole time I just kept thinking of stupid little pets names.”&#160; He twisted his finger around a strand of her hair. “It reminds me of Starlight. I just keep adding more to the pile.” <em>My rose. My first and last.</em> “My Starlight.”
+He sputtered again.&#160; “Sorry. I know I’m being corny.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">17-Jan-20 07:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="667876179700744192" id="message-667876179700744192">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose was left absolutely breathless between kisses, her body so elated being so very close to the one she’d chosen... who’d chosen her in return. The eladrin smiled up at him, Edgar’s hands gently touching her face, her hair. Unable to resist, she just nuzzled his hand, kissing the palm whenever it presented itself. 
+
+“Mm... well, I like it,” Rose admitted. The idea of being Edgar’s starlight appealed greatly for some reason. Perhaps it was because she loved the way the moon and stars glittered along the snow and ice in the mountains she’d known and loved. “So call me that and I won’t mind.” Her smile broadened then, while her cheeks turned an even darker shade of pink. 
+
+“Perhaps I need a name for you,” Rose then suggested before giggling softly and hiding her face against Edgar. Oh now she sounded ridiculous even thinking of such a thing. But when her ranger spoke, it sounded so natural and wonderful. If only she could be that confident. Maybe one day... Pulling back, she got lost in his dusky eyes. “If I’m starlight. Then, you’re the sunrise,” she said, her face utterly crimson, a stark contrast to her otherwise pale features and hair. She bit down on her lip then, looking up at him, seeking his approval. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">20-Jan-20 02:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="668886734762803210" id="message-668886734762803210">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;My Starlight.&quot;  He kissed her forehead, feeling how the words rolled on his tongue.  It was cute, which made their first time all the more confusing.  Was it one of those, angel in the streets devil in the sheets.  Then he mentally chastized himself for deigning himself to sailor and hunter&#39;s talk for his lady.  She was Rose.  Beautiful and wonderful no matter what she did or how she was doing.
+
+He wanted eagerly for this, maybe a little too much of a smile.  She hid her face but she could still hear his heart thumping.  &quot;Sunrise?  For my eyes?&quot;  Indeed they were a rather stark orange, almost yellow sometimes.  &quot;I like it.&quot;  He leaned up, kissing her chin and cheek.  &quot;Something just for us to share.&quot;  He whispered between moments of affection.
+
+It was official, well more then official.  Rose and Edgar were lovers and by the awkwardness, it was new feelings for the both of them.  &quot;I&#39;m actually wondering how this is going to work?  I never felt like this.  Never thought I&#39;d care for someone more then my animals-&quot;  He stopped himself and then he face palmed.  &quot;Ack... the animals... how&#39;s the whole pirate ship going to work with that many-&quot;  It was just a concern, he didn&#39;t seem completely devastated. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-Jan-20 10:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="669006275979247679" id="message-669006275979247679">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose smiled, elated that Edgar approved of her chosen nickname for him—her sunrise. “Yes, your eyes are the color of sunset and sunrise, but... sunrise seems better. You’re bright and wonderful like the sun, a dawning of a new day with all the wonders of the world just waiting.” She sighed happily. “It just fits you... the sunrise.” The eladrin buries her face against him then and squeaked. 
+
+Relishing the moment, Rose kept her face against Edgar’s chest. He smelled good, felt good. She could stay like this forever. “Oh, your animals. Well...” The girl perked up and looked into his eyes. “They must come along. Room can be made. I’m sure of it. We’ll find a way.” Her words were full of hope and promise, desperately wanting to give him everything and anything he desired. “We can speak to the captain about it. I don’t see him minding, since they won’t get in his way. We also have to bring along Lily...”
+
+Rose gestured then to the satchel on the other side of the room. Inside it was the sleeping Lily, snug and warm in her makeshift nest. It would be a peculiar life for a child, but it would also allow her to see the world, see interesting faces. It would be a great way to expose her to just about everything. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Jan-20 12:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="669585777679663106" id="message-669585777679663106">
+                <div class="chatlog__content">
+                    <div class="markdown">He scoffed.&#160; “Won’t get in his way?&#160; You see the size of those pens?”&#160; It was a pretty big room. Almost a barn, and only cause the individual areas were their own little pocket spaces with a big enough habitat for them.&#160; “How big are sailing ships? Then there’s the food and the fodder and-“ He smacked his head. “Ugh, I should have been a wizard...” He grumbled, it was going to be challenge, even if the captain was ‘on board’
+She mentioned Lily.&#160; And he froze up a little bit.&#160; They were making an awful lot of noise.&#160; She was in the room. “You don’t think she peeked at us do you?”&#160; Oh the terror of teaching the impressionable Kenku bad habits. Just then, the child stirred, poking her little head out and half lidded eyes.&#160; She looked around the room and then gave a little yawn. She walked out, got maybe a few inches, shivered and then ran back into her satchel. It was warm in there, and the room was kept a little cooler for a winter elf.
+Edgar shrugged.&#160; “She’ll probably be fine.”&#160; He said with a bit of tribulation.&#160; “Garg is a pirate right?” He said thinking about it.&#160; “So what do you think is better?” He rolled over Rose in a playful manner, his voice making the ‘pirate’ impression.&#160; “Blackbeard Lily? Or Lily the terrible Raargh!” His mouth assailed her neck while his fingertips danced over her frame, tickling her as he ‘attacked’ her wrestling her over. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Jan-20 10:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="670453655354474516" id="message-670453655354474516">
+                <div class="chatlog__content">
+                    <div class="markdown">“We’ll find a way,” Rose said softly. Perhaps they could find a wizard who could enchant a space for the animals once a ship was acquired. It was a worthwhile expense in her mind. 
+
+Just then, Rose giggled. She saw Lily perk up and leave the satchel only to return just as quickly. “No. No. I don’t think she saw anything. Good thing too,” she said. “She seems to be a sound sleeper.” The eladrin paused a moment. “But I do think it’ll be a good learning opportunity for her. With us as the crew, we can make sure everything is safe and secure. It’ll be a right proper place once we are through.” She genuinely smiled, certain that somehow everything would work itself out. 
+
+Suddenly, Edgar pounced. His darker side was gone and his sweet playful side had returned. Her giggles grew louder, his mouth finding her neck, while he playfully pinned her. “No fair!” she laughed. “You play dirty, you pirate!” she then teased, giggling all the more. The two had fun with their play, but it ended with Rose hugging the ranger and just enjoying the closeness and sweetness. The fact that he obviously cared deeply for her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rosewynns-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Jan-20 10:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="672265039461220364" id="message-672265039461220364">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Gotti learn somewhere yaaargh!&quot;  He played before their laughing began to just fall into a sense of closeness and joy and contentedness.  He went back to just running his fingers through her hair.  He looked in her eyes, a few more smiles before he suggested with a heavy sigh.  &quot;We should... probably go.  We have that training exercise to go through.  [This is before the training hall scene]  And need to set up Lily before hand... unless we&#39;re going to be the parents that will take her into combat.&quot;  They made love nearby, was going to bring her on a pirate ship, it stood to reason that maybe the safest place she could be was with her &#39;mom&#39;
+
+He would sadly move himself away from her in order to go back for his clothes, beginning with his underwear and trousers.  He need her help again to have him suit up.  &quot;I actually think that&#39;s going to be our days for a while.  I&#39;ve been hitting the archery range for the last couple months to work my bow arm, but never actually seen any action before.&quot;  He pulled on a boot.  &quot;What about you?  Whats your weapon of choice Rose?&quot;  He had a thought that they could make eachother better by training together. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 53 message(s)</div>
+</div>
+
+</body>
+</html>

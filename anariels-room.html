@@ -1,0 +1,2310 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - anariels-room</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="anariels-room.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Archive - Characters1 / anariels-room</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 10:43 AM</span>
+
+            <div class="chatlog__message " data-message-id="617368909363806227" id="message-617368909363806227">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="darkangel76#8091">@Iri | Sela | Hal - FERTILE</span> 
+Your sanctuary </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 10:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="617372911530934272" id="message-617372911530934272">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel entered the room and gently shut the door behind her with a soft, yet definite click. The eladrin breathed a sigh of relief, leaning against the closed door for a moment, already feeling better now that she’d managed to get away from that ghost man’s frightening stare. Pushing away from it, she glanced about the room. It wasn’t overly different from the room she and Lucas had been in previously when inspecting the chest. Her eyes then moved to the lock and she grimaced. She’d had to pick it earlier after having been locked inside by Parcival himself and for what? For her safety, he’d told her. Scowling, she left it unlocked. At this point, she decided it hardly mattered. Plus, a part of her hoped Lucas might come to check on her
+
+The eladrin stretched her arms, her spine popping a bit before she brought her arms back down. Anariel stared at the bed and then smiled. She took off her backpack, her hooded cloak, and placed them on the floor next to the bed. She then went to the wash sink and splashed some water on her face—not too much, just enough. Satisfied, she moved toward the bed and sat down. It was surprisingly comfortable, the mattress soft yet supportive. She then removed her boots and began unlacing her armor, setting everything aside next to her backpack. 
+
+When Anariel was left only wearing her top, she slid into her bed and lied down, careful to place a dagger under her pillow for quick retrieval. Her snowy hair fanned out against the pillow and she found herself starting to relax. Quieting her mind, her body, she just listened. Trying to become familiar with the typical sounds of the airship. <span class="chatlog__edited-timestamp" title="31-Aug-19 11:12 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 02:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="617428016129114135" id="message-617428016129114135">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel sat upright, her hand immediately going for the dagger she’d hidden underneath her pillow. Head turning toward the door, the eladrin wondered who might actually knock on her door. Her first thoughts went to Parcival, those all seeing eyes making her shiver where she sat. She then wondered if it might be Lucas. He had seemed genuinely concerned for her earlier while in the hangar. 
+
+Steadying her breath, Anariel pushed the blankets off her body, hands moving to readjust the long underwear she was wearing to cover her legs. They’d bunched a bit about her calves, while resting in the bed. Smoothing out her top, her hand still holding the dagger at the ready, she then quietly padded to the door. 
+
+“Who’s there?” Anariel asked, that hint of panic and worry lacing her words, as she spoke. While one hand held the dagger, the other moved to the door handle and ever so slowly began to open it. <span class="chatlog__edited-timestamp" title="31-Aug-19 02:43 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 04:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="617456465900470272" id="message-617456465900470272">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>As Anariel was opening the door, the only thing she could see outside was Lucas, carefully peeking inside to see if she heard her voice right</em> &quot;Oh, sorry for bothering you in um... Such a state&quot; <em>he said it while nodding to her nightwear, and soon averted his gaze, clearly not wanting to make his rogue buddy angry</em> 
+
+&quot;You know, just thought I would check to see how you are doing, since I wasn&#39;t sure if you were doing any better or not, but... That ghostman was giving me the creeps, so I couldn&#39;t look at him any longer anyways...&quot;
+
+<em>he then paused a bit before looking into her eyes, now a soft smile appearing on his face, which was the first expression he has ever made since meeting the party that betrayed the fact that he was feeling pretty tired</em> &quot;And you know, I asked that so called <em>wizard</em> to see if he can help us, and appearantly, he can, so we could do that tomorrow and see what you found... But anyways, I&#39;m going to sleep now unless there is anything you want to talk about...&quot; 
+
+<em>his voice seemed relaxed, which was rare for someone like Lucas, as well as saying these many things all at once, showing that he was now trusting Anariel more or less, or at least giving her that trial phase where he was fine with getting a little closer</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 04:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="617460996411228175" id="message-617460996411228175">
+                <div class="chatlog__content">
+                    <div class="markdown">The moment Anariel’s eyes took in the sight of Lucas, her entire body relaxed. Her grip on her dagger went loose and she brought her hand down to her side. It was a good and smart thing the charmer had made sure to present himself rather than attempt any sneaking. She’d have accidentally cut him or worse, the thought making her tummy lurch. As it was, he was the only one she knew on that wretched ship and the two had made a pact. So she’d have his back, so long as he didn’t betray her trust. The eladrin then smiled weakly, her face flushing a pale shade of pink. She showed the man her dagger, knowing he’d understand her paranoia. 
+
+“Oh, you may come in for a moment,” Anariel started and then glanced down at her state of dress. While it was still rather modest, it was very clearly her under-things. Looking back up at Lucas, she winced, suddenly a little embarrassed. “If... if you want to,” she then added, a soft mumble, as she leaned against the door, dagger still in her one hand. The man’s face seemed soft, however. Softer than she’d seen of him before. And his smile seemed easy, genuine. It was nice having a friend on board the Steel Heart. At least there was one person who was slowly gaining her trust. 
+
+Suddenly, Anariel’s eyes widened, her snowy head tilting to the side. “So, you spoke to the wizard?” she asked, gesturing Lucas enter briefly so that he could better fill her in. The eladrin went to her pack and pulled out some rations, offering some to the man to perhaps stave off the hunger she felt, therefore figuring he most likely did as well. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617461006389477381" id="message-617461006389477381">
+                <div class="chatlog__content">
+                    <div class="markdown">“Do you think we can trust him?” Anariel then asked, her pale face hopeful. More than anything, the eladrin girl hoped to add to her allies on board. A wizard would be most welcomed, provided he could keep secrets and be trusted. She’d been impressed with his knowledge of the bell earlier during battle. At that, she moved to retrieve the precious items, the jewelry glittering in her delicate hands. “I’m especially curious about this bracelet. It’s pendant is nearly identical to a necklace that Parcival wouldn’t let me so much as touch.” She paused a moment, pursing her lips. “He said it was of great value.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 05:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="617467535159197746" id="message-617467535159197746">
+                <div class="chatlog__content">
+                    <div class="markdown">As Anariel was offering him food as well, his stomach started churning a bit. He didn&#39;t think that he would be so hungry by now, but it only made him smile a little &quot;Well, I guess I wouldn&#39;t mind joining you for dinner...&quot; After that he stepped inside of the room, looking around briefly while he already started thinking about what to say to her about the wizard. Could he be trusted? Or would he betray them? He remembered Carric hurting his arm - which he still felt a little bit of pain from - but he wasn&#39;t sure if it was intentional or not
+
+&quot;Well, I hope we could trust him... As much as I hate to admit, I&#39;m still not THAT great when it comes to being a wizard, and I&#39;m sure I could learn a few tricks from him that I could use later on... But I would rather keep things low for now... He could appraise our items for us, but I don&#39;t want to give him a share yet...&quot; He then sighed a little, soon sitting down on a chair, looking pretty tired now
+
+&quot;Well... I promised him I would give him some info about the ship in return... I don&#39;t think he would fuck us over if he can learn a few things in return... You know, I was going to tell him about the window thing, but tomorrow we will need to explore a little more in the vents, just to make sure that the others won&#39;t be able to use it against us... If we have figured it out, then there is a chance that others will too, and if they do, then we may be in danger... I hope you understand...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 05:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="617474757604147215" id="message-617474757604147215">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel was happy to share what she had with Lucas. After all, he’d shared his water and was seeming to take an interest in her well being. So the least she could was take an interest in his. It didn’t hurt that she didn’t mind looking at his smile either. The eladrin blushed slightly at that particular thought, but kept herself busy despite it, hoping the charmer wouldn’t notice. 
+
+“That’s a fair trade,” Anariel stated regarding the information exchange they could provide this wizard, her head nodding, as she moved to restash the jewelry from the chest. “Perhaps we can work out a pact with him. Secret information for magical protection and other things. We can provide for him in kind. No doubt we are stronger, should an enemy attempt to ambush...” The eladrin’s thoughts drifted suddenly. She remembered that journey with her guardian that had almost ended with her captured by a group of bandits. Their goal had been not just rob her and Alain of everything, but to sell her into the sex trade. An eladrin was considered rare commodity and apparently men there would have paid handsomely for just a few minutes of her time. She shivered at the memory, her hand going to the scar marring her face—a dark reminder of incidents she wished to forget, yet understood was what shaped her and therefore a needed memory. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617474768349954049" id="message-617474768349954049">
+                <div class="chatlog__content">
+                    <div class="markdown">“Perhaps after we speak to him, we can get better acquainted with this ship.” Anariel sighed, taking a bite of her own food. “Maybe this wizard could even help with the magical aspects.” She smiled at Lucas then. “And it wouldn’t hurt for you to have a proper mentor.” The girl twirled a snowy lock about her finger. “Everyone needs a teacher,” she added, her thoughts once more drifting to her guardian, to Alain. “But we’ll be cautious,” she continued. “We are two sets of senses after all,” she said, a smile playing on her lips. “And if we become three. All the better. No one will be putting us in danger if we keep our guard up. Though...” her voice trailed. “I’m more wary of Parcival than I am of the others. So far.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 06:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="617482896751722507" id="message-617482896751722507">
+                <div class="chatlog__content">
+                    <div class="markdown">After Lucas noticed Anariel starting to shake, he wanted to do something. He wanted to give her a hug, or at least a pat her on her shoulder, or just do... Something about the shaking girl, but he decided against it, since he didn&#39;t want to be too friendly with someone he has just met a couple of hours ago.
+
+After seeing her starting to eat, he decided that it was safe for him as well, and started eating the rations she gave him, seeming to be enjoying the taste of it, and happy about the fact that something went inside of his stomach now
+
+&quot;Well, that&#39;s true... He could be a great asset to our cause, that&#39;s true... Hmm, we should find out more about his intentions first though... As much as I like the idea of getting more people who we can trust, it&#39;s not a safe thing to do...&quot; He then continued eating a little &quot;And yeah, if Parcival is around you then just look for me... I don&#39;t think he will do anything to you if I&#39;m also around...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 06:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="617486432268845056" id="message-617486432268845056">
+                <div class="chatlog__content">
+                    <div class="markdown">As Anariel continued nibbling at her food, her eyes watching Lucas every few moments. She gave the man a nod. “We will test him. Make sure he’ll truly be the asset we hope him to be.” In her gut, her intuition told her that it was a worthwhile test to conduct. The mutual benefits all three could gain definitely outweighed remaining distrustful enemies. One thing Alain has taught her before he’d died was to always have a plan and those who could help nearby. He also instilled in her the importance of loyalty and trust, neither were easy to gain, yet both were so easily lost. However, the old man had made sure she knew the risks were worth the reward and also the learning experience. 
+
+“I will, I promise,” Anariel stated plainly regarding finding Lucas should Parcival come around. She hardly trusted the spy master, terrified he had eyes potentially everywhere. And it still bothered her greatly that he knew the uncommon thieves’ cant. Had he been a thief at one point? She needed to know. And she would. Perhaps the wizard could help with that if he proved himself an ally. 
+
+Changing subjects back once more, Anariel sat down on her bed and leaned back against the wall. “Where and when should we meet with this wizard?” she asked. “Did you both arrange a meeting?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 06:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="617489017268600844" id="message-617489017268600844">
+                <div class="chatlog__content">
+                    <div class="markdown">After considering her words regarding Carric, Lucas nodded in approval. He did agree that it would be good to have someone like him on their side, but he just couldn&#39;t bring himself to get his hopes too high up. He was trusted Anariel mostly, though he still didn&#39;t know why. Maybe because of their similarity? Or because he was just played way too well? He couldn&#39;t really think about it at the moment, but those thoughts started to bother him a little
+
+&quot;Regarding Parcival... Maybe we could ask Cassius his opinion about him the next time we meet him... Or if there was someone form the crew that we could trust, then that would be great as well... And about the wizard... He said that he will be in the library, though the seems easy enough to approach, so if we find him elsewhere then I&#39;m sure he will go along with it...&quot;
+
+He then returned to eating the food, clearly finding it a whole lot more delicious than he thought he would be &quot;Where did you buy this? This just tastes really good! I wonder if I could buy food like this somewhere...&quot; <span class="chatlog__edited-timestamp" title="31-Aug-19 06:42 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 08:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="617517695587581983" id="message-617517695587581983">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel frowned. She had no plans on cozying up with anyone whose surname was Clay. They lost her trust entirely after leaving her abandoned with no word, her door locked as if she were a prisoner. As it was, she was beginning to question why she’d agreed to board the Steel Heart in the first place. Though, of course she knew why she’d made the decision despite her better judgment. She’d promised Alain to make that life for herself one day. That life he’d so desperately tried to give her in those last fateful years of his life. She’d see his wish through. She’d make him happy even if the only way was after his death. 
+
+“I don’t plan on getting close to the Clays,” Anariel said softly, pulling her knees up close to her chest. Her face looked suddenly looked sad and the eladrin felt her wintry eyes pricking with tears. Upset at herself for revealing such emotion to a new ally, she shifted and tried to wipe her eyes in a way the charmer wouldn’t realize just what she was doing or why. “I just don’t trust them,” she added, turning to look at Lucas after she’d wiped away the tears. “They locked me on board,” she admitted. “Left me alone without word or reason and for so very long.” She was trembling now and hating herself for possibly giving anything away. “I thought I was their prisoner. Or worse.” The eladrin bit down on her lip, her mind needing to push away those darker thoughts for now. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617517707163729937" id="message-617517707163729937">
+                <div class="chatlog__content">
+                    <div class="markdown">“That is fine. We can meet with the wizard after you’ve rested. I’m sure you need it,” Anariel then said before returning to her food. Her eyes remained fixed on it, as Lucas inquired about it. How she’d happen to come by it. “I bought it in town,” she admitted. She wasn’t about to lie. Not to her new ally and hopefully friend. She needed more of those. It was a harsh truth she didn’t always like to face. It was something Alain had always hoped might change for her one day, though the man had also always known that the way he’d raised her hadn’t helped. “Though I also bought some extra spices to add some flavor,” she added, her cheeks reddening. “Maybe we can retrieve more at some point,” she said. “I... I’d like that.” And she meant it. For some reason she was drawn to the charmer and it frightened her. Though she supposed Alain would be glad of it entirely. She just hoped that the charmer wasn’t trying to set her up for a fall. She wasn’t sure she could handle that if he was. So she’d be mindful and given the strange feelings she felt inside... hopeful. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 02:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="617609254282461194" id="message-617609254282461194">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas waited for her to finish patiently. He listened to every word of hers, and he was on the verge of getting onto the bed now, to give her a hug, but he felt like it was still too soon for their friendship to go that far, making him decide against it, which was a hard thing to do, so he pretended that he thought that her food was spicier than his for some reason. He then started caughing a bit, as if his food was a little spicy too, hoping that she would catch on, soon making him drink the rest of the water from the waterskin before finishing his meal, which left him satisfied
+
+&quot;I understand why you don&#39;t want to trust any of the Clays, and neither do I, but perhaps if we could... You know, get them to be honest about a few things in other ways than friendly chatter?&quot; As he asked it, he had a bit of a michievous smile on his face, though not perverted at all, as he soon continued &quot;I believe we have a little something that could get a certain someone&#39;s attention...&quot; He then moved a hand to his pocket, only pulling it out a bit so she could see the key inside of it, but if anyone was watching from cameras, nobody could see it. Or at least that&#39;s what he thought he did, but in reality he wasn&#39;t that good while being so tired. After that he looked around in her room &quot;Oh, and maybe we could go and buy some stuff together when we get the chance to... We still need that pearl, and I have a few other things I want to get as well...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 01:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="617774684032729111" id="message-617774684032729111">
+                <div class="chatlog__content">
+                    <div class="markdown">A soft smile tugged at the corner of Anariel’s lips creating a sort of lopsided grin to form on her otherwise sullen face. She appreciated Lucas’ gesture, the charmer clearly trying to brighten her mood. It didn’t go unnoticed that he was trying to be sweet, to make her feel more at ease given the circumstances of a very unusual situation. 
+
+“I’m sure we can find a way to play this spy master’s game,” Anariel agreed, hinting that she’d rather go down with a fight if forced to endure such potentially prying eyes. She hoped everyone would, but she didn’t know the rest enough to make a deduction that actually satisfied. So she’d invest her time in those where the benefits were mutual, in those who were starting to actually matter. For now. She knew Alain would want her to band with others, form bonds or something more. In his final years, he’d always told her that it was better to be in the company of a few you trusted with your life than to isolate yourself and remain entirely alone. 
+
+“Do you have any suggest...” Anariel started to ask, but her voice trailed, gray eyes fixing on the key Lucas was trying to show her. The eladrin tilted her head, snowy waves falling over her skin shoulders as she tried to investigate the small item without making it obvious what she was doing. She then looked up into Lucas’ eyes and arched a brow. Shaking her head and pursing her lips, the wintry girl gave the man a look indicating she had no idea what it was he had. Perhaps it was another trinket for the wizard to identify. “Maybe the wizard...” she whispered, deciding it was their best chance, and deciding an alliance of three would be in their mutual best interests all around. 
+
+At that, Anariel cleared her throat and shifted on her bed. Her thin top hung loosely on her lithe elven body. “And don’t worry,” she said with a smile. “We’ll get your pearl and anything else we might need as well.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 02:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="617790266178404362" id="message-617790266178404362">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas listened to her words carefully, nodding in agreement to her bringing up the spymaster again, knowing what she meant. Parcival was on the list of the very few people, who he trusted even less than anyone he has met, which was a rare feeling he usually had with his siblings, and other relatives instead of other shady people, but soon he just shrugged it off, knowing it fully well that their brainstorming won&#39;t solve the problem at hand
+
+&quot;Well, as much as I hate to admit it, we should probably focus on befriending that wizard, or at least getting on good terms with him... Maybe I can show him a few magic tricks or something that may amuse him, though I&#39;m not sure if I can do anything that would draw the attention of a man like him...&quot;
+
+He then brought out the key completely, showing her the object he has already showed her when they were taking a look at the magic items she recieved &quot;Remember this? You know, the thing I got out of Larami&#39;s pocket? We could say she dropped it, and give it back to her to gain some of her trust... I don&#39;t want to be <em>too</em> friendly with that ghoul, but having a puppet on our side may prove useful...&quot; 
+
+He has put the key away after saying it, and now got to his feet &quot;But anyways, I think you should rest for now, unless you would have a fun charmer, with a shady background watching you as you are sleeping...&quot; He said it jokingly, though it was rather a sad, sarcastic joke instead of a funny one, and after that he gave her a soft smile, and a wave as he started walking towards the door &quot;Take care!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 02:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="617793659466809461" id="message-617793659466809461">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel’s face turned thoughtful and she nodded. Having any sort of leverage over the Clays would definitely be to their advantage. Though she wanted to know just what the key might be for. Having that bit of information would only help their cause, give them that much more of an advantage. “I think that’s a good idea,” she whispered, giving Lucas a smile. “I think you’re right that it might allow us the opportunity to gain information where we wouldn’t have before.” She began tapping her lip a bit before finally giving it a hard tug. “Though I’d like to find out what it is or maybe what it opens. If everything goes well with the wizard, maybe we can ask. I just want us having the best dealt hand as we try and understand these undead people’s motives.”
+
+As Anariel sat back, she sighed softly, once again nodding her snowy head. “Yes. Rest will be good.” She looked up at Lucas, the man seeming tired, perhaps a bit worn. She wished she was good at healing spells or even carried a potion or two. She’d have to see about acquiring some. The two of them would no doubt need them. “It’s been a long day,” she added, actually giggling softly at his joke. Though why did a small part of her not seem to mind such a thing? It was disconcerting, yet thrilling and oh so very frightening. Brushing it off, she waved at Lucas and got up to escort him to the door. “Good night, charmer,” she teased, leaning against her now opened door. “Rest well.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 03:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="617797795432104003" id="message-617797795432104003">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas didn&#39;t add a comment about him being right. Of course he was right, he <em>always</em> was... <span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">usually...</span></span> As he made his way out of her room, into the <span class="mention">#quarters-deck</span> , he looked back at Anariel, now his tiredness seeming to completely disappear from his face, and then he gave her a charismatic smile, one that could win any noble over if it was combined with the right words...
+
+Or at least that was the smile he was giving to the eldarin woman before he accidentally inhaled something, and started caughing violently, immediately turning away from her as he had a hard time caughing it up, having to go on with it for a few seconds before quickly pulling his waterskin out, and downing every single drop of water in it. After he was done with that, he slowly turned his gaze towards Anariel, having an awkward look on his face now &quot;Yeah, I&#39;m gonna.... Just go to sleep now...&quot; As he said that he started walking off, never, ever having felt such an emberrassment before in his entire life, quickly going in to the first empty room, and shutting the door behind him </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 03:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="617800941881786368" id="message-617800941881786368">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas’ smile made Anariel’s tummy suddenly flutter, the eladrin gasping softly, as she stood there in her doorway. The girl buried her face against the jamb for a brief moment before looking back his way. Though instead of smiling, he was coughing, downing his water like his mouth was suddenly on fire. She arched a brow at the strange scene, unsure of what to make of things. Biting down on her lower lip, her slim fingers curled about her door, holding it, while she slightly leaned against it. The charmer looked her way, his expression odd and a stark contrast from what she was certain she’d noticed mere moments ago. Feeling so very stupid, she just gave him a nod, as he dismissed himself, closing the door and letting her weight fall against it with a soft thud. She rubbed at her eyes before taking her fingers through her silvery white tresses. “You’re foolish, Ana,” she said to herself out loud. “You’re reading too much into things. There’s nothing there. There... there isn’t.” Upset with herself, she slid back into bed and pulled the covers over her head, embarrassment consuming her whole. Lying there, she allowed her body to fall into that strange state between slumber and awareness, allowed her body to finally find rest. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 08:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="617877545093693451" id="message-617877545093693451">
+                <div class="chatlog__content">
+                    <div class="markdown">When Anariel opened her eyes, she felt refreshed and full of purpose. The eladrin was well aware that Lucas wouldn’t be up for a while, and the two had agreed to meet with the wizard together. However, she still wished to further explore the airship, knowing full well she’d share her findings with her ally when next they met. Looking over at her things, she carefully dressed, further covering up her lithe elven body, despite her currently modest state of dress. The wintry girl pulled on her pants and then laced up her armor, the leather soft to the touch. Last, she pulled on her boots and slipped on her cloak, deciding to pull the hood over her snowy white head. Once fully dressed, she reached for her backpack, not wanting to leave anything behind for the Clays to find should they come to her room for any reason. Heaving a soft sigh, she gently pushed open her door and head out to the <span class="mention">#quarters-deck</span>. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">17-Sep-19 04:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="623620402685673503" id="message-623620402685673503">
+                <div class="chatlog__content">
+                    <div class="markdown">As soon as Anariel boarded the ship, she dropped off Lucas’ bow and arrows and then immediately headed back to her room. After everything that had happened, she just wanted to be alone for a while. Without further hesitation, she began peeling off the skimpy clothes she’d borrowed from Nepione. They were dirty, stained with her blood. Torn. But she’d see if the succubus wanted them back or not. Just... later. For now, she just wanted to curl up in bed, snuggle deeply under the covers and sleep. After her head cleared, she’d figure things out. Perhaps she’d upgrade her armor, buy some more arrows. Whatever she decided, she’d do the shopping later. For now... the eladrin pulled her top over her head and didn’t bother with the rest. She got into her bed and cuddled up under the covers, letting sleep take its hold. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">19-Sep-19 09:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="624411065194774539" id="message-624411065194774539">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="darkangel76#8091">@Iri | Sela | Hal - FERTILE</span> 
+
+&quot;MROW&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624411190537355289" id="message-624411190537355289">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="anariels-room.html_Files/51JLWmVUmgL.png">
+                                    <img class="chatlog__attachment-thumbnail" src="anariels-room.html_Files/51JLWmVUmgL.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624411300658806795" id="message-624411300658806795">
+                <div class="chatlog__content">
+                    <div class="markdown">Suddenly there is a white kitten in her room.  Pacing about the floor sniffing and scampering for foot. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624411311370928188" id="message-624411311370928188">
+                <div class="chatlog__content">
+                    <div class="markdown">food* </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">19-Sep-19 09:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="624415597471727617" id="message-624415597471727617">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel had hidden herself away in her room for the past several days, only coming out to get food. She did return the tattered outfit back to Nepione and had managed a single excursion to get a few needed things. But she avoided everyone. Not having very much to say after everything that had happened. 
+
+Snuggled up warm in the plush blankets of her bed, Anariel had just been resting, gray eyes staring at the ceiling. Suddenly, she heard a soft sound. A kitten? The eladrin sat up and watched it for a moment when she gasped and immediately looked for Scamp. The little mouse had been sleeping in the pocket of her pants, the garment strewn carelessly over a chair. Breathing a sigh of relief, she moved to pick up the tiny new creature, eyeing it curiously, as it found a spot on her lap. Its tiny paws kneaded her bare thighs and finally nuzzled against her. 
+
+“Ohh...” Anariel gasped. “Where did you come from?” she asked, knowing the kitten couldn’t answer. She reached for her bag and pulled out some food, sharing a little with the kitten. “There now. For you.” Watching the kitten eat, she wondered if he was a stowaway or the Clay family cat. She knew she should ask, but she was too disheartened to bother with most. Her hand then moved to pet the kitten. “You need a name,” she mumbled, expression turning thoughtful. “How about... Winter?” she whispered. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">19-Sep-19 09:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="624421183189680129" id="message-624421183189680129">
+                <div class="chatlog__content">
+                    <div class="markdown">The cat ate happily. Its seem to be completely domesticated and not afraid of humans.  It nuzzled and rubbed itself in her open hand purring softly.
+
+When given a name it meowes.   Winter it is. Strange where did it come from?
+
+She would notice that the kitten had a little collar.    On it a little heart locket. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624421810829787136" id="message-624421810829787136">
+                <div class="chatlog__content">
+                    <div class="markdown">In the locket a  Picture.
+
+On the picture something unexpected. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624421845940305936" id="message-624421845940305936">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://pin.it/ggar57frpzw7z4">https://pin.it/ggar57frpzw7z4</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,255,255,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://pin.it/ggar57frpzw7z4">
+                                                    <div class="markdown">Pin by Readlax on Readlax in 2019 | Dragon, Dragon art, Dragon cat</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Mar 3, 2019- This Pin was discovered by Readlax. Discover (and save!) your own Pins on Pinterest.</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="anariels-room.html_Files/4ccbe2e2ef33779464d1f49cc6e45f23.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="anariels-room.html_Files/4ccbe2e2ef33779464d1f49cc6e45f23.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="624421911643815966" id="message-624421911643815966">
+                <div class="chatlog__content">
+                    <div class="markdown">It was the kitten on top of a dragon&#39;s head? </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-19 08:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="624588166795493376" id="message-624588166795493376">
+                <div class="chatlog__content">
+                    <div class="markdown">As Anariel continued to pet the little kitten, she couldn’t help but wonder where it had come from. The door had been not just closed, but locked and there weren’t any other ways in that she’d been able to tell. Suddenly, her fingers brushed against the little collar it donned. The eladrin inspected it, seeing a very strange picture. “Now where did you get this?” she asked the little kitten, her expression one of puzzlement. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-19 08:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="624589225366650900" id="message-624589225366650900">
+                <div class="chatlog__content">
+                    <div class="markdown">The little kitten purred and meroow&#39;d before it suddenly turned its head, its little nose sniffing.  It turned its tail and began on the floor... In jumped on the wash sink.  Then a shelf and then to...
+
+one of those vents... </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624589251295838228" id="message-624589251295838228">
+                <div class="chatlog__content">
+                    <div class="markdown">The one with the cleaning spiders </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624589363698728960" id="message-624589363698728960">
+                <div class="chatlog__content">
+                    <div class="markdown">or thats what Master Cassius said they were for.  But the vent was propped open.  Did the cat do that? </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624589431378149413" id="message-624589431378149413">
+                <div class="chatlog__content">
+                    <div class="markdown">It&#39;d be small enough for the elf&#39;s frame to fit into. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-19 09:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="624595985091264532" id="message-624595985091264532">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel gasped when she realized the kitten had come through the vent. She hesitated a moment when she remembered the spiders. A chill running down along her spine, making her shiver. Still, the kitten seemed to want her to look. Carefully, she hoisted herself up and looked inside. The vent was certainly large enough for someone of her frame and build. Her expression quizzical, she looked at the kitten and then quickly grabbed her pants, putting them on. She was disheveled, top hanging loose and rumpled, hair wild and everywhere. But who cared. There were far worse things in life. She then moved back to the vent and crawled inside, unsure of where she was going or why she was following a kitten. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-19 09:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="624598837264252928" id="message-624598837264252928">
+                <div class="chatlog__content">
+                    <div class="markdown">The path is clear, the kitten goes towards a source of warmth. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="624598888145223680" id="message-624598888145223680">
+                <div class="chatlog__content">
+                    <div class="markdown">It leads her to the <span class="mention">#engine-room</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">21-Sep-19 08:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="625132033269694477" id="message-625132033269694477">
+                <div class="chatlog__content">
+                    <div class="markdown">//<span class="mention" title="Gent#1427">@Gent</span> anas going on a mission, shes getting ready in her room and might need back up <span class="chatlog__edited-timestamp" title="21-Sep-19 08:52 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625132347167080488" id="message-625132347167080488">
+                <div class="chatlog__content">
+                    <div class="markdown">Anyone who sees this might want to take advantage as well.// </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 07:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="625287324787277826" id="message-625287324787277826">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel crawled back through the vents to her room. Fortunately, it wasn’t far. Once there, she looked at her belongings. She did a quick change into her warmer clothes, deciding that since the place through the portal looked wintry, different attire might be necessary. She then stuffed the other clothes into her pack and double checked her pockets. Scamp was with her, Corona’s eye as well, her weapons were at the ready and her bag was all packed. She hoisted the thing up over her shoulders, adjusting the straps as needed. “Guess this is it,” she whispered, looking back up at the vent. Corona was waiting for her, her necklace’s portal open to a world she hadn’t thought she’d ever see. It was time to fulfill that wish of Alain’s. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 01:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="625381400421597195" id="message-625381400421597195">
+                <div class="chatlog__content">
+                    <div class="markdown">Not too long after Anariel got back to her room, there was a slight knock on her door, as Lucas decided to pay her a visit after their last job together. The last time he saw the eldarin woman, she was in a sorry state, so he wanted to give her some time before he&#39;d check on her, but this time he found something rather interesting, since earlier, when Lucas was doing some business on the airship, he checked on the job board, knowing that a certain job posted there would be more than enough to lift her spirits up a little </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="625396930318434323" id="message-625396930318434323">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel was in the middle of hoisting herself back up into the vent when she’d heard a light knock. The eladrin bit down on her lip and groaned, anxious to return back to Corona, but worried if she didn’t answer her door, it could lead to trouble. Scowling softly, she got back down and moved to her door, placing a hand against it. Slowly, her palm slid along the smooth surface until her hand encircled the knob. Her other hand moved to unlock the door with a click, while her hand on the knob twisted it, opening the door a crack. 
+
+Peeking outside, Anariel saw Lucas standing there. Clearing her throat, she pulled open the door a bit more. She was dressed in warm clothes, her things packed in her bag. It was obvious she was ready to head out somewhere. “What do you want?” She bit out, still sore about how the last job went down, though at least she’d managed to sign up for Lady Amala’s request. Well, assuming she returned from the Feywild in time. If she returned at all... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 02:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="625399408778805312" id="message-625399408778805312">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas was now dressed in a set of casual clothing that he wore under his armor usually, since he didn&#39;t want to put on his new armor yet (if he had a new set at all), since he felt mostly save around most parts of the ship now, though he still had his daggers on him underneath his clothing
+
+After seeing the elradin woman opening the door, Lucas leaned against the doorway, while he gave Anariel a friendly smile, soon shrugging a little &quot;Nothing really... I just thought that I would check on you, but I can leave if you are busy with something...&quot; Then he sighed a bit before looking away, only continuing afterwards &quot;I was a little worried about you, and I wanted to talk to you a little...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 02:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="625402260087635978" id="message-625402260087635978">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel winced, not uncertain of whom she could trust or not. After everything that had happened, she felt more alone than ever. The eladrin’s gray eyes flitted back and forth, obviously anxious about something. Despite that, she nodded and bit down on her lower lip, a hand finding her pocket so that her fingers could nuzzle little Scamp. 
+
+“I see,” Anariel whispered. “I was just getting ready for a small outing,” she added. Though from the way she was dressed and carrying all her belongings, it appeared like she’d prepared for far more than a small little jaunt. She’d prepared for a journey—one filled with the cold and chaos of the unknown. The Feywild. The girl then leaned against her door, her eyes finally managing to focus on Lucas, her other hand going to her other pocket, fingertips brushing against the eye of Corona Dawn. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 02:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="625403422602166293" id="message-625403422602166293">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas soon looked over at her, feeling a little surprised after noticing that she didn&#39;t want to talk about it, though it was sort of understandable given what has happened in the past few days, so he didn&#39;t put too much thought into it right now
+
+The tall blondie looked a little surprised after hearing her talk about a &#39;small outing&#39;, making him tilt his head to the side a bit &quot;And soo... Is this &#39;small outing&#39; of yours something where handsome, blonde men could join you at?&quot; Lucas asked it with curiosity in his voice, sort of mixed together with a bit of playfullness, as he was mentally prepared to go on a journey with her </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="625406720079822849" id="message-625406720079822849">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel hesitated for a moment, wondering if she should divulge her plan or not. After everything, a part of her worried that people might try and talk her out of this one, when she knew in her heart it was a path she had to follow. Though, as she went over things in her mind, she had to admit that she knew nothing of the Feywild. The land. The beasts. The dangers. It was a magical place. One that had cast her out, so she was certain it might be angry with her for attempting a return. Given that, she wondered if having support, others who might help would be wise. Probably... even if she was still upset. 
+
+“I... I suppose,” Anariel stated, a hand moving from her pocket to tug gently on her hair. “I’m going to the Feywild. Right now. Either you follow or you don’t,” she offered, still feeling like nobody truly cared. That feeling making her heart ache terribly. “I don’t know how long the portal crossing will stay open.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="625409355642306571" id="message-625409355642306571">
+                <div class="chatlog__content">
+                    <div class="markdown">He listened to her words carefully, not wanting to miss any of the details - though there wasn&#39;t much to miss on that side - though her words made him puck his lips a bit, and tilt his head to the other side, having a rather confused face that said that he was hearing things that he didn&#39;t think he would anytime soon
+
+Then he blinked a few times, as he knew that he didn&#39;t have all day to stay confused, and soon nodded a bit &quot;Sure I guess... As long as you won&#39;t get us killed, I don&#39;t mind coming along, though I probably know even less about that place, but-&quot; He then paused a bit, not being entirely sure if he should say a certain thing or not, but he decided to trust her with a little more information about himself &quot;I can actually read, write and speak Sylvan fluently, so I could help you out a bit... Okay, give me a few minutes and I&#39;ll be back!&quot; After saying it he immediately stormed off to his room to get ready for their journey </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="625411538756567040" id="message-625411538756567040">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel flinched at the jab about ‘getting others killed”. It stung. It hurt. It made her want to curl back up in bed. But she couldn’t do that. Not now. Instead, she pretended not to notice and just gave Lucas a curt nod. She’d wait for him. The back up would be needed in a place like the Feywild, whether she wanted to admit it or not. “Hurry,” she said quietly, waiting anxiously in her room, worried the portal would close. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="625411745263124513" id="message-625411745263124513">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Remind him that it&#39;s cold.&quot;
+
+Coronas voice spoke up. <span class="chatlog__edited-timestamp" title="22-Sep-19 03:23 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625411794684346389" id="message-625411794684346389">
+                <div class="chatlog__content">
+                    <div class="markdown">...  that was out of no where. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625411974695485491" id="message-625411974695485491">
+                <div class="chatlog__content">
+                    <div class="markdown">Or maybe perhaps it was from somewhere.  The piece she received. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="625412280611373060" id="message-625412280611373060">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel’s eyes widened and she nodded. Leaning out her door, she called after Lucas. “Where we’re going is cold. Might want to be ready for that,” she warned. Her heart was beating fast, her mind a whirl of questions. She’d heard Corona’s voice. She knew it. But... how? At that, she held up the eye and inspected it. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="625412779414650917" id="message-625412779414650917">
+                <div class="chatlog__content">
+                    <div class="markdown">The eye eas indeed... moving.  Its pupil expanding and dialating to the focus of light in the tiny room.
+
+&quot;Its a part of me remember?&quot;  Said a voice uttering from it.  He spoke as if it was only logical, but then again he was a metallic dragon. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="625413569634238483" id="message-625413569634238483">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel licked her lips, her mouth going dry. “Should I keep you out somewhere so you can see?” she asked the eye directly, deciding she was speaking to Corona, as if he were right there with her. “I’ve a chain from some worthless jewelry I might be able to fasten you to.” She remembered the jewelry that had held little value amongst the ones that did from the chest she’d received from Parcival. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="625415424372244481" id="message-625415424372244481">
+                <div class="chatlog__content">
+                    <div class="markdown">Thr eye looked about her room.  &quot;If you can.  The more light I can radiate upon, the more power I can collect, and the more useful I can potentially be.&quot;
+
+It was quite heavy to be just a charm, maybe around her neck or belt loop. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="625416469605253120" id="message-625416469605253120">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel moves over to the chest and rummaged through it, finding a small chain she could fasten to the eye. The chain was heavy enough. Sturdy. It looked like it could take the weight of the eye. “Right then,” she mumbled, linking the chain through some slots on the eye. Once she was satisfied, she wrapped it about her neck and fastened it, giving the chain a tug to make sure it was properly secured. The eladrin smiled then, quite satisfied with what she’d done. “That should be better,” she said softly, hoping Corona agreed. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="625419789367508994" id="message-625419789367508994">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Much.&quot;  The eye stated looking at the room, the rat in her pocket.  &quot;You are bringing your pet?  Good.  You need as many friendly faces as you can muster.&quot;
+
+A moment went by as they waited for their companion.  &quot;What do you hope to find?&quot;  He asked her </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="625421596005367858" id="message-625421596005367858">
+                <div class="chatlog__content">
+                    <div class="markdown">The words struck Anariel to her core, the eladrin feeling a lump form in her throat. She wasn’t sure if she’d find her family or not. Nor was she sure they’d be happy to see her if she did. But... she just needed to see she wasn’t alone. Closure. That’s what she hoped for. A means to end the unfinished chapter. It was the only way to move forward. Perhaps Alain had always known this and it had been why he’d wanted her to try. Why he’d never had the heart to sell her necklace. “Closure,” she stated firmly. “Just simple closure.” She paused a moment. “Even if I’m not wanted or missed or even if my family is gone. I’ll know where I’m from. What brought me to where I am. I’ll know I wasn’t alone.” It was a simple thing, probably silly to most. But she needed this. It was something worth dying for, more so since it also was something worth living for too. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="625425692485615626" id="message-625425692485615626">
+                <div class="chatlog__content">
+                    <div class="markdown">Just a few minutes after leaving to get his stuff, Lucas finally returned, wearing a brand new set of armor, one that he only purchased from Hope, feeling rather happy about his new purchase. He had his usual backpack on his back, and his swordsheathe strapped to his side alongside with his two daggers, now being fully prepared for their journey
+
+He quickly walked up to Anariel in his new, darker brown armor, and sighed a bit &quot;Well, it took me a little longer to get prepared, but I&#39;m ready... Where is this... Portal you have mentioned before?&quot; He tilted his head to the side, feeling rather curious about the place she was about to show him to </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="625427124722860039" id="message-625427124722860039">
+                <div class="chatlog__content">
+                    <div class="markdown">((Did he hear her mention the warmer clothes? They are going somewhere that’s perpetual winter. XDDD)) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="625427619998990356" id="message-625427619998990356">
+                <div class="chatlog__content">
+                    <div class="markdown">((Well, the gods of the dice told me that he did not, but he has a cantrip for fire so he can keep himself somewhat warm)) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625427660407046156" id="message-625427660407046156">
+                <div class="chatlog__content">
+                    <div class="markdown">((Though everyone will notice them)) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="625427762831949848" id="message-625427762831949848">
+                <div class="chatlog__content">
+                    <div class="markdown">((Well, she was wearing her own. So idk if he’d put that together)) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625428044060033034" id="message-625428044060033034">
+                <div class="chatlog__content">
+                    <div class="markdown">((If not, she’ll tell him outright. Trust me you do not want frostbite)) <span class="chatlog__edited-timestamp" title="22-Sep-19 04:27 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="625428524903432192" id="message-625428524903432192">
+                <div class="chatlog__content">
+                    <div class="markdown">((Well, Lucas usually stayed around cities and towns running from baddies or doing stuff so he doesn&#39;t have clothes that are <em>too</em> warm but he is wearing his armor on top of his normal clothing so idk if that&#39;s enough or not, I&#39;m a newbie)) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="625428787693355011" id="message-625428787693355011">
+                <div class="chatlog__content">
+                    <div class="markdown">(( <span class="mention" title="ShwiggityShwah#6420">@ShwiggityShwah</span> said everyone on board got warm winter clothes provided to them because they are heading into the mountains. So he should have them)) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625429005998358560" id="message-625429005998358560">
+                <div class="chatlog__content">
+                    <div class="markdown">((In my Strahd campaign, my DM was evil about frostbite in the mountains. So if you had no coat you were fucked. Lol)) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="625429029931188253" id="message-625429029931188253">
+                <div class="chatlog__content">
+                    <div class="markdown">((Oh okay then I&#39;d say that Lucas has his warm clothes on after seeing Anariel being dressed in the same stuff actually)) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="625432655386640427" id="message-625432655386640427">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel glanced over at Lucas once he’d returned. The eladrin arched a brow and nodded, noting the armor. Her own had also been upgraded, though not as much as his, so it seemed. But no matter. They were still better off than... she felt her chest tighten, so she sucked in a breath trying to calm herself down. Slowly, she exhaled, remembering that Corona was with her and would be once in the Feywild. “I take it you found the warm clothes,” she mentioned. “Where we’re going... you’ll need it.” At that, she made her way to the vent and crawled inside, making her way back to the <span class="mention">#engine-room</span> and the awaiting portal, gateway to the land of winter. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="625436024843010077" id="message-625436024843010077">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas soon followed her towards the vents, feeling really confused by why she started crawling into them, but he followed her anyways, letting her take the lead, since she knew where the two of them were going. The only thing that made him more uncomfortable than having to crawl in the vents though was the fact that he had to crawl behind her. Lucas kept his head turned away, only glancing into her direction occasionally, since he wanted to act like a gentleman as much as he could around her, and he didn&#39;t want to make her feel like he was staring at her or anything </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 05:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="625438053128732705" id="message-625438053128732705">
+                <div class="chatlog__content">
+                    <div class="markdown">// Driving home  I&#39;ll pick up on you guys when I get the chance </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="❤" title="❤" src="anariels-room.html_Files/2764.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="GWcorsairSqueeFox" title="GWcorsairSqueeFox" src="anariels-room.html_Files/395626929732190212.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">23-Sep-19 07:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="625839384213585950" id="message-625839384213585950">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel winced, shifting to rub her backside, which she’d bruised earlier when finding Corona Dawn’s lair. She then looked over at Scamp, the little mouse darting directly for her door. “Odd,” she whispered. She stood up and scooped up the mouse, the little creature jumping back out and moving towards her door. “Honestly, what’s gotten into you?” she asked him, picking him up again and opening the door. Scamp seemed pleased at her decision, settling down and nuzzling her palm, as she dared to peek outside. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625839422721490954" id="message-625839422721490954">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Deleted User#0000">@Deleted User</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Deleted User#0000" data-user-id="456226577798135808" style="">Deleted User</span>
+
+
+        <span class="chatlog__timestamp">23-Sep-19 08:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="625846387032195110" id="message-625846387032195110">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Thorinn would be outside the door with his back turned to it. He was deep in thought on whether he should knock and say hello. Last they spoke he had given her a beautiful dress then practically disappeared.. She probably hated him for it. How could he have abandoned her? He was dumb to do so. Upon reaching his decision he would take a deep breath and turn around to knock on the door only to see Ana&#39;s beautiful face. 
+He blushed as he saw her...not sure what to say since it had been over a week..all he could muster was a &quot;S..sorry for leaving..&quot; Before handing her a beautiful white rose</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">23-Sep-19 08:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="625853220463312897" id="message-625853220463312897">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel gasped the moment her eyes were met with Thorinn’s. She honestly hadn’t expected to see him, not after he pulled away. Leaving her alone when he’d offered her his protection. The giddy terror and elation she’d been feeling about returning to the Feywild suddenly a mix of something more. She felt her chest tighten, emotions threatening to bubble up to the surface. Trying to remain collected, the girl sucked in a sharp breath, her eyes studying him, as he stood there. His words weren’t lost upon her, her eyes suddenly seeing the rose he held out to her. An offering. A gift. An apology. 
+
+“Why... why did you?” Anariel whispered, clearly choking up. Scamp just tittered in her pocket happily, as she took the offered rose and held it up to her nose. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Deleted User#0000" data-user-id="456226577798135808" style="">Deleted User</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-19 05:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="626172970888593421" id="message-626172970888593421">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He couldnt look her in the eyes as he was so ashamed, he looked down at his armor and spoke softly</em> &quot;I cant give you a valid reason. Perhaps it was my instincts telling me things were too good to be true. But I couldn&#39;t stay away forever..I have strong feelings for you. And I wont deny them anymore.&quot; <em>he slowly looked up to her with a pained look</em> &quot;In all fairness ive missed you&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-19 05:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="626175238463422468" id="message-626175238463422468">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel felt her face grow warm, the sounds of little Scamp nestling quite contentedly in her pocket. She looked at Thorinn, remembering his promises, his gifts. The things that he had said. She still had the dress tucked away in her pack, unable to part with it and longing for a moment when she could wear it again. Biting down on her lip, she just nodded somberly and sighed. They’d all been through so much. Perhaps she shouldn’t jump to conclusions so quickly or harshly. 
+
+“I... I’ve missed you as well,” Anariel admitted, facing the fact that part of her sadness had been due to feeling abandoned and alone. But... she wasn’t. Was she? There was one to know for sure. So she steeled herself, clearing her throat and reaching out to touch his arm. “I... I found a portal to the Feywild,” she explained, her tones hushed and low. “Would you come with me?” Her face showed worry mixed with hope, as she suddenly licked her lips. “Lucas is also coming,” she added. “But...” She breathed in deeply before exhaling slowly. “I’d like you to be there too. Would you?” She asked him. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Deleted User#0000" data-user-id="456226577798135808" style="">Deleted User</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-19 07:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="626195240906129418" id="message-626195240906129418">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>a smile would crack on his lips as she said she missed him as well. Feywild? He had never been there. Perhaps he could find some unique metals to work with whilst there. But of course he would go. He would do whatever necessary to protect Anariel.</em> &quot;Of course my love, I shall be by your side to protect you. I do not believe I have met this &#39;Lucas&#39; but if he is in your conpany then he should be a good man. When are we to leave?&quot; <em>he said as his hand would embrace hers without thought</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-19 08:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="626209402046906397" id="message-626209402046906397">
+                <div class="chatlog__content">
+                    <div class="markdown">Anariel did not pull away, as Thorinn reached out for her hand, enveloping it within his own. The eladrin turned and let her gray glaze linger at their joined hands, her chest suddenly tightening. Her expression turned thoughtful and she wondered if he truly meant it this time. She gave him a nod, wild snowy hair falling forward over her shoulders. 
+
+“Oh...” Anariel whispered. “You didn’t get the chance to properly meet Lucas.” She tilted her head and gestured towards the open vent. “He was on our last job. But we’d gotten separated from you,” she explained, jogging the large man’s memory. “He was the blonde man who’d gone with us. Though I’ll introduce you properly in a moment.”
+
+Anariel then took a step towards the vents. “This. This leads to an <span class="mention">#engine-room</span>,” she went on. “Lucas is waiting for me there, along with Corona Dawn.” The girl paused a moment. “He’s a mechanical dragon. He helped me open the portal. Follow me.” At that, she led Thorinn to the vent and crawled inside. She then glanced over her shoulder to see if he was following her. <span class="chatlog__edited-timestamp" title="24-Sep-19 08:54 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Deleted User#0000" data-user-id="456226577798135808" style="">Deleted User</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-19 08:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="626389624448876554" id="message-626389624448876554">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Thorinn would groan to himself as the vents didnt seem all that comfortable for a man of his stature. Then he would see anariel on all fours bent over in the vent looking back at him and that immediately dissipated negative thoughts of joining her in the vents</em> &quot;Then we shall be off my booti...err beautiful friend.&quot; <em>his face would flush red as he couldnt help looking at Ana&#39;s lovely figure from behind.</em> &quot;I do think I enjoy the view as well sweetheart&quot; <em>he chuckles a bit and teasingly poked her on the rear in a friendly manor following her through the vents</em> <span class="chatlog__edited-timestamp" title="25-Sep-19 08:09 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="anariels-room.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-19 08:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="626390286481883146" id="message-626390286481883146">
+                <div class="chatlog__content">
+                    <div class="markdown">Exit to <span class="mention">#engine-room</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 83 message(s)</div>
+</div>
+
+</body>
+</html>
