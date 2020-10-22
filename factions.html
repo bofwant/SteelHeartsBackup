@@ -1,0 +1,1139 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - factions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="factions.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">World Setting / factions</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 10:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="644913340619030539" id="message-644913340619030539">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong><u>Church of Ebony and Satin</u></strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644914180859625487" id="message-644914180859625487">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://pin.it/njqbfjie7b6kcg">https://pin.it/njqbfjie7b6kcg</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,255,255,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://pin.it/njqbfjie7b6kcg">
+                                                    <div class="markdown">&quot;Heart of the Father&quot; is one of the oldest and most common pope to...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">&quot;Heart of the Father&quot; is one of the oldest and most common pope today. Traditionally it was known as a symbol of love since its introduction...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="factions.html_Files/9444c74c2a4332455012325ed7336ea9--tribal-heart-tat.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="factions.html_Files/9444c74c2a4332455012325ed7336ea9--tribal-heart-tat.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="644915736158011412" id="message-644915736158011412">
+                <div class="chatlog__content">
+                    <div class="markdown">When Sune first began to speak with Asmodeus, archfiend warlocks also began to speak with Lady Sune clerics.  Ritualistic marriages bonded the two as their respective lords met eachother in love, understanding, and thus a small little cult began to form during the war heavens.
+
+When Sune became queen, she noticed the believers that looked past the different, the scary and found the sense of belonging that all sentient beings share.  She formally sponsored them as her congregation and thus the church has grown in power and popularity, which has only been bolstered by the close ties the religion has formed with the Hells. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644916887804837928" id="message-644916887804837928">
+                <div class="chatlog__content">
+                    <div class="markdown">Today, the church is still quite physically weak compared to the other older established religions, but their cells grow as their beliefs slowly diffuse into cultures.  Their goal is &quot;Love Unrestricted&quot; and many priests are former prostitutes and their &#39;temples&#39; also play the part as brothels, with sexual services being considered just as holy as preaching and healing mind and body.  
+
+Their priests officiate weddings, pray at fertility and harvest festivals, bless children and families, and offer sanctuary to those who wiuld suffer at the hands of a course and cruel society.  They run a number of social services and have connections among the common people. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644917497950109706" id="message-644917497950109706">
+                <div class="chatlog__content">
+                    <div class="markdown">They do not shy away from the fact that they normally associate with fiends, their magic users even summoning and releasing them onto the mortal plane.  There are a number of agreements for those who wish to escape hell for a more peaceful existence.  They train fiends to be able to associate with humans, but sometimes a fiend cannot deny their nature.
+
+Antagonists to the church consider them sinners and infernalists, and according to ones moral compass, they are not wrong. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644918191793111063" id="message-644918191793111063">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong><u>The Silver Knighthood</u></strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644918383003041795" id="message-644918383003041795">
+                <div class="chatlog__content">
+                    <div class="markdown">Look at this... <a href="https://pin.it/pw2qqk5rg3mpkl">https://pin.it/pw2qqk5rg3mpkl</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,255,255,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://pin.it/pw2qqk5rg3mpkl">
+                                                    <div class="markdown">The death symbol in 2019 | Tattoo drawings, Symbolic tattoos, Tatt...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Oct 30, 2019- This Pin was discovered by Cassa Scarlet. Discover (and save!) your own Pins on Pinterest.</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="factions.html_Files/ee5ab1a5e5a4e3b45f2017ff254e8d2f.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="factions.html_Files/ee5ab1a5e5a4e3b45f2017ff254e8d2f.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 11:34 AM</span>
+
+            <div class="chatlog__message " data-message-id="644923233728069642" id="message-644923233728069642">
+                <div class="chatlog__content">
+                    <div class="markdown">The lack of undead, fiends, Aberrations and monsters found in the Kingdom of Erie can be directly thanked by the Silver Knights.
+
+Their chapter is actually from another land but they were hired during the war for the crown due to the unholy magics utilized by some of the factions in their bid for power.  Several times, a beholder, a lich, a demonprince will reer their ugly head, bring with them magics that would decimate the county.  It was thanks to these heroes that Erie still stands. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644924774832930836" id="message-644924774832930836">
+                <div class="chatlog__content">
+                    <div class="markdown">The knights act in service to the Crown the Noble Houses, and several established churches for Eries pantheon but they themselves are a completely martial order.  Sword and spell are their final answer to all problems.  Being suspected of infernalism is usually enough to be arrested and carted of.  Most never return.  The knights carry with them a certain fear, which they take advantage of.  They are fighting for the soul and life of Erie.  No cost is too great. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644925145713999872" id="message-644925145713999872">
+                <div class="chatlog__content">
+                    <div class="markdown">They have an unspoken war with the Church of Ebony and Satin for their intemperance and dailiances with demons.  They refuse to acknowledge them as any more then a cult, but are losing public opinion for their methods. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 12:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="644930385045618699" id="message-644930385045618699">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong><u>Clocktower</u></strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644930530869248011" id="message-644930530869248011">
+                <div class="chatlog__content">
+                    <div class="markdown">Look at this... <a href="https://pin.it/ptwupbwc2cu35h">https://pin.it/ptwupbwc2cu35h</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,255,255,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://pin.it/ptwupbwc2cu35h">
+                                                    <div class="markdown">Check out this awesome &#39;White+Spell+Magic+Circle&#39; design on @TeePu...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Nov 13, 2019- Check out this awesome &#39;White+Spell+Magic+Circle&#39; design on @TeePublic! #magiccircle Check out this awesome &#39;White+Spell+Magic+Circle&#39; design on @TeePublic!</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="factions.html_Files/b4cc1308c5d84856a3362930361a4fbb.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="factions.html_Files/b4cc1308c5d84856a3362930361a4fbb.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="644931800279547944" id="message-644931800279547944">
+                <div class="chatlog__content">
+                    <div class="markdown">Airships, Electricity, Gateways, Automatons, Warstriders.
+Clocktower invented them all.
+
+Before the war, Clocktower was a council of wizards.  They remained neutral, but offered up spells, artifact, information to all sides.  Before anyone had any way of stopping them, the counsil commanded enough money and influence to rival the Noble Houses, maybe even the Crown itself. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 12:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="644937066677010442" id="message-644937066677010442">
+                <div class="chatlog__content">
+                    <div class="markdown">Composed of Magitech engineers, articifers, alchemists, and Wizards from all the schools of magic, knowledge and innovation is key and sign of power for Clocktower.  
+
+They provide invention then sell it to the highest bidder or rent out their specialists for all manner of tasks across the kingdom and beyond.  Competition is fierce for any project or institution sponsored by Clockwork as it general means wealth and prestige, usually at the acceptable cost of personal safety.
+
+In light of these pursuits, things like morality, empathy, distractions, compassion, ethics are held in low regard. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 05:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="645007183733456993" id="message-645007183733456993">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong><u>The Crown</u></strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645007850384392222" id="message-645007850384392222">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="factions.html_Files/28ca535aa3c82dbc4ff9e266d263990a.png">
+                                    <img class="chatlog__attachment-thumbnail" src="factions.html_Files/28ca535aa3c82dbc4ff9e266d263990a.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645009258483679251" id="message-645009258483679251">
+                <div class="chatlog__content">
+                    <div class="markdown">The Crown is the ruling cast of the Kingdom of Erie.  When the crown is mentioned, it means the 6 Noble Houses that control the country.  While House Pendragon is unquestioningly the ruling body, where the King and his extended family, each House has their own economic, military, political, and magical might, with each holding governing territory across the whole of the Kingdom.   While House Pendragon can function as the ruling entity for Kingdom, each other House has been purposefully set up in such a way that they rely on the other Houses.  One of the decrees issued by the First King, so that the others may not rise up and challenge the rightful king.
+
+Government is set up that each Noble House holds seats and representatives in a council called the Deliberative, where the King or his designates make the final decision. <span class="chatlog__edited-timestamp" title="15-Nov-19 05:23 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645009277949444126" id="message-645009277949444126">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote"><strong>HOUSE PENDRAGON</strong> The ruling family unit that holds a main branch and dozens of branch families. Each branch is meant to govern the larger cities of Erie.  Humans, Elves, Dwarves, even Gnomes have been formerly married into the family and govern the cities that house the primary members of their race.  It is also known that the blood of dragons runs deep within the family.  Many of them are acclaimed sorcerors, and proudly show off their wings and scales, to commemorate the Dragon that helped birth their branch family.  Indeed, the King can even call upon the Dragons themselves to do his bidding, ensuring the continued survival of the Kingdom.</div> <span class="chatlog__edited-timestamp" title="15-Nov-19 05:22 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645010840650645504" id="message-645010840650645504">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote"><strong>HOUSE GILDER</strong> The Banking system.  Its Gilder that manages all of the coin and taxes that run through the Kingdom and assure that trade is obscured.  They can offer loans and lines of credit to anyone and everyone, and hold an army of debt collectors and entire archives of those who owe them favors.  House Gilder never forgets, and commonly uses The Temple as a way to leverage someone, physically, magically, emotionally, or spiritually.  Without House Gilder, the finances of the other Houses and their lands will fall into destitution.</div> <span class="chatlog__edited-timestamp" title="15-Nov-19 05:27 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645011160105615410" id="message-645011160105615410">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote"><strong>HOUSE CANDOR</strong> The Industrial system.  This house works primarily in production.  Most farming towns and villages are owned by House Candor, and thus the House holds a special place in the hearts of the common man, and often do speak for social rights.  House Candor also sponsors shipwrights, logging camps, guilds, artisans, and tradesman to produce the goods the company needs.  Its liable that if House Candor fails, most of the country would starve.</div> <span class="chatlog__edited-timestamp" title="15-Nov-19 05:31 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645011192972181514" id="message-645011192972181514">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote"><strong>HOUSE FEATHER</strong> The Entertainment system.  With more tools and inventions, the common folk have begun to find more time to themselves.  House Feather capitalized on that fact.  Taverns, Brothels, Stage Shows, Gladiatorial Bouts, Newpapers, Criers, Magical Tournaments, Plays, Fashion, Makeup, and Music of all kinds are being fashioned each and every day to amuse the populace.  By far the most favored house, and incidentally one that controls information.  Their media outlets can spin the truth, their prostitutes now such things from their patrons.  Distraction and Information are their goods and trade.  They would very much like to Destroy the Church of Ebony and Satin for taking their business.   Without House Feathers, the other Houses are liable to have commoner revolts on their hands.  Boredom leads to thoughts after all.</div> <span class="chatlog__edited-timestamp" title="15-Nov-19 05:37 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645011222126657547" id="message-645011222126657547">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote"><strong>HOUSE TALON</strong> The Military system.  House Talon is the standing military and armada not owned by the personal legions of House Pendragon.  They maintain order within the kingdom and fight those without, whether they be man, beast, or monster.  They maintain the skyship fleets and Sea Armadas and the legions that are the sword, shield, and spear of Erie.  They commonly are hired by other houses and organizations as mercenaries, and employ quite a few themselves.  Without them, the other Houses and their lands are defenseless.</div> <span class="chatlog__edited-timestamp" title="15-Nov-19 05:40 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645011297725054989" id="message-645011297725054989">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote"><strong>HOUSE MANCER</strong> The Infrastructural System.  A kingdom needs buildings, roads, towers, walls.  It needs furniture, tools, factories to make them.  It needs engineers, specialists, laborers.  It needs hardwork and lots of hands.  Men, women, children, beastkin.  It doesn&#39;t matter.  Erie is a country moving to become one of the greatest empires on Elysia, and it rides upon the backs of its loyal citizen towards a new shining future.  Without House Mancer, the other houses do not have the manufactories or engineers to build, maintain, and repair.</div> <span class="chatlog__edited-timestamp" title="15-Nov-19 05:47 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 06:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="645022280480456720" id="message-645022280480456720">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong><u>Crimson Dragoons</u></strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 06:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="645029156496605185" id="message-645029156496605185">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="factions.html_Files/unknown.png">
+                                    <img class="chatlog__attachment-thumbnail" src="factions.html_Files/unknown.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645029228667994142" id="message-645029228667994142">
+                <div class="chatlog__content">
+                    <div class="markdown">Its no mystery.
+The Crimson Dragoons won the war for House Pendragon. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645030631604092928" id="message-645030631604092928">
+                <div class="chatlog__content">
+                    <div class="markdown">The Crimson Dragoons are an elite order of Knights that serve the Crown and the King, Leander Gold Pendragon.   They have led Talon Legions.  They have conducted assassinations on Giant Lords.  They have brought the Dragons that raided these lands to heel.  When its impossible, the Crimson Dragoons are called in to make it happen.  
+
+They are the body guards, and agents to the Pendragon Family and can be found throughout the land enforcing his will.  It is said that when you are entered in before you are even fully grown, you lose your name and instead take a number, such is your devotion that your life is no longer your own, but belongs to the Kingdom.  
+
+Each Dragoon is said to be an elite class of adventurer, from Champions to Cavaliers, from Arch Wizards to Astral Monks.  Each one is an army onto himself and a truly terrifying opponent.  It is also said that most of those in their ranks are Dragonborne.  A bit too convenient... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="factions.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Nov-19 06:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="645032522677354509" id="message-645032522677354509">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong><u>Crooked Scissors</u></strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645032756094697490" id="message-645032756094697490">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://cdn.discordapp.com/attachments/613509211363606634/613535963263533076/kisspng-dissidia-final-fantasy-nt-final-fantasy-xiii-dirge-comes-5ad7aa43a4c0f9.png">https://cdn.discordapp.com/attachments/613509211363606634/613535963263533076/kisspng-dissidia-final-fantasy-nt-final-fantasy-xiii-dirge-comes-5ad7aa43a4c0f9.png</a> <span class="chatlog__edited-timestamp" title="15-Nov-19 06:50 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645032836599906328" id="message-645032836599906328">
+                <div class="chatlog__content">
+                    <div class="markdown">The Crooked Scissors operate the largest criminal network in the Kingdom. From smuggling operations, to robbery and theft, The Crooked Keys are more than likely to get a peice of the take. They buy and sell information, having operates spread out through the kingdom of Eire. They have no intention of gaining control of the kingdom, prefering to puppeteer events to there favor from the shadows.
+
+The criminal cabal is run by a Don of each city, answering only to the Capo; Boss of bosses. They expect a cut from every criminal related job, extorting those who deny them there rightful privilege. Working with the Scissors is guaranteed a large sum of gold, crossing them is a death sentence <span class="chatlog__edited-timestamp" title="15-Nov-19 06:51 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645033922119598100" id="message-645033922119598100">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong><u>The Temple</u></strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645033933293092864" id="message-645033933293092864">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="factions.html_Files/Screenshot_20191005-195604_Pinterest.png">
+                                    <img class="chatlog__attachment-thumbnail" src="factions.html_Files/Screenshot_20191005-195604_Pinterest.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645034789627494401" id="message-645034789627494401">
+                <div class="chatlog__content">
+                    <div class="markdown">Despite the ascension of Lady Sune, the Pantheon of Erie is vast, vast and active, and thus the people worship them.  95% of the population atleast mouth a few words of respect, requesting the favor of the gods of hearth, bounty, wealth, safety, and luck.  Just as often a citizen will pray for a god <em><strong>NOT</strong></em> to do something, avoiding misfortune, or curses.  On holy days, its considered in good form to sacrifice a little to the gods that oversee your job, your town, your family.   There is alot of money to be had in worship and the Temple controls all of it. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645035534128906241" id="message-645035534128906241">
+                <div class="chatlog__content">
+                    <div class="markdown">The Temple acts as the Religious Authority for the Kingdom of Erie.
+Its Monks, Paladins, and Clerics act as an umbrella for all other cults, temples, and churches.  For tithes they allow them to worship as they please in whatever way serves the gods.  If they don&#39;t pay, the Temple will speak against their &#39;lack of faith&#39; and worship becomes more and more difficult.  They still bribe the gods whom are losing followers, but just as often they funnel prayers into rival, more lucrative spirits, at the expense of the weaker cheaper ones.  
+
+After all, what do you need money for if you want to go to heaven? </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645035966800723969" id="message-645035966800723969">
+                <div class="chatlog__content">
+                    <div class="markdown">They have control over alot of social interactions, and citizens can go to them to buy prayers, and benedictions or health.  Still they are not completely heartless as they front many orphanages, poor houses, and social welfare programs.  How pious and merciful the temple is!  Be sure to remember who helped you when no one else would... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 35 message(s)</div>
+</div>
+
+</body>
+</html>

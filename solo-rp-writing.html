@@ -1,0 +1,1101 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - solo-rp-writing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="solo-rp-writing.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Solo RP Practice / solo-rp-writing</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">27-Jun-20 11:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="726644372858339438" id="message-726644372858339438">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>The Birth of Monsters</strong>
+[25 Years Ago. Unknown Location.]
+(Personal Notes)
+This is Doctor Jeremiah Benigno. I&#39;ve finally done it. With just a few pieces of flesh and magical currents flowing through these tubes, I have created life. Clocktower calls these things &quot;Simic Hybrids.&quot; I think it&#39;s an awful name for them, but it has to do for now. I shudder to imagine what Clocktower could create with this, but it seems I&#39;m as blind as they are when it comes how to properly create and raise these things. Guidelines are vague, yet it seems for the most part, they simply grow and mature like humans do, just at a faster pace. After that? Well, I just have to teach them, like normal children. Of course they will be assisting me in my restaurant, and hopefully I can develop their skills to surpass even mine.
+[20 Years Ago. Unknown Location.]
+This is Doctor Jeremiah Benigno. My creations are growing rapidly, as expected. They are walking, talking, and performing rather simple tasks on their own. I&#39;ve given them names early on, but I do hope to give them proper names when they &quot;graduate&quot;. The pig is The Butcherer, The chicken is The Chef, and the wolf is The Hunter. I actually wondered early on what their personalities would be like, and I am happily surprised. They all are fairly sweet towards me, but The Butcherer tends to be a bit quiet but easy going, The Chef is bubbly and energetic, and The Hunter teases his brothers a lot, but is fiercely protective of them. Despite their animalistic features, they seem normal, even disregarding the expected, yet rare animal sound. Progress is looking good.
+[10 Years Ago. Unknown Location.]
+This is Doctor Jeremiah Benigno. My children have grown quicker than I thought, nearly adults even as they have been alive for only fifteen years. They have been trained in their crafts to the best of my ability, and they outdo even me. They each know exactly what to do. I feel as if they a-
+(The writing stops. The page is soaked in blood.) <span class="chatlog__edited-timestamp" title="28-Jun-20 02:21 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">30-Jun-20 02:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="727405214176509954" id="message-727405214176509954">
+                <div class="chatlog__content">
+                    <div class="markdown">A camera suddenly turns on. It shows a empty warehouse. It looks very worn out by the passage of time. Few of the dirty glass windows are broken and on the other side a myriad of things could be seen. From those things sounds came, the sounds of a big battle being fought.
+
+A man stepped in front of the camera then. He didn&#39;t look like anything special. Short brown hair and eyes, tanned skin. Not too fat and not too skinny. Not too tall but not short either, dressed in a simple t-shirt and jeans with brown working boots. A common worker by society stands.
+
+<em><strong>BOOM BOOM CRASH</strong></em>
+The sounds of the hellish battle raged outside.
+
+
+&quot;This...&quot; The man started and then took a deep breath, closing his eyes for a second before opening them and steeling his gaze at the camera. &quot;This is a message, for all of you. Those who are hiding, those who are scared. For those who are still clinging to the hope of their faith. Those who are trying to make sense of why this is happening and asking God &#39;why Lord?... Why did you allow this?&#39;&quot; His voice was not too soft but not too rough. A common simple man but one who was tired of how things were right now.
+
+&quot;Like in movies and fantasy books our world has experienced a big change. Energy, power, magic... No matter what you call it, has suddenly filled our countries. Our already doomed society became a complete chaos.&quot; He stopped then, reaching for his right pocket and pulled out his smartphone. &quot;This is a message for all of you who still believe in the holy word of our God. You don&#39;t need to believe me, you just need to listen and let the holy spirit to fill you up with certainty that my words are true.&quot;
+
+He made a few taps and showed the camera what he was doing. He was opening a simple app, and app to read the Bible. 
+
+<em><strong>BOOM</strong></em> 
+Something crashed near the warehouse, making the ground tremble like an earthquake, shaking whatever was holding the camera, but the man, sure of himself, started to read. <span class="chatlog__edited-timestamp" title="30-Jun-20 02:16 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="727405240017485885" id="message-727405240017485885">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot; Isaiah 41 from the verse 8 says: *“But you, Israel, are My servant, Jacob whom I have chosen, The descendants of Abraham My friend. You whom I have taken from the ends of the earth, And called from its farthest regions, And said to you, ‘You are My servant, I have chosen you and have not cast you away: Fear not, for I am with you; Be not dismayed, for I am your God. I will strengthen you, Yes, I will help you, I will uphold you with My righteous right hand.’ “Behold, all those who were incensed against you Shall be ashamed and disgraced; They shall be as nothing, And those who strive with you shall perish. You shall seek them and not find them— Those who contended with you. Those who war against you Shall be as nothing, As a nonexistent thing. For I, the Lord your God, will hold your right hand, Saying to you, ‘Fear not, I will help you.’ “Fear not, you worm Jacob, You men of Israel! I will help you,” says the Lord And your Redeemer, the Holy One of Israel. “Behold, I will make you into a new threshing sledge with sharp teeth; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="727405261836517376" id="message-727405261836517376">
+                <div class="chatlog__content">
+                    <div class="markdown">You shall thresh the mountains and beat them small, And make the hills like chaff. You shall winnow them, the wind shall carry them away, And the whirlwind shall scatter them; You shall rejoice in the Lord , And glory in the Holy One of Israel.* &quot; He finished reading and looked straight at the camera again. There was something different in him, something different around him, something powerful... Something more.
+
+&quot;The so called smart ones of this world says that we believe in fairytales, that our faith comes from our need to believe in something greater than us... That now that there&#39;s magic in the world and we have, in less than a decade, learned to manipulate it... That it is proof enough that everything we believe is mere fiction because, where is our God? Why when people can suddenly hear the spirits of nature, listening to the thoughts of others, can manipulate electricity and fight like Titans... When they can harness the power of the stars and call upon catastrophes with a mere thought... Where is that Oh great one looking down upon us from that great throne?&quot; As he spoke, his words got more intense and loud so he could be perfectly understood over the sounds of battle coming from outside. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="727405292882755624" id="message-727405292882755624">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well my fellow brothers and sisters, here&#39;s the answer. It&#39;s us! Every single one of us! Because who are we but the children of God? Why does he need to act when in his infinite love and wisdom he had given us the power and authority to do the impossible?! Why beg him to act when we can do it ourselves?!! Because what else are we but the hand of God in this Earth?!!! His children for who he has given even his priceless life!!!&quot; Around him the old wharehouse started to light up. Not by the flashes of power coming from the outside but by something great that was happening inside.
+
+He raised the hand holding the phone, eyes still fixed on the camera when suddenly a big wind spell ripped off the roof of the whole structure. Now the sounds of battle were nearly deafening but somehow his voice still rang clear and true. &quot;Stand up my brothers!! Like our forefathers we have been living in our land like as in a foreign country!! Letting others trash our God, letting others call us crazy and liars!! Letting other to dictate how we should live when WE are the ones with the truth on our hands!!!&quot;
+
+&quot;So rise up, stand United as the children of God in this world, <em>For we do not wrestle against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this age, against spiritual hosts of wickedness in the heavenly places.</em> In places of power and influence over all of those who dwell in this world!!&quot; That power around him seemed to be forming a bubble, a shield that not even the strongest fire attack could penetrate. And even when the image got some interference caused by lighting crashing around the area the stream was never stopped as if holy intervention was keeping it from being stopped. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="727405306925285376" id="message-727405306925285376">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;So rise up with me!! Don the whole armor that our father has given us!! That power that we had all along even before fiction became truth in this world!!!&quot; His whole body seemed to be vibrating with power, that simple man becoming a holy soldier in live video. He widened his stance, squared his shoulders raised up his arms like he was ready to go into battle. Even the phone in his right hand seemed to be glowing.
+
+&quot;Gird your waists with truth so no lie can change who you really are!!&quot; At that holy energy gathered around his waist and legs, the power solidifying into a modern version of armored pants. Sharp squared plates perfect for both mobility and defense, like one would see on a sci-fi soldier, were the ones that appeared on him.
+
+&quot;Put on the breastplate of righteousness so not even the sweetest power can corrupt your hearts!!&quot; This time the chest piece of the armor materialized on him. Despite it&#39;s source it seemed to have circuits running through it, even a pair of something that looked like LED flashlights were on his shoulders.
+
+&quot;Shod your feet with the preparation of the ghospel of peace so everywhere you go you bring the news of salvation, the truth of that we all know and fight for!!&quot; Again, futuristic like boots appeared on his feet, on their sides they even seemed to have small propulsors and were perfect for any terrain known by man. <span class="chatlog__edited-timestamp" title="30-Jun-20 02:25 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="727405327997206609" id="message-727405327997206609">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;most importantly never forget the shield of faith!! So not even the sharpest weapon or strongest spell can break your beliefs!!!&quot; On his left hand a big futuristic shield appeared, this one not looking completely physical but only a bracer made that projected a yellow energy shield.
+
+&quot;Take the helmet of salvation!! So not even the sharpest illusion can twist your mind and make you lose that gift that was paid in blood by our Lord! A payment so big, that not even all the riches of the universe can come close to cover!!&quot; Like the rest of his armor, a futuristic helmet appeared on his head. The yellow lights of numbers and lines in the HUD were reflected on his eyes, making them appear powerful gold instead of boring brown.
+
+&quot;And at last wield the sword of the spirit! Which is the word of our almighty God!!&quot; The glowing smartphone in his hand exploded into a modern like broadsword, completing the look of a futuristic or alien soldier, ready to go into war.
+
+Suddenly the bubble dissapeared, the strong winds making the camera fly around the place but somehow the device never lost its focus on the soldier. <span class="chatlog__edited-timestamp" title="30-Jun-20 02:27 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="727405345298841630" id="message-727405345298841630">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;More than anything be strong and very courageous because our God is with us, <em>No man shall be  able  to stand before you all the days of your life; as I was with Moses, so  I will be with you. I will not leave you nor forsake you. Be strong and of good courage, for to this people you shall divide as an inheritance the land which I swore to their fathers to give them.</em> So your God tells you right now!!&quot;
+
+<em><strong>BOOM</strong></em>
+
+Something crashed in front of the soldier. A big and intimidating looking woman, holding a sword made of neon. Her hair was purple and was dressed in leather with piercing and tattoos decorating her face and uncovered arms. &quot;This one is mine boys!!&quot; She related and started to laugh before her feet lighted up with more neon energy and went flying straight towards the soldier who only raised his shield and braced for the impact.
+
+Flashes of light too intense made even that impressive camera not being able to record anything. Only the strong sounds of energy blast and explotions were heard for like seemed an eternity but we&#39;re only 12 seconds.
+
+When the image came back the camera was sideways on the ground but somehow still recording the soldier. Everything seemed to be smoking but in a strange calm, like in the eye of a storm. The defeated body of the woman was releasing pink smoke at the feet of the soldier who was just looking forward towards the chaotic battle in the distance. 
+
+Once again he started to speak, this time his voice calm like in the beginning of the recording. &quot;Joshua one, verse eight to nine... <span class="chatlog__edited-timestamp" title="30-Jun-20 02:30 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="727405358963752960" id="message-727405358963752960">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>This Book of the Law shall not depart from your mouth, but you shall meditate in it day and night, that you may observe to do according to all that is written in it. For then you will make your way prosperous, and then you will have good success....</em>&quot; As he spoke his boots started to charge up with energy. The circuits around the armor glowing with power and even few winglets came out on strategic places. Everything seemed to indicate that he was getting ready to launch into the chaos that was the battle in the distance.
+
+&quot;<em>Have I not commanded you? Be strong and of good courage; do not be afraid, nor be dismayed, for the Lord your God is with you wherever you go.”</em>&quot; As soon as he finished reciting that passage he went off in an explotion of holy power. The image turning completely white for a second before finally the stream ended. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 11:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="728265948947152907" id="message-728265948947152907">
+                <div class="chatlog__content">
+                    <div class="markdown">It was a quite a quiet night at the tavern. The hearth ablaze, the lighting warm; it was like an average household. There were a few customers enjoying their drinks and a Half-Orc bartender cleaning the dishes, but the decently-sized tavern was barren otherwise.
+Then one more customer came.
+The jovial, muscled woman seemed Elvish in nature, given her ears. However, anyone could see some of the other features of her body that one would say were out of place. Blue skin, like that of the ocean. A sharp set of teeth, as though her mouth was full of vampire fangs. And a small tail like that of a shark’s. She did not seem too threatening, but the other customers made it clear with their faces that they had not seen anyone like her before.
+The woman sat down at the counter at the back of the tavern, with one of the customers just a few seats on her left.
+“What can I get for you, miss?” The bartender asked her, as though this were business as usual.
+“Some whiskey on the rocks.” The woman said. “Possibly some ribeye steak, too. I’ll have that blue.”
+The Half-Orc nodded and got to work on the steak. The venerable human a few seats over took a look at the woman. He seemed inquisitive, which the woman was used to by now.
+“So, what’s your name?” The man said.
+“Just call me Auga.” The woman said. “You gonna ask what I am next?”
+“I guess everyone wants to know who you are.” The man said. “I have my own business, but it’s been a bit quiet here for my liking. If you have a story, tell it.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 11:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="728269294454046786" id="message-728269294454046786">
+                <div class="chatlog__content">
+                    <div class="markdown">The man sipped from his own drink: a mug of beer, where all the suds have long since subsided.
+“Name’s Jason, by the way.” The man said.
+“Sure, Jason.” Auga obliged. “How long do you want the story to be?”
+Jason nodded.
+“Short, but not just a few sentences.” Jason replied. “I don’t need a life story right now. Especially with Balthus back there.”
+Jason pointed his thumb to behind the two; there was a Dwarf in armor guzzling what seemed to be his third mug of liquor.
+“Look, laddie!” Balthus yelled as he set the mug down. “Ya don’ hafta ask meh twice aftah last time. I broke a table with yer sheer weight, so don’ let meh do it again!”
+“You <em>won’t</em> do it again!” The Half Orc yelled back. Balthus scoffed in response and resumed his drinking.
+Auga pursed her lips. There was definitely a vibrant image in her head, to be sure.
+“Well, a short story is what you’ll get.” Auga replied. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 11:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="728273661068312686" id="message-728273661068312686">
+                <div class="chatlog__content">
+                    <div class="markdown">“So, have you ever heard of a Sharkin before?” Auga asked the human.
+“Not outside of stories, no.” Jason said. “I thought they had the heads of a shark, though.”
+“They do.” Auga said. “I’d know, because my dad is one. And my mom’s an elf.”
+Everyone, including the bartender, raised their gazes to the duo. Some stayed longer than others. Jason simply looked more curious.
+“I’m not sure why it’s such a big deal, guys.” Auga said, with a bit of exasperation. “You guys saw the tail, right?”
+The tail wagged a bit, to emphasize its presence.
+“Apologies, Miss Auga.” The bartender said, as he finished cooking the steak.
+“Lady, us Denoxian folks don’t really know about Shark people, let alone how they can get with elves or, I guess, humans.” A robed human commented as he turned from his meal. “What place did you come from for that shit not to be so different?”
+“Let her say what she wants to say, Dennis.” Jason said.
+“Don’t worry about it, sir.” Auga said. “I’ve told everyone who asked about it. You would want to know it, right Jason?”
+“Yeah, yeah. Alright.” Jason said. “I just don’t want to risk Dennis getting to personal with the questions, like he did with me.”
+“Sorry!” Dennis said. He seemed genuine to Auga. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 11:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="728277759436128266" id="message-728277759436128266">
+                <div class="chatlog__content">
+                    <div class="markdown">There was a pause as the Half Orc started making Auga’s drink.
+“Well, anyway,” Auga continued. “I am Denoxian. I was just born in an isolated village off the Coast of Tri. The only reason I’ve ever left is that I have a quest to fulfill.”
+Jason nodded. It’s as though he’s heard something like this before.
+“And it’s to fight our former guardian Dragon corrupted by something called... the Shadowfell?” Auga told. “I simply have to gain the strength to do so before then. And also take my brother back from him.”
+“And you’ve brought a giant <em>knife</em> to do it?” Balthus asked.
+Indeed, what she brought did look like a giant, slightly curved cutting knife with markings on it. It seemed too large for any average person for even hold for a few seconds.
+“I mean, it is considered a greatsword.” Auga said. “So I should be fine for now.”
+“You got quite a bit ahead of you, don’t you?” Jason asked.
+“Yup!” Auga said. “It’s gonna be a pretty big adventure ahead of me. And I’ll get to see the world while I’m at it!”
+She sounded enthusiastic when it came to seeing the world. She then received her drink and steak, which she showed even more enthusiasm for.
+“I mean, what’s not to love about becoming an adventurer?” Auga asked as she started to dig in.
+“Well, whatever is ahead of you, it’s gonna be a lot harder than you think.” Jason said.
+“I mean, yeah, it’s gonna be hard.” Auga replied with a stuffed mouth. She then swallowed.
+“Sorry, I just love this food.” Auga said. She seemed to still be working on her manners. Jason smiles in response.
+“You’re fine.” Jason said. His smile then turned to more serious neutrality. “But from one adventurer to another, I don’t think you realize how strong a Shadow Dragon really is. Whatever strength you have, you need more of it.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 12:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="728280993290518550" id="message-728280993290518550">
+                <div class="chatlog__content">
+                    <div class="markdown">Jason stood up, drank from his mug, and then set it down. He then walked to the bulletin board just by the hearth and pointed at one of the papers.
+“Take a look at this.” Jason said. “I think this will help make you strong enough.”
+Auga took a sip of her whiskey, as she had already finished her steak. She then took another before standing up and going to take a look at the paper. The text read, “The Steel Hearts: The Most Thrilling Guild for your Adventuring Needs”. And there was a beautifully painted image of The Steel Heart airship on the paper as well.
+“I was never interested in this guild in the first place, but I’ve heard people from all places and walks of life sign up here.” Jason said. “I think this will be the perfect place for you.”
+Auga’s face lit up. She could go adventuring on an airship and meet these people? She was ready for this before she even knew it existed.
+“Ok!” Auga said with great enthusiasm. “Just let me leave my tip, finish my drink, and I’ll head there right now!” She then went back to the table to finish her whiskey.
+“Ok, but it’s evening time right now.” Jason said. “You might need some sleep to look your best. And to get that whiskey out of your system.”
+His statement stopped her drinking in its tracks.
+“Ok, yeah, that’s also something.” Auga said as she nodded. With the last of the whiskey consumed, she left her tip and headed straight for the door. <span class="chatlog__edited-timestamp" title="02-Jul-20 12:13 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">02-Jul-20 12:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="728283957111554148" id="message-728283957111554148">
+                <div class="chatlog__content">
+                    <div class="markdown">However, she forgot her greatsword, so she went back for it. On her way back out, she stubbed her toe and tripped over on the table Balthus was sitting at. She ended up falling face-first onto the wooden floor.
+“Looks like the new one’s underestimated the powah of hard drink!” Balthus laughed out.
+As Auga tried to stand up and get her bearings, it seemed as though a spirit had floated by. Everyone saw it, and heard it’s ambience. Balthus just sat there confused. He took a look at his mug.
+“I must be more drunk than usual.” The Dwarf said, as he turned back around in his chair.
+Auga was able to stand back up with the help of her large sword.
+“Sorry abou my ancestor, guys.” Auga said. “I just got a little angry, is all. Goodnight, and thank you, Jason.”
+She then walked out. Jason smiled. 
+“To think, I was as wide-eyed as she was.” Jason said quietly. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 12:25 AM</span>
+
+            <div class="chatlog__message " data-message-id="728828930894856222" id="message-728828930894856222">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;There was this story from me Father&#39;s journal I always remembered.&quot; 
+<em>The heavy-set man spoke as he and his crew sat around the Silver Sands tavern, burning the midnight oil with the patrons within. As he spoke, the Barmaid became fiercely agitated.</em>
+&quot;Not this blasted story again! Alexander! You tell this story every other Gods Damned night! I could probably tell it better than you at this rate. Have you no other tales to tell? Not a single story from your <em><strong>glorious</strong></em> pirate adventures!?&quot;
+<em>The patrons could only gaze on in the same agitation of the poor bar maid, save for a few drinkers who&#39;d never heard this poor man&#39;s tale. While most left the tavern after hearing Alexander&#39;s fated words, a fortunate few hadn&#39;t left, eager to hear this man&#39;s story.
+With a heavy sigh, the man began to spoke</em>
+
+&quot;Most of his journal was destroyed. However, the most important sections of it were saved. I believe Davy Jones himself kept it from being decimated. Father used this journal to make sure he remembered important parts of his journeys, as well as to keep a log of what was going through his mind. Here it goes.&quot;
+
+<em><strong>&quot;To ensure none of us would forget it, we made the pass code to the Vault&#39;s entrance as similar to the summoning ritual as possible. &#39;Whilst the drums call out, start the pyre, only through that will the spirits rise higher. As the fire burns, spill thine blood, lest your mind will start to flood. Call out ones own name, the one this is true, only then will Davy Jones answer to you.&#39; Of course, I&#39;ll put our code later on. Once we secure our fortune that is. Luckily, our journey will be coming to an end soon, we plan to envoke the help of Davy Jones one last time before we grab our loot. 
+Note to self; Give Journal to Alexander after our last voyage. I know you&#39;ll like that note, won&#39;t you. Captain Udora gave me the call to get ready. We&#39;ll be leav-&quot;</strong></em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="728828950238724108" id="message-728828950238724108">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;That&#39;s where the entry ends, sadly. Udora told me that they were attacked as they were leaving their hideout. It&#39;s a damn shame he didn&#39;t survive.&quot;
+
+<em>The patrons give him a sceptical look, fearing this is just another tall tale, as the Bar Maid speaks up</em>
+
+&quot;Alex. Have you ever considered going out there and taking a <strong>damn</strong> look to see if you could find where he died!? Udora should be coming to town soon, last I saw him he said that he would be back in five months time with a cargo hold of gold. Maybe that&#39;s your chance to ask him for the truth? But more importantly, so you&#39;ll stop going over that <strong>damn tale!</strong>&quot;
+
+<em>As the large pirate stands up, most of the patrons return to bantering among themselves, playing Dice and making sly remarks about the Pirates Tall Tale.</em>
+
+&quot;To Hells with you Darla! Maybe I will..actually, to Hells with maybes, we&#39;re setting out. Tom! Doc! We&#39;re leaving. Load up the ship, I&#39;m sure we&#39;ll find Ol&#39; Udora and the Renegade if we sail out now. C&#39;mon now!&quot;
+
+<em>The burly pirate leaves the Tavern in a huff. His remaining crewmates looking confused but following along anyways, the Sea Elf Tom filling his tankard as he headed out, the shorter Human Doc packing up their belongings as they left. Aside from one specific trinket, Alexander&#39;s journal.</em>
+
+<em><u>And thus, Alexander&#39;s crew and their ship The Dead Paragon sailed off...they haven&#39;t been seen for weeks. After the crew left, Silver Sands became a target for someone much worse than they would ever imagine. This story doesn&#39;t end poorly however, as the threat had come to over stay their welcome, a letter for help was sent out to one group in particular, The Steel Hearts Airship.</u></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 11:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="739329772550619147" id="message-739329772550619147">
+                <div class="chatlog__content">
+                    <div class="markdown">There&#39;s a child on the side of the road. Or a gnome. They have similar builds, after all, and the heavy, worn cloak draped over them keeps any identifying features hidden from a distance. 
+
+That&#39;s what they&#39;re hoping for, at least. The child&#39;s flesh changes from brown to pale to porcelain white in rapid succession. What can they be this time, what will help them stay away from the Norxinia guards that are still on the lookout for one more escaped orphan? 
+
+Thrin. That&#39;s their name. They repeat it in their head. It&#39;s all they&#39;ve got now, besides Rowan&#39;s cloak that smells like her. Their name is Thrin and they have a cloak. And there is a nice couple riding out of town on a wagon, possibly returning to their countryside farm. It&#39;s the perfect chance to slip away and never come back here again, to the wicked folks running the church-funded orphanage. 
+
+Thrin decides on a dark skinned gnome, slightly wrinkled but still spritely and good help around a home. They saw him a few times, stole apples from this man actually. They lower the hood when the cart comes close, and the couple stops their pretty brown and gray horse for the friendly hitch hiking gnome. <span class="chatlog__edited-timestamp" title="02-Aug-20 11:56 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="739329842931171369" id="message-739329842931171369">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh, thank you friends,&quot; Thrin says in a pleasant but dusty voice. &quot;I&#39;m loathe to bother anyone so late, but I&#39;m in need of a a bit of assistance. My husband is in the town over with our cart, and I need to get there. Not the whole way, but-&quot;
+
+They don&#39;t finish the little speech before the woman smiles warmly. She looks very tired, and her husband seems skeptical, but a few words in... Elvish? A few words exchanged in elvish seem to convince him of something. 
+&quot;You can ride with us,&quot; she says. &quot;I have a cousin who lives in Ferres I&#39;ve been wanting to visit, anywho. We can get you there as well.&quot;
+
+Oh god the little Changeling could have cried. Thrin quickly swallows tears that are both joyful and weighed down with guilt, and after a storm of &quot;thank you&#39;s&quot; and &quot;bless your hearts&quot;, they climb into the back of the cart and leave their only home, with the worst and best people that they&#39;ve ever met still inside the town walls. <span class="chatlog__edited-timestamp" title="02-Aug-20 08:52 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="solo-rp-writing.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">04-Aug-20 11:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="740417392580100107" id="message-740417392580100107">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The rather small, but beautiful home was quiet as can be. But it was filled with a sort of...worry. Almost sadness. It was slightly broken with a dwarven woman making her entrance, twirling in place as she adjust she mask, letting her shrine maiden like clothing be shown proudly to the two figures at the doorway who were patiently waiting. They appear to be a dwarven couple, older than the woman who had just entered. The husband held her wife, and they both wore worrying faces. Both clad in heavy armor, adorned with the symbol of their deity. The wife eventually speaks up, her voice tender and soft.</em>
+
+&quot;Faith, my daughter...I see you came back to see us. You didn&#39;t have to, you know...I know you want to serve Mystra so badly...&quot;
+
+<em>Faith looks surprised under her mask, slowly taking a few steps forward with her arms outstretched. She&#39;s silent. Her father speaks as she gets close, as tender as his wife.</em>
+
+&quot;Faith, you&#39;re not talking. Please, you aren&#39;t forced to stay silent now are you? I thought they would wait until you said goodbye.&quot;
+
+<em>Faith takes a small step backward, thinks for a moment, and shakes her head. She moves to her bag, starting to pull out a pamphlet. She offers it to her mother, which she then stares down. She gently grabs it...then lets it fall to the floor. Her voice grows louder.</em>
+
+&quot;Miss WarmHeart, I don&#39;t want to read this paper, I want to hear my daughters voice again! I wanted to hear her say she loves me, a-and she will miss me, and...I wish she would say that she doesn&#39;t want to serve Mystra!&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="740417407247581276" id="message-740417407247581276">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Tears begin to fill her eyes, which causes her husband to hold her tighter. He glares over to Faith.</em>
+
+&quot;She&#39;s being forward, but...she&#39;s right! This isn&#39;t the WarmHeart way, Faith! Eldath has been the deity of our clan for centuries on end! Until we found the name, and you do this? Mystra doesn&#39;t help people, Faith! It&#39;s just silly magic that harms! It kills people Faith, it makes people hurt! How can you bear the name WarmHeart and inflict suffering?&quot;
+
+<em>Faith shivers out, almost in fear. She gently bends over, grabbing the pamphlet again. She tries to offer it again, but sees how futile it is. She can only shake her head again, then bring a hand to her heart. She then slowly holds up that same hand, a warm, yellow glow surrounding her fingertips. Cure Wounds was ready to be cast, and she tried to touch her mother...who swiftly held up white flames, blocking her path.</em>
+
+“Your healing is nothing, Faith! It’s empty! It’s empty healing to fill the void of the pain you inflict! Even when we have to harm, we do so Eldath’s way! Mystra’s way is horrifying and violent! I can’t...Get out! GET OUT!”
+
+<em>Faith begins to tear up herself. Despite how much she wants to cry proper, she holds it in. She simply nods, and bows to her parents. She gently places the pamphlet away into her bag, and gently shuffles out the door, leaving two crying parents in the home.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 21 message(s)</div>
+</div>
+
+</body>
+</html>
