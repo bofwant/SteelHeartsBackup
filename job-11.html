@@ -1,0 +1,2393 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - job11-ic-posts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="job-11.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Archive - Adventures1 / job11-ic-posts</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 08:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="662820305131143169" id="message-662820305131143169">
+                <div class="chatlog__content">
+                    <div class="markdown">It was by carriage, and a rather large one at that pulled by Yeddim, in which the Steel Hearts was walking into the Glade of Bells.&#160; It was obvious right from they entered on a half moon night that the forest was magical. Lightening bugs drifted by serenely and glow bloom dotted the landscape.&#160; If one listened over the sound of wheel and heavy yeddim foot falls, one could hear where the Glade of Bells go its name. The wind twinkling through the trees, over the unusual acorns that allow for an ever present jingle, like natural wood chimes.
+The interior of the carriage was just as inviting, golden lit lanterns around cushioned couches, atop dressers and side tables.&#160; Two servants providing treats, coffees, and teas to those within. The ceiling hung a little low though... House Gilder primarily were halflings, and sure enough, the ambassador was a fat, curly moustached halfling himself, content to speak for hours on end about essentially nothing, only stopping to sip his tea and eat a bite sized desert, like he needed it.&#160; House Gilder , the bank of Erie, decadence on full display.
+He sat on one corner of the couch holding his saucer.&#160; “Mr. Jeremy Arrows Gilder at your service. Please, do try to enjoy yourselves, and if you need anything my maid and manservant can assist themselves.”&#160; The two other halflings in fine servant’s clothes bowed or curtsied. His fat fingers went for constant sugar cubes. While stirring. “While on our little negotiation, we’re going to be setting up camp just outside.&#160; I know just how time consuming and exhausting these whole affairs can be. Not to mention quite dull. But you’re not being paid to enjoy Gilder hospitality. This is merely an act of good faith, and I do so love to hear stories of the battle hardened and the struggling.&#160; To be born from such humble beginnings must take a kind of strength that you dont see much at home. And if you do, it usually ends up a type of madness. For instance, take my uncle. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="662820319995756554" id="message-662820319995756554">
+                <div class="chatlog__content">
+                    <div class="markdown">Got it in his head to be a part of the War of Remnants. Fighting zombies and ghosts and all that.&#160; He still has such horrible nightmares. Sometimes, before the cock cries, he’ll scream like you dropped a dum weighter on his big toe. Me and my brother bet you could set your time to it, and we won! It’s a new day when Uncle Podric crows at the sun. Needless to say the servants couldn’t be happier, waking the whole manor was such a tedious chore&#160; they kept telling me, isn’t that right Zolo?” He looked at his butler.
+
+“Yes sir, a tedious chore.”&#160; Parrots the butler.
+
+“Quite right.&#160; In any case, what was I talking about, oh yes right.&#160; Im sure all of you have some truly amazing stories. I’d like to have more to add into this book I’m writing.&#160; Have you ever read The Tales of Sir Thadeus Candor? Well I was thinking of doing something like that, telling the story of the ones who are really brave, the ones who have to struggle tooth and nail clawing their way up out of the mud.”&#160; He sips his tea, before going for more sugar. ”Mmm needs more. Well in any case, what was I talking about, oh yes right. I once ran into this strapping fellow who used a shovel as a weapon---“
+
+And this could last for hours. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 09:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="662827270062211073" id="message-662827270062211073">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://www.pinterest.com/pin/125537908341355968/">https://www.pinterest.com/pin/125537908341355968/</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.pinterest.com/pin/125537908341355968/">
+                                                    <div class="markdown">ArtStation - Dwarf, Si Woo Kim | Fantasy characters, Fantasy dwarf...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">This Pin was discovered by Jordan Lanphear. Discover (and save!) your own Pins on Pinterest.</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="job-11.html_Files/3ccbf97fe5d4d1cfa70412a458fcd527--character-portra.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="job-11.html_Files/3ccbf97fe5d4d1cfa70412a458fcd527--character-portra.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">04-Jan-20 01:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="662896700167553024" id="message-662896700167553024">
+                <div class="chatlog__content">
+                    <div class="markdown">If the space was cramped for the others, it was outright uninhabitable for Nar.  Or it would have been, if she bothered standing.  By the halfling&#39;s second desert, she had three couches stripped of cushions and was sprawling delightedly across the pile.  She waved for the maid with the tip of her tail while she stretched casually.  Or maybe the man.  Or maybe both; it&#39;s hard to get a lot of precision out of a tail.
+
+&quot;<em>Wine</em>,&quot; she cooed at the first one to reach her, but then held a finger up and peered at the House representative.  &quot;Brandy,&quot; she amended.  &quot;Leave the bottle.&quot; <span class="chatlog__edited-timestamp" title="05-Jan-20 04:06 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">04-Jan-20 07:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="662973758805508127" id="message-662973758805508127">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant sat with his arms crossed, like a silent guardian. He had asked Sela and Carmine for help and they all had managed to get his battered armor to a more shinny state, making it look almost like the first day it was given to him. He had been listening to every word of the halfling, after all he was used to rambling while traveling between places, there was nothing else to do in the army... When the rich bastard started to mock the struggles of an ex soldier, he wanted to smack him, he really did but he took a deep breath and focused on something else. It was a hard truth, most soldiers left ear like a broken mess, he had been one of those all right....
+
+The ex soldier leaned back and tried to focus in the sounds of the magical forest instead, hopefully they would arrive soon... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">04-Jan-20 09:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="663193674326343717" id="message-663193674326343717">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela had chosen to look like the noble her title so proclaimed. She just quietly hoped no one asked questions she couldn’t answer... or at least work with in some way. No matter. She had Bofwant nearby should trouble arise, along with everyone else. Besides, this was her chance to learn about the elves and other creatures of the Feywild. The girl had been born and raised there, even if she’d not been allowed to venture out or use the title her mother’s blood had earned her. 
+
+Delicate hands smoothed out the pale blue silk of her dress—something Carmine had helped her put together for her ‘role’ in these negotiations. It was smooth and cool to the touch. Sela had to admit, Carmine had a good eye. The dress was exquisite. Bold without drawing attention. The perfect attire for one of her station in this game. 
+
+While the halfling prattled on, Sela merely took a turn about the room—it was times like this that she was glad to be short for an elf—her golden gaze scanning the area should anything go unexpectedly awry. Underneath the cool silk, she had her daggers strapped to her thighs. Her other weapons were carefully stashed with her love... ready and waiting the moment she’d need them. Though she hoped that moment never came. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">05-Jan-20 03:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="663457347510730758" id="message-663457347510730758">
+                <div class="chatlog__content">
+                    <div class="markdown">Nar knew how to live it up, and she was given brandy for her to lounge with, and Mr. Arrows seemed happy that she was.
+
+Bofwant felt bristly but the services were still there for him... he just neeeded to listen to the blow hard.
+
+Same for Sela, and she definitely looked the part.  The maid made sure she had perfumes and make up for touch ups nearby, and even held up a mirror without her asking.  Unneeded the lady maid curtsied, &quot;My lady.&quot;
+
+&quot;Oh what fun to meet you.&quot;  Claimed Mr. Arrows.  &quot;Now then.  Down to buisness.  Erie would like this resolved in as little blood shed as possible.  They&#39;d like the Eladrin if we could, maybe for a price, we&#39;re thinking 1000 gp per elf we refuge, but personally the last thing Erie needs is true Fey.  Vile creatures.  Im hoping we could work that out, best case.  But we might be opened in our benevolence, keeping them near some iron mines in case they want to wear out their welcome.&quot;
+
+So thats the idea, taking advantage of people in need.  Refugees with their lives on the line. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 10:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="664471125354610688" id="message-664471125354610688">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;The fey won&#39;t pay to resettle the eladrin willingly. Of course. They know perfectly well we&#39;d leave them to their fates if it weren&#39;t for the mortal lives involved.&quot; Nar paused to drain her glass. She was nearly halfway through the bottle an hour after it arrived, and hadn&#39;t been subtle about it being a way to tolerate Arrows. At least, not when his back was turned. She poured herself another while she continued.
+
+&quot;One of us should seek them out directly, to get an account of the terms of their current refuge. If they&#39;re free to bargain, I suggest we extend that offer outside of <em>monitored channels</em>. Moreover, I think we should be open to indentured servitude on fixed contracts in lieu of direct payment.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 05:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="664584349093462026" id="message-664584349093462026">
+                <div class="chatlog__content">
+                    <div class="markdown">Were they really discussing that rather than pay, the kingdom or Eire might consider what, to Sela, was more or less slavery? Did this make them no better than traffickers? The idea didn’t set well with the elf, her pace quickening and hinting at her agitation. Sela glanced over at Bofwant, wondering what he might be thinking, as they were forced to listen to these conversations. Her hand moved up to her face, quite pretty if not for the scars stretching down along one side of it. The girl’s fingers traced those horrible lines marring her flesh and finally tucked some red locks behind an ear. 
+
+“Are we onto a discussion of slavery?” Sela then blurted, unable to hold back much longer. She’d lived her whole life , as a slave of her family, a name for which she didn’t understand. And now she was a slave of her curse... her brother’s curse. No. No one should be forced into such a life. For could you actually put a price on such things? If one could, she wasn’t sure what she thought about that... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 06:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="664596979602423844" id="message-664596979602423844">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant silently listened to the discussion, he had to admit it, sometimes the language used made him get lost in the flowing words but he had the general idea of what was being discussed. He understood the situation as best as he could, they were not talking with the fey yet so he was a little more relaxed, not caring to hide his general annoyance.
+
+When he heard the words <em>indentured servitude</em> he perked up, then when Sela mentioned slavery a scowl appeared on his face, <em>If the kingdom need something, it could use more soldiers, specially those with magic like the eladrin, they are great scouts and general support.</em> He thought but decided to keep quiet for now and let Miss Nar fishing her idea, maybe it was not so bad as it sounded... But maybe it was worse. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 07:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="664607626092609546" id="message-664607626092609546">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Mm, let&#39;s all hope <em>not</em>,&quot; mused Nar. Most of her attention was, for the moment, devoted to watching the light filter gold through her drink as she swirled the glass. &quot;It&#39;ll be much harder to deal with them directly if they&#39;re officially...&quot;
+
+ She fell silent and squinted up at Sela. It took a bit. She was large, but the bottle <em>had</em> been full. When the answer came to her, that scrutiny melted into a sumptuous smile.
+
+&quot;No, not slavery. If I wanted to enslave them by another name, I would suggest an indefinite term and assigning expenses to their debt. I am specifically concerned that they may be slaves already. If the kingdom requires relocation costs for any refugees it accepts, something I have no authority to change—&quot; She nodded to Archer then. He was the one who had brought it up. &quot;—then I propose we accept them now, on a promissory basis that they can work for predetermined spans to clear. It would be cruel, I feel, to demand gold the fairies may have stolen from them.&quot; <span class="chatlog__edited-timestamp" title="08-Jan-20 07:13 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 07:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="664613197973553174" id="message-664613197973553174">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela’s golden eyes narrowed ever so slightly. She wasn’t so sure about what she was hearing and decided to remain on guard, as a result. Once again, she glanced over at Bofwant, before letting her eyes settle on everything and nothing, merely taking in the nuances of the room. On the outside, she appeared calm, but on the inside was panic and worry. Something felt wrong and she didn’t know what. So all she could do was bide her time and wait. At least she had Bofwant. He was more than enough far as she was concerned. 
+
+“I see,” Sela then answered, her full lips pursed into a fine pink line. While her eyes carefully wandered the room, her ears just listened. To Nar. To Arrows. To everyone. <span class="chatlog__edited-timestamp" title="11-Jan-20 07:36 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">10-Jan-20 08:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="665349886530814004" id="message-665349886530814004">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Indeed Lady Nar.&quot;  Said the noble speaking like there wasn&#39;t lives, innocent lives on the line.  &quot;If such a thing is possible Lady Nar.  Sadly they know the asset they stand upon  It seems quite a complicated mess on the Fey Wyld&#39;s side.  Fey actually taking and protecting people.  Isn&#39;t that something?  Of course we know why.  One needs a bargaining chip to play, but some of the refugees understandably feel some loyalty.  An honest shame that stockholms syndrome is so prevalent.&quot;  He nods.  &quot;Why yes, the crown will accept that.&quot;
+
+Sela spoke.  He seemed to almost faint in his chair.  &quot;SLAVERY!?!  Oh my goodness no!  Slavery is illegal in Erie, we&#39;re not barbarians!&quot;  He began, completely missing the point and as politically correct as one would expect from a negotiator. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665350717342744597" id="message-665350717342744597">
+                <div class="chatlog__content">
+                    <div class="markdown">Thankfully Nar was there to defuse the situation.  &quot;Quite right.  They are refugees.  Lost their home, infront of an enemy country.  Erie is their safe haven...  Though now I think of it, those mines have been under performing, a good boster shot of a gratful laborforce would make House Mancer quite happy.  And maybe, well, if they play their cards right, Money from the Fey, work from the Eladrin.   In either case, Im sure we can work something out.  Or maybe the other way around, yes, the Fey harvesting iron.  You know they have an alergy to it yes?  Burns them.  If they are working it, it would certainly make everyone much safer.   So labor from both, and money.  Safety costs money of course.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665350801941725193" id="message-665350801941725193">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh-&quot;  He got up.  &quot;I love this part.  Look...&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665350910779719682" id="message-665350910779719682">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-11.html_Files/2945d09aa0985a4d058222320ffbef2a.png">
+                                    <img class="chatlog__attachment-thumbnail" src="job-11.html_Files/2945d09aa0985a4d058222320ffbef2a.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665351398514229248" id="message-665351398514229248">
+                <div class="chatlog__content">
+                    <div class="markdown">The carriage was entering a deep part of the woods, where the overgrowth was impossible to pass through, save a single weed choked path.  There was lights in the distance, Glade elves watching.  
+
+&quot;One of dozens of known gates into the Feywyld, and apparently there are hundred more we don&#39;t know about, opening and closing at random.  DId you know a fair population of elves in Erie had the misfortune of crossing such gates and not even knowing it?  Only to have them close behind them?&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665351417745375232" id="message-665351417745375232">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Poor creatures.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">10-Jan-20 09:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="665364244879114245" id="message-665364244879114245">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela’s heart twisted as she listened on. It didn’t set well what she was hearing. This nonchalance about displaced eladrin made her tummy tighten with dread. The red head looked over at Bofwant, the man silently stewing. She hardly blamed him and wished she could sit with him, so they could be comforted by each other. But it wasn’t the time nor place. So she just paced. A sinking feeling growing in her chest. “Well, I hope some found their way home,” she then said quietly and not to anyone in particular. It was just her own feelings on the matter, though after she spoke, she wondered if she shouldn’t have. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">10-Jan-20 09:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="665371656461484074" id="message-665371656461484074">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Here we go ladies and gentleman.  Be ready for anything.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665371978571448330" id="message-665371978571448330">
+                <div class="chatlog__content">
+                    <div class="markdown">The carriage moved towards the gateway... a blue light upon them and suddenly it was blinding... even in the interior, they knew they were somewhere else, as even in the wagon, there were little dancing lights.  Little fire fly lights swaying and bouncing too... music...? </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665372376447582228" id="message-665372376447582228">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://www.youtube.com/watch?v=t3ORBn4YLw0">https://www.youtube.com/watch?v=t3ORBn4YLw0</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCjMZjGhrFq_4llVS_x2XJ_w">Fantasy &amp; World Music by the Fiechters</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=t3ORBn4YLw0">
+                                                    <div class="markdown">Dark Waltz Music &amp; Masquerade Music</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Dark waltz music and masquerade music that will take you to Gothic ballrooms, enchanted forests, &amp; winter castles.
+
+
+<img class="emoji " alt="🖤" title="🖤" src="https://twemoji.maxcdn.com/2/72x72/1f5a4.png"> If you like this spooky music &amp; fantasy music, you&#39;ll probably love these playlists:
+
+Halloween music | <a href="https://www.youtube.com/playlist?list=PLy_Q-5e78An">https://www.youtube.com/playlist?list=PLy_Q-5e78An</a>...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="job-11.html_Files/maxresdefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="job-11.html_Files/maxresdefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="665372459117314048" id="message-665372459117314048">
+                <div class="chatlog__content">
+                    <div class="markdown">Looking out the windows... </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665372774230917131" id="message-665372774230917131">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-11.html_Files/201490_insolentminx_masquerade.png">
+                                    <img class="chatlog__attachment-thumbnail" src="job-11.html_Files/201490_insolentminx_masquerade.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665372801552875541" id="message-665372801552875541">
+                <div class="chatlog__content">
+                    <div class="markdown">Absolute chaos </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665373256936849427" id="message-665373256936849427">
+                <div class="chatlog__content">
+                    <div class="markdown">It was like the carriage was going through the interior of a massive palace and there were hundreds... thousands of people and things!  All of them in fancy dress, all of them in masquerade mask showing animals and shapes, and visages and faces.  They were suddenly privy to a great masquerade ball!  The chaos and calamity and festivities was almost too hard to even witness for too long.  So many wonders and terrors all going on at once. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665373616925311006" id="message-665373616925311006">
+                <div class="chatlog__content">
+                    <div class="markdown">It was exhausting just to look at it, just as it was exhilerating.  It was a party unlike anything any of them had witness.  Even to Nars it was a colorful version of the Carnivals of Night in the hells, where countless demons partied in the brass streets! </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665375086596849685" id="message-665375086596849685">
+                <div class="chatlog__content">
+                    <div class="markdown">Mr. Arrows was at the window.  &quot;Oh...  so thats how we&#39;re to negotiate...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">10-Jan-20 10:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="665375158743334933" id="message-665375158743334933">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela gasped quietly, as she peered out the window at the revelry occurring just outside. She’d grown up in the Feywild. But never had the red headed elf seen anything quite like this. Her family had kept her and her twin hidden. Such things were unknown to the girl. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 06:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="665691170076098594" id="message-665691170076098594">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ooooo,&quot; the she-devil cooed, rolling over to set her elbows on the cushions and prop up her chin in her hands.  Her tail swung lazily back and forth, more than brushing the ceiling as it passed.  &quot;This is a <em>large</em> party.  There must be more than a dozen major lineages present.  So that&#39;s a whole <em>snarl</em> of counterpolitick on top of the typical infighting.&quot;
+
+She turned and grinned at the others over one shoulder, breifly inclining her head at Bofwant as though pointing at him with her horns.  &quot;You&#39;re in luck.  They&#39;ll be busy enough trying to outmaneuver each other to be the ones to ravish us, a defensive tack might actually be viable.  Just be sure you keep track of who has your emotions lured closest, and be ready to spring a good trap on them the instant they&#39;re close enough to close their own.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 07:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="665693848315625482" id="message-665693848315625482">
+                <div class="chatlog__content">
+                    <div class="markdown">The ex soldier perked up when the passed through the portal, only once he had experience travel like this... and it Al ended up with charred and mutilated bodies. Not a pretty experience at all, so he was really surprised at the giant party going around. Somehow he managed to keep his face calm, his training certainly helping him to hide his passing emotions.
+
+Bofwant narrowed his eyes at the words of Nar. He was an honest man inside and out, so he was not ashamed to admit to himself and the world that most of the time her words sounded like nonsense to his ears. He had felt the bullshit that was bureaucracy while he had to do paperwork as an official, even a neutral agent like the watchers had a internal order that needed to be respected. But it was like she constantly made herself be overly complicated, so not even her allies were privy to what was going on inside her head. He just hoped that she had the best of intentions.
+
+<em>&quot;Very well&quot;</em>He thought, then he looked both at Nar and Sela and nodded, giving them his silent support that he would be watching and gathering information while covering their backs. It came easy to him play this silent bodyguard role. It was part of his creed as a watcher after all. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 10:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="665743027037536296" id="message-665743027037536296">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela’s head was swimming, though she did her utmost to maintain her composure despite suddenly feeling dizzy and out of sorts. As her golden eyes continued peering outside, she was trying to understand how so many could celebrate and make merry when the lives of so many were at stake. Since when were such negotiations a party? A part of her felt a surge of anger at the lackadaisical manner in which all of this was being approached. Her hands balled up into tiny fists at her sides, her nails digging sharply into her palms. The sting coupled with the damp droplets of blood were enough to remind her that she had to play along. For now. But she hadn’t realized just how difficult this would be. The girl closed her eyes then, needing a moment, as she desperately tried not to hear the sounds or see the sights just outside the carriage window. She then looked to Bofwant, his face the picture of calm. If only she felt as he looked. At that she sighed heavily and continued to try and emulate that same level of serenity. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 10:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="665744019560726529" id="message-665744019560726529">
+                <div class="chatlog__content">
+                    <div class="markdown">Mr. Arrows got up from his spot.  &quot;Alright well, if we have to play their games.&quot;  He got his rotund ass off of the pillow cushions and onto his feet.  &quot;Lets hurry this along before the oxen turn into chairs or something.&quot;    He began to make his rounds, adjust his coat, his hair in a mirror before descending the stairs and at the front door.  &quot;Just stay with me and we will be perfectly-&quot;
+
+The door opened and a dozen hands and a pair of claws reached in.  Mr. Arrows was suddenly pulled into the crowd right out of the stage coach and after being lost in a moment was raised up in a small dancing circle wearing a jester hat and sitting in a chair, his roundness being beamed back and forth as hes rocked violently.  &quot;Wait!  Oof!  Wait!  I demand you desist!&quot;  And hes carried off to parts unknown. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665744541965484043" id="message-665744541965484043">
+                <div class="chatlog__content">
+                    <div class="markdown">They now realize the scope and scale of this place.  A ballroom but miles and mile long!  With grand stair cases, chandeliers velvety curtains, passages to gardians and courtyards, great hallways of lavish paintings, dens where some of the guests are completely in full on orgies with eachother, and all manner of beautiful men and women in revealing outfits, features, and curves in all the right places holding up platters of delicacies. <span class="chatlog__edited-timestamp" title="11-Jan-20 10:34 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665744899609460748" id="message-665744899609460748">
+                <div class="chatlog__content">
+                    <div class="markdown">Shrimp, golden cod, grilled larens root,  caviar on biscuits next to jams, doughnuts, eclairs, and muti rainbow cupcakes. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665745051736997948" id="message-665745051736997948">
+                <div class="chatlog__content">
+                    <div class="markdown">That was just what they can see.... </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665745163439833109" id="message-665745163439833109">
+                <div class="chatlog__content">
+                    <div class="markdown">They held out garlands of flowers, tiaras for the women, and stands with masks for them to wear and fit in. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665745220209737731" id="message-665745220209737731">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Welcome honored guests.&quot;  Shouted on in a sing song voice. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665745294889058305" id="message-665745294889058305">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Welcome.&quot; &quot;Welcome.&quot; &quot;Welcome.&quot; came a dozen voices. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">12-Jan-20 06:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="665859928837193741" id="message-665859928837193741">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>&quot;So it begins...&quot;</em> Bofwant thought while he got out of the carriage, being careful to avoid and push away all the grasping hands offering things. He was careful though, making a show of putting on his helmet in a way that blocked their tries to put those <em>decorations</em> around his neck.
+
+Once he was ready, he stood there and offered a hand to the ladies, to help them get off that annoying and small vehicle. His other hand holding his shield, both in a show of being a dutiful bodyguard and blocking the partygoers from reaching his guildmates. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Jan-20 06:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="665865363447349269" id="message-665865363447349269">
+                <div class="chatlog__content">
+                    <div class="markdown">It was too loud and too much. It reminded Sela of the strange—yet much smaller—parties her parents would have at their home. She and Barachiel locked away, out of sight. Until... until later when her father returned to fetch them. She could still smell the man’s rancid breath, feel his needy hands. The red head clamped her eyes shut, her body language making it clear she didn’t want to be touched. 
+
+“Stop...” Sela muttered, recoiling from those hands. “No thank you,” she said more forcefully when another pair tried to place the jewels on her head. She was trembling, trying to focus, while everything about her spun. Making her dizzy, overwhelmed. “I’m fine... just... no...” Her golden gaze was still scanning the sea of bodies, as she moved away from the carriage, searching for wherever Arrows had been taken. But he was gone. Lost. Nowhere to be seen or heard. It was a magic she didn’t like, her tummy knotting up with dread. Would she be taken? Whisked back into this world she’d never known?
+
+No. Sela wanted nothing to do with it. Hands shaking, she chose her own mask, but refused to put it on, just holding it in her ice cold hands. Mind racing, she had to fight the urge to run, the shadows beckoning her to hide and take cover. But she couldn’t. Not without causing an issue. Panicking, she stopped abruptly and just tried to breathe. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">12-Jan-20 06:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="666043717228167178" id="message-666043717228167178">
+                <div class="chatlog__content">
+                    <div class="markdown">Nar&#39;s emergence could not have been more different from the elf&#39;s.  Obliged to crawl by the low ceiling in the carriage, she came through the door fluidly enough she might have been a natural quadruped.  The hips were a tight fit at the door, but then there was only the long counterweight of her tail disappearing into the throng.
+
+She stood again next to Bofwant, a tower rising from the sea until she could easily be seen from the far end of the hall.  She&#39;d wound up with two garlands hanging from her right horn, one from the left, and she had a tiara caught between her teeth that she snatched and placed on her own head.  &quot;Good lords and ladies!&quot; she announced, spreading her arms dramatically enough she almost took out a satyr carrying a tray of aperitifs.
+
+  &quot;The delegation from Eire is now in attendance!  Tributes will be accepted at any time, but bribes should be reserved for back-room dealing only!  Impressive tribute <em>may</em> get you to the front of the bribery line; no warrantees expressed or implied.  Now, who wants to try for a compliment on the quality of their offerings?&quot;  She was beaming.  She was radiant.  She smelled of honey and sulfur, and her eyes shone yellow like a predator&#39;s by moonlight. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">12-Jan-20 07:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="666063569229709352" id="message-666063569229709352">
+                <div class="chatlog__content">
+                    <div class="markdown">The doctor lowered his raised arm, his small gesture and as of ignored but he didn&#39;t mind it, after all this whole place was overwhelming. It was thanks to his expeciences in war that he could mantain his composture in the sea of grasping hands and flowing sounds. As long as nothing sounded like a fireball going off he could avoid the PTSD flashbacks and keep doing his job as silent guardian.
+
+He had noticed Sela&#39;s panic attack and wanted to help her like he had done on the top deck when they met for the first time, but he had a role to play.
+
+He had a perfect view of Nar&#39;s... Entrance and was not surprised. He just steeled himself and stood on guard, keeping an eyes on all his guildmates and making sure to be ready for anything. <em>Be vigilant. Stand, wait,and watch carefully.</em> He repeated part of his creed in his mind, the words steeling his resolve of keeping everyone under his watch safe. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Jan-20 09:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="666088762840973332" id="message-666088762840973332">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela was keeping it together, but only just. She glanced down at the mask in her hands and then threw it down on the ground with great purpose. For some reason, she didn’t want any of these baubles touching her body. And those hands... the sounds... the smells. The red head was a torrent of wild emotion beneath the noble air she was trying so desperately to portray. But oh the irony, now that she knew she actually was. The girl closed her eyes then, digging deep and trying to remain calm. She needed space. Quiet. And there was no way she’d be getting any at this particular revel. It still bothered her that these creatures wanted a party when lives were potentially at stake. 
+
+“I... I can’t breathe...” Sela wheezed, her hands gripping the sleek fabric of her dress. The shadows were beckoning. Urging her to run, to hide. Her eyes watered then, worry that if she ran then everything would be for naught. “Please...” she then begged of no one in particular, just a simple wish that she could somehow get through this. And most of all... make <em>him</em> proud. Bofwant was the perfect example of how they should be. Yet there she was falling apart. It was mortifying. Terrifying! And was Nar talking of bribes and worse?
+
+Sela’s head was starting to hurt. She wasn’t sure she could do this. How could she have come from such awful people and places? Her heart wept then, her eyes glistening with unspilled tears that it shed from within. Trembling, she began glancing for any way to exit if things suddenly became far too unbearable. As it was, she was ominously close. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">12-Jan-20 10:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="666112990373871679" id="message-666112990373871679">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>&quot;...can&#39;t breathe...&quot;</em>
+
+Nar held up one finger to stymie a slightly dim hamadryad who still thought being pretty was a trump bid in Sune&#39;s world. She could be devoured later. The elf who would have access to the ambassador was a much more pressing problem, and Nar leaned down close to her. 
+
+Sela&#39;s anxious scanning meant casting her attention <em>away</em> from their little group, so that on her next sweep back, there was quite suddenly A Face. It was gray and large and framed by strings of flowers, and it had eyes that just barely tempered their intensity with compassion.
+
+&quot;Selaphiel, darling, listen to me,&quot; Nar insisted as quietly as the ambient noise would allow. &quot;If they can steer you, they&#39;ll hound you right into a snare. Don&#39;t be a rabbit unless you can be the <em>prince with a thousand enemies</em>. If you need to find some peace and quiet, do it now, on your terms, before they force your hand. Take Bofwant to discourage the nosy. Canta and I can hold the crowd.&quot; 
+
+Then she put her broad smile back on, as quickly as donning a hat. She hadn&#39;t taken a mask. She was already wearing one, after all. She stood tall again. &quot;Ah! I seem to have forgotten the traveler&#39;s duty! Who will lead me to a harp? I have my share of stories to deliver!&quot; <span class="chatlog__edited-timestamp" title="12-Jan-20 10:55 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">14-Jan-20 12:34 AM</span>
+
+            <div class="chatlog__message " data-message-id="666500300387123209" id="message-666500300387123209">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="darkangel76#8091">@Iri | Sela | Hal - FERTILE</span> 
+Selaphiel heard the whispers and encouragements of the demon courtier, the debuante of the ball.  It cut through the crowd to reaffirm her place in this.  She shouldn&#39;t let this place get to her.  She should be as Bofwant.  Strong resolute, boring to a Fey but all the inspiration to the outside observer.
+
+Still, her history, her flashbacks, her memory.  It caused the very world and the fabric of the Wyld to ripple.  The woman needed space.  She needed calm.  Her very essence seemed to ring out towards it.  She sought exit. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="666500732874391554" id="message-666500732874391554">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-11.html_Files/0fc41c3a8b10980373f80d6a5dd2c39f.png">
+                                    <img class="chatlog__attachment-thumbnail" src="job-11.html_Files/0fc41c3a8b10980373f80d6a5dd2c39f.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="666501109384216587" id="message-666501109384216587">
+                <div class="chatlog__content">
+                    <div class="markdown">And an exit there was, right before her.  She must have missed it in her mild panic.  A curtain.  A single veil of translucent silk was provided, within, cool comforting darkness, the evidence of a green garden.  A single tranquil fountain in the middle.  Too good to be true.  Too pure for debauchery of this place.  Why does no one else use this?  Does no one else really detest the noise and colors.  
+
+Isn&#39;t it better to walk into the dark?
+
+It spoke of <em>peace</em>  Come in for peace. <span class="chatlog__edited-timestamp" title="14-Jan-20 12:57 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="666502353205329941" id="message-666502353205329941">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Siobhan#4254">@Siobhan</span> 
+Nar had stirred the hornets nest.
+She made her claim, she was not shy, she called to them.  She called to her people and knew just the way to get the party going.  The crowd surged before her like a tide of bodies.  A wave of sychophants and supplicants.  Indeed.  They offered her welcome.  They swelled to surround and parade this woman who wore her horns like a crown, her inhumanity like regality.
+
+What would a fey bribe a being of the simple dull mortal realm.  Well, merely gossip.  Merely to be the say that she had the biggest gift while another presented the most luxurious.  There hands filled with all manner of alcoholic, hallucenogenic, and culinary delights.  She was nearly hoisted aloft the homoculi and sprites and balaborrows that culminated under her hooves to taste the banquet left before. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="666503493414027266" id="message-666503493414027266">
+                <div class="chatlog__content">
+                    <div class="markdown">Artwork, jewelry, glassworks, trinkets that copied the runes of ancient long dead languages.  They were the work beyond mortal ken, beyond imagination...
+
+And yet... these seemed impossible.  A frozen flame?  The voice of innocence.  The dying words of a hag.  The blood of a creature without a body.  All of these things seem magnificent yet... impossible.  She knew well of the fey, and their wonders- and how most of those wonders, simply are just glamor and dreams wrapped together in gossamer and twined in wishes.  To step back home, was to see these treasures disappear like a puff of smoke.
+
+Still, such wonderful gifts, the adoration.  It was all catering to her.  The attention she so rightfully deserves.  She is taken, the crowd giving way to a centerpiece of the room, a pedastel containing a harp crested by a white bird made of starlight. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-11.html_Files/aad0e9723fa6b092077ce0f22ab3047f.png">
+                                    <img class="chatlog__attachment-thumbnail" src="job-11.html_Files/aad0e9723fa6b092077ce0f22ab3047f.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="666504424126152724" id="message-666504424126152724">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span> 
+The guardian stood at the crossroads.
+
+One charge recoils in fear, bound in sorrows and fury and confusion and malice.  She is present with a path leading into darkness.  A cold, lonely empty place to match her heart.  Here she can hide.  Here she can recover.  Here no one will discover her....  But are such peaceful places always so?
+
+One charge heart unfolds, unfurls.  She is almost home.  In her element.  Where she wants, where she needs, the center of adoring faceless hordes that shout for more more, entertain us.  Tell your stories, bring us to your needs my queen.  She is in a tide of madness, a sea of cachophony laughing into the typhoon.  Could the next wave have a knife?  Has she already drowned in bliss?
+
+One guard cannot split himself.  Whom does he follow? <span class="chatlog__edited-timestamp" title="14-Jan-20 12:50 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">14-Jan-20 01:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="666517325398409216" id="message-666517325398409216">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Aha! The perfect instrument for the situation! <em>What am amazing coincidence!</em>&quot; Nar winked hard, shamelessly playing to the crowd, but with a reminder of their situation all the same. Was she advising herself? The other delegates, indirectly? Just goading the fae into laying a more involved trap?
+
+&quot;Oh, but this is not my harp. My harp has an oaken handle and an iron head.&quot; She grinned, showing more teeth than necessary, as she described an axe. It was an old story. But she sat down at the instrument all the same. Naturally, it was sized for her. The tones would be exceptionally deep.
+
+&quot; I know! I will sing a story from the static world—&quot; Nar dragged her sharp nails down some of the shorter strings, drawing <em>howls of pain</em> from the instrument. &quot;—and then one of you can come up and share your most important tale with the crowd. And back and forth, until one of us runs dry. We can make a wager of it; come now, who has the most to give?&quot; Her fingers danced as she awaited a <s>sucker</s> challenger, opening the tightly structured chord progressions of an infernal hymn. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">14-Jan-20 07:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="666612166643941397" id="message-666612166643941397">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant looked at the situation and choosed both. He knew that Nar would be alright but he still didn&#39;t thrust this place, so he walked through the sea of bodies, easily parting them until he reached Nar, and just like a bodyguard should he leaned in to whisper in her ear softly while the touched her arm, &quot;Miss Canta should be around, and <strong>I&#39;ll be watching your backs</strong>. If you need me, just call for me.&quot; He said to her and used his power to protect her from ill intentions (<strong>Protection from evil and good</strong>).
+
+Then he walked away towards Sela, passing his free arm around her lower back and pushing the sea of bodies with his shield. &quot;Breathe...&quot; He whispered in he ear as he walked her towards the quiet place that had opened before them. He didn&#39;t thrust it either, but he needed to calm her down and he would be there to protect her in case it was a trap. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">14-Jan-20 10:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="666650712821727232" id="message-666650712821727232">
+                <div class="chatlog__content">
+                    <div class="markdown">It was a generous gesture. It really was. And if she were some human girl whose tongue was loose and heart was free, it would have been vital, probably. But Helm&#39;s sanctuary was usually meant to keep things like Nar at bay, not safe, and the clashing purpose was like an electrical shock when they touched. She put on the most gracious smile she had available, but the sudden jolt had made her flinch so hard she nearly broke a string.
+
+&quot;Thank you, corpsman,&quot; she forced her mouth to say. &quot;I will ensure you know the situation.&quot;
+
+(9 Performance! :( ) <span class="chatlog__edited-timestamp" title="14-Jan-20 10:32 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">14-Jan-20 11:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="666670163097157637" id="message-666670163097157637">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela felt her muscles tighten, her tummy aching with terrible dread. She was trying to focus on her breathing when she was suddenly interrupted by a smiling Nar. The girl could barely hear the woman, her concentration preoccupied by a strange shimmer across the way. When Nar went back to her party, that same shimmer began to take shape and eventually formed into what looked like a beckoning hallway. It spoke to her in whispers. Promising quiet, peace. 
+
+With a soft gasp, Sela felt the pull. Her golden eyes focused on that beckoning space. She took a hesitant step and then stilled herself. It wasn’t until she suddenly and unexpectedly heard Bofwant’s soft whisper against her ear that she felt any semblance of calm. She nodded then, trying her best to do as instructed, her heart racing, while her thoughts worried and fretted over how terribly she was doing. 
+
+Focusing on the weight and warmth of Bofwant’s palm against her back, Sela didn’t even realize she was being led at first. Step after step, she was getting closer to that space. She could still hear those whispers thumping her skull. “Is it safe?” she finally managed to whisper back, as they disappeared behind the billowing curtain, the air cooler, quieter. Tranquil. She looked up at her love, worry and embarrassment etched on her face, her scars standing out against her pale features. “I’m so sorry I... I’m failing...” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Jan-20 12:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="667040935296892950" id="message-667040935296892950">
+                <div class="chatlog__content">
+                    <div class="markdown">She was essentially a rock star.&#160; The new thing. To see something so alien cater to the crowd, well the eyes of the room would be upon her with her own force of personality.&#160; She made a comment and actually some people laughed along, getting the joke. The began to strum, to call the crowd and give a challenge.&#160;&#160;
+
+A guitar strum over the group would answer that call.&#160; 
+<em>“Important tales, what a vague boring notion.&#160;&#160;
+
+Personally... 
+I’d rather hear of worlds across the ocean.”</em>
+<a href="https://i.pinimg.com/564x/33/a9/2a/33a92a845976bb824d1931f4144b443d.jpg">https://i.pinimg.com/564x/33/a9/2a/33a92a845976bb824d1931f4144b443d.jpg</a>
+A man stepped through.&#160; While he looked the part as gentleman, as admiral.&#160; He seemed to be silhouetted in a miasma of black smoke emanating from his colorful coat.&#160; He ran what looked like a stiletto across the bows of a violin, but the sound seemed more of a guitar.&#160;&#160;
+
+The crowd fell silent to his words as like Bof, his very presence split the sea of masks.&#160; He walked with a daintiness, a purpose. His steps one after the other, capable of walking on a tight rope at full speed.&#160; The ethereal quality to him.&#160;&#160;
+
+<em>”The Primer, wants to play, for the court, for the merry.”</em>&#160; A circle forming around them as he seems to make the crowd dispurse so that they have their own little circle to themselves.&#160; <em>”But her heart is on display, and I see it’s quite contrary.”</em>
+
+The musician approaches her, before putting his back to her, wiping his backside against her tail leaning over his shoulder.
+<em>”She wants all that we can give, she wants all that she can get.”</em>
+<em>”Isn’t that the way of things, I think I’ll take that bet.”</em> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="job-11.html_Files/33a92a845976bb824d1931f4144b443d.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="job-11.html_Files/33a92a845976bb824d1931f4144b443d.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="667041049738215460" id="message-667041049738215460">
+                <div class="chatlog__content">
+                    <div class="markdown">The strumming and steps stop as he is infront of her, his smiling mask leaning in, well, leaning up as she is still taller.
+<em>”I know a pretty story, one you’ll find quite fresh, 
+I’ll sweeten the deal, 
+you’ll feast your eyes, 
+perhaps a prize of flesh?”</em>
+
+
+From the crowd comes an androgynous figure, veiled in robes, hard to determine if boy or girl&#160;
+<em>”What I want a paltry thing, in fact you wouldn’t miss it.
+I’d want to see, what’s good for me, a Queen I’d like to visit.”</em>
+
+He whispered the name of the queen of the glades, and this wasn’t in dulcet tones, merely the sultry timbre of a snake charmer.&#160; “Silver Tapestry Pendragon to be precise.... Do we have a deal?” He offered a hand, a hand as if to dance with the large woman that commanded so much attention.
+
+<s>~</s><s>~</s> <span class="chatlog__edited-timestamp" title="15-Jan-20 12:35 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="667041171352322124" id="message-667041171352322124">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Meanwhile</strong>
+
+Irithriel stepped into the dark garden, the sounds of the party almost immediately falling to a dull whisper, merely background chatter.&#160; The room itself was cool, refreshing, calm, quiet, and composed. Creatures like birds and bunnies remained here next to horned lizards and multi colored monkeys.&#160; Even in a place of refreshment, the weirdness of the wyld could help but shine through.
+
+Walking along the path, the sounds of the Fountain became the loudest, its trickling water cascading down its sides.&#160; The water had a lush, turquoise color. Perhaps not for drinking, but it was quite lovely, as if looking through a gemstone.&#160; As the two took in the sights, they heard another sound.
+
+“Okay children.”&#160; The voice was motherly.&#160; Matronly. Demanding and understanding.&#160; It sounded so light, but it cut through like a knife as if every words was annunciated.&#160; “One more time.” <span class="chatlog__edited-timestamp" title="15-Jan-20 12:23 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="667041345545699350" id="message-667041345545699350">
+                <div class="chatlog__content">
+                    <div class="markdown">There was five voices, two girls, three boys, all of them wearing white little suits and white puffy dresses.&#160; They were all no more then five years old. Just above toddlers. It was hard to tell. They wore their masks, each one resembling a crude drawing of an animal face.&#160; It was no where near as intricate as outside, almost like they made it themselves.
+“Mother, I will Stay in light.
+Mother, I wont stray.
+Mother, I wont eat the green sweets.
+Mother, I wont hold a knife.
+Mother, I wont take off my face.”
+“Well done children.”&#160; The matron clapped her hands and she stood up.&#160; “Now run along, go have fun.” Around Bof and Sela, the five children passed them and ran the way they came, right towards the loud party.&#160; Some of them were even laughing to be a part of it.
+The Matron moved out from behind the fountain...
+<a href="https://pbs.twimg.com/media/EH_SwJ7UYAEhKgL.jpg">https://pbs.twimg.com/media/EH_SwJ7UYAEhKgL.jpg</a>
+
+The woman is monstrously beautiful.&#160; She has wings of a crow and is naked from head to toe.&#160; Her silver hair however seemed to be all the dress she needed, trailing down and across her body covering her modesty, it even swaying out as if it was a ballgown.&#160; Her head held horns, but the porcelin of her face, and the lack of any emotion, even from her dark empty eyes showed that even she was wearing a mask, though it seemed to match her face almost perfectly.  She also seemed to have wisps of blue light around her, the soft flutter of butterflies.
+
+It was undeniable.&#160; This was an Archfey.&#160; A queen of Fairies.
+
+“So good for you all to make it.&#160; I am Eversworn Dancer.” She moves, but it was like she floated.&#160; She moved her legs to walk but as she revealed herself, her dainty hooves never touched the ground.&#160; “Perhaps your people are finally listening to reason.” <span class="chatlog__edited-timestamp" title="15-Jan-20 12:50 PM">(edited)</span></div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="job-11.html_Files/EH_SwJ7UYAEhKgL.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="job-11.html_Files/EH_SwJ7UYAEhKgL.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">15-Jan-20 02:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="667079615004672001" id="message-667079615004672001">
+                <div class="chatlog__content">
+                    <div class="markdown">While Sela had been waiting for Bofwant’s answer, she was glad that they’d at least left the din of that party behind. It was much quieter in this strange garden in which they now stood. Hoping her love would say something... anything... they were suddenly interrupted by soft chatter. 
+
+The sounds of water lapped at a nearby fountain, the calming waves enough to keep Sela from running or feeling further panic. Her golden eyes caught sight of something beautiful and terrible and immediately her heart felt the twist of fear. She was rooted to the spot, watching the strange scene unfold. But once the fairy children left, she felt her mouth go terribly dry. This was the queen of the court. The one with whom they’d sought audience. This was either very good or very bad to see her in such a place and state and... The red head inhaled then only to slowly exhale, letting the general serenity and soothing sounds of water wash over her. She turned to Bofwant, her eyes needing to see his reaction. 
+
+Sela moved closer to the man, not even realizing her actions. As the pair basked in the strange brilliance of this formidable woman, she just needed to know Bofwant was there. “Reason is a point of view, your majesty.” The girl curtsied then. It was what a noble of Phiarlan would do? Or, so she hoped. “Though I hope something reasonable does result from these talks.” A half truth. The girl worried for the poor eladrin caught in the crossfire. Her heart longed for them to be safe and treated well. It was what anyone deserved after all. But stating one’s mind was folly in a place such as this. One where she felt odd and vulnerable. Too vulnerable. Only one was allowed to know all her secrets and he was silently standing beside her, his hand still resting on her back. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">15-Jan-20 09:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="667172422939836431" id="message-667172422939836431">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>As long as you are with me, I will do anything to keep you safe.</em> Bofwant wanted to say, but he needed to be careful because he knew that this was a battlefield, completely different from what he was used to... But a battlefield all the same, so he just stood silent and watched the scene unfold before his eyes.
+
+He didn&#39;t trust this place, in truth, he didn&#39;t trust any place. That&#39;s one of the reasons why he always. Always. Wears his armor.
+
+He watched the queen with the children and then address them. He had seen to many things in his life to be swayed by something like beauty but he had to recognize that the queen certainly was a beauty. If he were a more selfish man, perhaps he would ac differently, try to earn her favor Somehow, but he was not like that. He was here to save lives and protect his group from the dangers of this place, so he just nodded in respect to the queen and let Sela do the talking for now. Playing his role as the silent guardian like he was trained to do since he was a young man without a purpose. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">15-Jan-20 10:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="667197120608075776" id="message-667197120608075776">
+                <div class="chatlog__content">
+                    <div class="markdown">Nar met his eyes and leaned tango-close, as though she were about to kiss him or bite his throat.  She kept her face a goading challenge-mask, daring him to carry on with her eyes even as she spread her lips to mock him.
+
+<strong>&quot;Tell them, fiddler, what you&#39;ve found is my delight—pow&#39;r.&quot;</strong>  She took the hand he offered, tightly, and pulled it to her breast across the strings of the harp.  The sound was shock and dismay, and her other hand muted and halved the strings until they sang like regret.  Without Bofwant and his anxieties clouding her mind, she really was a wonderful musician—for a mortal. <strong>&quot;Offer me the only thing I seek tonight—pow&#39;r.&quot;</strong>
+
+Nar glanced at the slave and did not bother to hide how she rolled her eyes.  <em>&#39;I know the difference between flesh and gossamer,&#39;</em> she whispered.  <em>&#39;And Mine is the only true flesh in this room.&#39;</em>
+
+<strong>&quot;You come to me for passage &#39;cross the storied veil,
+hoping without reason that you&#39;ve found the right pow&#39;r.&quot;</strong>  She released his hand and played properly, now, singing in a voice like angels ringing churchbells and wringing sounds from the harp like devils shrieking in horror at the beauty.
+
+<strong>&quot;&#39;Thus—&#39; I make, &#39;Wherefore—&#39; hold, and when I crave, &#39;Forthwith—&#39;.
+<em>You</em> know but the consideration of might-pow&#39;r.
+Would you be tamed by irons of transcendent law?
+Have you not gathered I traffic recondite pow&#39;r?&quot;</strong>
+
+At last, she fixed him with an exquisitely pitying look and brought her scales back to base, ending on the same high wailing note as she&#39;d begun with.
+<strong>&quot;I cannot wager what exceeds my grasp to grant.
+And you cannot reshape mortal law despite pow&#39;r.&quot;</strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">17-Jan-20 05:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="667654350985887744" id="message-667654350985887744">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela’s head was still spinning, though it was far better now that they were away from that horrible party. The sights and sounds muddled the senses, made her feel like she was either suffocating or drowning. Here, in this unearthly quiet, she could attempt to let her mind settle a bit. Still. It wasn’t coming as easily as she’d hoped. This Eversworn made her legs shake, threatening to give way. But she managed to hold her own thanks to the presence of her love. She wondered if he knew how much that mattered...
+
+“I apologize,” Sela then went on. “I’ve not properly introduced myself. I...” She hesitated briefly. “I’m Selaphiel Rookwood d’Phiarlan.” Anyone knowing their elven lineage and the way nobility within house Phiarlan worked, would understand that wasn’t a proper marriage of names. Rookwood was not a favored family of the Phiarlan bloodlines. Such a union would hardly have been allowed, let alone be given opportunity to... produce. 
+
+Unaware of what she’d done and hopeful to gain insight on her family, Sela looked up at the otherworldly woman. “It’s easy to forget oneself when such merriment dulls the senses,” she explained. “Why are you not at this party?” she then asked, finding it curious that the queen herself hadn’t made her presence at such a f&#234;te, though Sela had a difficult time understanding why anyone would celebrate during such dark times, when the fate of a people seemed to be teetering on the edge of existence. <span class="chatlog__edited-timestamp" title="17-Jan-20 05:01 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">17-Jan-20 02:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="667791133027598356" id="message-667791133027598356">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Sela, Bof</strong>
+“Indeed it is child.&#160; And I do hope it will.”&#160; She walked/glided around the fountain towards the two of them.&#160; “I needed to meet with you before we speak to your Erian Glade Elves.&#160; They await use back in the main hall. I needed you to understand our side of the story.&#160; And what is at stake.” She stopped before him. She seemed, taller. Maybe eight feet at the tip of her horns.&#160; She did not stand so close as she needed to be looking down. “Your people, the Kingdom of Erie will not accept us.&#160; And if we stay here. We will all die under the court of Frozen Spite and the other Unseelie.”
+She does glance at Bofwant, her eyes dismissive and seemingly hallow as she stares into the depths of his soul.&#160; They brought a man of war with them. A man uncaring and unkind. He holds the elf like a puppet master holds a puppet.&#160; She was liable to fall without his grip. The unsettling feeling that lies seemed to be striped from in her sights, and their own hearts were laid bare in the light.
+The girl curtsied.&#160; “Rockw-?” Eversworn’s wings noticeably twitched and she raised her claws.&#160; Her head and body turned away from the two primers. She gave a gesture and her little lights to flitter out into the darkness of the room... going into corners, under plants.&#160; It was like the entire room was suddenly under the effect of a fairie fire spell. She watched them, cautiously. “Hand on your weapon guardian.” She had said. “Your ward is in danger here.” </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="667791149146046485" id="message-667791149146046485">
+                <div class="chatlog__content">
+                    <div class="markdown">She turned back her voice is lowered into just above a whisper. “Do not speak your name child.&#160; <em>She</em> searches for you. All the scions of the Eladrin houses. D’Phriarlan. Diamond. Thornhallow.&#160; She searches for the lost children of the seasonal elves.” She warns. “The masks of the masquerade ball are to protect my people.&#160; The masks are glamor. It hides their face, hides their heart. The masks protect them from the agents of the Unseelie Courts. The Eladrin mixed with my subjects and phantom wisps.”&#160; So the ‘party’ was just a way to protect her people. It seemed so strange and odd but that was the way of the Feywyld and fairies. Battles could be fought in a courtroom, or a banquet.&#160; Atleast its alot less violent. Even just symbolism seemed to be enough for these strange creatures. Or maybe they search for someone specific.&#160;&#160;
+“You shouldn’t have come here child.&#160; I’m sorry. Put the mask on. You must hurry.&#160; Your guardian will need one as well.” She exclaims, pointing to the one in her possession. <span class="chatlog__edited-timestamp" title="17-Jan-20 02:45 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">18-Jan-20 12:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="667952343442128926" id="message-667952343442128926">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Nar</strong>
+
+A little twist a little spin.  She brought him in and back again leaving him in a little twirl before he stops upon his thrall.  The words came back like the chime of knives being sharpened and vitriol etching a master work.   The fiddler spun his stilleto on his finger as he let her have her moment.  Barking clear her requests in limerick, but also rebuffing his own request.
+
+<em>&quot;Doth my heart hang heavy, and my ambitious led astray.&quot;</em>
+
+The fiddler shoke his head and shrugged his shoulder.   The words delighted regardless.  
+
+<em>&quot;Alas.  Suppose we get down to buisness then.&quot;</em>  He takes his stilleto and presses it into the back to have him move forward, speckled rubies dripping from the blade that he wipes on his string,  the slave shutters from the mark, just one of another.   &#39;Are you so sure?&#39;  he responds in a reply. <span class="chatlog__edited-timestamp" title="18-Jan-20 01:02 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">18-Jan-20 01:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="667956595686244393" id="message-667956595686244393">
+                <div class="chatlog__content">
+                    <div class="markdown">The fiddler begins again, the soft strumming of his instrument.
+<em>&quot;Power she wants, Power she get.  And all it will take is a little bet.&quot;</em>  Not quite playing, not quite sinning, he began on his second request.
+
+&quot;Surely an envoy of your stature does wield a little of her own yes?  Enough to perhaps convince a pair of elves of what they already decided. &quot;
+He strums the strings in a crescendo.  <em>&quot;Fairies to the Wyld.  Children of the Gardens.  Why do we leave for grayer pastures?&quot;</em>
+He leans opposite the harp.  &quot;Tis so simple.  And certain parties will be ever so grateful for such a paltry sum.  And they have power a plenty to share...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">18-Jan-20 02:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="667984228314644490" id="message-667984228314644490">
+                <div class="chatlog__content">
+                    <div class="markdown">Nar lets her melody drop away and just maintains a few one-handed chord progressions, ostinato, for accompaniment.  She reaches out with her other hand to draw the slave closer, wetting her fingertips in the process with blood from their robes.  She transfers some to the strings she plays most often, daintily licks off the rest, and cradles their chin between thumb and index finger.
+
+<em>&quot;Changokrang chea—do you have a name, poppet?&quot;</em> she sings, cooing the ordinarily stern sounds of Infernal as softly as a lullaby.  And this time, she lets the harp make proper harp noises.  
+
+<em>&quot;Tomrong ning sakammopheap—I&#39;ll keep it safe in sound.&quot;</em>  She shifts the figure&#39;s head to one side then the other, examining the only exposed parts without jostling the mask.  
+
+<em>&quot;Avei krobyeang ku—whisper whence you come to me.
+Dauchdel vea kuorte m—&quot;</em>  And then she stops abruptly, clearly mid-lyric, and moves her hand to tap their back again.  At once, a smile spreads across her lips, and she directs it at the fiddler.  It grows to nearly a grin as she speaks more directly.
+
+&quot;You&#39;ll have to tell me which elves, if it comes to that.  I can only think of one who matters tonight.  Let us play, and <em>keep the color here</em> as vibrant as ever.&quot;
+
+((She tried to cast Mending on this construct of gossamer and temptation.  Obviously, that doesn&#39;t work on creatures.)) <span class="chatlog__edited-timestamp" title="18-Jan-20 02:53 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">18-Jan-20 11:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="668301277154770944" id="message-668301277154770944">
+                <div class="chatlog__content">
+                    <div class="markdown">Trembling, Sela tilted her head, thick, red waves cascading down her back in glistening ringlets. Her brows knitted together, as she tried to understand what Eversworn had just said. “Searching for me?” she asked aloud. “Who?” The girl knew no one in the Feywild. Her parents had seen to that. So why would anyone there care about an elf such as she?
+
+Sela looked over at Bofwant, fear and worry etched on her face. Was this strange and terrifying woman speaking truths or was she trying to just instill fear. Uncertain, she took the offered mask and held it tightly in her hands. Mouth dry, eyes wet with tears ready to fall, she looked back at her love, needing to know if he thought this safe. Right. 
+
+“What do these masks do?” Sela then asked, holding up the mask. Ready to put it on. Her heart hammered hard, as she wondered just what sort of danger she was in. What danger... and why. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">19-Jan-20 10:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="668462720705888286" id="message-668462720705888286">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant narrowed his eyes at the queen. She didn&#39;t sound untrustworthy, but he had been told to not trust anything in this place.
+
+Despite that he knew that he couldn&#39;t exhaust himself, that was one of the first mistakes most priests and blessed soldiers like him did on the battlefield. They relied too much on their powers and the moment they really needed them they were empty and death reached them. So he just took a small step closer to Sela, getting ready to protect her and make her feel his presence, he would not let anything happen to her.
+
+He grabbed the mask that the partygoers had stashed under his shoulder plate and examined it. Sela had already vocalized his questions to he kept silent, he had not much knowledge in magic but he tried to figure out if they were more than just masks.
+
+He also pushed his senses to the max, just like the queen did, he scanned the place for evil... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">21-Jan-20 06:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="669307828913307659" id="message-669307828913307659">
+                <div class="chatlog__content">
+                    <div class="markdown">Her magic clicks.  The power of it cast upon the masked slave in its veils.  There is a spark as her charm tries to discover something, anything to reconstruct, reknit, yet the blood falls as loose as ever.  
+
+Tis true, the creature is of flesh, though not a being of the Fey, lest the fiddler carry with him an elf, supposedly they are plenty that a single one would not be missed.   An androgenous voice comes from under the mask.  &quot;Aria.&quot;  The slave says looking up at her, no movements save a tremble at her touch.
+
+&quot;Satisfied?&quot;  He asked, and he could tell already that she was seemingly interested and wished to extrapolate further.  She leads the music, she leads the rythmn and the beats and the fiddler joins in, two in battle becoming a duet.
+
+&quot;The Gladeselves of course.  From the land you hail.&quot;  His voice resonates and is heard no matter how loud he plays, they were having a conversation and a performance wouldn&#39;t ruin it.  &quot;They are here on behalf of <strong>the</strong> King, though speak with the words of <strong>their</strong> Queen.&quot;  Using the distinction since it is true.  &quot;Waiting for you and your entourage if I were to guess to put this charade to its final rest.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="669307855492481064" id="message-669307855492481064">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Meanwhile</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="669308963052978217" id="message-669308963052978217">
+                <div class="chatlog__content">
+                    <div class="markdown">Eversworn Dancer raised a claw to her lips, a sign to keep her voice down.  &quot;A hag, with skin as black as her heart.  The Witch of the Hallow,  <em><strong>The Dowager of the Irreverent Vulgate in Unrent Veils</strong></em>&quot;  Yes that was her name is seemed.  &quot;The mask will hide you from those not of my court.  Without a mask, they can see you.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="669309008578084880" id="message-669309008578084880">
+                <div class="chatlog__content">
+                    <div class="markdown">And Bof scanned the garden for Evil </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="669309038944845826" id="message-669309038944845826">
+                <div class="chatlog__content">
+                    <div class="markdown">And that was what he found. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="669309503057035276" id="message-669309503057035276">
+                <div class="chatlog__content">
+                    <div class="markdown">There were, things in the dark.  Under the hedges, in the shadows.  They moved to avoid her butterflies, but they were there.  No light cast upon them, but the magic alerted him.  They were around.  They surrounded them </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="669309715884408842" id="message-669309715884408842">
+                <div class="chatlog__content">
+                    <div class="markdown">If he focused he would see only vague shapes... skulking and crawling. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="669309722893221898" id="message-669309722893221898">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-11.html_Files/076ed9adb23bad90a66fa80eae87a509.png">
+                                    <img class="chatlog__attachment-thumbnail" src="job-11.html_Files/076ed9adb23bad90a66fa80eae87a509.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">21-Jan-20 10:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="669374256408297523" id="message-669374256408297523">
+                <div class="chatlog__content">
+                    <div class="markdown">Bofwant felt the presence of evil hiding from the Queen&#39;s eyes. &quot;They are here. Watching.&quot; He said and quickly helped Sela to put on her mask before taking off his helmet to do the same, he put it on afterwards because it was designed that way. Ussually it was to use a filter mask to fight in poisonous or infected battlefields but since he had become immune to most of that he had removed it but it now had the space to put on that weird party mask.
+
+&quot;Why?&quot; He simply asked the queen, why was that hag looking for elves, specially Sela. Why was her court so easily breached by enemy forces, why she had allowed things go this far. <em>Know your foes. Anticipate attacks and be ready.</em> He repeated part of his creed in his mind as he looked around, pinpoting the moving shadows, none of them were close to Sela or the queen but he was ready to act. So for now he just watched them as they watched back.
+
+They had made progress in resolving his Love&#39;s mistery but none so far in helping the other elves. He had broken his role as the silent guardian just by asking the queen why, so it now depended on Sela, hopefully she would remember the most important part of his creed: <em>Be fair and diligent in the conduct of your orders. Protect the weak, poor, injured, and young, and do not sacrifice them for others or yourself.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Jan-20 10:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="670447918427144233" id="message-670447918427144233">
+                <div class="chatlog__content">
+                    <div class="markdown">Sela put on the mask with Bofwant’s assistance. A part of her was still worried putting the thing on, but she had to hope that it truly was for the best. If she was in danger then it would help protect those with her... especially Bofwant. And it would allow her to fulfill her part of her purpose for even attending this strange negotiation. Her heart went out to the poor eladrin caught in the middle and she hoped to help them, as best she could. At least she’d learned something of her past—a hag truly was looking for her and the Feywild was dangerous territory for someone such as herself. Still. There were more questions, but they had to wait. For now. 
+
+Once the mask was in place, Sela looked up at Bofwant. Her love saw something. Had his own questions. Though she wasn’t certain the answers would come all that easily, at least not in a place such as they were. “What of the eladrin?” she then asked the fairy queen. “Is this hag Unseelie or something else? How can I be of service.” She wanted to be. This also helped her poor twin brother, helpless against his curse. How many eladrin also suffered? How many escaped and sought sanctuary? They all needed help. “No one should have to run from this. Are the eladrin of under your protection also in danger?” she asked. Though she was sure she already knew the answer. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">25-Jan-20 02:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="670697686738927637" id="message-670697686738927637">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well then, fiddler, I oughtn&#39;t tarry, however well you play.&quot; She leaned toward him, grinning, but ducked suddenly to place a gentle kiss atop Aria&#39;s head. <em>&#39;Fear not, darling. Pending certain inspections, you&#39;ll be leaving soon.&#39;</em>
+
+Then Nar straightened and switched time signatures at the end of the bar without any particular warning. She gave the faerie a goading smirk, too. &quot;If there&#39;s no time to finish this properly, I think we might fairly call it a draw, and we both having won, collect our due. Don&#39;t you think?&quot;
+
+&quot;Perhaps a private test later, before the ambassador departs.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Jan-20 09:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="672253330097045540" id="message-672253330097045540">
+                <div class="chatlog__content">
+                    <div class="markdown">Eversworn Dancer tries to explain as the wisps begin to close in, skulking towards the sanctuary of the group.  &quot;The witch has caused such misery, merely in the face of a rumor, an legend.  A story.  The dreams of the season elves are the dreams of the seasons themselves.  She wants that power and she believes that-&quot;  She archfey turns, she senses it too now.
+
+Her fingers extend like knives as she holds her hands out to her sides, slowly readying herself to defend herself. <span class="chatlog__edited-timestamp" title="29-Jan-20 09:36 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Jan-20 09:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="672255444097695744" id="message-672255444097695744">
+                <div class="chatlog__content">
+                    <div class="markdown">The masks on the two felt... strange.
+
+It was a haziness, a fuzziness.  
+
+They would suddenly feel off- and the feeling was hard to explain.  They would feel some discomfort in their own skin, their own clothes.  Thoughts came to the forefront, thoughts not their own.  It was like they stepped into another life and it was trying to take over.  Both would know that it was dangerous to keep these Masks on for very long, lest they loose themselves to it.  
+
+Now Sela could see that the shadowy creatures were getting closer.  &quot;This is no time to answer your questions.  They are all in danger.   I hold the fealty of my courts and my protectors, but the enemies are everywhere.&quot;  
+
+Her wings unfurl as she backs up, her wings shielding the two of them.  Her voice becomes more and more in distress, more and more alarmed and in warning.  &quot;Help your people.  Convince the glade elves to let us into your kingdom.  Keep them out of the Witches&#39; hands!&quot;  
+
+That was all she could say as the shadows attacked! </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="672255932360556547" id="message-672255932360556547">
+                <div class="chatlog__content">
+                    <div class="markdown">The masks worked... Bof and Sela went utterly... ignored.  Around them were the shapes of shadowy monsters, swarming around them like a stream turning at jutting rocks, and instead their target was the Fey herself, who began to lash out with her claws, cleaving these living shadows like they were pieces of cloth.  There were so many... but she and her magic was protecting them.
+
+Sela and Bof could avoid this battle, leave this place, and hope her answers came later. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Jan-20 09:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="672257960143224883" id="message-672257960143224883">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>MEANWHILE</strong>
+
+For Nar, the fiddler was quite satisfied with their dance, quite satisfied with their song.  It was unusual to find one who could keep up with him but it was an endless delight.  &quot;So happy you like your new property.  Just one of many that could be offered my fair lady.  If you speak out to reason.&quot;
+
+He twirled his bow, spun his instrument and there it was and gone with a flash, he was merely another party goer, though he was bowing and offering a hand to her.  &quot;A private anything my lady would be much fun.  Perhaps now then, strolling through the garden on this beautiful eve on the way to the negotiating table.  I want to make my intentions perfectly clear and make sure to cement a fruitful partnership in this endeavor.&quot;
+
+&quot;As many would, this is our home, why should we be forced elsewhere?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-11.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">31-Jan-20 03:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="672703010211627029" id="message-672703010211627029">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hmmyyes, <em>your</em> home, I&#39;m sure.&quot; Nar continued playing long enough to bring the stanza to a close, and kept that sultry smile in place the entire time. And then she stood, looked down at the fiddler and her new pet with a smirk, and took his hand.
+
+&quot;Yes, some fresh air away from the crush of all these guests would do us all a bit of good. <em>I</em> would like to see what my promise has bought, if nothing else.&quot; She gave Aria a hungry smile, but then placed an arm around their shoulders and pulled them gently to the warmth and softness of her hip, the same hug any mother might give her ten-year-old.
+
+&quot;Come with us and stay close, now. We wouldn&#39;t want the monsters to get you.  ...back.&quot; She had too much class to quite laugh at her own joke, but that didn&#39;t make her tone or her eyes any less tickled. &quot;And fiddler— Be sure your friends know this as well: I will not bear &#39;fruit&#39; for <em>anyone</em>  of this realm. Shall we walk?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 86 message(s)</div>
+</div>
+
+</body>
+</html>

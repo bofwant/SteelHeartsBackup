@@ -1,0 +1,2526 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - job16-snowdeep-village</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="job-16-snowdeep-village.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Archive - Adventures1 / job16-snowdeep-village</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">21-Oct-19 01:10 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="635887668223279105" id="message-635887668223279105">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The Steel Hearts descended from on high towards the little village causing quite a stir to the people unused to the sight of an airship this far west.  The ship swooped in low, finding a spot away from the building and finding a nice open spot in the town square, the paved stone offering a nice landing.
+
+The group descends using the lines provided by the cave fishers and lands directly in the middle of town before the engine kicks back on and sends the airship into the sky.  Now it was just a matter of finding the client.
+
+The message said the client would wait for them in the local library, it looked like a small and poor village so the library would probably be just a small hut with books.</em> <span class="chatlog__edited-timestamp" title="21-Oct-19 01:10 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-16-snowdeep-village.html_Files/b6349240aa6cc4ab79bc3a82f49b1436.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="job-16-snowdeep-village.html_Files/b6349240aa6cc4ab79bc3a82f49b1436.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="635887782090506251" id="message-635887782090506251">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">21-Oct-19 02:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="635901398361440257" id="message-635901398361440257">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric once again descended the lines provided by the cave fishers, but now wearing his newly provided winter clothing. He took a quick look around the small village in order to try and see where the library would be. He had visited many libraries both big and small and thus he was probably the person here most likely to recognise a library out of the group here. After he did this, he decided to introduce himself to the rest of the party.&quot;
+
+He looked to each person standing there and spoke, &quot;Well everyone I think we should first introduce ourselves. My moniker which I am known by is Carric Amastacia, a pursuer of knowledge and a wizard. I am quite knowledgeable about many things so I hope that my knowledge will be useful on this job.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f6ebfcbf19b333d19a4bf6dd875d6312.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Probably Jinx#1777" data-user-id="393130554201210892" style="">Probably Jinx</span>
+
+
+        <span class="chatlog__timestamp">21-Oct-19 02:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="635904024620826624" id="message-635904024620826624">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Scala met the guild members with a smile, shaking from the cold but excited to help nonetheless.</em>
+“My name’s Scala, I’m a fighter and a bit of a pursuer of knowledge myself.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">21-Oct-19 02:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="635906953586933791" id="message-635906953586933791">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel was bundled up in her pretty new winter clothes. Though they were quite functional, care had been taken to make sure they suited her tastes. As she was lowered to the ground, she felt the cold bite of wind against her pale face. Her snowy hair billowing behind her. But the girl just laughed, the sound an enchanting melody, as she watched the town approach from below. 
+
+“Do you see it, my beast?” Iri asked of Mors, her hand reaching and pointing to all the sites, her happiness and excitement rather evident. “It’s so beautiful! And sweet! And...” <em>Thud</em> She’d reached the ground. Giggling sweetly, she stepped closer to the group she saw gathering together and then curtsied. “Hello,” she said before rising and then glancing over her shoulder, gray eyes searching for her Mors. “I think I know some of your faces,” she admitted, her pretty face darkening a shade or two of pink. “I’m Irithriel Ravenwood.” Again, the girl curtsied in more formal introduction. “Pleasure to meet you. I do hope we all become good friends on this adventure. Right, my beast?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">21-Oct-19 02:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="635910611506823200" id="message-635910611506823200">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Mors reached the floor with a big thud, his eyes glowing scanning for enemies to conquer, he looked at his mate and nodded, maybe they could find more useful people for their army, &quot;Yes, If they are useful enough they can become part of our army&quot; He looked around, something was missing, &quot;Little moon where are...&quot; &quot;Waaaaaaa! Wiiiiii!&quot; *Thud crash</em> Yep there they are, his minions had just landed..... Splashing now everywhere, Mors sighed and moved to put an arm around his mate, to keep her safe from the cold wind. <span class="chatlog__edited-timestamp" title="21-Oct-19 02:41 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f6ebfcbf19b333d19a4bf6dd875d6312.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Probably Jinx#1777" data-user-id="393130554201210892" style="">Probably Jinx</span>
+
+
+        <span class="chatlog__timestamp">21-Oct-19 02:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="635911648330121216" id="message-635911648330121216">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Scala looked at the minions curiously</em>
+“What on earth are these bazar little creatures? I’ve never seen anything like them...” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">21-Oct-19 07:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="635983454949081101" id="message-635983454949081101">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel just giggled and knelt down beside the little darlings, reaching out to give them a pat. “Aren’t they the sweetest little creatures you’ve ever seen?” she stated, her expression soft, like that of a mother watching her children play. “Be careful, little darlings.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 10:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="636207913878290432" id="message-636207913878290432">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>With her usual dancer dress and some thick clothes to protect her from the cold enviorement, Juma was stretching her arms with a tight movement of them when her ears heard a strange and loud noise coming from the sky. Obviously surprised, her head turned towards there to find that something similar to... something that was dropping some tiny people... if we don&#39;t include the big man that were with them. Juma made two steps backwards before they reached the snowy ground... Obviously, Juma was a bit too surprised by the scene that happened in front of her</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 10:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="636214458666057748" id="message-636214458666057748">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden had seen many strange things and creatures in his time as a warden but the sound that rang over his head was by far one of the most interesting. Looking down at his mastiff phantom he gives a stern nod and heads for the clearing near the town. Looking up in the sky he could see a large airship and 3 descending characters from the ship. One he could instantly recognize as a goliath from its size. Being cautious and he steps to the edge of the forest&#39;s clearing. Keeping his distance but also keeping an eye on the newcomers. Leaving his primary weapon on the ground behind him in the bushes. His scale armor gleaming on his midsection and phantom taking a load off on the cold ground.</em> <span class="chatlog__edited-timestamp" title="22-Oct-19 10:50 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 11:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="636217278127538176" id="message-636217278127538176">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors was looking down, seeing his mate baby the minions, and he something on his heart , those little fuckers were always up to something, and it usually just screwed with him, but they had her now, maybe thing wond be so crazy anymore, maybe they will be quiet around her.........Nah, he will just have to be ready and protect her from any bullshit they cause. He was about to pick his mate off the ground when he saw something in the distance, it was another giant like him, he narrowed his eyes and looked directly at him, &quot;Be ready little moon...&quot; He said to her without turning, he didn&#39;t know, but if it was an enemy there would be blood and pain, for the idiot that is. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 11:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="636221174208135178" id="message-636221174208135178">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>Juma placed her gaze towards one of the small creatures that reached the snowy ground of the village, but without staying near of it. The blue wasn&#39;t her favourite color, so, with light movement of her hips, the Dancer rested her back against the wall of a nearby building, crossing her arms swiftly. Her shortswords were resting on her back, something that the creator of Juma forgot to say before &gt;_&gt;. After looking the small blue creature during some seconds, her gaze changed of target, now looking at the goliath without her surprised expression decorating her face anymore</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 11:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="636221876464517150" id="message-636221876464517150">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Noticing the other giant kind see where he was he looks down towards his companion. Urging them up he turns back and reaches into the bushes. After a moment he produced a small ballista and lays it over his right shoulder. Turning back he rolls his shoulders and starts walking slowly towards the new group from the airship. After getting about 50 feet closer he raises up his free arm and waves, noticing the other goliath&#39;s defensive position. He didnt want to start a fight if he didnt have to. His longer dagger strapped to his side, a longbow across his left shoulder and a longsword in a simple leather casing hanging from his left hip. Phantom happily trotting next to him, not sensing any threat from Warden.</em> <span class="chatlog__edited-timestamp" title="22-Oct-19 11:34 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 12:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="636240438419914762" id="message-636240438419914762">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel was reaching out to pet one of the little darlings when she heard her beloved beast’s voice. The girl turned slightly towards Mors, though his back remained to her. He looked ominous, as he stood there at the ready. She blushed at the sight of him, softly starting to hum. With her mate, she’d always be safe. Protected. She pat one of the sweet little blue creatures on the head before standing up beside her mate. “You think he’s dangerous, my beast?” she then asked, her arms encircling his, as she leaned against him and resumed her sweet humming. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 02:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="636263657608839198" id="message-636263657608839198">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric turned to the others and told them, &quot;Should we not try and locate the library now, this is only a small village and there are only so many buildings to check. I myself am quite curious to see this library&#39;s selection of books and to meet the client as well.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 03:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="636283630414463006" id="message-636283630414463006">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors watches the other Goliath carefully, he had a mate to protect now, the concept still new for him but it was what all his being demanded of him, then she saw the man come closer and wave like a fool, Mors scowled, &quot;No little moon, that is just another fool, but he maybe of use to us&quot; Mors relaxed   a little but never took his eyes from the other giant. Then he heard the other mercenary talking, who was this idiot to comand him and his mate, they won&#39;t follow anyone, everyone else will follow them, but his idea was solid and he recognized it, &quot;Let&#39;s go then&quot; He said and embraced his mate again to protect her from the cold but didn&#39;t move or took his eyes from the approaching man or his pet. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 04:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="636294767264792576" id="message-636294767264792576">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>The ears of Juma weren&#39;t as sleepy as her legs right now, hearing the words of Mors quite clearly as he was covering something... The lips of the Dancer released a light sigh after some seconds before her back left the wall. The half-elf made her way towards the man with some questions on her head: Little moon? Did he have a strange plan in mind? Those question were making her body made her way towards them, trying to avoid the people during her way there. If he was doing a quest, then... maybe she could earn some gold~</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 05:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="636317530440466472" id="message-636317530440466472">
+                <div class="chatlog__content">
+                    <div class="markdown">“Well, if he isn’t dangerous and he’s a fool...” Iri pondered with a giggle. “Then perhaps he can entertain,” she suggested excitedly. “Wouldn’t that be wonderful, beloved? He could dance with us and then tell us jokes, while we catch our breath.” She giggled softly then, but made no move to go any closer to the approaching goliath. Instead, she stayed with her Mors, snuggling his arm, as they turned to follow the wizard towards what would hopefully be the library. After all, they had a wedding to attend. And if she had her way... plan. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 08:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="636356446900191232" id="message-636356446900191232">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Noticing their defensive stand he took one up of his own. A casual stance but kept a hand resting on his blade and on the ballista on his shoulder. Looking them over he could see the creatures on the ground and the other e humanoid figures surrounded by them. Giving a respectful nod to the other two he locks eyes with the goliath. Staring for a moment he gives a nod.</em> &quot;Dont see many of my kind come up here. At least not looking for a fight at least. What business do you have here?&quot; <em>His speech is not threatening but more to the point. Phantom now seeing the blue creatures slowly approaches one sniffing curiously, tail slightly wagging.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">22-Oct-19 09:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="636379566516207646" id="message-636379566516207646">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors scowled, who was this fool and who gave him permission to address him like that,&quot;Keep your words to yourself, I don&#39;t answer to you or anyone, only my mate&quot; His eyes began glowing threateningly, but he didn&#39;t make any move to attack, He was on his honeymoon and maybe this idiot could become part of his army, &quot;You will do....&quot; Then he heard laughter, he knew that sound, when he turned around one of his minions was riding the dog while the other was throwing snow ball at them......
+
+Mors closed his eyes and sighed, &quot;What do you say little moon, do we keep this fool and his pet?&quot; He asked softly and then opened his eyes, they were still glowing but his body was more relaxed now. <span class="chatlog__edited-timestamp" title="22-Oct-19 09:45 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">23-Oct-19 02:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="636454927928918016" id="message-636454927928918016">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>As the time passed, Juma could be quite near of the small and tiny minion troop that were... throwing snowballs and ridding a dog? A bit surprised by that scene and finding it quite funny, the Dancer placed her gaze on the newcomer, who was... as big as the first one. Was today the Goliath day or something like that? Without wanting to ask that question, Juma let them finish their talk, watching the small blue creatures playing as she was waiting to do something useful... like say something</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">23-Oct-19 03:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="636461720398725120" id="message-636461720398725120">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel giggled softly, sweetly, letting go of Mors’ arm so that she could experience this lovely snow surrounding them. The little elf spun around, humming her enchanting melody, while her skirts and new coat fanned out slightly about her lithe body. She was happy, smiling, relishing the small moment. When she stopped her play, she looked at the new goliath. Mors was the only one she’d ever seen, so it was interesting seeing another. Even if he was what her beast deemed ‘a fool’. 
+
+“You’re the second I’ve ever seen!” Iri laughed. “Though you do not state your name.” She tilted her snowy head then, looking at the newly arrived goliath and his pet—she found it sweet that the darling creatures were already taken with his fluffy pet. She looked to Mors then, her beast looking as sour as ever. The girl smiled up at her Mors, giving his arm a reassuring squeeze. “I am Irithriel Ravenwood,” she went on, looking back at the other goliath. “Perhaps you and your pet seek to help in a noble cause. To protect the weak and provide them a safer, happier life. For that is our business,” she said sweetly, grinning first at Mors and then the other goliath. “Though, we’ve a wedding to attend,” she further explained. “But it means we go to the library first! Right, my beast?” she said, twirling around and humming before she leaned against Mors, slightly dizzy. 
+
+Just then, Iri perked up, a brow arching. “Who are you?” she then asked aloud of the quiet girl hanging back a few feet away. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">23-Oct-19 09:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="636557533288464404" id="message-636557533288464404">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden&#39;s eyes narrowed at Mors for a moment. He was not attacking him but he also was not the nicest of strangers. Looking him over one more time he nods. Turning to the voice next to him he smiles a little at her enjoyment of the powder on the ground and the.... children? Playing with phantom.</em> &quot;I am Garth Mountianshot, but around here I am known as Warden or Game Warden. I protect the village and the forest surrounding the area.&quot; <em>Hearing her mention the library made him a bit happy. But he didnt know what cause she meant. He turns around toward the direction the elf&#39;s eyes turned to and saw the girl as well. Why was there so many new people here? Though this one looked a little more friendly.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">24-Oct-19 08:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="636904014050492428" id="message-636904014050492428">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric looked to the new people who had approached and told them, &quot;My moniker is Carric Amastacia and I am a member of the Steel Hearts guild. We are currently have business with the village&#39;s librarian. If either of you could tell us where the library it or even lead us to it, it would be much appreciated. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">24-Oct-19 08:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="636909184608239617" id="message-636909184608239617">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors looked at the other giant and sighed, &quot;A warden....good, you may be useful&quot; Yes, he would test him, if he finds him worthy the warden will be recruited for his army. Then he turned to his little moon, &quot;Yes, we have to take that woman to a place and help her complete her mating rites...&quot; He answered, why were they doing this idiotic thing again? Ahh they were on their honeymoon and his mate wanted to plan a wedding....Meh, fuck it, he will just go along, he turned to start walking towards the village and heard his elf talk to someone else, it was not the other fool from the ghost ship, that he was sure of, he saw another woman, Mmmm interesting, more idiots to test and recruit, maybe this will be enjoyable and not filled with sappy bullshit, and maybe this new woman knew where was that fucking library, &quot;Answer her,&quot; He comanded, eyes still glowing. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">24-Oct-19 09:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="636920958984257546" id="message-636920958984257546">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>The woman stopped when her ears heard the end of Irithriel&#39;s words, moving her gaze from the blue minion that she was watching to the elf, staying a few meters away from the group. Most part of her body was covered by the thick clothes, just letting her head, feet and her shortswords visible. Her golden eyes were closed when her body moved once more, this time to give the group a small bow. Then, Juma opened her eyes once more</strong></em> &#39;&#39;I&#39;m Juma. Juma Lynara to be more concrete. And I guess that you three are doing something that could be important for you...&#39;&#39; <em><strong>When her lips was saying her last sentence, her gaze and head were turning towards Mors</strong></em> &#39;&#39;..., right?&#39;&#39; <em><strong>Juma didn&#39;t move her gaze from him, like she wanted to hear something from someone. Obviously, that &#39;&#39;Answer her&#39;&#39; didn&#39;t make her be comfortable...</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Oct-19 11:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="636948678078365708" id="message-636948678078365708">
+                <div class="chatlog__content">
+                    <div class="markdown">“Pleasure to meet you, Mr Warden,” Iri giggled sweetly, as she pushed herself up off of Mors. Her balance had managed to come back, so she wanted to stand up on her own. “Mors is right though, a warden might be terribly useful. We could use a man of your skill, if your heart is willing to serve a noble cause.” The girl’s voice was soft and melodic, rather pleasant to listen to. She then turned towards Carric, the wizard. “Yes, we are meeting someone at the library. If either you or...” She turned towards the other girl again. The one who’d called herself Juma. “You.” She giggled. “Could help our wizard friend, we’d be much obliged. Right, Carric?”
+
+Irithriel then curtsied at the two newcomers and looking to each, as she rose back up to full height. “As Mors mentioned,” she went on, turning to place a delicate hand upon her mate’s chest, hoping it would keep him relaxed. Calm. She could sense that unnatural predator wanting to hunt. But this was not the time nor place. “We have a wedding to get to and... to plan!” The girl clapped her hands together and spun around once more, humming all the while. She was excited for this romantic party, hoping her beast might see the beauty it held. 
+
+“So let’s be off! We need the library!” Iri exclaimed happily, glancing back at Mors, her face a pretty shade of red both from the cold and her excitement. “Please, lead the way,” she finally suggested to Carric and the two newcomers she hoped could help them. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">24-Oct-19 02:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="636990048222445589" id="message-636990048222445589">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden liked Irithriel a bit more, if not a little too flamboyant for his taste but the gesture was well received. Giving a acknowledgment to her words with a respectful nod, now deeming them a non threat. Smiling a bread smile at the prospect of new allies and friend he turns back to Mors as he walks off a bit. Falling into a slow but long gait he whistles for his dog to join him. Carrying one if the little blue creatures. Warden eyed them curiously but allowed it, phantom seemed to like them so he trusted that judgment.</em> &quot;Aye, I can show you where the library is. Just follow me.&quot; <em>he quickness his pace to  fall in line ahead of the group.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 01:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="637348049278205953" id="message-637348049278205953">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric nodded along to the newcomer and then started to follow him to the library. It was useful having somebody lead them instead of them searching around for it. Of course if these people wanted to come along on the job he would gladly welcome it as the more help the more likely they would be able to actually complete the job and more allies was never a bad thing. Plus they might be able to provide skills that was previously missing. Plus he still wanted to see the library and totalk to the librarian. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 02:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="637350994706956318" id="message-637350994706956318">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The group follows Warden, he leads them through the small town, it&#39;s small, every building made of wood, there was almost no one on the streets. Finally they reach a medium sized building, there was a small woman sitting outside on a wooden bench, she had winter clothes and was playing with a bowl full of water, making shapes move and splash lightly.</em> <span class="chatlog__edited-timestamp" title="25-Oct-19 02:05 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-16-snowdeep-village.html_Files/image0-1.png">
+                                    <img class="chatlog__attachment-thumbnail" src="job-16-snowdeep-village.html_Files/image0-1.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 03:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="637367712951304208" id="message-637367712951304208">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden sees this woman and walks up to her. Looking into the water he is intrigued by the manipulation if water in front of her. Suddenly getting nervous being in the presence of a magic user he clears his throat.</em> &quot;Hello m-ma&#39;am&quot; *He get out before taking a step back in embarrassment. He was not good at talking with people. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 03:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="637371756012896256" id="message-637371756012896256">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel practically skipped through the snow as they were led to the library. The elf hummed a pretty tune, giving Mors coy little glances whenever she was able. Her beast always made her heart flutter and sing. 
+
+As they approached what certainly had to be the library, Iri stopped and tilted her head from side to side. “Oh! A water shifter!” she exclaimed happily. She turned to Mors and rugged on his arm playfully. “There were those back in the Feywild who could do such magic,” she explained. “I wonder if that’s how our sculptures were made?” Her expression turned thoughtful and she smiled. 
+
+Iri watched Warden as he started talking to the water shifter. She couldn’t help but giggle, seeing this large brute suddenly get nervous. “Hello, Miss!” she said sweetly, her smile kind and warm. She was latched onto Mors’ arm, yet she waved. “I’m Irithriel, those please... call me Iri. Pleasure to meet you, I assure you.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 04:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="637382657574961164" id="message-637382657574961164">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The woman turned towards them, eyes open wide and a purple blush on her cheeks</em> &quot;O-Oh!.... He-hello!, do y-you need something?!&quot; <em>She was a very shy woman, the bowl making a little splash with every exclamation.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 04:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="637389916346646529" id="message-637389916346646529">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>Juma followed the group without saying too many words. Seems like the group where she was could be quite... silent. When they arrived to the library, the Dancer kept herself near of the group, without knowing the objective of the mission. Juma started to look around... moved a bit by the curiosity</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 05:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="637395103362842624" id="message-637395103362842624">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors was enjoying the walk, he liked the cold wind on his skin, there was also his beautiful mate walking with him, she was happy so he was happy, well as happy as he could be considering the little shits throwing snowballs at his back and other people in the back of the group, they had taken advantage of the mount, one was picking snow and passing it to the other to throw them.....Mmm, good battle tactics but useless with something as soft as Snow....
+
+They finally reached the library, well this fool may be useful after all, He thought about warden, then he noticed the woman talking to them, he had no time for idiots so he would let the others talk with her, maybe if she proved to be useful he would say something so he just huffed and started to look around for threats to his mate. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 07:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="637433797368872991" id="message-637433797368872991">
+                <div class="chatlog__content">
+                    <div class="markdown">Upon reaching the library Carric walked up to the door and tried to open it but failed to do so. So he turned around and returned to the rest of the group to observe what the rest of the group would do. (Edited due to new information being received) <span class="chatlog__edited-timestamp" title="27-Oct-19 05:19 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 04:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="637568745744629761" id="message-637568745744629761">
+                <div class="chatlog__content">
+                    <div class="markdown">Iri let go of Mors’ arm and decided to move closer to the water shifter. She’d been intrigued by the pretty magic she was displaying and wondered if she might have an idea on whom they were to meet. The little town appeared to be rather small, so she decided most people probably knew each other... or, at least, of each other. The girl just giggled at her beloved, his sour, yet soft expression just melting her heart and making it flutter. How she loved him. 
+
+“Might I get your name?” Iri then asked of the woman, her pretty face lit up with a smile. “Your magic seems beautiful. You’ve certainly captured the interest of our Warden friend here,” she went on, giggling just a bit more. “As you can see, we are just traveling though, however...” The girl’s expression turned a bit mischievous. “There’s a wedding we must attend. Have you heard of such celebrations being planned in the area? If so, perhaps you might know who it’s for. We are to meet someone to take them there.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 07:25 AM</span>
+
+            <div class="chatlog__message " data-message-id="637612707301949440" id="message-637612707301949440">
+                <div class="chatlog__content">
+                    <div class="markdown">The small blue woman blushed even more, &quot;O-Oh, my n-name is Taff!&quot; She got up from the bench, leaving the bowl there and bowed before continuing, &quot;Y-Yes! It&#39;s m-my wedding! Me and Bors&quot; There was a dreamy look in her eyes after saying the name of her fiance, but then she turned a little somber, her stutter even dissapeared, &quot;but I need to conquer the mountain first...&quot; Then something clicked in her head and she jumped and threw her arms over irithriel, &quot;Oh! You must be the ones that are going to help me! I have been waiting for so long!&quot; Some tears of relief began to fall from her eyes. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 07:35 AM</span>
+
+            <div class="chatlog__message " data-message-id="637615203973988393" id="message-637615203973988393">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>The eyes of Juma were still looking around with curiosity on her gaze when her ears heard the words of the blue woman, making her head turn towards her and the group. Conquer a mountain? Really? That was quite new for Juma... it sounded like a small challenge for her, but... if there was gold as a reward, then Juma was more than ready to try it! Her gaze was placed on the blue woman and on the group, interested in that conversation!</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 10:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="637666542871379979" id="message-637666542871379979">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden just kept watching, still nervous and Intrigued by the water shifter. Taking this moment to clear his throat and put on a brave face.</em> &quot;Which part of the mountain do you need to travel to?&quot; <em>He now knew these people meant no harm to the village and were actually helping someone. Perhaps they could be allies afterall.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 06:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="637776517371265028" id="message-637776517371265028">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors growled and crossed his arms, he didn&#39;t feel any threat coming from the blue woman, and she looked like a good companion for his mate, so he would let her embrace his mate like that, &quot;The request said something about a village called primal point&quot; Mors answered the other giant, for nose reason that name sounded familiar, but most of his memories were lost to the sea, &quot;Have you heard of it?&quot; He asked to the newcomers, his mate wanted to plan that wedding, the faster they get there, the most his mate will enjoy herself. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 06:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="637780502342008889" id="message-637780502342008889">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden hears the words but his mind was too much in awe at the magical abilities of the blue woman. Mind going blank from the amazing nature of the water. Trying to turn his gave he instead starts looking at the cloud formations to see if the snow will get heavier at any time. Phantom notices his unsettles nature and nudges against the giants leg, which he accept thankfully. He then focuses back to the conversation and tries to listen more clearly.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 06:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="637783693754105886" id="message-637783693754105886">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric continued to observe the conversation happening between the rest of the group and Taff the requestee of the job. He thought that it would be best to let those more used to conversing to converse and if needed he would speak if he had something relevant to say. (Edited due to new information being received) <span class="chatlog__edited-timestamp" title="27-Oct-19 05:24 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">26-Oct-19 08:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="637813049226690612" id="message-637813049226690612">
+                <div class="chatlog__content">
+                    <div class="markdown">“I’ve never been in the mountains before,” Irithriel admitted, having no desire to hide such things. “Though I look forward to this adventure.” The pretty elf was clearly excited. She moved closer to the blue woman and smiled. “We will get you there. My Mors is the fiercest of warriors and the bravest of men. He protects those in need and...” She sighed dreamily, glancing over at her goliath. “And I’ll help make sure you have the most memorable wedding this place has seen! You’ll be lovely. Radiant! I can already see your hair up in a pretty plait.” Iri touched the water shifter’s hair carefully, gently. Just enough to express her excitement at helping her for such a joyous occasion. <span class="chatlog__edited-timestamp" title="27-Oct-19 06:58 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">27-Oct-19 07:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="637971359238062100" id="message-637971359238062100">
+                <div class="chatlog__content">
+                    <div class="markdown">The woman blushed and shook her head a little, &quot;U-uh, I&#39;m not pretty....at least not like you...&quot; Then she shook her head harder and took a deep breath, &quot; nevermind, I have to conquer the mountain first... Uh.... I only know that to pass the trials I have to reach primal point&quot; She made a thinking face and started babbling, &quot; I read in a book that there&#39;s wolves, and direwolves... Even winter wolves, and bears, and tigers and... and......... and avalanches, also the temperature gets colder and colder, well they are a village of giants and half giants, they like the cold.... My fiance also told me that...&quot; She kept giving them a lot of information but never where the village was supposed to be or how she was supposed to complete the trials... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Oct-19 07:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="637972863487311872" id="message-637972863487311872">
+                <div class="chatlog__content">
+                    <div class="markdown">Iri nodded in understanding, the sweet smile never leaving her face. “Oh psh...” she fretted and fawned. “You’re stunning and your mate is lucky to have you.” The elf was beaming at the compliments regardless, though she’d meant every word. Plus, this was Taff’s time. Her own ceremony would be hers, if Mors allowed it. “So, where is this Primal Point?” she then asked, arching a brow. “Has anyone heard of it?” she asked aloud, hoping another of her group might know. “I’m unfamiliar with such beasts, though we do have them in the Feywild where I’m from,” she offered. “But we will help as best we can. Tell me, about these avalanches. They sound dangerous! Is there a way to spot them?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">27-Oct-19 07:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="637978763703091200" id="message-637978763703091200">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>The face of Juma didn&#39;t show that confident smile anymore when her ears heard that the temperature could go lower around the zone of the quest. Seems like it wasn&#39;t her lucky day. A small sigh flied out from the mouth of the Dancer after imagine the temperature that it could reach there... But, hey!, there was gold involved in this quest (She thinks)! It couldn&#39;t be too bad... right? With her questions already made by Irith, Juma just stay there... guessing about the wolves and the other creatures. She was a girl that didn&#39;t explore the world at its totality...</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">27-Oct-19 12:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="638055351148609565" id="message-638055351148609565">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden, upon hearing the mentions of animals perks up a little. Clearing his throat he looks to the blue woman named Taff.</em> &quot;The wolves would be the main problem cause they are usually in packs. The bears are loners and probably wont attack unless provoked. But we would still need to be on guard.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">27-Oct-19 12:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="638058655475957771" id="message-638058655475957771">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors nods at the other man words, &quot;So you know the beast that live around here? What about the terrain? It&#39;s obvious the woman knows nothing&quot; He ask warden and also stares for a second to the other woman (juma) &quot;What about you fool? Say something useful&quot; He would get all the information this idiots knew, he wouldn&#39;t be caught by surprise ever again if he could help it, not only his minions were in danger this time but his mate as well...... The minions were making snow angels in the ground, not even caring about the people talking or walking pass them. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">27-Oct-19 01:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="638061636237787147" id="message-638061636237787147">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Phantom is also copying them by rolling on his back in the snow. Barking happily.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">27-Oct-19 01:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="638066042114932771" id="message-638066042114932771">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric was in deep thought trying to recall the information about Primal Point, but unfortunately he could not. Apparently only the fairly new goliath tribe knew about it and no one else had considered them important enough in order to write down the information. So at least Carric knew that he would be able to record knowledge that most did not know about if he got the chance to ask members of that specific tribe about Primal Point. (Edited to reflect new information) <span class="chatlog__edited-timestamp" title="27-Oct-19 08:00 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 12:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="638230967215063051" id="message-638230967215063051">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Nathan is now trying to think of a way up the mountain. Staring up at it and shaking his head.</em> &quot;I know the forest, not so much the mountains but i&#39;m sure i know most of the beast in the area. I can  provide basic direction but not much further than that i would say.&quot; <em>Still thinking about what kind of dangers would be in the mountains that he would be able to handle and thinking of scenarios he wouldn&#39;t be able to. He looks at the other Goliath and grunts a little, still a little put off by his gruff demeanor. Looking over to Juma he takes a long look to see her over.</em> <span class="chatlog__edited-timestamp" title="28-Oct-19 12:28 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 09:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="638369332296155156" id="message-638369332296155156">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>When the ears of Juma heard the words of Mors, she placed her gaze on him as she crossed her arms with a light movement of them</strong></em> &#39;&#39;I don&#39;t live here, you know? But if you want tons of false information, I&#39;ll be glad to start talking.&#39;&#39; <em><strong>Said the Dancer with a small annoyed tone of voice on her words. Juma was already annoyed by the lack of help that she was deploying to the party... but she started to show it more when her ears caught the words of Mors</strong></em> &#39;&#39;I can try to get something from the people of the village if you want.&#39;&#39; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 09:48 AM</span>
+
+            <div class="chatlog__message " data-message-id="638373583063744541" id="message-638373583063744541">
+                <div class="chatlog__content">
+                    <div class="markdown">“Well then!” Iri exclaimed. “Let us use our talents and try our best to get Taff on her way. Her special day will be here soon and I want her to enjoy it!” The elf smiled broadly, moving to hug the blue woman in both support and reassurance. 
+
+Irithriel looked at everyone. “Don’t you see?”  she asked aloud. “Warden can hunt on the outskirts and get us food for our journey. Mr Carric, why don’t you make a map while we travel. Then we won’t get lost and will have understanding of where we’ve been and are going.” The girl giggled softly and turned next to Juma. “You can definitely ask the local villagers about the area. Even if they do not know Primal Point, they might know something of the mountains.”
+
+Lastly, Iri looked to her Mors, her expression soft and full of love. “My beast, we will need you ever at the ready. You told me yourself you once lived in the mountains.” She moved then and placed her hands in his. “So you will be our great warrior. I trust in your experiences and, well, just you. Though you can certainly help Warden ensure we don’t starve as well.” The girl stood on her tiptoes and kissed him. 
+
+Looking to Taff, Iri giggled and skipped over to her. “And we can get your things in order. Is there anything you need to do or anyone you need to speak with before we head out on this journey?” she asked, her eyes wide and curious, the sweet smile never leaving her face. <span class="chatlog__edited-timestamp" title="28-Oct-19 09:50 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 10:03 AM</span>
+
+            <div class="chatlog__message " data-message-id="638377305189646375" id="message-638377305189646375">
+                <div class="chatlog__content">
+                    <div class="markdown">Taff finally stopped babbling after hearing that last question, &quot;Oh no no no, I&#39;m ready......well I&#39;m supposed to be ready&quot; She was still blushing but her stuttering was gone, &quot; Tors said that the mountain is supposed to guide us and I can only travel with my clothes and companions.... But I&#39;m sure you can carry what you can!.... Uhmmm, he was very vague about the trials...&quot; She finished with a bow and apologized &quot;I&#39;m sorry!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 10:13 AM</span>
+
+            <div class="chatlog__message " data-message-id="638379899610202132" id="message-638379899610202132">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors growled, of course, more bullshit, why was he expecting any different, the other Goliath was proving to be of some use and the woman looked like she needed to learn who she was addressing, he let his eyes glow and his evil aura expand towards her, not hitting her full force but his anger was evident, &quot;Useless&quot; he just said to Juma, Then he turned towards Carric and Warden, &quot;Maybe not useless&quot;, finally he closed his eyes and crossed her arms, and answerd his mate, &quot;Don&#39;t worry little moon, nothing on that mountain will be able to stand against us&quot; He said louder, his voice booming, this journey is going to be interesting...and full of bullshit, He thought.
+
+The minions continued to play in the snow with the dog, completely ignoring the conversation. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 10:24 AM</span>
+
+            <div class="chatlog__message " data-message-id="638382525496164393" id="message-638382525496164393">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>Obviously, Juma wasn&#39;t happy by those words. Already in the verge of her limit, the Dancer just turned her back towards the group and made her way out of there, looking around if she founds someone on the village that could help her with the information issue... There was something clear now, if that big man needed her help after this, that help would need gold... but more than 10 pieces of gold.</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 10:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="638386393915064320" id="message-638386393915064320">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">Juma goes around the village, asking about the goliaths and their tribe, some people don&#39;t know anything about them, some only know about the warden of the forest, but she&#39;s fast and after 5 minutes she find an old but still beautiful human lady, she remembers the doctor Bors and his charming brother Tors, she explained Juma that they were the sons of Brandy, an old fighting partner of hers, she tells her that Brandy managed to &#39;convince&#39; a Goliath to be her man and they created a village in a special spot, but when she&#39;s about to tell her more a little girl comes screaming, &quot;Grandma I&#39;m hungry!&quot; She screams and start pulling the lady away, she huffs and puts the child over her shoulder like a log and goes away, &quot;If you find her, tell Brandy that I&#39;m planning another hunt!&quot;
+
+After that Juma can&#39;t find anything useful anymore so she returns back to the group.</div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="638386894438268958" id="message-638386894438268958">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-16-snowdeep-village.html_Files/52d736d6230e71206b626a6cd3d5b91b.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="job-16-snowdeep-village.html_Files/52d736d6230e71206b626a6cd3d5b91b.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 12:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="638419347764805643" id="message-638419347764805643">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric replied to Irithriel, &quot;While I can most certainly attempt to draw a map as we travel, I am not skilled in cartography. But I most certainly have the materials on me to draw a crude map. It may help us navigate better. And if I happen to recall any knowledge that I have which may prove useful on this journey I will surely share it with the group. Plus I do have a few spells that may prove helpful on our travels as well.&quot;
+
+He then waited for the group to set off. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 01:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="638428955128627210" id="message-638428955128627210">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden didnt like Mors gruff and aggressive attitude but he was not in a position to stop him. He looked over to Juma with a small sad smile. Perhaps he could get to know her later. Tuning back to the task at hand he does a check of his items, finding he was almost out of ballista bolts and could use a few more arrows. Maybe get his sword sharpened if he had the time and money. He looks back up to the group.</em> &quot;I am going to go prepare for the journey. I must let me people k ow I am going somewhere. I will be back within the hour.&quot; <em>He gives a respectful and apologetic nod to the blue woman and turns to find the blacksmith.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 01:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="638430594505900032" id="message-638430594505900032">
+                <div class="chatlog__content">
+                    <div class="markdown">Warden walks through the village until he reach a familiar hut, there&#39;s no light coming from the windows, no smoke from the chimney and the familiar sound of metal being forged is missing... outside sitting on a barrel is a drunk Dwarf, old Nash, as he&#39;s know around the town is angrily sitting there with his arms crossed, just glaring at the snow. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="job-16-snowdeep-village.html_Files/d5128ecda421f385fb1cd91c6046336b.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="job-16-snowdeep-village.html_Files/d5128ecda421f385fb1cd91c6046336b.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 02:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="638443876062986241" id="message-638443876062986241">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden calmly walks to the hut. He had been here plenty of time or supplies when he first was allowed to work for the town as the warden and been ever since. Knowing Nash for a while he was happy to see an old friend. Getting closer he could see the old man staring at the snow.</em> &quot;What&#39;s it done to ya this time Nash?&quot; <em>he says when he got into a comfortable earshot of him. A small smile spreading over his face at the sight of this only friend and the maker of his prized ballista. He might commission for a bigger one in the future.</em> <span class="chatlog__edited-timestamp" title="28-Oct-19 04:24 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 05:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="638488126985207825" id="message-638488126985207825">
+                <div class="chatlog__content">
+                    <div class="markdown">Nash scowled but kept staring at the snow, &quot;Fucking hammer broke,&quot; it was his prizes hammer, his baby, &quot;now I have to make another.... What do you need?&quot; He asked, still staring at the snow. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 08:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="638529525331918858" id="message-638529525331918858">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden clears his throat, feeling terrible for the loss of his friends prized hammer. Not really wantin g to make the man work or think but needing his item he speaks up.</em> &quot;It seems that ill be going into the mountains for the next few days. I need more of the bolts and maybe some arrows to help me get through this endeavor. Got any in stock?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 08:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="638532731298643988" id="message-638532731298643988">
+                <div class="chatlog__content">
+                    <div class="markdown">Nash got up from the barrel and opened it, it was filled with arrows, bolts and darts, &quot;You are lucky my friend, I made an order for the huntress before it broke..... I can sell you some, she won&#39;t notice, I don&#39;t know why she even paid for these, she always uses her axes to kill...&quot; He said to warden while taking some arrows and bolts off the barrel. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 08:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="638541940337410068" id="message-638541940337410068">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden thought for a moment and on to how many he would need. Decided on it he cleared his throat. It didnt sit well for him that the huntress would need arrows and bolts.</em> &quot;How much for 20 arrows and 12 bolts? Or is there a package deal or something for a lot?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 09:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="638543330720088086" id="message-638543330720088086">
+                <div class="chatlog__content">
+                    <div class="markdown">The angry Dwarf took the arrows and bolts from the barrel and handed them to warden, &quot;Just give me 2gp, I&#39;ll be able to buy a new hammer from the other town and then repair mine...&quot; Despite his angry face a tear fell from his right eye, he really loved that hammer. <span class="chatlog__edited-timestamp" title="28-Oct-19 09:03 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 11:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="638573265002168351" id="message-638573265002168351">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Nodding at the old blacksmith, understanding the pain and wanting to help like Nash helped him when his beloved longbow broke as well. Warden reaches into his pouch and pulls out 5 gold pieces and places them in the hand if the old Dwarf.</em> &quot;Get yourself something to Smith that the allHammer would be proud of.&quot; <em>After placing the coins in his hand Warden holds out his arm inappropriately. Beast master forearm grab kind of hand shake.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 11:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="638577735991558144" id="message-638577735991558144">
+                <div class="chatlog__content">
+                    <div class="markdown">Nash took the money and dumped the ammo on wardes&#39;s arms, his clouded eyes not really noticing the hand shake, &quot;you... You are a good lad...<em>snif</em>... Take care of that beauty ya hear me!...<em>snif</em> ... I&#39;ll go now to make the order, thank you lad&quot; Nash closes the barrels and walks away cleaning his eyes, the tears falling from his face and freezing before hitting the snow. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">28-Oct-19 11:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="638578539888771073" id="message-638578539888771073">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden watches the old dward head away from the hut. Loading back up on his ammo he makes his way back to the group outside of the library. Looking over phantom seems to be passed out in the snow as the blue creatures is laying across his body, using him as a pillow. Housing up his ballista he loads up a shot into the chamber.</em> &quot;I am ready.&quot; <em>He says ina  serious, business like voice.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">29-Oct-19 10:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="638751502457896963" id="message-638751502457896963">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel waved as Warden left, knowing he’d be back shortly. While she and the others waited, the girl felt compelled to make sure everyone was ready... one last time. Perhaps it was her desire to mother her mate’s young? It was hard to know. But the pretty elf had always longed for those around her to laugh and smile and feel at ease. 
+
+With a bounce in her step, Iri checked in on Carric first. The girl giggled and nodded. “Yes, any map I think will be lovely and helpful. Thank you for helping us there, Mr Carric. Perhaps once back aboard the Steel Hearts you can speak with your friend Carmine Lilly and see if she can help you make the map archive-worthy. It would be the first of its kind and an original in our very own Steel Hearts library!” She was excited that one of her guild mates could accomplish something profound and something she knew he’d hold dear. 
+
+Moving on, Iri looked over at Juma. The woman had just returned from her escapade around the small village. “Did you learn anything interesting? What are the people like?” She would wait for an answer and encourage Taff to join in the conversation. Being the local librarian and all, the elf decided it was information she might find helpful too. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">29-Oct-19 11:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="638754375057276928" id="message-638754375057276928">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors had been looking around, for some reason this place seemed familiar to him, was it the mountain and the snow?...... Another mystery of his missing memories. He looked at the minions..... he looked at his mate, good, she was taking care of everything and the blue woman looked like she was lost again in her mind, Idiot, she was smart but not that useful, at least the other mercenary seemed to have useful knowledge and skills, mmm he would test him while they waited for the Warden, Mors moved towards Carric and addressed him, &quot;Tell me, what can you notice about these new recruits?&quot; He asked referring to the missing Warden and the arriving Juma. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">29-Oct-19 11:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="638766557761241107" id="message-638766557761241107">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric turned to Mors and replied to him, &quot;Well from what I have heard Warden seems to be good out in the wild and has a good knowledge about animals. Hopefully is will be just as good with interreacting with them. Now Juma she is a half elf and since she left to ask people for information I can only assume she has some sort of people skills. Plus half elves do tend to lean to that direction. They do tend to be rather versatile so I would need more information. But without seeing them in action that is all that I can say at the moment.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">29-Oct-19 01:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="638786048394002433" id="message-638786048394002433">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden returns to the group to see the half elf is missing. Turning his head in the direction of the other three he grunts in acknowledgment.</em> &quot;When will we be setting off? I can not leave my people and my forest u attended for too long. Poachers are a problem any time of the year and I would prefer to keep them at bay.&quot; <em>He was not a threatening kind of person. People just tended to be scared of him cause he is a goliath and goliaths are known to be angry and aggressive. He didnt like the idea of being threatening to his people but if it kept their hunting in check then it was worth it.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/25332802fe94806698bf35b5453f3a19.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Kash&#39;la#1085" data-user-id="420959037874765835" style="color: rgb(52,152,219)">Juma/Melmie/Kalosha</span>
+
+
+        <span class="chatlog__timestamp">29-Oct-19 02:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="638800881432920064" id="message-638800881432920064">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>Juma arrived at the group with quick steps, feeling how her body was freezing a bit. She needed to move her body to release that cold feeling, so she started to walk quite faster before reach them, stopping with an elegant stop~ With a light sigh flying out from her lips, the Dancer told her group the information that she gathered on the town</strong></em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">29-Oct-19 02:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="638808805978800180" id="message-638808805978800180">
+                <div class="chatlog__content">
+                    <div class="markdown">Irithriel pouted when everyone just seemed to mill about. She looked over at her Mors and sighed and then over at the little darlings she found to be so very sweet. With an enchanting giggle, the pretty elf skipped over to them and began to play. “I hope we can leave soon,” she whined, turning her glance over to Taff. “If you’re ready, then so am I.” While waiting for the woman’s answer, she continued her play with the sweet little creatures she’d grown to adore. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">29-Oct-19 02:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="638811980756549661" id="message-638811980756549661">
+                <div class="chatlog__content">
+                    <div class="markdown">Mors nodded at Carric answer, &quot;Good&quot; was all he said, then he turned towards the blue woman, she was talking to herself again, he scowled, &quot;We are ready, let&#39;s move&quot; he said with his booming voice and went to grab his mate&#39;s hand and kick the little shits, they had a job to do.
+
+Taff finally got out of her daze again, &quot;O-Oh! Yes! I&#39;m ready!&quot; She grabbed her bowl of water and started to walk towards the mountains, she guided the group until they were at the edge of the village, &quot;Uhm we are supposed to just walk around the mountain....&quot; She said blushing, and kept walking hoping that they won&#39;t abandon her. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="638813331678953534" id="message-638813331678953534">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention">#job16-giants-howl</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">16-Nov-19 09:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="645261496317902859" id="message-645261496317902859">
+                <div class="chatlog__content">
+                    <div class="markdown">Yes investigation <span class="mention" title="darkangel76#8091">@Iri | Sela | Hal - FERTILE</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">16-Nov-19 10:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="645265698062336011" id="message-645265698062336011">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(237,7,26,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Irithriel Ravenwood makes an Investigation check!</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">1d20 (3) + 1 = <span class="pre pre--inline">4</span></div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="job-16-snowdeep-village.html_Files/637039094581817878.jpeg">
+                                            <img class="chatlog__embed-thumbnail" src="job-16-snowdeep-village.html_Files/637039094581817878.jpeg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">16-Nov-19 10:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="645265715833864216" id="message-645265715833864216">
+                <div class="chatlog__content">
+                    <div class="markdown">Damn </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645265757642555393" id="message-645265757642555393">
+                <div class="chatlog__content">
+                    <div class="markdown">A whole lotta nothing </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">16-Nov-19 10:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="645276574136139786" id="message-645276574136139786">
+                <div class="chatlog__content">
+                    <div class="markdown">Hehe </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="job-16-snowdeep-village.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">16-Nov-19 11:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="645277237007876117" id="message-645277237007876117">
+                <div class="chatlog__content">
+                    <div class="markdown">So mean!! ❤<img class="emoji " alt="😘" title="😘" src="https://twemoji.maxcdn.com/2/72x72/1f618.png"> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 85 message(s)</div>
+</div>
+
+</body>
+</html>
