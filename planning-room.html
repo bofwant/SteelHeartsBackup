@@ -1,0 +1,3997 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - planning-room</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="planning-room.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / planning-room</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 02:57 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="618157638827376681" id="message-618157638827376681">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="planning-room.html_Files/f72a25ae6a616b2029d583c2f0166844.png">
+                                    <img class="chatlog__attachment-thumbnail" src="planning-room.html_Files/f72a25ae6a616b2029d583c2f0166844.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="618157870663335946" id="message-618157870663335946">
+                <div class="chatlog__content">
+                    <div class="markdown">This room is used for IC job planning and creating your parties </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618157916142174219" id="message-618157916142174219">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618157928112979989" id="message-618157928112979989">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618158256552017979" id="message-618158256552017979">
+                <div class="chatlog__content">
+                    <div class="markdown">The ship broadcasts an intercom.
+
+<strong>We&#39;re approaching the town of Beggarsford.  All adventurers meet in the planning room!&quot;</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618158308959977503" id="message-618158308959977503">
+                <div class="chatlog__content">
+                    <div class="markdown">Review the <span class="mention">#old-job-board</span>  and <span class="mention">#deleted-channel</span> &#39;
+And creature your teams <span class="chatlog__edited-timestamp" title="02-Sep-19 03:00 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618158324894007299" id="message-618158324894007299">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" style="color: rgb(52, 152, 219); background-color: rgba(52, 152, 219, 0.1);">@Player</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="618159033546702859" id="message-618159033546702859">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali hurries on in, noticing the empty room she paces... sits in between different chairs and just accordingly finds other methods to keep herself distracted as she waited for the room to fill with people.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="618159288334024725" id="message-618159288334024725">
+                <div class="chatlog__content">
+                    <div class="markdown">The first mate <strong>Carmine Clay</strong> is acting as a coordinator </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618159333657804820" id="message-618159333657804820">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hello Sarali, hope you&#39;re excited!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="618159393023721522" id="message-618159393023721522">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Zel followed her sluggishly and sat next to Sarali.</em> “Miss there’s no need to hurry.” <em>he spoke quietly and nodded to Carmine.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="618159629754695729" id="message-618159629754695729">
+                <div class="chatlog__content">
+                    <div class="markdown">The young redhead snuck a bath while no one was looking, cleaned up her clothes, and now slipped in to sit at the table.  she looked around curiously, a ginger tomcat coiling around the heals coming out from under her skirt.  
+
+&quot;Good morning, everyone,&quot; she spoke up.  &quot;For those I havne&#39;t met yet, my  name is Rini Hostler.&quot;  She gestured to the cat who leaped up onto the table.  &quot;This is strut.&quot;  
+
+Perching on the chair, she added, &quot;So many kinds of people here.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="618159690974625803" id="message-618159690974625803">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>&quot;Thanks to Bis and Bright Morning, we have more information on Job No. 4 if you require it.&quot;</strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="618160199253098528" id="message-618160199253098528">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric this time was able to find the place that he was heading to much easier, maybe they wanted all of them there the ship would guide anybody wanting to go there to it. So he opened the door and then walked into the room. He noticed Carmine Clay immediately, then he gave her a smile as he said, &quot;Why hello again Miss C Clay, I am so happy that I  was of aid to you earlier and I hope later that we can talk some more.&quot; He then moved to an empty seat and sat down, giving a quick look at the other adventurers before he spoke, &quot;Why hello there, my designation is Carric Amastacia and I am a purser of knowledge and wizard.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="618160701965467651" id="message-618160701965467651">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I was super busy with that spirit, but Im usually in the library, or my study.  Please, anytime Carric.  And yes please, everyone, an introduction would be wonderful if you havent already.  Thank you Lady Rini!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="618160729228443792" id="message-618160729228443792">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Heyo Carmine, not sure how I&#39;m feeling. Probably scared. First mission, super on edge. Kind of excited and nervous. I am gonna go talk to some Kobolds and try to sort out a mess. What should I wear? Is this proper attire for the first mission?&quot; <em>She was talking a thousand words a minute, somehow failing to catch a breath but keep going.</em> &quot;Who&#39;s hurrying? I&#39;m not hurrying, your assuming.&quot; <em>She is now speaking to Zel.</em> &quot;Is it hot in here? I&#39;m hot in here.&quot; <em>She sits down, instantly slowing her breathing as she listened to the other&#39;s introductions. Despite calming down, her hands we patting away at her lap nervously.</em> </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128516;" title="&#128516;" src="planning-room.html_Files/1f604.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="618161199162589195" id="message-618161199162589195">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash enters the room and struns quietly on his lute, as his narrator is a little afk</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="618161398685368361" id="message-618161398685368361">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Zel looks at her and sighs patting her on the shoulder.</em> “Miss I’ll be there to watch over and help make sure everything goes smoothly. You have nothing to worry about ok.” <em>he gave her a genuine smile. He smiled brightly and warmly showing that he wanted her to relax and let some of the tension of the mission go away bit.</em> <span class="chatlog__edited-timestamp" title="02-Sep-19 03:16 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="618165675738923040" id="message-618165675738923040">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She did calm down, blushing shyly as she noticed her panic in front of the entire room. She almost accepted the pats, before she pushed her hand against his, trying to move him away.</em> &quot;T-thank you, but... I don&#39;t need a babysitter.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="618166182750715944" id="message-618166182750715944">
+                <div class="chatlog__content">
+                    <div class="markdown">“I won’t be babysitting. Just protecting a member of the guild.” <em>he removed his hands but smiled and looked at the others in the room.</em> “Might as well introduce myself. I’m Zel Haladon Tal’morin the Fourth.. it’s a pleasure to meet you all.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="618166577900027914" id="message-618166577900027914">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I&#39;m Sarali.&quot; <em>she chirped.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="618167100657369089" id="message-618167100657369089">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He looked at her and looked into her eyes.</em> “It’s wonderful to meet you Sarali. Now would you like to plan on what we should do tomorrow?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="618168435897008159" id="message-618168435897008159">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well... it&#39;s obvious, we have to stop the kobolds from taking down his bar.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="618168758422339812" id="message-618168758422339812">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He chuckled and shook his head.</em> “No no I know that part. But the quest talked about traps and things like that.. maybe we should plan how to get past them when we come up on them.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="618169344685244567" id="message-618169344685244567">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Punching things always works.&quot; <em>She tucks her knees up into her chest.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="618169714606211120" id="message-618169714606211120">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He looked at her.</em> “Well.. how about this.” <em>He got up standing 7’3 feet tall and knees down infront of her looking into her eyes.</em> “Until we reach the kobold you should stay behind me. I don’t mind getting hit by traps a bit if it’s to make sure you stay safe.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="618170340803084302" id="message-618170340803084302">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash gives a smile and waves to everyone,&quot;My name is Asheye Brocktree, but you can all me Ash, as long as we get to be friends. I take each moment of life as it comes and I try to enjoy what I can. Don&#39;t be afraid to say hi and get to know me better some day.&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="618170803652919333" id="message-618170803652919333">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali stands up furiously, a full 5&#39;2&quot; of anger. She looks up, tears forming in her eyes as she yells towars Zel.</em> &quot;YOU&#39;RE DOING IT AGAIN!&quot; <em>She moves to storm out of the planning room.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="618171317551890443" id="message-618171317551890443">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He sighed and got up</em> “MISS WAIT!” <em>he yelled at her but shook his head as he watched  her storm out then grabs some plans for job 2 and reads them over. He takes his time to read through it and then takes some quick notes before running after her.</em> <span class="chatlog__edited-timestamp" title="02-Sep-19 04:09 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="618179264889618602" id="message-618179264889618602">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash grabs 2 sets of info on job 4 and leaves to share it with Thorrin.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="618186275282747412" id="message-618186275282747412">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Zel walks back in with soaking wet golden hair as he looked around the empty place and sits down rubbing his eyes.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="618192751241986059" id="message-618192751241986059">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He looked at the plan for job 2 again and kept rubbing his eyes. He thought to himself. ‘Maybe I should just let someone else take it up. Might as well since there’d be less drama. She hates me enough already’.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="618194876764258335" id="message-618194876764258335">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He crumpled up the paper and dropped it back on the planning table then grabbed his things. He wore only his pants then put his shirt on and shield on his arm. He waved his arm making the shield collapse around his arm while he put his rapier away. He though to himself more. ‘Maybe I should go take that job alone just to settle things.. maybe make friends there..’</em> <span class="chatlog__edited-timestamp" title="02-Sep-19 05:27 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="SexyRPstud#2515" data-user-id="608818618670645268" style="">SexyRPstud</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="618196278010052784" id="message-618196278010052784">
+                <div class="chatlog__content">
+                    <div class="markdown">Suggi walked slowly into the room and sat down in the middle of the room. She then speaks out to everybody there, &quot;Hello everyone my name is Suggi and I will be going on job six. Anyone is free to join me doing so. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="618196843410620469" id="message-618196843410620469">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Zel looked at her.</em> “I um.. guess we’re going against eachother then.” <em>he spoke quietly and pulled out a special mask putting it on hiding his face as he grabbed a close and draped it around him looking completely different.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="618197186592636968" id="message-618197186592636968">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali comes bolting in, her eyes scanning the room and spots Zel. YES! She sprints up towards Zel as her usual self and stops before him.</em> &quot;I look forward to working with you.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="618197447063240744" id="message-618197447063240744">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>he looked at her and then started to walk out.</em> “Yeah.... ok.” <em>He grabbed the crumpled piece of paper while he left.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="618197714139611138" id="message-618197714139611138">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali grabbed ahold of his arm. Gently.</em> &quot;Wait.&quot; <em>She closed her eyes, pointing her head down at the floor as she flushed bright red.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="618198139454750747" id="message-618198139454750747">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He looked at her.</em> “You gonna slap me now? Yell at how useless I am? Or are you gonna lead me on then kick me in the heart? Whatever it is just do it.” <em>he had tears in his eyes but he seemed to just hold onto everything that’s been said to him ready to take the mission alone.</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618198612270252043" id="message-618198612270252043">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>other from the tears he had a blank face with zero emotion in it.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="618199128404525058" id="message-618199128404525058">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Just come closer you doofus. Couldn&#39;t slap you even if I wanted to.&quot; <em>She leaned her head against his arm.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="618199848222720038" id="message-618199848222720038">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He just lowers his head ready for a slap still emotionless face and unwiped tears.</em> “Fine now you can..” <span class="chatlog__edited-timestamp" title="02-Sep-19 05:47 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="618201043318210561" id="message-618201043318210561">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Seeing him come closer... she readied her hands. She places one against his left cheek. She holds it for a second, thinking things over before placing the other on his face and planting a kiss on his lips. She tried her best to follow the other Tiefling&#39;s suggestions. She started slow... edging closer before sucking hard on his lips.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="618201606252396584" id="message-618201606252396584">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Right when she kissed him he shoved her off him.</em> “WHAT THE HELL!” <em>he seemed more mad at the kiss than if he was slapped.</em> “Don’t mess with my head.... you scream at me for worrying about you then kiss me... I was only wanting to look out for you.... not get in your pants.” <em>he wiped his lips tearing up more and walked towards the door and spit into a trash can.</em> <span class="chatlog__edited-timestamp" title="02-Sep-19 06:10 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="618203227971780614" id="message-618203227971780614">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali looked confused, ass squished on the cold floor.</em> &quot;I wasn&#39;t trying to mess with your head.&quot; <em>she said quietly behind his back.</em> &quot;I was just trying to prove I can take control...&quot; <em>Did she do it wrong? She wondered. Not standing up from the floor.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="618206263666278433" id="message-618206263666278433">
+                <div class="chatlog__content">
+                    <div class="markdown">“That’s not taking control... do you even know what a kiss is?” </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618206519653040137" id="message-618206519653040137">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He spoke looking away from her and still gripped the crumpled piece of paper.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="618207707358429226" id="message-618207707358429226">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;YES!&quot; <em>she said flustered.</em> &quot;Just... haven&#39;t done it with anyone before. A kiss.&quot; <em>She thought back to Ms. Ambrosia... the person to steal her first kiss.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="618208323577053260" id="message-618208323577053260">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He looked at her.</em> “Then who taught you to kiss just anyone to show you can take control? That’s stupid.... that is very bad advice....” </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618208716243599390" id="message-618208716243599390">
+                <div class="chatlog__content">
+                    <div class="markdown">“..... doing so can make people hurt or worse take something that should be shared with someone they love and care about.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="618210317280870474" id="message-618210317280870474">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;DID YOU LIKE IT OR NOT?&quot; <em>She yelled moodily, she ran off again. Straight to her room, so she can pretend to sleep in peace.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="618210690930311199" id="message-618210690930311199">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>This time he was the one that grabbed her arm.</em> “You took my first kiss.... can you also tell me if you liked it or not?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="618211125972172831" id="message-618211125972172831">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She looked back crying.</em> &quot;DONT GRAB MY ARM LIKE THAT!&quot; <em>She shakes him off. Rubbing where he grabbed for a second.</em> &quot;Of course I liked it...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="618211394197651491" id="message-618211394197651491">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>he looked in her eyes and wiped them with his handkerchief before pulling his arm away.</em> “S-Sorry.. I liked it but... we don’t know eachother at all. Before we do it again could we at least go on a date.” <span class="chatlog__edited-timestamp" title="02-Sep-19 06:31 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="618212647296565261" id="message-618212647296565261">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She didn&#39;t have the strength to defy him, but didn&#39;t enjoy him wiping her tears. She looked at him angrily.</em> &quot;Pff, get off me! Seriously, what is your problem?! Geez... listen, I&#39;d love to go on a date with you. You&#39;re obviously a better guy than you act... but you need to learn how to respect people first. You come off as a jerk sometimes.&quot; <em>She sprints away, her speed and agility taking her far down the corridors as she busily hurries back to her room.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d318d78d9f2fc12d5b5beb82eebfabb8.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Sir pencil inspector#6204" data-user-id="609548247966548024" style="">Sir pencil inspector</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="618213122993291264" id="message-618213122993291264">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He nods and looked at her run.</em> “Guess that’s a no.” <em>he put his fingers to his lips and rubs them more then grabbed a rag and rubbed his lips before sighing.</em> <span class="chatlog__edited-timestamp" title="02-Sep-19 06:39 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618213255600668693" id="message-618213255600668693">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He walked out just ready to get over the most confusing thing that’s happened to him while on the ship so far.</em> <span class="chatlog__edited-timestamp" title="02-Sep-19 06:40 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 11:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="618282703430746118" id="message-618282703430746118">
+                <div class="chatlog__content">
+                    <div class="markdown">Carmine couldnt speak up over them, trying to mitigate it.  She sighed.  It was going to be like this at first.  No one knew eachother so it was going to be hard to build trust.
+
+She smiled at those that could keep a cool head.  &quot;Thank you Suggi, i hope you help them.&quot;  Carric wasnt going with her but theres some help for the strange kobold. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="SexyRPstud#2515" data-user-id="608818618670645268" style="">SexyRPstud</span>
+
+
+        <span class="chatlog__timestamp">03-Sep-19 03:45 AM</span>
+
+            <div class="chatlog__message " data-message-id="618350854633947136" id="message-618350854633947136">
+                <div class="chatlog__content">
+                    <div class="markdown">Suggi looked up at the woman and replied, &quot;Why thank you for the support I really so want to help them. I know exactly what it is like to lose my home and people often misunderstand  my kind.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">03-Sep-19 05:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="618564468871266304" id="message-618564468871266304">
+                <div class="chatlog__content">
+                    <div class="markdown"><u>Carmine handed the job information for the kobold,&quot;Here&#39;s everything you need miss, now why do you do to the bath house or get something to eat? We&#39;re nearly done giving out assignments.&quot;</u> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618565302761816074" id="message-618565302761816074">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="SexyRPstud#2515">@SexyRPstud</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="SexyRPstud#2515" data-user-id="608818618670645268" style="">SexyRPstud</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-19 02:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="618692275823968268" id="message-618692275823968268">
+                <div class="chatlog__content">
+                    <div class="markdown">Suggi looked at Carmine and replied, &quot;Okay I guess I could grab a bite to eat before the job starts.&quot; She then walks to the <span class="mention">#mess-hall</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="SexyRPstud#2515" data-user-id="608818618670645268" style="">SexyRPstud</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 09:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="619890675927875585" id="message-619890675927875585">
+                <div class="chatlog__content">
+                    <div class="markdown">Suggi entered the planning room from the <span class="mention">#quarters-deck</span> with Don following behind her and then points to Carmine Clay while telling Don, &quot;Here is the first mate of the ship, Miss Carmine Clay. Did Suggi do good sir?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 09:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="619892304135847939" id="message-619892304135847939">
+                <div class="chatlog__content">
+                    <div class="markdown">Carmine was getting documents signed and stamped for the jobs ahead.  
+&quot;Hello Suggi, are you almost- oh?&quot;  Looking at Don. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 10:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="619897125639290900" id="message-619897125639290900">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You&#39;re back?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 10:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="619902087932936208" id="message-619902087932936208">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Don Vidonyos enters the room and flourishes his cape, seeing the woman he would give a deep bow,&quot;Greeting and many Pardons miss, I&#39;m here seeking the Capitan of this fine vessel.&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="619902278727368739" id="message-619902278727368739">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Don pats the Kobold on the head,&quot;You did lovely my little pesse.&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 10:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="619903933896327199" id="message-619903933896327199">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well, uhh...&quot;  she blinks her eyes.  Is he playing one of his games again?
+
+&quot;Well, the captain is Viola, and the Guild Master.  Im first mate.  I can handle any questions.  How can I help you?&quot;  She said, an incredulous look. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 10:56 AM</span>
+
+            <div class="chatlog__message " data-message-id="619908798139858960" id="message-619908798139858960">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The Swashbuckler nods and pulls out a piece of parchment,&quot;The crown has expressed the concern about the intentions of this vessel. They have assigned me to stay on board as the Operations Officer to make sure nothing <u>too</u> crazy takes place here.&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="619909065627140127" id="message-619909065627140127">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention">#dice-rolls</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 01:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="619940506117603329" id="message-619940506117603329">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;The crown?&quot;
+
+She takes the paper and then has a pair of reading glasses to overlook things.  &quot;Oh, oh my.  Well, I assure the Crown of Erie and the Pendragons, were not into anything illegal.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="619940668269395970" id="message-619940668269395970">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh my goodness, Ill need to show this to Cassius immediately.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="619940761542328341" id="message-619940761542328341">
+                <div class="chatlog__content">
+                    <div class="markdown">She stands up after inspecting the seal over and over again for authenticity. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 01:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="619946857891889192" id="message-619946857891889192">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Don nods and steps aside to let her leave,&quot;I have had quite a journey, do you mind if I go to your mess hall for something to eat. Perhaps you might want to join me little pesse?&quot; He says to the Kobold.</em>  <span class="mention" title="SexyRPstud#2515">@SexyRPstud</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="SexyRPstud#2515" data-user-id="608818618670645268" style="">SexyRPstud</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 01:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="619947389712859148" id="message-619947389712859148">
+                <div class="chatlog__content">
+                    <div class="markdown">Suggi looked up to Don and politely told him, &quot;Sir I have just eaten recently, but I can still join you to the mess hall if you want.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 01:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="619948354331213834" id="message-619948354331213834">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He pats the Kobold on the head, &quot;I would love the company miss, Perhaps you can show me the way?&quot; He says as the kobold probably leads him on,&quot;Come find me later friend.&quot; He said to Carmine as he left with Suggi.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="SexyRPstud#2515" data-user-id="608818618670645268" style="">SexyRPstud</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 01:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="619949032504033291" id="message-619949032504033291">
+                <div class="chatlog__content">
+                    <div class="markdown">Suggi looked to him and told him, &quot;Sir you may pet me harder if you wish and of course I will show you the way.&quot; She liked getting praised, but she prefered a more forceful pat then the one that he gave her. She then leading Don left the <span class="mention">#planning-room</span>, traveled through the <span class="mention">#quarters-deck</span> and went into the <span class="mention">#mess-hall</span>. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 06:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="620017607059439617" id="message-620017607059439617">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Lee Jackson#3498">@Lee Jackson</span> 
+&quot;Yes yes I will.&quot;  She wasn&#39;t expecting this.  And she was in a panic about how honestly.
+
+Carric would find Carmine Lilly looking over a document with some distress, and even though she had other bits of paperwork, she seemed to always go back to the same document. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 06:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="620022562092482570" id="message-620022562092482570">
+                <div class="chatlog__content">
+                    <div class="markdown">Carrric noticing Carmine Lilly&#39;s distress over a document that he has no idea what it says so he slowly approached her and asked her, &quot;Miss C Clay something about that document seems to be amiss. If I am not overstepping your boundaries, could you please tell me what the situation is and if there is anything I can do to help?&quot; He wanted to know what this document was and maybe be able to help her with it. <span class="chatlog__edited-timestamp" title="07-Sep-19 07:14 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 07:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="620034720389922826" id="message-620034720389922826">
+                <div class="chatlog__content">
+                    <div class="markdown">She shakes her head  and then offers him the paper.  &quot;We just started, and already the Pendragons want their nose in our work.  They sent a representative to keep an eye on us.  Oooo, Parcival is not going to like this.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 07:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="620037003471486986" id="message-620037003471486986">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric replied while quickly scanning the paper, &quot;Well it does not surprise me. Royal families have many things to worry about and they tend to be overcautious. If they are not they tend to get replaced by those who are.&quot; He had no idea what official paperwork from the Pendragons even looked like so he just assumed that this was a real document otherwise Carmine would not be so worried over it. He then added, &quot;But as long as we do not break any of their laws or do anything against the crown things should work out, right?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-19 07:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="620038584333762593" id="message-620038584333762593">
+                <div class="chatlog__content">
+                    <div class="markdown">((<strong> <em>Deploy evil laugh</em> </strong>)) <span class="chatlog__edited-timestamp" title="07-Sep-19 07:32 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-19 12:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="620301641601777710" id="message-620301641601777710">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Lee Jackson#3498">@Lee Jackson</span> 
+
+She holds her cheek while removing her reading glasses... strange for a ghost to need them, but it might be out of memory or habit.  &quot;Well thats just what Im worried about.  In my experience, oversight is never a good thing.  If they want to find something to punish us for, they&#39;re going to find it.  After all, undead don&#39;t fall under any kind of scrutiny.  We&#39;re just supposed to be banished back to the Shadow Fell.  If they want, Silver Knights could target us at any moment.  Its just going to make things problematic.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-19 01:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="620304815544598530" id="message-620304815544598530">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric looked directly into Carmines eyes while he replied, &quot;I do not believe that you or any of the other undead on this ship should be banished back to the Shadow Fell. You are doing good things from this ship and the entire world is a whole lot better off for you being in it. Why should it matter that you are in a different stage of the life and death cycle than others. They would be fools to try and get rid of you. Plus I would happily stand with you against the Silver Knights if they did come for you.&quot; 
+
+While Carric did not openly rebel against authority, he was not one to blindly obey it either. He just wanted to help others and gain as much knowledge as he could in the process. He would happily stand against any figures of authority if he believed that it was right to do so and nothing that he had witnessed so far would cause him to believe that the Clays were doing anything wrong. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-19 01:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="620306461746135051" id="message-620306461746135051">
+                <div class="chatlog__content">
+                    <div class="markdown">If ghosts could blush.  She still averted her eyes, and smiled softly.  &quot;Please Carric, its very sweet of you, but I don&#39;t want you to get in trouble.  If it comes to that, me and Cassius will take the full might of them.&quot;  She said, sounding brave.
+
+&quot;I suppose though we shouldn&#39;t have to worry.  I know this gentleman representative.  He&#39;s a bit of trickster and very sly but-  oh I know this sounds shadey-&quot;  She held up a hand to her mouth. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-19 01:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="620310609850007564" id="message-620310609850007564">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric looked at her and said, &quot;Well hopefully if you know him, he will be fair about things. If you don&#39;t or can&#39;t talk about it more I understand. Still I hope that this discussion has helped to improve your mood Miss C Clay. I just could not stand watching you worry and not at least try to help you out.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-19 02:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="620318046330028045" id="message-620318046330028045">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well, I&#39;d be a bit more  relieved if I knew he was somewhere that wouldn&#39;t be breathing down our necks.  He&#39;s looking for a job...&quot;  She claps her hands.  &quot;Maybe he can watch over the brig!   He stays off missions, he gets to help Iron Tower keep the peace.  If its all internal who cares what happens right?&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="620318072280055818" id="message-620318072280055818">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Can you help me convince him?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-19 02:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="620318799966634034" id="message-620318799966634034">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric replied, &quot;Well I would be happy to help you convince him, although my skills lie mostly in knowledge, but I will aid you however I am able to.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-19 04:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="620351906216411157" id="message-620351906216411157">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hey, you have a good head on your shoulders.  And it might just be enough.  Besides, charm is one of your qualities too.&quot;  She said, unintentionally complimenting him, following how he did the same for her.
+
+&quot;Now the next magical question- where did he run off to.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">09-Sep-19 02:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="620511651396845588" id="message-620511651396845588">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric gave a quick stroke of his hairless chin before he replied, &quot;Well if his goal is to gather information I.e. knowledge then the first place I would think to look is the library.&quot; 
+
+Of course for Carric the library was the default place he would go to look for most things. Looking for a place to relax, he would first think of the library, a place to socialise, he would first think of the library. A place to trance, the library is again the first place he would choose. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">09-Sep-19 08:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="620595128859492372" id="message-620595128859492372">
+                <div class="chatlog__content">
+                    <div class="markdown">She seemed delighted at this.  &quot;See already helping me.&quot;  She walked beside him, writ in hand.  Her shoulder and dress actually touching his.  &quot;Honestly I dont remember finding a book about this particular airship.  My grandfather, well, grest great grandfather told me stories about it.&quot;
+
+To the <span class="mention">#library</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/a1b47a7727fcd9de9d813fd42a3bad37.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Lee Jackson#3498" data-user-id="112958388358348800" style="">Lee Jackson</span>
+
+
+        <span class="chatlog__timestamp">09-Sep-19 02:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="620694742031794176" id="message-620694742031794176">
+                <div class="chatlog__content">
+                    <div class="markdown">Carric smiled at Carmine&#39;s reply and walked along with her to the library. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">26-Nov-19 03:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="648973525889056778" id="message-648973525889056778">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Tenshi#5603">@Tenshi</span> 
+Rini was called directly to the planning room, used by adventurers to discuss jobs before heading out.
+
+Carmine Lilly was waiting for her, already a scroll broken and unfurled on her desk, waiting for the Druid to show up. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Nov-19 07:43 AM</span>
+
+            <div class="chatlog__message " data-message-id="649938420394754048" id="message-649938420394754048">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Tenshi#5603">@Tenshi</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 01:35 AM</span>
+
+            <div class="chatlog__message " data-message-id="650208143787163649" id="message-650208143787163649">
+                <div class="chatlog__content">
+                    <div class="markdown">The door swung smoothly open and a ginger tomcat strode in like he owned the place. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 01:47 AM</span>
+
+            <div class="chatlog__message " data-message-id="650211214634385418" id="message-650211214634385418">
+                <div class="chatlog__content">
+                    <div class="markdown">An equally ginger girl--this wall even more soft and far more cury, stepped in next.  &quot;Are you my herald now, Strut?&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650211272603992064" id="message-650211272603992064">
+                <div class="chatlog__content">
+                    <div class="markdown">The cat sat down imperiously and began to clean his powers. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650211522785706004" id="message-650211522785706004">
+                <div class="chatlog__content">
+                    <div class="markdown">She looked around.  &quot;I guess that&#39;s Strutts way of saying, &quot;Presenting Rini Hostler, druid of Chaunteah, proven memer of the Steel Heart&#39;s guild.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650211570420416515" id="message-650211570420416515">
+                <div class="chatlog__content">
+                    <div class="markdown">She took a few more steps inside.  &quot;I was summoned?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 09:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="650329811910131722" id="message-650329811910131722">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Kekekekeeeee.&quot;
+There was an odd creature in the room as well... </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="planning-room.html_Files/4a37ce7161984369b724607fbeb9d0d9.png">
+                                    <img class="chatlog__attachment-thumbnail" src="planning-room.html_Files/4a37ce7161984369b724607fbeb9d0d9.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 10:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="650336426449436712" id="message-650336426449436712">
+                <div class="chatlog__content">
+                    <div class="markdown">The only Kenku on board was one named Pox, but now it seemed different, more masculine, taller, just over 6 feet.  He clutches his staff as he walks forward, the wooden staff clinking.
+
+&quot;Rini Hostler, druid of Chaunteah, proven member of the Steel Heart&#39;s guild.&quot;  The repeated words were supposed to be a copy but a croaking sound underneath it all all sounded to come from a single male voice.  He was practiced in the arts of speech.  
+
+Carmine Lilly smiled.  &quot;Thank you both for coming.  We&#39;ve got another job.  Its a monster hunt.  The client says that a hunt killed an owlbear mother, and she worries about the cubs.  Worse still, something has brought the mother back as undead and now it hunts the woods.  A druid would be best for this.  Rini.  Pox, you&#39;re her support and bodyguard.  I&#39;m sorry but we&#39;re stretched thin right now.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">13-Dec-19 06:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="655180479196299264" id="message-655180479196299264">
+                <div class="chatlog__content">
+                    <div class="markdown">Rini&#39;s frowned for just a moment.  &quot;An owlbear is a dangerous predator even without being undead.  I&#39;m sure we can handle this, though. &quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="655180585123184640" id="message-655180585123184640">
+                <div class="chatlog__content">
+                    <div class="markdown">She flashed the black feathered man a smile.  &quot;Pox, is it?  Nice to meet you, sir.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">13-Dec-19 07:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="655186044815147028" id="message-655186044815147028">
+                <div class="chatlog__content">
+                    <div class="markdown">He gave her a nice solemn nod.  His feathers bristling over his muscles.  &quot;Nice to fight beside you.&quot;  His beak tilted up.  It wasn&#39;t one of devotion, determination, it was one of interest.  His eyes seemed to look upon her as if studying something, sizing her up.
+
+Carmine nodded.  &quot;If you&#39;re both ready, we&#39;re going to be over the forest.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">23-Dec-19 10:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="658866272171458563" id="message-658866272171458563">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">17-May-20 03:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="711477133884784720" id="message-711477133884784720">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok stood over the map of Erie marking Blood hunter camps. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">24-May-20 02:43 AM</span>
+
+            <div class="chatlog__message " data-message-id="714005555462537339" id="message-714005555462537339">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Should i make a foe cards for the rest of the guild?&quot; The half orc muttered </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">30-May-20 02:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="716169517432176711" id="message-716169517432176711">
+                <div class="chatlog__content">
+                    <div class="markdown">Finishing up his task Rok left the planning room  with info on the iron sins </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">30-May-20 02:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="716169530929315890" id="message-716169530929315890">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 06:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="737075563398692955" id="message-737075563398692955">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Delielah entered the simple planning space, on hand were the notes on the mysterious devices she witnessed during her time seducing the man from another world, she had started to rewrite the Hoodling&#39;s abyssal writing into common to break the information down. She was thankful she had direct command of the minion otherwise it wouldn&#39;t have been able to transribe what Parker had said.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 09:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="738937724027011122" id="message-738937724027011122">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The Artificer opens the door after Parker leads him there, he walks in holding a Griffin, waiting for Parker to come in as well</em>
+
+&quot;Fuckin&#39; A. This place is like a maze. I&#39;m surprised you can find this place while you are sober Parker...you are sober, right?&quot;
+
+<em>He takes in his surroundings, being extremely confused and concerned by them, then taking a look at the woman sitting there, just as confused about her despite knowing who she was and for what reason he was brought to her</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 11:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="738960485818302474" id="message-738960485818302474">
+                <div class="chatlog__content">
+                    <div class="markdown">(Gonna bring rok along?) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 11:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="738960803708797029" id="message-738960803708797029">
+                <div class="chatlog__content">
+                    <div class="markdown">They shrug noncommittally. They <em>are</em> sober, but it&#39;s a little fun to leave it a mystery. 
+&quot;The ship reorganizes itself to take you where you need to go. It&#39;s pretty cool innit?&quot; The bard catches eye of the succubus and smiles. &quot;Miss Delielah, hello! This is Volya, he&#39;s another person from my world and he can help with this electricity thing!&quot; They push thean forward a little, not forcefully, but excited. &quot;Go on, show her your things! That little drone!&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="738960859203764297" id="message-738960859203764297">
+                <div class="chatlog__content">
+                    <div class="markdown">(wasn&#39;t he on his way? He could show up after them maybe) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 03:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="739020143580938290" id="message-739020143580938290">
+                <div class="chatlog__content">
+                    <div class="markdown">rok walked into the planning room grumpy about recent events and now the strange ad on the alchemy lab door that he had to ask around for. he looked at parker, volya and delielah &quot;so who posted the flyer on the alchemy lab door?&quot; the blood hunter ask </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 01:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="739168056814600322" id="message-739168056814600322">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Delielah looked up from her notes, she did blush a bit realizing the man that introduced the technology to her was here, it glanced away for a moment, breathing out having a smile on her face, &quot;Thank you for coming to accept my regard, please sit down, we much to discuss.&quot; She would gesture to the table seats.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 01:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="739172352717226064" id="message-739172352717226064">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>As Rok comes through the door, Volya reaches into his backpack and grabs his small spider drone, chucking the poor drone to the wall as Rok comes through the door, causing the Artificer to jump. Luckily, the drone is fine and chilling on the wall</em>
+
+&quot;Jesus H dude! You are awfully quiet for someone of that size. Fuck...anyways, I think Delielah did... big guy. Oh, Parker! Check this out.&quot;
+
+<em>As Volya approaches the table, he grabs his Multi-Tool anda large box from his bag. After a couple zaps the box unfolds into a drone that is big enough to be the same size of Delielah&#39;s minions, he drops the drone to the ground as he takes his seat</em>
+
+&quot;It&#39;s the new project I&#39;m working on, using some magic in it as well.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 01:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="739175451204911208" id="message-739175451204911208">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker turns around and grins. &quot;Hi Rok! Yeah it was Delielah. Whatcha doin here man?&quot; They turn attention to Volya. &quot;Ooh, that&#39;s cool! Show Delielah, c&#39;mon!&quot; 
+They sit in one of the provided seats, then snatch up the tool  to plug in their phone. Every since meeting Volya, they&#39;ve wanted to get the thing working again. <span class="chatlog__edited-timestamp" title="01-Aug-20 01:48 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 04:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="739217618409488404" id="message-739217618409488404">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Delielah eyes were immediately focused on the magic device used to charge the device that was similar to the one Parker showed her before. She paused, her lips poised slightly as she had a change of plans.</em>
+
+<em>She clapped her hands, clearing her throat slightly, &quot;Thank you for answering the call of this humble noble to this meeting, as I said in my notice, I had witnessed something almost inconceivable with out the use of magic.&quot; She sighed, &quot;I had originally prepared notes to hand to those that attended, however I did not expect the source of the discovery to show up with a new toy.&quot; She pointed at Parker and his new magic device.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 04:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="739217829902942270" id="message-739217829902942270">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Howdy, parker&quot; Rok said nodding to the bard before looking at volya &quot;first who&#39;s this jesus h? I&#39;m a blood hunter, I have to be quiet to hunt creatures that will tear my head off easily&quot; he looked at the beautiful woman &quot;so why the -&quot; the half orc winced when the human male hurled the deviced at the wall just to fix it &quot;fuckin&#39; artificers&quot; he grumpled. He took a seat &quot;I have alchmey skills&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 05:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="739229043228016681" id="message-739229043228016681">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;See? Told ya you&#39;d be an artificer.&quot; They look back at Rok. &quot; Don&#39;t worry about Jesus, he isn&#39;t a thing here. It&#39;s debatable if he&#39;s a real thing in our world too so. His importance is relative.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 06:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="739248105291251792" id="message-739248105291251792">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Rok. I&#39;ll remember that. Oh, yeah, I&#39;m good with all that tech stuff.&quot;
+
+<em>The large drone that was dropped on the floor climbs up upon Volya and his chair, sitting on his shoulders, while the smaller one climbing around from the wall to the roof and dropping atop the larger one</em>
+
+&quot;I can probably make you just about anything you could need, I&#39;m basically a genius... sometimes. Oh, and one second...&quot;
+
+<em>He flips some switches on the Multi-tool that Parker plugged their phone into, not only does the phone start charging, but a small flame goes alight on the end of it, as well as a taser, and pressurized air comes billowing out of it upon the trigger being pulled</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 06:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="739249190479200277" id="message-739249190479200277">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker stares at it. &quot;Dude. What the fuck would you need literally any of that for.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 06:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="739249821915021386" id="message-739249821915021386">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;What the hells is that?&quot; Rok said looking at volya&#39;s device while taking the notes. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 07:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="739257279039406122" id="message-739257279039406122">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I call it a multi-tool. Got all the tools I&#39;d need. The fire and air are for welding, the taser is for electric work or for...well, tasing. The fire also is to light my cigarettes. This thing does a ton of shit, I could need it for anything honestly. Oh and the drones are for fun. I used the small one back home to check stuff out without endangering myself but this big bastard is even better.&quot;
+
+<em>After explaining to Rok and Parker, the big drone opens up, the back of it splitting open to reveal a cannon with a thin barrel</em>
+
+&quot;Look, if I&#39;m going to join a group of adventurerers, I might as well be kitted out. Now, Delielah. How can I help you?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">02-Aug-20 12:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="739339233952530502" id="message-739339233952530502">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Delielah would be obversing the flow of the conversation with a sigh, &quot;This Multi-tool, how did you create it?&quot; Considering the amount of secret technology in front of her she just needed to know how it was made.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">02-Aug-20 02:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="739545146122698895" id="message-739545146122698895">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>he rubs his chin before grabbing some blank paper and writing down some information, he speaks as he writes down many paragraphs detailing instructions and materials</em>
+
+&quot;Well Delielah, I don&#39;t know how much use you would get out of a tool like this. It&#39;s uses are limited to what it can do and I&#39;m sure things here are just as useful or replaced with magic. However, a cell phone could be more useful, or some kind of technological weapon like a stun gun. Despite magic being able to replace the tech I use, these things could be invaluable due to not needing some components like for magic. I created it rather simple, a mechanical contraption draws in air from the atmosphere to provide for the pressurized air as well as to power the device through air power. The flame comes through a flint and steel and some easily available tinder that I can add to it. And the taser runs on a battery that is powered through the air. To make anything similar I&#39;d need to recreate a battery first, and everything else would come relatively easy...that was a lot of rambling, my bad.&quot;
+
+<em>He slides the blueprint he created over to Delielah, which details the materials he&#39;d need to first make a battery to be able to make just about anything. There are some other small schematics for an engine and other various forms of power and uses of said energy</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">02-Aug-20 02:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="739548200062550017" id="message-739548200062550017">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok looks like his brain was going to melt down &quot;cell phoon, stun gun, teaser, buttery? The hells are you talking about?&quot;
+
+He then looks to delielah &quot;and why do you wish to know of these techno stuff?&quot; <span class="chatlog__edited-timestamp" title="02-Aug-20 02:54 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">02-Aug-20 05:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="739601551269560320" id="message-739601551269560320">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Delielah would look over the blue prints, raising an brow, was she discussing this with another otherworlder though I good number of the words flew over her head. She then looks to Rok, &quot;Because it has significant potential in the line of Economics...&quot; She would look over the battery blue print, &quot;With this... We could be on the edge of another golden age...&quot; She turns back to Volya, &quot;Would you mind if I kept a copy of this? There are quite a few members of Noblity that would be interested in this Also these materials... Some of them don&#39;t make sense...&quot;</em>8 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">02-Aug-20 11:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="739691835764506635" id="message-739691835764506635">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker snickers at Rok&#39;s mispronunciations. &quot;Battery. It has the energy that makes the phone operate. Most of the things its used for aren&#39;t available here, but the games are still fun. As for the golden age stuff .. I guess your tech could advance a lot, yeah. Way faster than ours did, too.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">03-Aug-20 08:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="740003209363456161" id="message-740003209363456161">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;The materials I&#39;ll need will make it so everything works. I&#39;ll also need copper to make wire to connect it to other things I plan to make.&quot;
+
+<em>He quickly makes a copy of the blueprint, giving Delielah the copy</em>
+
+&quot;If I&#39;m able to make anything from my world here it would be massive for the economy... Parker, can you drive? Because I feel like I could make a car, maybe even mass produce them. I&#39;ll need loads of Iron to purify it into steel, and I&#39;ll probably have to make plastic as well...&quot;
+
+<em>Volya stands up and paces around the room, muttering to himself over intricacies and materials he would need</em>
+
+&quot;If you want to kick start a golden age or the economy, I have a plan in mind. Weaponry and Medicine can be useful as well...Parker, I&#39;ll need your help to find materials similar to those from home. Rok, I&#39;ll need your help with alchemy, I have a plan to refine it into a more easily accessible form. Delielah, if you want this to take off, you&#39;ll need to find people who will buy the stuff we make, I&#39;m not the greatest at talking to people so I&#39;d leave that to you or Parker. We could very easily make loads of gold as well as make lives easier all around.&quot;
+
+<em>He turns to the ground with a beaming smile, proud of himself for coming up with an idea that he believes is absolutely brilliant</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">03-Aug-20 08:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="740004006310576238" id="message-740004006310576238">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker nods along with everything, taking notes in their newly-charging phone on everyone&#39;s tasks. &quot;Yes I can drive, and personally I vote dirt bikes if anything. Paved roads here would suck for anything besides 4-wheel drive or motorcycles. Cobblestone dude. Gimme lists of thing you&#39;d need and I&#39;ll do my best.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">03-Aug-20 09:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="740017593615908905" id="message-740017593615908905">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Delielah would smile, taking her copy of the plans, slipping them into her bag for later. There were a lot of words that Delielah wanted to here. The only thing she need to do is get the investment and she had a feel someone would provide, &quot;Thank you, I&#39;ll see what I can do.&quot; She would smile, &quot;I&#39;ll go gather some potential investors.and have them meet the moment you&#39;re at a good milestone.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">04-Aug-20 05:47 AM</span>
+
+            <div class="chatlog__message " data-message-id="740143803372929126" id="message-740143803372929126">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You want to monoplize and market their artificiericy?&quot; He said frowning &quot;don&#39;t try anything with hunter&#39;s bane. A battery is a energy holder?&quot; Rok rubbed his chin as volya talked before growing confused at the terms of car &quot;the hells is a car? If you want to learn about medicine, you check with bofwant at the medbay, why change weapons? A blade is still good and magic is still imperssive.&quot; He pointed &quot;I can help you with alchemy to a point, nothing that&#39;ll harm innocent people.&quot;
+
+&quot;I can also drive, what is a dirt bik, 4 wheeel dove? Common, do you speak it? I will also accept orc.&quot; 
+
+The werebear eyed delielah and gave the air a sniff to get everyone&#39;s scents. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">04-Aug-20 09:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="740379669005729795" id="message-740379669005729795">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>he writes down some notes on his phone as he speaks</em>
+
+&quot;Awesome! This will be perfect. Parker, we will need something for painkillers, copper, and some sort of oil to make plastics. Delielah, I&#39;ll make you more plans to pass on to investors. Rok, the medicine from our world is a good bit stronger than what you have here without magic, so by combining it with magic would lead to a greater potency...and don&#39;t worry, only for good. I don&#39;t want to hurt people with this. Oh, and cars are like carriages but without the horses, motorbikes and dirt bikes are like...well, horses.&quot; <span class="chatlog__edited-timestamp" title="04-Aug-20 09:25 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">05-Aug-20 03:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="740477783167205397" id="message-740477783167205397">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I&#39;m still wary of this&quot; Rok said &quot;medicine would be nice if its easy for common folk to get, they need them.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">05-Aug-20 06:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="740517611384602664" id="message-740517611384602664">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Agreed,&quot; Parker says. &quot;I think if we do anything, we need to make it all affordable for everyone. Prices need to be equitable, we can&#39;t be greedy. I don&#39;t want this to turn capitalistic, y&#39;know? America sucks, I don&#39;t want Eire to turn out the same.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 04:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="741027245086343179" id="message-741027245086343179">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Am-er-ica?&quot; Rok muttered saying the word slowly &quot;capitalistic, sounds really wrong. Just to my ears and the bear&#39;s too&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 07:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="741076649969188936" id="message-741076649969188936">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Delielah would hear the words and have mixed feelings, &quot;I&#39;ll... See what I can do...&quot; She would take the blueprint copy she was given from the table and begin to leave. The word capatilism felt really nice, had a good ring to it. She one thing she did not want was to make it affordable as that would ruin the point of the technologial advancement as a sellable asset.</em> <span class="chatlog__edited-timestamp" title="07-Aug-20 02:50 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">10-Aug-20 06:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="742516853678800928" id="message-742516853678800928">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;we should write up a contract to prevent abuse of these devices&quot; Rok points out as delielah leaves. he looks at the hand out &quot;I might need some stuff&quot; he mutter </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">10-Aug-20 10:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="742564175175483533" id="message-742564175175483533">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker decides to hold back all their anger-filled rants about the society they were born in. &quot;Right. I can help write it up if you wanna </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">11-Aug-20 03:56 AM</span>
+
+            <div class="chatlog__message " data-message-id="742652607104811038" id="message-742652607104811038">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;No no, I know a gal who owes me some favors. &quot; Rok said in a comforting tone of voice &quot;she&#39;ll be more than willing to write up a contract&quot; <span class="chatlog__edited-timestamp" title="11-Aug-20 03:56 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">12-Aug-20 05:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="743223180864389181" id="message-743223180864389181">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>after a solid minute of thinking, Volya turns towards Parker and Rok</em>
+
+&quot;There is a fair point in both... technology should have a price however, I think the items that are a necessity should be cheap, like medicine or something that would make someone able to walk... however, something like a firearm should have a price...not hefty but we will need money to make product...we shouldn&#39;t be capitalistic or run a monopoly, but we will need profit.&quot;
+
+<em>This was something new to Volya, beginning to run what could potentially be a small company. He had made product and sold it... purely for money or cigarettes... but now this is his chance to invest. Gotta play it smart.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">12-Aug-20 05:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="743224446260871279" id="message-743224446260871279">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I don&#39;t think we should make guns in the first place,&quot; Parker says quickly, with strong conviction. &quot;They already have magic, and weapons. This world doesn&#39;t need anything else to make it dangerous.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">12-Aug-20 10:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="743295611826339890" id="message-743295611826339890">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;there are firearms&quot; the blood hunter points out &quot;one of the members of my order, Larry uses in his wereape form&quot; Rok smirks &quot;watched him open fire on a horde of were rats who was trying to down a coastal town&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">14-Aug-20 10:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="743836383369494678" id="message-743836383369494678">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You have a point Parker... regardless, first things first, batteries and medicine.&quot;
+
+<em>He writes out a short list with ingredients and hands it to Rok</em>
+
+&quot;These are some materials I need, I&#39;m pretty sure that with these I&#39;ll be able to make some pain killers, also, remind me to stay away from whatever the hell a were-ape is. It sound horrific. Parker, we are gonna need to grab a fuck ton of raw materials as well as oil for plastic. I ain&#39;t got a damn clue where we could get that much oil unless we start using some kind of like...I dunno, whale oil? If you could, just try to find places that might have excess oil or other materials. In the meantime, I&#39;m going to go write up some plans, just give me the call if either of you find something or if we get that contract made, got it?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">15-Aug-20 08:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="744349921934835733" id="message-744349921934835733">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;We better figure out solar fast,&quot; they prod the plans again. They lean over to Rok and look at his list. &quot;I&#39;m sure I don&#39;t need to explain to you why it would be a horrifying idea to rely solely on no renewable resources, Volya.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">16-Aug-20 04:19 AM</span>
+
+            <div class="chatlog__message " data-message-id="744470416474505287" id="message-744470416474505287">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;we can get most of this stuff from clock tower, if they are willing to sell it or mind it going missing from their transports&quot; he said &quot;I can make some of these over time, if I mind loosing sleep. Also were-apes are cannibalistic beasts who show barely any resemblance of  humanity or intelligence  when transformed which is scary since you&#39;re are dealing with someone who is cursed, scared and remorseful. gods help you if you find one who accepts the curse&quot; <span class="chatlog__edited-timestamp" title="16-Aug-20 04:24 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">17-Aug-20 10:33 AM</span>
+
+            <div class="chatlog__message " data-message-id="744926808608210994" id="message-744926808608210994">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Solar is a good idea, however, I&#39;m sure I could make wind power much easier, since that&#39;s what the Multi-tool runs off of, as well as being able to create winds with magic making it an even more renewable resource...also, what is this Clock Tower you are talkin&#39; about? Maybe I just skipped it in the books.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">21-Aug-20 10:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="746378535106642042" id="message-746378535106642042">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Think it&#39;s a faction?&quot; Parker shrugs. &quot;I&#39;ve tried staying away from the political bullshit. Peritt&#243;s&#39;s random whims are about the most complicated thing I want to deal with, y&#39;know?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">21-Aug-20 03:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="746457926222479460" id="message-746457926222479460">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Solar? The angels?&quot; Rok said &quot;clock tower is a faction that deals with certain things, you seen the butcherer? They tend to do that to folks. I&#39;m apart of a faction called the iron sin&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">23-Aug-20 11:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="747293020574974003" id="message-747293020574974003">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Solar power, Rok. Back home we found a way to harness the Sun to make energy. But these clocktower folks sound...not that great? SCP type shit. Aside from that, stealing from the <strong>definitely</strong> won&#39;t help us out any. So many different factions...I wonder if there is one for Artificers...well besides clocktower.&quot;
+
+<em>He starts pacing back and forth muttering to himself about the possibilities. Guns, Magic, Magic Guns, Guns that Heal, Medicine, Cars...oh he just won&#39;t shut up. Even the spiders are pacing behind him</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">23-Aug-20 11:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="747295785133146152" id="message-747295785133146152">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Are you sure your world doesnt have magic?&quot; Rok asks with a smile &quot;scp? I heard of it when i was in Arkham, 3 fellows calling themselves dr. Bright, dr. Clef and dr. Kon something they asked me if i saw someone named 507.&quot;
+
+Rok nods a little &quot;clocktower is it though. We might try guilds though or acadmeies&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">24-Aug-20 11:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="747665516390252586" id="message-747665516390252586">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Reese-A-Rooni#8514">@Reese (Thrin✨Tomara✨Parker)</span> <span class="mention" title="Jade.Nav#9522">@Jad (: (Armi, Kalas, Volya)</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">24-Aug-20 11:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="747666465959706634" id="message-747666465959706634">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Not-&quot; Parker blinks and groans loudly at the comment. &quot;I swear to fucking christ this planet just gets weirder and weirder. Doctor Bright isn&#39;t - they can&#39;t actually be <em>real</em> right???&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-20 09:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="747986520190746754" id="message-747986520190746754">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Are... fuck me man.&quot;
+
+<em>He reaches into his bag and grabs out a small orange bottle and takes one of his pills dry</em>
+
+&quot;Alright then. Now that I know even that shit is real...I need a fucking nap... lots of brain work done today.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-20 09:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="747990614531899393" id="message-747990614531899393">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;are you two ok?&quot; Rok ask offer volya his waterskin &quot;why? the three I met and tried to kill me don&#39;t exist? I have scars from that amulet wearing and 3 eyed guy attacked me&quot; <span class="chatlog__edited-timestamp" title="25-Aug-20 09:29 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">25-Aug-20 09:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="747991612667199488" id="message-747991612667199488">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker nods and sighs, which is broken off quickly by a yawn. It&#39;s been a frustrating few hours. 
+&quot;I seriously don&#39;t know anymore. If they really do exist, then trying to explain why they shouldn&#39;t be it kind of useless... But uh... If you meet the amulet guy again... Probably stay away. He isn&#39;t a good person. And he can steal your body. So... Yeah.&quot; The bard stands and trudges toward the door. &quot;Nite y&#39;all. Meet up next week maybe? I should have some of the stuff on my list by then.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">28-Aug-20 04:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="749001851709685771" id="message-749001851709685771">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Pretty sure all 3 of them werent good&quot; he said standing up and grabbing the list &quot;sounds good.&quot;  The blood hunters pats both of them on the shoulder &quot;i might be able to secure supplies if i can contact my clan.&quot; Rok heads out. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">28-Aug-20 10:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="749098300480815226" id="message-749098300480815226">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Thanks Rok. I&#39;ll see ya Parker...oh, and next time I see you I&#39;ll have a gift for you, friend.&quot;
+
+<em>Volya walks off with a smile on his face, the spider-mechs following behind him</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="planning-room.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">28-Aug-20 11:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="749105826878324816" id="message-749105826878324816">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 162 message(s)</div>
+</div>
+
+</body>
+</html>

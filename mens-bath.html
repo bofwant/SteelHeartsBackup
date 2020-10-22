@@ -1,0 +1,1919 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - mens-bath</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="mens-bath.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / mens-bath</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-19 12:55 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="617039676829597696" id="message-617039676829597696">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mens-bath.html_Files/4dcdadd8c44df76c0f6b9d069ed788c7.png">
+                                    <img class="chatlog__attachment-thumbnail" src="mens-bath.html_Files/4dcdadd8c44df76c0f6b9d069ed788c7.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="617039746400518146" id="message-617039746400518146">
+                <div class="chatlog__content">
+                    <div class="markdown">The bath is steaming hot, and seems to section off the room into three, though, a thick wall prevents one from peaking in on another.  Still voices could be heard.
+
+The water itself seems to be herb treated... and....hmm, thicker then normal water. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617040091629748256" id="message-617040091629748256">
+                <div class="chatlog__content">
+                    <div class="markdown">This bath is for men only, toilets and urinals as well as sinks for a few to use. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-19 11:42 AM</span>
+
+            <div class="chatlog__message " data-message-id="621732468432830475" id="message-621732468432830475">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>It had been a long couple days, only a few bouts of restless sleep to keep going on. The people were safe, some good memories were made, but now what Zzo&#39;olo needed, more than anything, was a bath.
+He passes into the bath room proper through a misty haze, garbed in a towel, flecks of dried blood, his and others alike, speckled him like he were an egg of some sort.
+The large, green, bescaled man takes the time to wash away the worst of the grime at the sink, then satisfied, disrobes and steps into the hot, welcoming waters of of the large bath.</em>
+&quot;Hm,&quot; <em>His chalky voice echoes through the empty chamber, confused by the &#39;thick-water&#39;, but in too much relief to really care. Zzo&#39;olo sinks down to his chin, and rests his eyes for a moment.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-19 02:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="621780184298684426" id="message-621780184298684426">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>With a snort, Zzo blinks back into consciousness, nearly inhaling some of the thick-water as he sucked air. The slosh of the thick-water resonates in the room and dampens out. The sound of a droplet sounds off just after, having fallen from his nose back into the tub.</em>
+&quot;...Tha&#39; was a close one.&quot; <em>He sighs, realizing then that he did feel pretty refreshed and clean. 
+Without much ceremony, he climbs from the tub and towels off til only his hair was a little damp. His body was marked up from the fights, but scars were cool, so he let it go quickly. Feet slapping over the moist floor, he goes to change into his eximos (garb) et al, places his towel where it should go, or failing that, to the laundry to be washed, and exits the bath, feeling like at least a hundred gold pieces.</em> <strong>Exit</strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">19-Nov-19 10:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="646541031751286814" id="message-646541031751286814">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="646541049468157952" id="message-646541049468157952">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">03-Dec-19 12:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="651277117505404968" id="message-651277117505404968">
+                <div class="chatlog__content">
+                    <div class="markdown">Welp, Jonny eventually manages to stumble his way across the baths... Somehow... Eh, he&#39;d get the hang of this place eventually. For now, he needed to get cleaned up. Bleeding all over the place generally left a poor impression, after all. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="651278758522781702" id="message-651278758522781702">
+                <div class="chatlog__content">
+                    <div class="markdown">Damn, even the baths in this place were swanky... Very nice, he approved. Seems like no one was around, so he&#39;d be taking a nice, long bath, letting some of the aches and pains flow away. Operative word being some, because goddamn that fight hurt. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">03-Dec-19 01:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="651294185781198848" id="message-651294185781198848">
+                <div class="chatlog__content">
+                    <div class="markdown">After a while, he&#39;d eventually finish bathing, get himself together again, and go to explore the rest of the airship. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">03-Jan-20 09:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="662830003150389259" id="message-662830003150389259">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">11-Apr-20 08:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="698687957854453841" id="message-698687957854453841">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok laid in the water while in his werebear form sighing </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">13-Apr-20 02:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="699332689777655839" id="message-699332689777655839">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 06:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="738163147160158249" id="message-738163147160158249">
+                <div class="chatlog__content">
+                    <div class="markdown">When the odd pair enter the bathhouse, Tomara marvels at the look of the place. &quot;Oh my, I think I&#39;ve ever been in such an extravagant one of these..!&quot;
+He snuggles deeper into the blanket, now with only his eyes and proportionally massive ears peeking over the soft fabric. Of course he&#39;ll be getting in the bath soon, but that doesn&#39;t matter. He is soft, warm, and being carried. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 06:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="738164105260695594" id="message-738164105260695594">
+                <div class="chatlog__content">
+                    <div class="markdown">Jonny chuckles as he gently removes the blanket from the cat and sets Tomara into the shallows, moving over to go and acquire some soaps and such. &quot;Ah, let&#39;s see, stuff for fur... No, that one&#39;s for centaurs... Ah, here.&quot; He laxly tosses the Wizard a bottle, taking a different one for himself as he picks a spot to start washing himself... Very blatantly making a show of the process for his lover, of course. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 09:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="738199311409479700" id="message-738199311409479700">
+                <div class="chatlog__content">
+                    <div class="markdown">Tomara smiles and drinks in the show as he washes himself carefully. He is.. <em>very</em> glad for being able to multitask. 
+&quot;I hope you&#39;re enjoying yourself there, lovely,&quot; he teases. The tabaxi licks his chops. More to clean his whiskers than anything, but it works just as well to show his enjoyment of the Goliath&#39;s display. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 09:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="738199987321831445" id="message-738199987321831445">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Of course I am. Who doesn&#39;t enjoy being given attention by their lover, eh? Especially when he&#39;s such an adorable little boyfriend like yourself, kitten.&quot; Jonny grins and continues to put on a show for the tabaxi, half for his own amusement and half to see if he couldn&#39;t follow through on that tease about getting dirty all over again with the wizard. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 09:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="738203950238662828" id="message-738203950238662828">
+                <div class="chatlog__content">
+                    <div class="markdown">Damn you tabaxi anatomy. The wizard&#39;s ears flatten, which he tries to pass off my running his paws over them and soaping them up. Cleaning, just cleaning... 
+&quot;There are are discussions that will need to be had before anyone tries to define a relationship, dear,&quot; he says in a deceptively cool tone. His eyes stay closed, which helps him speak, as he lathers up the fur on his head. &quot;But I&#39;m definitely interested in spending more time together.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 09:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="738206827023433869" id="message-738206827023433869">
+                <div class="chatlog__content">
+                    <div class="markdown">One shouldn&#39;t forget, the goliath is surprisingly perceptive when needs must. Such as this instance... &quot;Your heart&#39;s still set on her, ah.&quot; It&#39;s a statement, not a question. &quot;Or at the very least, you don&#39;t feel comfortable with the implication of something as serious of a loving relationship without her approval. Don&#39;t suppose a Sending spell would work to get in contact, ah?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 09:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="738209170959892642" id="message-738209170959892642">
+                <div class="chatlog__content">
+                    <div class="markdown">He sighs and drifts over, settling himself on Jonny&#39;s lap, looking at him properly. He tries to give a gently serious air to his words, and to not feel incredibly small in the process of baring his emotions even slightly to this man he&#39;s only recently met. 
+&quot;Dear, Xyria isn&#39;t the only person I&#39;ve ever loved. I don&#39;t think she&#39;ll be the last.. but I will never be able to pull my heart from her. I like you, and I want to start dating again, but I don&#39;t want to define anything. Not yet. Is that alright with you? I refuse to fool you into thinking that I will forget my love for her if my affections shift to include you.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 09:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="738211518549721179" id="message-738211518549721179">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Wasn&#39;t gonna be fooled to start with. She&#39;s your wife, even if you are so separated... All I wish for is that inclusion, not even to the exclusion of any others.&quot; Tomara is wrapped up in a gentle hug, and held close to the Goliath&#39;s chest. &quot;If you do not wish to define... Us, yet... I will accept that. But it&#39;s not in my nature to hold back in anything I do, especially where there&#39;s emotion involved. Even if you&#39;re not comfortable thinking of me as your lover, yet... Won&#39;t stop me from thinking of you as mine, I&#39;m afraid.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 10:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="738215591470432306" id="message-738215591470432306">
+                <div class="chatlog__content">
+                    <div class="markdown">Tomara closes his eyes and focuses on the feeling of the embrace. He...... He can deal with that. That&#39;s not a horrible arrangement. He nods against Jonny&#39;s chest and hugs the Goliath back as best he&#39;s able. 
+&quot;Okay,&quot; he mutters. &quot;Thank you dear.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 10:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="738218047445270631" id="message-738218047445270631">
+                <div class="chatlog__content">
+                    <div class="markdown">The fighter plants a surprisingly gentle kiss against the tabaxi&#39;s forehead, rubbing the smaller man&#39;s back gently to try and help him relax some. &quot;You can tell me whatever you feel you need to say, kitten. Promise, I won&#39;t hold anything but my own body against you.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 12:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="738248638387716117" id="message-738248638387716117">
+                <div class="chatlog__content">
+                    <div class="markdown">He doesn&#39;t reply, not wanting to make any flimsy promises, and the petting works, gradually. The catlike man turns around a bit to hug the other&#39;s arm - much easier, much better hug - and begins purring soon after. 
+When he&#39;s relaxed again, Tomara leans back and reaches up to give the Goliath a long, paasionate kiss. 
+Yeah, he could deal with this... Arrangement. Maybe he could even end up living Jonny, returning the affection that was held for him, but for now it was just nice that he could move at his own pace. <span class="chatlog__edited-timestamp" title="30-Jul-20 12:32 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 12:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="738258384708567161" id="message-738258384708567161">
+                <div class="chatlog__content">
+                    <div class="markdown">The Goliath kisses right back, glad that he could help this cute man atop his lap relax a little... The kitten seemed so sad, so often. As an entertainer of sorts, it was his self-defined duty to make people happy... Though he&#39;d easily admit he was paying this case a fair bit more attention than he would random fan #9001. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 01:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="738266142178803742" id="message-738266142178803742">
+                <div class="chatlog__content">
+                    <div class="markdown">The only thing keeping the tomcat from sliding down and choking on the other man&#39;s cock is the fact that he hasn&#39;t actually <em>finished</em> cleaning up. Though if he&#39;s going to get messy...
+Yeah, fuck it. Or, rather, fuck <em>Jonny</em>.
+The wizard breaks off the kiss, taking a hard breath, and slides off his lover&#39;s lap to kneel before him in the shallow water. He unsheathes those pristine claws, and runs them along Jonny&#39;s bare skin teasing and feather-light. He has eye contact, watching carefully for his reaction with a self satisfied grin. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 01:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="738267416710348883" id="message-738267416710348883">
+                <div class="chatlog__content">
+                    <div class="markdown">Jonny shivers in delight at the sweet touch and searing gaze of his lover, manhood loyally standing to attention at the sight of the eager tabaxi before him. For once in his life, the gladiator is without words for a moment, mesmerized by the scene before him... He only barely manages to shamble some words together after another moment to realize that he should probably respond. &quot;Hehe, a-ah, kitten wants some milk from the tap, eh..?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 01:40 AM</span>
+
+            <div class="chatlog__message " data-message-id="738269676731367476" id="message-738269676731367476">
+                <div class="chatlog__content">
+                    <div class="markdown">His reflective eyes flash in the peculiar light of the bathhouse, and he grins. &quot;I think I do, yes..~ and you know what they say about cats, dear...&quot; he leans in close, licking from base to tip, holding eye contact all the while. &quot;<em>We always get what we want~</em>&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 01:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="738270891871305758" id="message-738270891871305758">
+                <div class="chatlog__content">
+                    <div class="markdown">Yup, that&#39;s another round of the shivers. This little wizard already held so much sway over him... Jonny didn&#39;t know whether he should appreciate that fact, or be slightly worried by it. For the time being, he settled on simply relaxing into Tomara&#39;s attentions, petting his favorite kitty&#39;s head all the while. &quot;You&#39;re too cute to say no to, obviously...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 03:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="738485750814736417" id="message-738485750814736417">
+                <div class="chatlog__content">
+                    <div class="markdown">The tabaxi purrs and looks away, taking in the sight of the massive member before him. He wraps both paws around it and takes the tip into his mouth, doing his best to put all claws and fangs out of damaging reach. He isn&#39;t willing to dislocate his jaw, a much less flexible are of his body, and so the attentions consist of a hand(s)job with paws slicked by soaps. Not one to take any sort of lazy route though, Tomara lowers his head as far down onto Jonny&#39;s manhood, bobbing and sucking dutifully. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 06:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="738518969757073430" id="message-738518969757073430">
+                <div class="chatlog__content">
+                    <div class="markdown">Well, Jonny hadn&#39;t really expected the cat to try and take all of it in his mouth, so this is more than enough for the goliath&#39;s appreciation. With a groan of relaxation and pleasure, he continues gently petting his lover&#39;s head. &quot;M-mph, I swear, y-you&#39;re much too good for me, kitten...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 06:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="738529481337340027" id="message-738529481337340027">
+                <div class="chatlog__content">
+                    <div class="markdown">Heh... it was a little crazy of him to get back into the game with the biggest folk he&#39;d ever see besides full fledged giants and dragons, but he was still proud that he seemed to not have lost any of his skills in that regard. 
+The wizard starts purring again, on purpose this time to give a little more stimulation to his lover. He comes off to catch his breath, looking up with a bat of his eyelashes as he does. The move is less effective while he&#39;s soaking wet, but it&#39;s fine. He licks his chops. &quot;Mhh... good to hear handsome~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 07:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="738534052260347955" id="message-738534052260347955">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Heh. If I&#39;m handsome, you must be absolutely adorable, Tom-cat~&quot; The brawler smiles down at the spellcaster, thoroughly enamored with this cute tabaxi he&#39;d somehow managed to snag for his own. ... Then again, given how well his kitten could play him already, perhaps he&#39;d been the one to be snagged? &quot;Hehe, just a blow might not be enough to calm me down with such a sweet sight in front o&#39; me~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 07:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="738536958162239588" id="message-738536958162239588">
+                <div class="chatlog__content">
+                    <div class="markdown">His dick throbs at that assertion, and Tomara leans up into the petting hand. &quot;Oh~? Well we wouldn&#39;t want to leave anyone unsatisfied~&quot; he licks his chops again and pets Jonny&#39;s thigh right back. &quot;Why don&#39;t you get down here and take whatever you need to... <em>Calm yourself down~</em>&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 07:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="738540103776993300" id="message-738540103776993300">
+                <div class="chatlog__content">
+                    <div class="markdown">Jonny chuckles, and pushes himself from the bath&#39;s edge, deeper into the water and down to his knees, pulling Tomara against himself, his rod pressing up between the tabaxi&#39;s legs. &quot;And if what I need is to ruin you all over again, kitten?~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 07:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="738543832840274041" id="message-738543832840274041">
+                <div class="chatlog__content">
+                    <div class="markdown">Very quickly Tomara is reminded of the fact that his legs are still being uncooperative. He squeezes them lightly around the Goliath&#39;s member even so, and grins. 
+&quot;Then I think you better do it dear~. I don&#39;t mind having a sexy man carrying me around the ship~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 07:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="738545142763356191" id="message-738545142763356191">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Let&#39;s get you where you ought to be then, kitten~&quot; Some careful movement sees the wizard held closer still to the goliath thereafter, perched just atop the kneeling brawler&#39;s tip, and then slowly lowered down to start engulfing it, soapy water acting as lubricant to help the process along. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 08:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="738548216643190816" id="message-738548216643190816">
+                <div class="chatlog__content">
+                    <div class="markdown">It&#39;s slightly less effective than lube, and he gasps as the feeling of being penetrated so soon again, but god if it doesn&#39;t feel incredible. The tabaxi tries to consciously keep his claws sheathed, but the further he&#39;s pressed onto Jonny&#39;s member, the more his thoughts turn to static. He lets out a breathy laugh that quickly turns into a lustful moan, and bucks his hips. 
+&quot;Mmhhh... Fuck me Jonny,&quot; he reaches up a bit for the Goliath and kisses him. &quot;I&#39;m all yours..&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 08:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="738549337579192461" id="message-738549337579192461">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Such a needy kitten... We&#39;ll never get around to training you at this rate, too busy with these sorts of things...&quot; Holding tight to try and ensure the wizard doesn&#39;t slip, Jonny begins thrusting up into his lover, slowly at first so as not to overwhelm the tabaxi all at once, but picking up the pace fairly quickly thereafter, driven by lust and affection for this adorable person. &quot;Goddess, you&#39;re absolutely perfect~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 08:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="738559699858751532" id="message-738559699858751532">
+                <div class="chatlog__content">
+                    <div class="markdown">Tomara laughs through pleasured groans. &quot;Hah..! I think, mphhhh, I can control my-SEAH! Oh fuck, a-absolutely- mhh so good, dear!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 09:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="738562088166883428" id="message-738562088166883428">
+                <div class="chatlog__content">
+                    <div class="markdown">Jonny can&#39;t help but to kiss his lover as they continue, passionately capturing his fuzzy companion&#39;s lips as he continually claimed the caster&#39;s ass as his and his alone to use as and when he pleased. Not to say he wasn&#39;t directing any particular effort to Tomara&#39;s pleasure- by now, he&#39;d gotten a pretty good understanding of where the tabaxi&#39;s love button was, and every single thrust hammered home against it with near surgical precision. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 09:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="738567239866777631" id="message-738567239866777631">
+                <div class="chatlog__content">
+                    <div class="markdown">Gods, he&#39;s seeing stars now, barely cognizant and <em>fucking loving it</em>. Every inch of the tabaxi&#39;s body is full of static, numb, , magic sparking meaninglessly from his fingertips as mental wires cross in a haphazard mess. 
+&quot;Jonny- gods, Jonny,!&quot; Tomara pulls back from the pair&#39;s passionate kiss to cry out his lover&#39;s name. &quot;I&#39;m gonna- <em>cum-</em>!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 09:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="738569259189403749" id="message-738569259189403749">
+                <div class="chatlog__content">
+                    <div class="markdown">Admittedly, the goliath didn&#39;t have much stamina left himself. They&#39;d gone twice the night before, and now this morning- the two hadn&#39;t even had a meal or drink to &#39;replenish&#39; after all that, yet. So, feeling Tomara begin to tighten even further, and hearing those wondrous words, the brawler set aside any self control, merely pounding away with abandon until he felt something seize up within him. Then, with one finally thrust and pull to ensure the tabaxi had his entire rod oh-so-perfectly hilted, he let go entirely, filling the wizard with anything and everything he had to give. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 09:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="738573851075805214" id="message-738573851075805214">
+                <div class="chatlog__content">
+                    <div class="markdown">Tomara pulls himself close to the goliath as they cum together, panting hard and grinning tiredly. Soaked fur, dripping wet, and now both covered in and full of cum.. he can&#39;t imagine the picture is the sexiest it could be, but gods if he doesn&#39;t feel amazing either way. 
+He gives Jonny another kiss and chuckles, wiggling his hips to get a little more pleasure before pulling off his lover&#39;s manhood. 
+Or... He tries to. Tomara&#39;s nose scrunches in a worn out struggle before he accepts his fate (which he asked for but shhh) as a noodle-limbed piece of feline fur. He clings to Jonny&#39;s neck and laughs. 
+&quot;Ah, dear you&#39;re clearly a blessing from the gods..&quot; he says flirtatiously, with a hint of genuine feeling in his tone. &quot;what in the multiverse did I do to catch your eye~...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 09:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="738575337423896637" id="message-738575337423896637">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Be cute and brave, as well as willing to put up with a lovestruck fool as myself.&quot; The brawler answers almost immediately, slowly and gently pulling himself free of the dear kitten so his lover could recover a little... And, uh, wash up again. He&#39;d probably help with that this time, for making such a mess of the two again. &quot;Mostly the cute part. You&#39;re the most adorable kitty a goliath could ask for, after all~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 10:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="738580059723661344" id="message-738580059723661344">
+                <div class="chatlog__content">
+                    <div class="markdown">Tomara purrs and preens at the compliment, seeming more like a ragdoll cat than .. whatever kind he is, as he&#39;s picked up. His tail seems to be the only thing in full working order. 
+&quot;Why thank you, Jonny dearest,&quot; he says, searching with his feet for a place to stand, though it&#39;s very obvious he wouldn&#39;t be able to hold himself up. He chuckles. &quot;Can you please... Help me clean up? I don&#39;t believe I&#39;m in proper state to do it on my own.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 10:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="738581029832359956" id="message-738581029832359956">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Absolutely, love.&quot; If the previous response was almost immediate, this one was practically instantaneous. Jonny was all too happy to help his boyfriend clean up... And not just because it provided an excellent opportunity to grope the kitty while he was in no state to contest the matter, either. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 10:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="738588400960929873" id="message-738588400960929873">
+                <div class="chatlog__content">
+                    <div class="markdown">He&#39;s fully aware of the position he&#39;s allowed himself into, and he loves it. His hand wanders around to find the soap he&#39;d been using earlier, while his tail acts on its own once more to to gently stroke Jonny&#39;s bicep. 
+He definitely doesn&#39;t almost drop the bottle as he gives it to the goliath.
+&quot;Thank you,&quot; he says softly, following the vaguely prehensile limb&#39;s motions to stroke his lover&#39;s cheek. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 10:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="738589768329330840" id="message-738589768329330840">
+                <div class="chatlog__content">
+                    <div class="markdown">The only response to that is another sweet peck, and the goliath getting to work on washing the both of them free of any lingering sexual fluids. Far be it from even Jonny to ruin a quiet moment like this with his usual boisterousness. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 12:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="738606876807397426" id="message-738606876807397426">
+                <div class="chatlog__content">
+                    <div class="markdown">The tabaxi let&#39;s himself relax, purring like a lively motor as he absent-mindedly strokes Jonny&#39;s cheek as the kind-hearted Goliath cleans him up. It doesn&#39;t take particularly long, having been mostly cleaned up in the first place, but it&#39;s still incredibly nice.
+&quot;Hmm... Glad I ran into you,&quot; he says. The tabaxi successfully manages to sit up and gestures for Jonny to hand him one of the soaps. &quot;Here, let me return the favor.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 12:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="738615956817051685" id="message-738615956817051685">
+                <div class="chatlog__content">
+                    <div class="markdown">The brawler easily obliges, and relaxes into the presumably ensuing touch of his lover. It doesn&#39;t take too long for him to get cleaned up either, but little things like these were always appreciated. &quot;Glad I found you too, kitten.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 12:53 AM</span>
+
+            <div class="chatlog__message " data-message-id="738620308935802900" id="message-738620308935802900">
+                <div class="chatlog__content">
+                    <div class="markdown">Tomara humms and wraps his unreasonably long tail around Jonny&#39;s torso. He sets the soaps down and nuzzles the Goliath&#39;s neck. &quot;I believe we can say we&#39;re officially cleaned now. How about we dry off and go find something to eat, hm?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 01:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="738623092091256892" id="message-738623092091256892">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Might wanna dry off and find clothes first, but if you&#39;ve suddenly developed an exhibitionist streak, I suppose I could support that, too.&quot; Jonny chuckles, picking the tabaxi up and carrying him over to acquire some towels to dry off with, at the least. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 11:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="738963738199195678" id="message-738963738199195678">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Absolutely not, my good sir!&quot; The tabaxi teases, swatting the Goliath&#39;s ear playfully. &quot;Soaking wet is the least presentable I could possibly be, even if that was something I enjoyed outside of... Specific situations.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 11:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="738965062848348161" id="message-738965062848348161">
+                <div class="chatlog__content">
+                    <div class="markdown">Well, seems it&#39;s as good a time as any to start toweling himself off, passing one over to Tomara so the tabaxi can do so as well. &quot;Specific situations, you say? And what might those situations be, I wonder?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 11:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="738967777704017942" id="message-738967777704017942">
+                <div class="chatlog__content">
+                    <div class="markdown">He does, gradually fluffing up again the more he dries off. Tomara shrugs, though he has a fond look on his face. 
+&quot;It was mostly something Xyria enjoyed,&quot; he says. &quot;Er.. <em>enjoys</em>. She would occasionally watch me and my sexual partners in throes- oh whatever. She&#39;s a voyuer, she would watch me fuck people.&quot;
+The wizard chuckles. &quot;So I suppose the specific circumstances would be if you potentially enjoyed watching your partners fucking other people.&quot; <span class="chatlog__edited-timestamp" title="01-Aug-20 10:44 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 12:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="738970460641034322" id="message-738970460641034322">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hmm... Nah. I enjoy seeing you blissed out on my cock too much to leave it to other people.&quot; The floof receives a peck on the cheek, and a smile to go with it. &quot;I&#39;m more the type to put on a show than watch one, know what I mean?&quot; Another chuckle as he finishes drying off, and he stands, stretching out a bit. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 07:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="739256192584646734" id="message-739256192584646734">
+                <div class="chatlog__content">
+                    <div class="markdown">Tomara is still damp, but he&#39;s cried off enough to be presentable in public, so he wraps the towel around his waist and smiles. &quot;Good to know. Would you like to go back to my quarters? Your clothes are still in there, I believe.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/34d6334d6e10ebe918de3fab308320c0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Nat20forHype#5647" data-user-id="294950989151207426" style="color: rgb(52,152,219)">(Joe) Jonny | Ferisso | Atakhi</span>
+
+
+        <span class="chatlog__timestamp">01-Aug-20 07:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="739257480529313803" id="message-739257480529313803">
+                <div class="chatlog__content">
+                    <div class="markdown">The goliath picks up his lover again with a smile, pecking his cheek yet again, and without a hint of hesitance or shame, starts carrying the tabaxi with him on the route back to <span class="mention">#tomaras-room</span>. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mens-bath.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">01-Aug-20 08:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="739281095094435940" id="message-739281095094435940">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 60 message(s)</div>
+</div>
+
+</body>
+</html>

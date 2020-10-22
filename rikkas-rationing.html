@@ -1,0 +1,2219 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - rikkas-rationing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="rikkas-rationing.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / rikkas-rationing</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">26-Jun-20 10:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="726267317595668560" id="message-726267317595668560">
+                <div class="chatlog__content">
+                    <div class="markdown">After leading Thrin over to Rikka’s Rationing, Cheer let Thrin in first so they can get a better look at their options.
+“I heard that this was the place to get things unrelated to what you’d find in an armory.” Cheer told his wizard buddy. “Hopefully, we’ll be able to find something nice for you.” </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="726267336797192243" id="message-726267336797192243">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Reese-A-Rooni#8514">@Reese (Thrin✨Tomara✨Parker)</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">27-Jun-20 11:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="726646720456425483" id="message-726646720456425483">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin follows, feeling pleased as a clever cat. It wasn&#39;t often that somebody agreed to buy things for them. They were going to take as much advantage of this as they could. They smile pleasantly.
+&quot;Thank you Cheer,&quot; the wizard says, reaching up to adjust their hat before realizing they left it behind. &quot;I&#39;m sure whatever Rikka has will be great.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">28-Jun-20 05:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="726911260804907088" id="message-726911260804907088">
+                <div class="chatlog__content">
+                    <div class="markdown">“Well, go ahead and take a look around.” Cheer said. “I’ll be doing the same. What do you like?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 03:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="727973601323515936" id="message-727973601323515936">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer went ahead and took a look around, as he promised. He knew he’d have no trouble hearing Thrin’s request before looking at things more closely. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 03:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="727975100590063636" id="message-727975100590063636">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Shiny, expensive.&quot; They look closely at Cheer to guage his reactions. &quot;Hot, and fine for jobs too. And definitely a hat. Hats are absolutely vital.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 03:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="727975774984077322" id="message-727975774984077322">
+                <div class="chatlog__content">
+                    <div class="markdown">“You got it!” Cheer said, starting to investigate the shop to find whatever suited Thrin’s needs with good enthusiasm. “I’ll let you know when I find something good. I suggest you find a little something as well.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 03:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="727976389466259467" id="message-727976389466259467">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin grins. Is he always this eager to please? They&#39;re enjoying this. &quot;Oh I will. What did you want to talk about though? You were pretty insistent on it.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="727977790741282927" id="message-727977790741282927">
+                <div class="chatlog__content">
+                    <div class="markdown">“I simply meant to just hang out while we do our thing.” Cheer said. “Maybe have a drink or two after all of this.”
+Cheer was intent on looking for expensive things. He happened upon two tailcoats that he thought would fit the bill.
+“Do you like red or black?” Cheer asked the wizard. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="727978479274033172" id="message-727978479274033172">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Both,&quot; they answer, looking over their shoulder as the wizard pokes around their own selection of clothes. &quot;but those... Not quite my style. Someone can grab a tailcoat and trip up the wearer. Easy to tear. Y&#39;know?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="727978979382001776" id="message-727978979382001776">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer took another look at the tailcoats. He could see the point Thrin was trying to make. So, he hung them back up.
+“A shame, you would have been quite handsome in one of these.” Cheer said. “Maybe I can keep the red one for myself for now, this is quite good for me.” </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="rikkas-rationing.html_Files/image0.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="rikkas-rationing.html_Files/image0.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="727979496740880424" id="message-727979496740880424">
+                <div class="chatlog__content">
+                    <div class="markdown">They snicker and hold up a pair of baggy pants, with jewelry and drapery that seems to accompany them. &quot;Do what you like. What do you think of these?&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="rikkas-rationing.html_Files/832e816cd6db7b9fadc6adb69dd067db.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="rikkas-rationing.html_Files/832e816cd6db7b9fadc6adb69dd067db.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="727980446666981378" id="message-727980446666981378">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer scanned the pants upwards and down before coming to a verdict.
+“Fits the bill quite well.” Cheer said as he draped his red tailcoat over his left arm. He then looked back at the gallery of clothing on display. He found a red vest that would be pretty hot under the right circumstances and examined it. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="727981414150307871" id="message-727981414150307871">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin shows immediate interest, feeling the carefully made gold lining with the expression of somebody who&#39;s found literal gold on the shelves. &quot;Oh, that&#39;s attractive~ Oh- Are you looking at that for yourself? Sorry.&quot; 
+They back up, still eyeing the garment but much more reserved about it. They distract themself badly with a pair of leather arm guards. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="727982039105536051" id="message-727982039105536051">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer looked back at his Elven friend.
+“I already have this expensive-looking tailcoat.” Cheer said. “I am not sure whether I’d have enough money to buy both of these. But I think this would be great on you.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="727982919691403335" id="message-727982919691403335">
+                <div class="chatlog__content">
+                    <div class="markdown">They think about the answer for a moment. Ugh. Spending... But they earned a lot of gold on Garg&#39;s stupid job... they make to take the vest for themself, though Cheer could easily pull away if he still wants it. &quot;I can afford it.&quot; <span class="chatlog__edited-timestamp" title="01-Jul-20 04:24 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="727983837107322960" id="message-727983837107322960">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer handed the vest over to Thrin. 
+“Hopefully Rikka can tell whether this stuff would be affordable for the both of us.” He said. “I can wait for this tailcoat and buy it another day.” The bard then looked at the tail coat, taking a second to feel the fabric that made up its exterior. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="727984125449076878" id="message-727984125449076878">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;We both got a bunch of money dealing with Garg&#39;s stupid boat,&quot; Thrin points out. &quot;I doubt we would need more than three hundred gold for a few nonmagical pieces of clothes.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="727986183790919740" id="message-727986183790919740">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer counted up his gold. 214 seemed pretty nice. And whatever hand crossbow he wanted probably wouldn’t be out of his reach, either.
+He also wanted some casual, common clothes. The costume was just for his entertaining routine. He picked out a comfortable white shirt and some baggy pants, like the fancier stuff Thrin had. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="727987699985678358" id="message-727987699985678358">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin looks at the choices almost approvingly. &quot;Very stylish. You&#39;d look better in purples or duller reds, though. Like this one.&quot; They hold up a pair of similar pants, in a color reminiscent of wet red brick. It&#39;s rlsurprisingly nice. &quot;see?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 04:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="727988794241974425" id="message-727988794241974425">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer turned to see the pants. He promptly put the baggy pants he had back where he found them and took the red pants off of Thrin’s hands.
+“Thank you.” Cheer said. He turned back to the gallery. After that, he found something that would replace his tailcoat in quality.
+“Give me a second.” He then went back to put the tailcoat back by the black one. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 05:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="727992260020535346" id="message-727992260020535346">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Fuck yes.&quot; The changeling doesbt say it out loud, but they can admit to themself that they&#39;re enjoying the company of this tiefling. He&#39;s nothing like Ferry, but he&#39;s decent. They pick up the arm guards and a nice hat before going to look for this &#39;Rikka&#39; person that Cheer had mentioned. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 05:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="727993230779482173" id="message-727993230779482173">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer came back to the coat, shirt, and hat that had his eye and took a look. Purple <em>was</em> nice on him, so this would likely be a better buy.
+“I found a hat you can try.” Cheer said to his friend. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="rikkas-rationing.html_Files/image0%20%281%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="rikkas-rationing.html_Files/image0%20%281%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 10:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="728075064586535015" id="message-728075064586535015">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin tries it on, shaking their head and place the hat on a nearby shelf. &quot;Not the right kind. I found one anyway. Thanks for looking. I found one though, no loss.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Jul-20 11:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="728088835778412606" id="message-728088835778412606">
+                <div class="chatlog__content">
+                    <div class="markdown">“Well, these are mine, then.” Cheer said. He then draped the coat and jacket over his left arm, and held the hat in his left hand. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 03:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="728695540765687900" id="message-728695540765687900">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Awesome. Pleasure doing business with you my friend.&quot; Thrin isnt quite certain about being friends with this tiefling yet, but they can admit that he&#39;s nice enough to consider for the position. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 03:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="728698368813039649" id="message-728698368813039649">
+                <div class="chatlog__content">
+                    <div class="markdown">“Pleasure doing business with you as well, Thrin!” Cheer said. He then stood and waited for Thrin to make his purchases. He was quite proud of his discoveries, and of those he made for Thrin. He was pretty sure this would be his signature garb for a time. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 04:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="728703990803726347" id="message-728703990803726347">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin follows, carefully folding the pants and shirt, with the guards and hat placed on top. &quot;Where is the seller? I haven&#39;t seen anyone.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 04:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="728715997409837127" id="message-728715997409837127">
+                <div class="chatlog__content">
+                    <div class="markdown">“Well, I’ve heard a rat folk has business here when I asked, but not much else.” Cheer explained. “We might have to wait.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 05:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="728719803598110731" id="message-728719803598110731">
+                <div class="chatlog__content">
+                    <div class="markdown">The ratfolk in question walked out of the back room &quot;customers? Ok cool&quot; she mutter looking like she was sleeping &quot;find everything?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 05:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="728724152101503056" id="message-728724152101503056">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin chuckles quietly and nods. &quot;Yes ma&#39;am. The clothes you sell are real nice. I&#39;m buying this red vest and leather guards. My friend has the rest, I think.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 05:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="728727414859104288" id="message-728727414859104288">
+                <div class="chatlog__content">
+                    <div class="markdown">She looks at thrin &quot;5 silver&quot; she said before looking at cheer &quot;what do you have now?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 06:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="728739086386331658" id="message-728739086386331658">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer set down the red baggy pants, the fancy baggy pants for Thrin, the fancy purple jacket, it’s shirt, tie, and hat, and the set of common clothes. He then gave Thrin their desired hat.
+“This should be it.” Cheer said. “The fancier pants are for Thrin here, too.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 11:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="728812615895351379" id="message-728812615895351379">
+                <div class="chatlog__content">
+                    <div class="markdown">(Are those costume, fancy or normal? Im going by the prices in the dmg) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">03-Jul-20 11:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="728813019366293516" id="message-728813019366293516">
+                <div class="chatlog__content">
+                    <div class="markdown">(Fancy, but not costume-y) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 01:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="728837951655510099" id="message-728837951655510099">
+                <div class="chatlog__content">
+                    <div class="markdown">(I think they would fall under fine clothes) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 02:24 AM</span>
+
+            <div class="chatlog__message " data-message-id="728858858172317747" id="message-728858858172317747">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;15 gold&quot; Rikka said &quot;anything else?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 01:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="729030568787968031" id="message-729030568787968031">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin hands over the five silver coins for their purchases. &quot;That&#39;ll be all for me, thanks.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 02:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="729041821023338527" id="message-729041821023338527">
+                <div class="chatlog__content">
+                    <div class="markdown">The ratfolk plopped the coins into the box she keeps under the counter. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">04-Jul-20 04:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="729065249092796437" id="message-729065249092796437">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer also hands his 15 gold over, handing Thrin the fancy pants.
+“Thank you very much.” Cheer said. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 03:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="729231785753575437" id="message-729231785753575437">
+                <div class="chatlog__content">
+                    <div class="markdown">she grumples and puts the coins away &quot;yeah, no problem&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 01:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="729391135197233233" id="message-729391135197233233">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer looks to his Elven friend.
+“Well?” He asked. “Anything else you would like for us to do?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 01:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="729392451852304447" id="message-729392451852304447">
+                <div class="chatlog__content">
+                    <div class="markdown">Thrin thinks for a moment, a brief expression of discomfort crossing their face before it&#39;s gone. Know what? This is fine. He isn&#39;t a bad guy, they&#39;re just... Not used to anyone wanting to hang with them. Its fine. 
+&quot;There&#39;s a party of something soon, right? Want to go to one of our rooms and try on our things?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 01:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="729392913905090570" id="message-729392913905090570">
+                <div class="chatlog__content">
+                    <div class="markdown">“Sure!” Cheer said. “Let’s try yours. Don’t worry, you won’t have to see anything. Just direct me to where I’d need to change.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 03:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="729425346784395305" id="message-729425346784395305">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Okay cool. Lesgo.&quot; Without another word, Thrin makes sure Cheer follows as they walk off to <span class="mention">#thrins-room</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 04:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="729426879530008697" id="message-729426879530008697">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer does, as he, too, walks with Thrin to his room. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 04:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="729427213266714636" id="message-729427213266714636">
+                <div class="chatlog__content">
+                    <div class="markdown">Rikka watches the two leave before going to restock everything </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">05-Jul-20 04:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="729427228303032371" id="message-729427228303032371">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/3e75245cbea861da32e8c03e9d1f9456.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="shadow94#1543" data-user-id="324272876427673602" style="color: rgb(52,152,219)">Erdan</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 01:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="757295103822921780" id="message-757295103822921780">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>he enters <span class="mention">#rikkas-rationing</span> after leaving the <span class="mention">#gardens</span> the tall elf approched the counter and takes a look around from where he stood</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 01:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="757297114903740456" id="message-757297114903740456">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Rikka the ratfolk seemingly had been fiddling with something behind the counter, swiftly stashing it before speaking to him.</em>
+
+&quot;Howdy. What ya lookin&#39; for? Better be somethin&#39; practical, not another frilly dress...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/3e75245cbea861da32e8c03e9d1f9456.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="shadow94#1543" data-user-id="324272876427673602" style="color: rgb(52,152,219)">Erdan</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 01:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="757297868771164209" id="message-757297868771164209">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>he looked at her &quot; yes I was told I should talk to about aquiering a poisoners kit?&quot; He would ask</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 01:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="757298944001703977" id="message-757298944001703977">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She almost looked a bit offended at first...</em>
+
+*Poisoner&#39;s Kit? Sounds pretty damn illegal, ya thinkin&#39; I carry somethin&#39; that illegal? Hah, &#39;course I do! That&#39;ll be 75 pieces, pal.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/3e75245cbea861da32e8c03e9d1f9456.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="shadow94#1543" data-user-id="324272876427673602" style="color: rgb(52,152,219)">Erdan</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 01:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="757299306687627334" id="message-757299306687627334">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>erdan looked in his coin sack and realised he only had fifty &quot;would you take 50 pieces?&quot; He asked trying to haggel at least a little</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 02:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="757301179289174077" id="message-757301179289174077">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Rikka takes a deep sigh as she peers around her, deep in thought. She slaps her hands down on the table as she grins and nods.</em>
+
+&quot;Yeah sure, fine. Fifty will do. Hand&#39;em over, and there&#39;s a shelf on the left wall. It should have the pouch, it&#39;s labeled.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/3e75245cbea861da32e8c03e9d1f9456.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="shadow94#1543" data-user-id="324272876427673602" style="color: rgb(52,152,219)">Erdan</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 02:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="757301822129045514" id="message-757301822129045514">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>erdan nods and gads hertr pouch of gold before walking over and finding the appropriately labeled pouch and grabbed it &quot;pleasure doing business with you&quot; he gave a slight bow as he exited <span class="mention">#rikkas-rationing</span> ad had to make a stop at <span class="mention">#erdans-room</span>  to store his kit and grab his there weapons</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">20-Sep-20 02:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="757303432095858728" id="message-757303432095858728">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 07:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="758826160422518845" id="message-758826160422518845">
+                <div class="chatlog__content">
+                    <div class="markdown">Lilia clutched her backpack tightly to her bosom, peeking over the top as she knocked on the door with her foot. She had already placed most of her items in her backpack to make it easier to move. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 07:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="758834065276928061" id="message-758834065276928061">
+                <div class="chatlog__content">
+                    <div class="markdown">The door would go unanswered for a few moments, but then Lilia would hear &quot;One moment!&quot; followed by the sound of a latch being undone. And Rikka would have to peek either over the top or around the side of her pack to see Rikka herself, but she would hear, &quot;I don&#39;t know if you know this or not...But a backpack is supposed to be worn on the other side...&quot; 
+
+Tapping her little rat foot, she then said, &quot;But anyway....What do you need, miss?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 08:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="758844758646063124" id="message-758844758646063124">
+                <div class="chatlog__content">
+                    <div class="markdown">Lilia peeked around the side of her pack to meet Rikka&#39;s gaze. &quot;Ah, Lilia knew that! Lilia just didn&#39;t wanna lose it, is all! Stuff to sell. Lilia wants to buy fancy bag that holds a lotta stuffs!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 08:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="758850457048842260" id="message-758850457048842260">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ah, I see....Well, let&#39;s see what you have.&quot; Rikka replied shortly, leading the way to her main counter. &quot;So long it ain&#39;t nothing magical, I can see about this bag.&quot; Already Rikka had an idea what the girl was looking for, but she would wait to see what it was. And what she wanted to sell. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 09:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="758856783451652117" id="message-758856783451652117">
+                <div class="chatlog__content">
+                    <div class="markdown">Lilia set her pack on the counter and began to dig inside. She pulled out two potions of healing, a viol, a lyre, and a flute. She then poured the contents of her coinpurse onto the table, forming a pile of 233 gold coins. &quot;So Lilia wants to sell stuffs so she can buy the bag that holds a lot of stuff! But dunno if this is enough, yet...&quot; She gingerly fished through the gold coins. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 09:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="758861009506664459" id="message-758861009506664459">
+                <div class="chatlog__content">
+                    <div class="markdown">Rikka watched on Lilia laid out the contents of her pack, seeing the instruments, potions and gold. &quot;Well, I can see why ya want what I think you&#39;re asking for. The gold you have there&#39;ll cover most of it.&quot; 
+
+Leaning over on her counter, Rikka then said, &quot;The potions I can give ya 50 gold each for. The viol and the lyre will give you 30 each. And....The flute will give ya 2. So, what&#39;ll it be, miss? Whatcha want to trade for the bag?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 09:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="758862726729826324" id="message-758862726729826324">
+                <div class="chatlog__content">
+                    <div class="markdown">Lilia squeaked in surprise. She pointed at the red bottles. &quot;These thingies? Are 50?! That sounds like a lot! Small bottles are worth more than Lilia&#39;s music instruments? Yes yes, Lilia will sell!&quot; She pushed the two bottles forward then looked at her instruments, hesitating. &quot;Ahh...Lilia doesn&#39;t wanna sell those, though... Lilia will keep, yes, if she has enough now.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-20 09:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="758869574812434443" id="message-758869574812434443">
+                <div class="chatlog__content">
+                    <div class="markdown">Rikka cocked a brow at the woman, but then just said, &quot;Yep. Healing potions go for a lot, miss. More than your instruments for sure.&quot; <em>&quot;Not like a lyre by itself can make a wound close itself&quot;</em> the ratfolk said mentally.
+
+Taking the potions and the gold, Lilia would then see there was still a bit of gold left over. &quot;This bag&#39;ll cost ya 300 gold. There&#39;s what you have left: 33 gold, along with your instruments. Now, give me a second...Gotta inventory this and find your purchase.&quot; She would see the ratfolk scuttle away into the depths of her shop, the sounds of clinking bottles heard before shuffling things around. 
+
+&quot;Confounded...Where is it...Aha, there you are.&quot; 
+
+Rikka then came back, carrying a bag that seemed like it would hold a fair amount by itself. But of course people who used a bag of holding before could tell that the real secret was what laid inside. &quot;Here ya are, miss. One bag of holding.&quot; Sliding it across the counter, Rikka then stod up straight and asked &quot;Now, was there anything I could do for ya?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-20 03:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="758951657492054028" id="message-758951657492054028">
+                <div class="chatlog__content">
+                    <div class="markdown">Lilia patiently watched as the goods were traded, slightly confused and mostly hoping for the best. When the bag was presented, she leaned close to examine it. 
+
+“Ahh? This is the magic baggy that holds a lot? It looks very plain. Do you have fancy ones? Like pretty ones or cute ones!” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-20 10:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="759059145700671549" id="message-759059145700671549">
+                <div class="chatlog__content">
+                    <div class="markdown">Rikka tapped her fingers on the counter-top as the woman inspected the bag, and seemed to get a little irritated when she asked about cute ones. &quot;It&#39;s supposed to look plain. This isn&#39;t something you want standing out; people kill others all the time for items like this.&quot; she would explain to Lilia, adding &quot;So no...Afraid not.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-20 08:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="759215227337179136" id="message-759215227337179136">
+                <div class="chatlog__content">
+                    <div class="markdown">Lilia gasped, pulling the bag tightly to her chest. &quot;Wha? People kill for this?&quot; Then leaning in, she whispered, &quot;Then then, can Lilia put like fancy pins and ribbons on it to make it cute?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-20 08:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="759216673034076230" id="message-759216673034076230">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;And lots of other things; magic items are hard to come by.&quot; Rikka explained. But when the woman asked if she could decorate it, Rikka shrugged, &quot;So long as you don&#39;t cut it, you can dress it up however you like.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">26-Sep-20 10:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="759414219535286293" id="message-759414219535286293">
+                <div class="chatlog__content">
+                    <div class="markdown">Lilia nodded, looking down at the bag before burying her face in it. “Mmmmh! Smells like magic!” She squeaked. When she was finished, she thanked the ratfolk, stuffed the remaining items on the counter inside, and left for the door. With this new acquisition, she was ready to start her collectible journey. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/63e1909a5dedd3f357de994f560b58db.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="The Razgriz#2667" data-user-id="209454981059837952" style="color: rgb(155,89,182)">Uthal Lonehunter Katho-Olavi</span>
+
+
+        <span class="chatlog__timestamp">26-Sep-20 10:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="759417189739528202" id="message-759417189739528202">
+                <div class="chatlog__content">
+                    <div class="markdown">Rikka just said, &quot;Indeed...Not really sure how it ended up in my store to begin with. Damn constructs musta put the wrong crate in delivery.&quot; But once Lilia seemed satisfied, Rikka went back to doing store things: Namely rooting out any wayward magic items and getting them to Hope. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="rikkas-rationing.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">26-Sep-20 10:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="759417207557455934" id="message-759417207557455934">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 71 message(s)</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,3976 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - the-pens</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="the-pens.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / the-pens</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">05-Nov-19 03:23 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="641356990031069204" id="message-641356990031069204">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="the-pens.html_Files/nicole-ales-stables-comp-webstie.png">
+                                    <img class="chatlog__attachment-thumbnail" src="the-pens.html_Files/nicole-ales-stables-comp-webstie.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641357005776224275" id="message-641357005776224275">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641357700403429399" id="message-641357700403429399">
+                <div class="chatlog__content">
+                    <div class="markdown">Strange to find stables aboard the Steel Heart but, undead and animals make up the airships main labor force, and a number of strange creatures all work to full fill the requirements and keep the ship running smoothly.  This area is completely maintained by the Beast Master.  Edgar Clay. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641357720292818971" id="message-641357720292818971">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641358804109492224" id="message-641358804109492224">
+                <div class="chatlog__content">
+                    <div class="markdown">The Guild Master suggested <span class="mention" title="darkangel76#8091">@Iri | Sela | Hal - FERTILE</span> Rosewynn come here for more information on her rather, unusual charge.  Edgar is an animal expert, and more important, he&#39;s actually acted as midwife for many, beast and human alike.  
+
+He would know how to care for an egg. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">05-Nov-19 04:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="641370167569416232" id="message-641370167569416232">
+                <div class="chatlog__content">
+                    <div class="markdown">It had been a long day and evening was starting to roll its way in over the mountain town of Pioneer. Twinkling stars dotted the inky sky, streaked with marks of soft orange and purple. Rose had met with the guild master, Cassius Clay, and been given a room of her very own aboard the airship. It was still a little unsettling, though in the nicest of ways, to have her own space and be somewhere seemingly safe. Though she had to question... was it really? Still, it was a far better place than that sinking ship and the icy cold waters it had traversed. 
+
+After finding her little place of privacy, and also taking a moment to change and wash her face, the winter eladrin decided to take the guild master’s advice and seek out the one and only Edgar Clay. The skeleton man had briefed Rose about the man, one of the few Clay’s to actually still be flesh and blood. Alive. The girl had to wonder... was this family cursed? Or did they dabble in the darker Magic’s of necromancy? No matter. They were helping her and, for now, trying their best to give her a home. 
+
+Home? It wasn’t a word Rose would use lightly. Home wasn’t a town or village. Nor was it a humble bedroom of one’s own. It was the people who surrounded you, cared for you. The people you could rely on. She hadn’t known such a thing save her brief time under the tutelage of Horace. But... her heart twisted, those dark memories of her mentor dismembered and bloodied, those poachers looking upon her with a hunger unlike anything she’d ever seen or known. 
+
+Suddenly, Rose found herself in the pens, her tiny body nearly bumping into the door. In her slight arms, she protectively carries Amelia’s egg—a Kenku egg. Licking her lips and then pushing her wild white hair out of her pale face, she finally raised her hand and gently knocked upon the door. “H-hello?” she said, her voice hesitant and unsure. “Edgar? I... I was told to look for you here,” she went on. “I... I’ve an egg. A Kenku egg. Hello?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">06-Nov-19 11:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="641848328778416141" id="message-641848328778416141">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="the-pens.html_Files/fantasy-bird-angel-glen.png">
+                                    <img class="chatlog__attachment-thumbnail" src="the-pens.html_Files/fantasy-bird-angel-glen.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641849746801033237" id="message-641849746801033237">
+                <div class="chatlog__content">
+                    <div class="markdown">The door opens and a bird pops out,  &quot;Rrrrraaawwp!  Lady looking for Edgar Rwwarp!  My name&#39;s Edgar.  Help Lady.&quot;
+
+The door suddenly barges open as a pair of hands attached to a human grabs the bird.  &quot;Goldie!  I told you to stop barging out!&quot;
+
+The bird made a noise of complaint.  &quot;Help me Help me!  I&#39;m going to be ate!&quot;  
+
+The human the rubbed the birds feathers as it made a croaking sound before he tossed it back into the room.   &quot;Little liar.&quot;  He closed the door. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641850111676121099" id="message-641850111676121099">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="the-pens.html_Files/d257c7ae-b91d-4763-b07e-a7468fb053a8.png">
+                                    <img class="chatlog__attachment-thumbnail" src="the-pens.html_Files/d257c7ae-b91d-4763-b07e-a7468fb053a8.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641850641672830990" id="message-641850641672830990">
+                <div class="chatlog__content">
+                    <div class="markdown">He boy chuckled gently.  &quot;Ya, sorry about that.  Goldie gets a little stir crazy.  I&#39;m Edgar Clay.  Nice to meet you.&quot;  He noticed the egg she&#39;s carrying, roughly the side of her head.  &quot;Oh,  what this?  Is it yours?&quot;  Edgar seemed to lean in, trying to inspect the egg. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">07-Nov-19 12:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="641854745535053843" id="message-641854745535053843">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose jumped slightly at the sudden sound of a bird. The eladrin eyed it curiously, as she’d never seen a bird that could actually talk before. Of course, she’d heard of the more exotic Kenkus and Aarakocras. But... they were bipedal creatures of similar sentience, so it didn’t feel quite the same, as what she was both seeing and hearing right then. Though, truth be told, the girl had never met or even seen one of those kinds either. In that moment, she suddenly felt so small and insignificant. So closed off from what the world had to offer. 
+
+“Oh, hello,” Rose began. “It’s nice to meet you. I’m Rosewynn Elaris. Though please, call me Rose. Like the flower.” The eladrin winced realizing how ludicrous that must seem. A flower growing in the winter snows just wasn’t a sight to behold. It... it didn’t exist. It couldn’t. “I don’t expect you to remember that,” she went on, her gaze shifting to the egg in her arms. The girl then held it out for Edgar to better inspect. 
+
+“And it’s all right,” Rose continued. “I’ve never seen a bird like your Goldie before. In fact, I’ve not seen much of anything save snow and mountains.” The girl blushed, her pale skin turning a light shade of pink. “This?” she then said, her pale eyes flitting to the egg she carried. “No. This isn’t mine, though I suppose it is now. It had belonged to a little girl named Amelia. It belongs to a friend of hers and is its baby. It’s Kenku.” She paused, biting down on her lower lip. “You may look, if you like,” she added, holding out the egg for Edgar. “The guild master advised I come find you.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">07-Nov-19 09:25 AM</span>
+
+            <div class="chatlog__message " data-message-id="641991664243834931" id="message-641991664243834931">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Rosewynn Elaris.&quot;  He repeated the name, try to make it appeal on the tongue.  How could I forget someone named Rose?&quot;  He said a little cheery and extroverted, kind of sensing Rosewynn&#39;s initial shyness.  &quot;There are white roses.&quot;  His smile faltered.  &quot;I dont know why I said that.&quot;  He said embarrassed.  Maybe he was a visual learner.
+
+&quot;Goldie is a Golden Maccaw.  Bit more at home in the Jungles to the South.&quot;  She revealed she hasnt been far from home.  He snickered.  &quot;Dont worry.  Thats going to change.&quot;  
+
+He was inspecting the egg and listening to her at the same time.  &quot;Yep, Grandpa would.  I take care of animals, doesnt mean I dont know how to take care of people though.  Theres alot of overlap.&quot;
+
+&quot;Heck of a story.  Seems like this little guy traveled far too.&quot;  He gently patted the top of the egg.  He opened the door, being wary of more escape attempts.  &quot;Come on in.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641992549916999680" id="message-641992549916999680">
+                <div class="chatlog__content">
+                    <div class="markdown">The room look like a barn, stalls on either side, each one having a wildly different enterior, whether jungle or plains or even water.  Birds rested in the rafters while giant snails slithered back and forth to clean up the dropping.  Sadly it also smelled like a barn.  
+
+The creatures though... mundane and magical. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641993225447538688" id="message-641993225447538688">
+                <div class="chatlog__content">
+                    <div class="markdown">Phoenix
+Griffon
+Creatures shed only seen in books </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641993287275905037" id="message-641993287275905037">
+                <div class="chatlog__content">
+                    <div class="markdown">They were here, a literal menegerie! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">07-Nov-19 10:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="642005486455226368" id="message-642005486455226368">
+                <div class="chatlog__content">
+                    <div class="markdown">There were white roses? The very idea of such a thing was new to Rose and she had to admit she rather liked knowing it. She wondered how many others in the world knew of this interesting fact. Pushing that thought aside, she realized her face had grown warm. She was certain is was from the warmth of ship. The eladrin hadn’t been anywhere truly warm... ever.
+
+Clearing her throat, Rose nodded. She could hear and even smell the presence of more animals nearby. She couldn’t help but wonder just what this airship held! It was a definite ark, an animal sanctuary. “Well Goldie is lovely,” she said, not really thinking about what she was saying. She was enthralled by this new exotic beast she was seeing. And hearing. “I can talk to them too,” she went on. “My mentor, Horace...” Suddenly, the girl’s voice trailed and those horrific memories flooded back. She could see her mentor’s bloodied body, those poacher’s faces. She remembered the day Horace found her stuck in one of their bear traps—the mangled scar remained.
+
+“S-sorry,” Rose apologized, realizing she’d gone quiet. Her pale eyes were glistening, stinging from tears she refused to let fall. The girl took a deep breath and steadied herself. “Just was remembering something,” she tried to recover. “I can get distracted sometimes.” She winced then. It was a terrible lie. But she didn’t want to burden anyone further. It had been hard enough telling the guild master. 
+
+“Anyway,” Rose continued, stepping inside, after watching Edgar test the egg in her arms a bit more. “Oh... my...” The eladrin’s words were cut short. She was stunned by all the creatures she saw... and all in one place! “These all yours?” she whispered, breathless. Carefully, she set down the egg on what seemed to be a pile of warm blankets. It would do for now. “Do you have polar bears?” she then asked, the particular animal one that was dearest to her heart, the one that her mentor had always seemed to favor. <span class="chatlog__edited-timestamp" title="08-Nov-19 11:51 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">09-Nov-19 10:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="642726808038539275" id="message-642726808038539275">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Scrawk!  Goldie is lovely!&quot;  The parrot- parroted as it sat on a beam overhead.  
+
+Edgar looked over, walking beside her.  He heard her, piping in.  &quot;Speak with Animals&#39; Spell?&quot;  He said to here.  &quot;Yeah.  I had to study my butt off to get that as well but-&quot;  he was about to go into his own little thoughts when she noticed that she was ill at ease.  &quot;Is it the smell, I&#39;m sorry-&quot;
+
+She apologized and he wasn&#39;t going to pry.  He had enough insight to know it had something bad to do with that Horace she mentioned.  &quot;Sounds bad.  My sympathies.&quot; He began.  &quot;If it ever gets bad, come back to me.  Petting something fluffy and warm is therapeutic.&quot;
+
+Suddenly Rose feels something on her ankle, a fluffy little &#39;cat&#39; purr as it rubs itself against her. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="the-pens.html_Files/361fc81f4c08b8e0bd7558575093012d.png">
+                                    <img class="chatlog__attachment-thumbnail" src="the-pens.html_Files/361fc81f4c08b8e0bd7558575093012d.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="642727681884160010" id="message-642727681884160010">
+                <div class="chatlog__content">
+                    <div class="markdown">Edgar smiled, his babies were always so thoughtful.  The &#39;cat&#39; skipped away after that.
+
+He was happier when she figured out the size of his pens and his babies.  He chuckled, mocked a bow with arm outswayed.  &quot;Welcome to the menagerie my lady.&quot;  He played up the royal esteem.  &quot;Yes we do in fact.&quot;  He said stepping ahead of her with a bit of spring to his step. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="642728129424654377" id="message-642728129424654377">
+                <div class="chatlog__content">
+                    <div class="markdown">They came to a pen that seemed like a little pocket of the arctic.  it was like she was looking into a display at the zoo, and it seemed small from where they were standing, it reached out quite far.
+<a href="https://i.pinimg.com/564x/9a/71/0b/9a710b4970227ec7b1ffe32ceeb02b74.jpg">https://i.pinimg.com/564x/9a/71/0b/9a710b4970227ec7b1ffe32ceeb02b74.jpg</a>
+
+&quot;Issa just had cubs too.&quot;  He pointed.  &quot;Brandon, Calica, Diane.&quot; </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="the-pens.html_Files/9a710b4970227ec7b1ffe32ceeb02b74.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="the-pens.html_Files/9a710b4970227ec7b1ffe32ceeb02b74.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">09-Nov-19 02:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="642791952055795742" id="message-642791952055795742">
+                <div class="chatlog__content">
+                    <div class="markdown">“Oh... uhh... yes...” Rose answered in regards to the very spell Edgar had mentioned, her skin going quite pink. It indeed had been one Horace had taken the time to teach her, telling her it was important to listen to all creatures of the world. So many times the two had spoken with the animals of the mountains—bears, foxes, wolves. She even learned to shift into a wolf and hoped to one day shift into the same sort of bear, as Horace once did. But... she’d need a mentor for that sort of help. 
+
+“Oh no no...” Rose then said quickly, raising up her hands in protest. “I don’t even notice a smell,” she went on, nodding, trying to reassure. The girls wild white hair just bounced everywhere, her curls going this way and that. “I... yes and thank you,” she finally managed. She’d done a terrible job of ensuring this man wasn’t bothered by her past. Apparently, she was wearing her thoughts and emotions on her sleeve. Oh bloody hell! How was she to make friends if all they saw was this? The eladrin frowned, but it soon turned into a smile when she looked down and saw the cat nuzzling her leg. She could easily lose herself in a place like this. Lose herself and find... peace. 
+
+“Really?” Rose then squeaked, eager to see something from the lands she knew, the animal dearest to Horace. The girl turned her head to follow where Edgar was gesturing. She soon followed him, her steps light and airy. Suddenly, her pale eyes were met with a sight that took her breath away instantly. “Oh... oh...” she stammered, a smile trying to spread across her face. She took a few steps closer, gazing at the mother and her cubs and she felt her eyes begin to sting. “Th-thank you...” she whispered, her heart racing, while thoughts of Horace hit her hard. “I... I needed this...” She turned toward Edgar and smiled. “They were my mentor’s favorite,” she divulged before wiping the tears away, a smile finally finding her lips. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">10-Nov-19 09:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="643268600806899722" id="message-643268600806899722">
+                <div class="chatlog__content">
+                    <div class="markdown">Edgar was happy about that.  A big boyish grin on his face as she looked onto the Issa and her cubs.  For a moment he was worried she was going to open the stables doors and walk inside.  He was going to warn her not to approach the cubs but- she didn&#39;t.  And he was there to bask in the glow of picking up a new friend&#39;s spirits.  &quot;I understand.&quot;  He approached and put a hand on the stable door.  &quot;When the cubs are big enough, Ill introduce you.&quot;  Last thing he wanted to do was deal with an angry mother.  &quot;Horace had good tastes.  They are majestic creatures.  Please, visit them anytime you like.&quot; He understood any little bits of comfort would be valuable.
+
+&quot;But- speaking of mother...&quot;  Edgar said noticing finally the egg in her hands.  &quot;You might be called one yourself pretty soon.&quot;  He snickered but he nodded.  &quot;That egg in your hands, it will hatch soon.&quot;  He managed to get a couple a peeks, and the size was about what was needed.  &quot;Good news, Kenku are amazingly self reliant.  Most of the time, they just copy what the mother does until they figure it out.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">11-Nov-19 12:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="643308528853057536" id="message-643308528853057536">
+                <div class="chatlog__content">
+                    <div class="markdown">“I would like that,” Rose said, her pale eyes fixed on the polar bears. “So would Horace.” Her eyes were welling up again, so she wiped at them with the back of her sleeve. Still watching the bears, she added, “Yes, Horace had wonderful taste and understood both animals and people better than anyone.” She knew it was why he’d opted for seclusion. The man had been disheartened by most people whether human or elf or other. He’d preferred the company of animals. She had been his one exception and she’d known it. 
+
+While reminiscing on lighter memories for once, Rose suddenly turned towards Edgar. “A... a mother?” The eladrin immediately blushed. She knew nothing of motherhood and a wave of embarrassment washed over her. She was very inexperienced, not so much as having kissed a man. Just then, she looked at the egg and she realized what the man had meant. “Oh... uhh... the Kenku...” she muttered awkwardly, nodding a little. Her face darkened even more, though she felt a sudden relief that he’d been indicating the egg and not her own state of health. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="643308921980977152" id="message-643308921980977152">
+                <div class="chatlog__content">
+                    <div class="markdown">“That’s good that they are like that,” Rose stated, slowly getting more comfortable. “I’ve never met any Kenku before. This will be a first for me.” The girl tilted her head, wild white curls bouncing to the side. “When do you expect it to hatch? Will it remain on board the ship or will we eventually search for it’s true mother?” she asked. “I think the little girl who cared for this egg knew it’s mother. Perhaps her parents might as well. I don’t know. Though they hadn’t seemed too interested in it earlier. So it’s hard to say.” She bit down on her lower lip then, her heart feeling badly that this baby Kenku might never get to know its mother or its mother’s friend. Then again... not all parents were kind and warm, the sorts wanting the best for their child. Her own hadn’t had any issues turning her away, throwing her into the snapping jaws of harm. Closing her eyes a moment, she decided she couldn’t think about that. She’d just allow herself a small indulgence and hope for a warm reunion of Kenkus at some point in the future instead. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">12-Nov-19 08:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="643971706209435668" id="message-643971706209435668">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;There isn&#39;t much to really understand.&quot;  He began.  &quot;Everyone wants the same things.  Safety.  Food.  Somewhere to belong.  Humans or animals.&quot;  He said watching the bears and his new friend. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">12-Nov-19 08:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="643977810716917813" id="message-643977810716917813">
+                <div class="chatlog__content">
+                    <div class="markdown">He began to move deeper into his stables, coming to a little outcropping between the pens a little spot where he seemed to work.  Though most of it was just a kitchen with all manner of containers with different mixes of food, and what looked like table set up with brushes, clippers, scissors, a grooming table maybe.  Edgar spoke as he began to move around, grabbing towels, a dish, and began to mix contents from other bins and containers.  &quot;Kenku are- well, they copy everything.  Actions, words, voices.  Don&#39;t be afraid if it sounds like you for a while.  Its kind of creepy.&quot;
+
+He turned on a lamp and let the towels out on the table, &quot;Put it here.&quot;  he suggested, giving the two of them room to observe.  The light even seemed to help show the shadow inside of the egg.  Edgar then responded to how she came about it.  &quot;I&#39;m sure she had her reasons...&quot;  He began but it was obvious that there was a little bit he wasn&#39;t exactly thrilled to share.  Kenku did have a reputation.
+
+&quot;Alright, so, should be any day now.&quot;  He put his hand on it.  &quot;It&#39;s kicking.  You felt it?&quot;  Edgar asked, his hand holding one side.  &quot;After that, just keep it warm.  Feed it warm, meat-&quot;  He shrugged.  &quot;You know what.  I&#39;ll mix it.  If that happens, try to bring it down to me.  Got to make sure the little guy is alright.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="643978031827779604" id="message-643978031827779604">
+                <div class="chatlog__content">
+                    <div class="markdown">He smiled at Rose.  &quot;Personally whatever did happen.  I think it got lucky.  There&#39;s not many that would be willing to take care of it for someone else.  Its very noble of you Rose.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Nov-19 10:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="643998533082415125" id="message-643998533082415125">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose listened intently, as Edgar explained a few things about the Kenku. The eladrin furrowed her brow, a bit saddened though she wasn’t sure why. She had no ties to this egg save Amelia and... the girl sighed softly. Oh, she knew exactly why she couldn’t and wouldn’t abandon it. Though Amelia and her actions had played a part, the majority of her reasons were because she understood full well what it was like to be abandoned. Cast out like garbage... worthless, meaningless trash. She couldn’t let another suffer those same terrible feelings. No. It would know love and care and kindness. It would know it had a home, a place. 
+
+“Copy? Really?” Rose asked aloud. “Like Goldie?” She wondered if it merely mimicked or actually communicated. Could it ever choose its own words or actions? “Will it ever make the choice to use its own words?” Just then, the girl paused, a bit embarrassed that she’d suddenly become a font of question after question. No doubt this would annoy the beast master. Surely he had more important things to tend to than her barrage of questions about Kenku. 
+
+Wincing slightly, Rose looked down at the floor. But she followed Edgar’s lead and carefully set the egg down on the provided blankets. As she set it down, she felt it move, almost like something inside the shell was trying to make its presence known. And perhaps it was. She bit down on her lower lip, awkwardly stepping back to look at the whole egg. “Y-yes. I felt it,” she admitted. “Though not sure if it’s lucky to be in my care or not.” Her cheeks went red at Edgar’s compliments, never having gotten any before. Even Horace rarely gave her praises, the old man having other ways in which he’d showed his appreciation of her company and friendship. “But I’ll do my best.” She leaned close to the egg once more, inspecting the shell for signs of hatching. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="643998542968520706" id="message-643998542968520706">
+                <div class="chatlog__content">
+                    <div class="markdown">Any... day... It was daunting and exciting, a flurry of emotions Rose couldn’t help but feel, as she looked upon the egg. “Hope you won’t mind an eladrin bothering you with questions once it hatches...” she prodded, hoping it would be all right and not bothersome. “I... I might have many...” she muttered, raking a hand through her wild white hair. “Heh, I know I will.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">14-Nov-19 09:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="644712964015915021" id="message-644712964015915021">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;EEeeehhh...&quot;  He began before rubbing the back of his head.  &quot;A bit like goldie but-  no I mean-    It&#39;ll sound like you.&quot;  he began and he wanted to kind of explain this in a way that wasn&#39;t going to be too weird.  They had a baby to consider and while Edgar could- Kenku weren&#39;t animals.  The pens was no where for a baby check.  He put his hands toget to begin.
+
+&quot;Kenku copy.  And I mean, perfectly.  It&#39;s weird.  Theres some kind of weird curse on the entire race.  They can perfectly copy any sound they hear, copy any action, any writing.  Thats at a cost that they don&#39;t get their own original ideas.  They&#39;re only as smart as how much they&#39;re exposed to.  They can take care of themselves, but to thrive, they need alot of-&quot;
+
+<strong>Tck</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="644713776536354838" id="message-644713776536354838">
+                <div class="chatlog__content">
+                    <div class="markdown">Edgar kept talking but seemed to change gears.  She was giggling, laughing, but she was nervous and he was determined to let her know she wasn&#39;t alone.  &quot;Hey, by all means.  Any reason to talk to you-, a friend.&quot;  He quickly corrects.  &quot;Any reason to haha- talk to a friend.  I&#39;ll take it.&quot;
+
+<strong>Tck Tck</strong>
+
+Edgar seemed to laughing nervously but the egg was moving, a soft sound coming out of it. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">14-Nov-19 10:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="644726499189981203" id="message-644726499189981203">
+                <div class="chatlog__content">
+                    <div class="markdown">Once again, Rose bit down on her lower lip, her face feeling extremely warm. She looked away from Edgar then, her pale eyes focusing on the egg she’d set down per his suggestion. She listened to him, however, nodding as things began to sink in. These Kenku sounded rather tragic. It was something she could get and was definitely something she could feel sympathy for. 
+
+At that, Rose pursed her lips together, determined that this Kenku would be the smartest yet. She’d make sure it could read... could they even? If they could copy... was such a thing even possible? It was hard to know, but she’d certainly try at the very least. In a way, she decided it was good this egg made it aboard the airship. It was filled with so many colorful sorts—different races, all with very unique abilities. It would be the best sort of exposure to make sure this particular creature became the smartest of its kind. 
+
+Slowly becoming lost in thought, Rose’s pale eyes slid back over to Edgar. The moment their eyes locked, his words registered and her face grew hot again. She reached up to touch her cheeks, her fingers quite cool against her skin. He actually enjoyed her company? She hadn’t expected that, but it was a pleasant realization to say the least. Giggling softly, nervously, her eyes found the floor again. “Right... a friend,” she repeated. But the awkward moment was interrupted, as the egg began to make sounds. 
+
+Immediately, Rose looked at the egg and gasped, a lopsided grin on her face. “Is it... is it hatching, Edgar?” She looked at the beast master with wide and hopeful eyes. “Is it going to be born?” She couldn’t help but giggle again, her nervousness turning into giddy elation. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">16-Nov-19 11:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="645463406194720768" id="message-645463406194720768">
+                <div class="chatlog__content">
+                    <div class="markdown">Who knew that an egg would blue ball the slightest hint of flirtation?  &quot;I&#39;d be happy to really get to-&quot;  he began as as soon as Rose turned her attention away from the floor back to the egg.
+
+His eyes shot open.  He went to the egg.  He looked at it, felt its side, then it <strong>TCK</strong> and rumbled.  &quot;Oh my gods, wow what good timing!&quot;  He took Rose by her hand, and by her shoulder.  &quot;You stand here.&quot;  he said, making sure she was right in front of the egg.  He disconnected in order to run off.  If she asked, the reason was to &quot;-It needs to imprint on someone!  It&#39;s your egg!&quot;  He in the meantime was getting towels, tongs, wipes. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645463765097119762" id="message-645463765097119762">
+                <div class="chatlog__content">
+                    <div class="markdown">While Edgar was off running...
+<a href="https://media.giphy.com/media/bEkSOFYHDo7H30XtbI/giphy.gif">https://media.giphy.com/media/bEkSOFYHDo7H30XtbI/giphy.gif</a>
+A little crack here... a little dent there... </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="the-pens.html_Files/nM9Jz22Pjtco.gif" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://giphy.com/montereybayaquarium/">Monterey Bay Aquarium</a>
+                                                </span>
+                                        </div>
+
+
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="the-pens.html_Files/giphy_s.gif">
+                                            <img class="chatlog__embed-thumbnail" src="the-pens.html_Files/giphy_s.gif" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="645464308138115072" id="message-645464308138115072">
+                <div class="chatlog__content">
+                    <div class="markdown">something was moving inside.... suddenly a little black claw pushed out.  Then a little wing with a hand on the end, too skinny to be used for flight.  It was goeey, but it was undeniably a bird of some kind.  It made little vocalization as it tried to stand from the hole, pushing out another foot.  it stood with the egg still around her, stood and tried to get up in its nest.
+
+That lasted a second or two before it rolled out of it towards Rose, cracking on the table top, only a bit of goo and egg still attacked.  It opened its little eyes. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645464377251594281" id="message-645464377251594281">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="the-pens.html_Files/unknown.png">
+                                    <img class="chatlog__attachment-thumbnail" src="the-pens.html_Files/unknown.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="645464778021797890" id="message-645464778021797890">
+                <div class="chatlog__content">
+                    <div class="markdown">The little creature looked up at her.  It stood, tiny, small, able to fit in the palm of her hand.  No crying, just staring at her.  It slowly moved towards her, its tiny little hands reaching and grasping. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">17-Nov-19 10:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="645628825979584553" id="message-645628825979584553">
+                <div class="chatlog__content">
+                    <div class="markdown">Edgar’s grip was firm, as he positioned her in front of the egg. Rose could still feel the heat from his palms once he let go and became a flurry of action within his grand menagerie. She watched him gather up items, she was certain would assist in the hatching. And that egg... it wasn’t waiting for anything or anyone. 
+
+Rose swallowed hard, her pale eyes moving to the egg, as it moved and jolted. The cracks got bigger and it wasn’t long before she saw the tiny creature poking through, ready for the world. “Oh... oh my goodness...” she whispered, utterly enthralled. This wasn’t just some animal. But a sentient being. She was sure of that even if the Kenku imitated and copied. She had to believe there was a mind longing to break free and express. 
+
+Suddenly, the baby Kenku was free from the confines of its shell and making its way towards the first person it saw. Her. Rose. Again, Rose swallowed, a lump in her throat, as an onslaught of thoughts filled her head. This was a huge responsibility. Could she do it? Was this what was best for this creature? Gasping softly, she took a step towards the little thing, she brought her hands up and reached back to it, letting it know it was safe while she was there. 
+
+“Hello, little Kenku,” Rose said, unsure and nervous. She then pointed to herself with her free hand. “I’m Rose. Eladrin.” She bit down on her lower lip, her eyes searching for Edgar. He was familiar with these beings. Was she doing this right? She didn’t know and she needed the reassurance that she was. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">20-Nov-19 12:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="646567783391559681" id="message-646567783391559681">
+                <div class="chatlog__content">
+                    <div class="markdown">The little thing tried to open its mouth.  The sound.... it was a whistle.  It was a whistle but it was the same inflections of her words.  It spread its little arms and little claws and walked towards her.  It went immediately for her hand, putting claws on it, little tiny hands.
+
+Edgar did appear.  &quot;Oh my gods...&quot;  He set the blankets and towels aside and leaned in over the little child.  The Kenku looked at him, then back to her, meanwhile he put his hand on his cheeks and made little cutesy baby talk.  &quot;Arent you the cutest wittle chicky girl yes you are-&quot;  He then explained himself when he saw her, a little flash of red in his cheeks.  &quot;Its a girl, you can tell, the eyes slaint a little, just so.  And she has less pronounced head feathers.&quot;
+
+The baby put its claws on its cheeks and seemed to lean over and made little &#39;peep peep peeep and whistles as it seemed to follow him, though it fell then.  It climbed onto its hands and knees, looking over at Rose.  Its big eyes began to water.  
+
+Edgar helped, passing her a cloth.  &quot;Here, start cradling her.&quot;  He showed her how to do it, just like a human or elf baby.  &quot;How her like this.  Right in the crook of your arm.&quot;  he instructed, his eyes wide, happy. <span class="chatlog__edited-timestamp" title="20-Nov-19 12:30 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-Nov-19 07:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="646674325155610624" id="message-646674325155610624">
+                <div class="chatlog__content">
+                    <div class="markdown">So, it was a girl. A little baby Kenku girl. Rose nodded and smiled, a hand moving to push away her wild, white curls. “Is she trying to copy me?” she asked of Edgar, her own pale eyes going wide. The eladrin turned to look at the man. For someone who’d probably seen something like this several times over, he seemed utterly enthralled. Perhaps she would too should something like this ever happen again in her life. Though with how alone she still felt, she wasn’t so sure it would. Suddenly, a pang of emotion caused her chest to tighten. 
+
+Trying to stay calm and not waste the moment, Rose shoved her feelings aside, making room for the awe and wonder she was experiencing right there and then. “Rose,” she said again, pointing to herself. She then pointed to Edgar. “Edgar.” The girl smiled and then did as instructed. She picked up the little Kenku and placed her in her arms. Somehow, without having to be taught, she began rocking the baby. It did fit rather easily in her arms. As she cradled the tiny creature, she couldn’t help but wonder how she knew to do that. Was it instinct? She didn’t know. Still, she needed the reassurance, to know someone both cared and approved. “Like this?” she then asked. “Am I doing it right?”
+
+Rose just held the Kenku and rocked her arms. It was so small and new. And she knew next to nothing about these creatures. “So, it’s a girl. What shall we name her then?” she asked aloud. “She will certainly need one. So lets give her a good one.” The eladrin smiled then. Yes. This little Kenku would be the smartest of its kind. And though all it could do was copy, she’d make sure it would always be understood. Somehow. Because despite the mimicry, she just knew there would be a voice inside yearning to be heard and to share. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Nov-19 10:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="647445701281710100" id="message-647445701281710100">
+                <div class="chatlog__content">
+                    <div class="markdown">The newborns copying capabilities were limited to peeps, chirps, and whistles.  The results of an undeveloped vocal cord system which still needed to grow.  Its movements were of course, that of a new born, it was quite amazing she knew how to stand on her little legs right out of the egg.  Maybe an evolutionary trait.
+
+&quot;<em>Peep.</em>&quot;  &quot;<em>eee-eep</em>&quot;  getting the syllables right atleast.  
+
+The kenku took to her quite handily.  Nestling as deep as it could into her arm, its little body rising and falling.  
+
+Edgar was all encouragments.  &quot;Yeah.  Just like that.  Mothers will usually surround chicks in as much as they can.  Her feathers arent fully grown so she gets cold easily.  Yeah.  Wow youre good at this.&quot;  He said.
+
+&quot;Yeah she does.&quot;  He thought a moment.  &quot;Hmm... Rose.&quot;  He thought a moment.  &quot;I know this is super original.  But.  Lavender?  Violet?  Lily?&quot;  He was going with the dark flowers theme.  &quot;Lotus? Orchid?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-Nov-19 10:57 AM</span>
+
+            <div class="chatlog__message " data-message-id="647450605580976129" id="message-647450605580976129">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose continued to cradle the baby Kenku, her pale eyes watching it attempt to imitate her. The eladrin just knew she’d get it sooner than later and be the smartest Kenku yet! She blushed at Edgar’s compliments, never really having thought about ever being a mother. She’d been around far too few to have it ever be a serious thought. But now? Now it was thrust upon her and despite all the fears and apprehensions... she was willing and ready to embrace the experience. 
+
+The little Kenku continued to nuzzle close to Rose, constantly trying to repeat her words, her sounds. It was astonishing how well she did despite being newly hatched. Suddenly, the eladrin paused, her head perking up the moment Edgar said ‘Lily’. For some reason it struck home. She was a rose in winter, while this Kenku was a lily amidst the darkness. Somehow, it just seemed to fit. “Lily...” the girl repeated. She then looked to the Kenku in her arms. Fist she pointed to herself. “Rose.” Then to Edgar. “Edgar.” Finally she pointed the Kenku. “Lily.” 
+
+Rose then looked over at Edgar, her face so very hot. “Lily is perfect. The perfect name for her.” She gave the beast master a pretty, albeit crooked, smile before returning her attention back to the newborn. “Where shall we keep her then?” she asked of Edgar. “She’ll need a space and supplies. So many things.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">23-Nov-19 10:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="647806399442714625" id="message-647806399442714625">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Re-Re.&quot;  Lily peeped.  Trying, and almost in reflection to Rose&#39;s face, it tried to smile.  It was just the tiniest little expression but it looked up at her with eyes.  Never would someone trust another so quickly.  But its smile then faded to a cascade of peeps.  Little chirps as she swung her arms.
+
+&quot;It is perfect.&quot;  Edgar was blushing a little bit too.  It was an emotional scene and he was excited for her, happy that she was accepting it, and happy for little Lily too.  He was scratching the back of his head.  &quot;Well, I mean.  I guess, anywhere.  Your room, here, but uhh, last thing I want is her wandering into one of the pens not til she knows she shouldn&#39;t.&quot;  He then snapped his fingers.  &quot;How settled are you in your room in the quarters?  The Hanger has a little storage room thats actually bigger then the deck rooms.  I can move the stuff out of it, set up a little nursery for her.&quot;  It was going to be alot of work, but as long as he had the help, he seemed thrilled to do so.
+
+But then he heard the peeping.  &quot;Upp, get used to that.&quot;  He went for a can nearby and with a pair of tweasers he offered it to her while holding out the can, ironically it was catfood.  &quot;Vital proteins and nutrients.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">23-Nov-19 01:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="647845276664463421" id="message-647845276664463421">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose tilted her head, wild white curls falling into her face. She pushed them aside and tucked some behind a pointed ear. Biting down on her lip, she nodded. “Well, I have moved in and it’s been decorated nicely,” she said. “Far nicer than I’d expected really, though I hardly mind.” She laughed nervously then, cheeks still tinted pink. “Will the hangar be too far away? Or should I only bring her there when I need to take jobs?” So many questions. 
+
+Smiling at Lily, Rose pet the Kenku’s little head and nodded. She was slowly starting to understand it, even if she couldn’t speak yet. It gave her some comfort knowing that the newborn had the chance of being well understood despite the known limitations. She turned to Edgar, the man smile king brightly. He seemed quite excited about what the moment they’d shared regarding Lily’s arrival into the world. Just then, he brought out something that seemed to resemble food. Little Lily grabbed for it, her hunger clear. “What is that?” Rose then asked of Edgar. “Is that what I should feed her? Does one need to change a baby Kenku or are they capable? What foods do they like? How often should she eat? What’s the sleeping like?” Once more, the eladrin was a font of questions. She just hoped she did well by this newborn that had suddenly entered her life. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">25-Nov-19 06:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="648657967532605451" id="message-648657967532605451">
+                <div class="chatlog__content">
+                    <div class="markdown">He shrugged.  &quot;Magic boat.  Magic rooms.  Gramps-&quot;  Meaning Cassius.  &quot;Figured if you&#39;re going to be risking your lives, you should be able to come back to something relaxing.&quot;  Thats the way he understood it.
+
+She explains and he raises his hand to his chin, trying to figure something out.  &quot;Hmm...  It might get a little crowded eventually, but it might be best if she stay with you.&quot;  he nods a little bit.  &quot;Once she&#39;s a foot or so in a few months, we can look at it again.  She&#39;d need to be with you constantly if she&#39;s going to learn quick.  MMMmm... maybe we can make a nest out of a satchel.  Think of it like a baby stroller, but you know, less intrusive.&quot;
+
+He began to answer her questions.  &quot;Yeah for three to four weeks.  Once you show her what to do, she should be able to figure it out.  These things are regular sponges.  Soft meats first, rice, boiled vegetables.  Lots of water.  Everytime she peeps, and that could be like five times a day.  Sleep is like-&quot;  Lilly collapses into her nest with her eyes closed after eating a couple if bites.  &quot;Like that.&quot;  
+
+He held up a hand.  &quot;Easy easy hahah.  I won&#39;t leave you twisting in the wind.  And I can write this all down if you need. &quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">26-Nov-19 05:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="648823795364265984" id="message-648823795364265984">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose merely nodded, taking in everything she was told. She’d make it a point to visit the library at some point and find a book about Kenkus. It wouldn’t hurt to do some extra reading and find out all the information she could. “I see, all right,” she said in response. “Though I’ll need to possibly drop her off here should a job arise. So, if you don’t mind watching her should such a thing arise, I’d appreciate it,” she added. Truth be told, she didn’t really know anyone else. Yes, there was Alex, but he’d seemed so rattled from the Ice Breaker that she didn’t want to bother him. And Garg? Oh no... most certainly not! The shark didn’t even know how to handle a grown up, let alone a child. That just left Edgar. So she hoped he wouldn’t mind. 
+
+As she listened to the beast master explain more and more, she set to work on prepping a special satchel for Lily. It would have everything the little Kenku needed, at least for now until she had to get her more food. Suddenly, Lily fell fast asleep, surprisingly the eladrin at how quickly it did. With an arched brow, she carefully placed the Kenku into her satchel and slung it over her body. 
+
+“I suppose a list or something would be helpful, yes,” Rose said with a nod, her own body exhausted from her ordeal. The aches of her muscles were getting to her, her own body needing precious rest, as much as Lily’s. “I think I need some rest,” she admitted sheepishly, trying to stifle a sudden yawn. “Probably should get some sleep before Lily next wakes and maybe pick up some food along the way so that I have some on hand.” </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="648823801156468748" id="message-648823801156468748">
+                <div class="chatlog__content">
+                    <div class="markdown">Rose gave Edgar another smile, her cheeks still quite pink. “Thank you for your help,” she went on. “I do appreciate it a lot.” She then reached out and rested her hand against his arm for a moment, letting her palm linger against his skin. “It’s nice to know I’ve another friend on board the airship.” The eladrin giggled nervously, awkwardly, adjusting Lily’s satchel a bit. At that, she gave Edgar an appreciative nod and headed back towards the door. “I’ll see you soon,” she said. “I know I’ll have more questions as I go.” The girl would then him an awkward hug, careful not to disturb Lily, and make her exit. Every step she’d take towards <span class="mention">#rosewynns-room</span>, she would feel her eyes growing heavier, her body desperate for rest, so that she could finally heal up from her time on the Ice Breaker. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">26-Nov-19 08:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="649039764212678686" id="message-649039764212678686">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Yeah yeah, of course.&quot;  Edgar went about putting everything he could for her, a satchel for Lily, another bag for all of the supplies and needs and wants she could want.  He tried to do that while writing things down, and for the most part it was exactly when she was first hatching.  Edgar just trying to do everything he could.  Over achiever.  
+
+&quot;Anytime Rose.  It&#39;s my calling.  I just wish I was a better doctor then a vet.  Then I could probably help everyone.&quot;  He didn&#39;t dwell on what could have been.  He smiled at her when she laid an arm on him.  He would have done something, but his hands were full at the time.  But the look was enough to encourage him.  It was worth it, but you&#39;d do alot of things to see a smile like that, even if it was nervous.
+
+&quot;Like I said,  Doors always open.  And- wouldn&#39;t mind seeing you in the mess hall from time to time.&quot;  He said as he leaned on the door frame.  She gave him a hug, he squeezed her back.  &quot;Dont be a stranger.&quot;  And she was off, him watching her go.
+
+&quot;You know, maybe I should get out there...&quot;  The pen door closed.
+
+<strong>END SCENE</strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">01-Dec-19 02:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="650768502633922607" id="message-650768502633922607">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 08:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="665531290581204992" id="message-665531290581204992">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Keena walks in with a small kitten in her arms. She pets it anxiously as she looks for whoever&#39;s in charge here</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 08:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="665533496743297043" id="message-665533496743297043">
+                <div class="chatlog__content">
+                    <div class="markdown">Sadly a single sign says, &#39;Out to Lunch&#39; -E </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="665534063393767436" id="message-665534063393767436">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Sorry.  Edgar is out training Im afraid.&quot;  
+There was a man here, an elf by the looks of him.  He was among a bunch of birds tying a message to one of their legs. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 08:35 AM</span>
+
+            <div class="chatlog__message " data-message-id="665534267312308253" id="message-665534267312308253">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She jumps a little, turning to him to smile softly as she continues stroking the sleeping kutty</em> &quot;oh... shame, I was hoping to get this done before I forget...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 08:37 AM</span>
+
+            <div class="chatlog__message " data-message-id="665534676722515983" id="message-665534676722515983">
+                <div class="chatlog__content">
+                    <div class="markdown">Look at this... <a href="https://pin.it/kkcpoh6eerqcls">https://pin.it/kkcpoh6eerqcls</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://pin.it/kkcpoh6eerqcls">
+                                                    <div class="markdown">Pin by Floki on ELVES | Elves fantasy, Fantasy art men, Elf art</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">This Pin was discovered by Floki. Discover (and save!) your own Pins on Pinterest.</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="the-pens.html_Files/c064543f8d4a184d5a7b8cda88dfefe3.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="the-pens.html_Files/c064543f8d4a184d5a7b8cda88dfefe3.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="665534739385548801" id="message-665534739385548801">
+                <div class="chatlog__content">
+                    <div class="markdown">His look was ethereal, androgynous </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 08:40 AM</span>
+
+            <div class="chatlog__message " data-message-id="665535519303925761" id="message-665535519303925761">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Manners...&quot; <em>She offers a hand</em> &quot;I&#39;m Keena, junior technician and adventurer.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 08:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="665536550112722954" id="message-665536550112722954">
+                <div class="chatlog__content">
+                    <div class="markdown">He offers a hand back.  Firm, respectful. &quot;Ahh. Lady Keena.  Larami mentioned you.  Im her newphew.  Parcival Clay.  Intelligence Officer.&quot;  
+
+He notices her little cargo.  &quot;And who is this?&quot;  He wants the pet it but notices the kitten is sleeping. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 08:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="665537053022355513" id="message-665537053022355513">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I... I haven&#39;t named her yet... honestly needed to check if there&#39;s nothing weird about her. We found her in the engines. Well, the heart seems to like keeping her safe so we need to check her.&quot; <em>As her hand comes back she gently scratches it behind the ear</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 09:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="665542931548995594" id="message-665542931548995594">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;The heart?&quot;  He asks questioningly.  He then perks up a bit.  &quot;Oooh. Oh youve seen it.  To be honest, not many have on board.  One of those secrets of the ship.&quot;
+
+He looks at the kitten.  &quot;Im not Edgar, but Ive seen some animals in my day.  Maybe I could help.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 09:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="665547399598571521" id="message-665547399598571521">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Im still not sure who I&#39;m meant to tell but... well, you are a clay. If you think you can help I mean sure.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 09:35 AM</span>
+
+            <div class="chatlog__message " data-message-id="665549428098072597" id="message-665549428098072597">
+                <div class="chatlog__content">
+                    <div class="markdown">He waves his hand to a small station, more like a living room with counters and tables. All manner of bins of kibble and herbs.  
+
+&quot;Edgar clay is the guilds beast master.  He knows animals inside in out.  Put her here.&quot;  A counter with towels and cloth is available. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 09:42 AM</span>
+
+            <div class="chatlog__message " data-message-id="665551146630381582" id="message-665551146630381582">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She puts the kitten down gently, stroking it&#39;s fur once to keep it comfortable before pulling her hand back</em> &quot;So... What do you plan to do? Or, are we waiting for him to get back?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 09:57 AM</span>
+
+            <div class="chatlog__message " data-message-id="665554901597945857" id="message-665554901597945857">
+                <div class="chatlog__content">
+                    <div class="markdown">He rolled up his sleeves.  &quot;Ill give it a go.  Ive had a cay before.  Hold her gently but firm.&quot;
+
+He addressed the kitten.  &quot;Alright sweetie, lets see her.&quot;  He began to rummage his deft fingers over her skin, her limbs, tail, her face.  &quot;She been eating alright?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 10:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="665560043155881994" id="message-665560043155881994">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She does as asked</em> &quot;I haven&#39;t really had her too long and honestly... no idea what she should eat at this size, not that cat food is easy to find out here or anything...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 10:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="665561028633034762" id="message-665561028633034762">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Its uhm.... uuuh...&quot;  the elf began to rummage around the room for things he could use.  There wasnt cans as per typical, but when he went to the bins.  &quot;Around here... ahh.&quot;  He had a bucket and immediately it smelled like fish.  &quot;Fish. Kibble.  Even strips of dice meat should work.&quot;
+
+He funneled out a little infront of the kitten...who sniffed it and began eating. She was hungry. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 10:34 AM</span>
+
+            <div class="chatlog__message " data-message-id="665564309639659534" id="message-665564309639659534">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Part of why I came here honestly. She&#39;s cute and I like having her but... I&#39;m not good at caring for anything...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 10:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="665568416093962292" id="message-665568416093962292">
+                <div class="chatlog__content">
+                    <div class="markdown">The kitten mews in her touch.
+
+&quot;She looks pretty happy.  What makes you say that?&quot;  He is still trying to use his fingers to feel the kitten out.  &quot;A little thin...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 11:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="665573214654824469" id="message-665573214654824469">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well... I don&#39;t know... I&#39;ve just never done it before and I&#39;m kinda used to being crap at new things...&quot; <em>She shakes her head a little, giving another gentle scratch behind the kitten to keep it comfortable</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 11:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="665579835460026378" id="message-665579835460026378">
+                <div class="chatlog__content">
+                    <div class="markdown">Parcival goes in for a closer looked, he tries to look at the kitten&#39;s teeth and open mouth.  &quot;Sounds like you need more confidence in yourself.&quot; He began.  &quot;Consider the fact the kitten is quite alive.  And healthy from what I can see.  Mark that as a success.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 11:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="665580363518836746" id="message-665580363518836746">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;If you say so... It&#39;s not really my expertise but, then again, nothing seems to be since I got here...&quot; <em>She carefully grips the kittens body stroking it&#39;s fur with her fingers</em> &quot;But that&#39;s alright. Gotta learn somehow.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 11:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="665583313171513354" id="message-665583313171513354">
+                <div class="chatlog__content">
+                    <div class="markdown">The cat mews before finishing the meals laid before her.
+
+Parcival leans back.  &quot;Well, you are now the proud mother of an adorable kitten.&quot;  He grins a moment.
+
+He takes a nearby rag and wipes his hands.  &quot;Sounds like you havent adopted the master&#39;s &#39;family&#39; viewpoint yet.&quot; He mused.  &quot;What happened?  Larami told me she was appreciating the help.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 11:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="665585384683733041" id="message-665585384683733041">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I&#39;ve been doing my best and everyone&#39;s great... I just mean it&#39;s different to what I was expecting. The heart is probably the best example of that.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 12:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="665587681744388133" id="message-665587681744388133">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Turned off by all this magic nonsense?  No it isnt typical.  And airships arent typical in the first place.&quot;  He was curious in a friendly way.  &quot;What were you expecting?  I hope it isnt a disappointment.&quot; <span class="chatlog__edited-timestamp" title="11-Jan-20 12:08 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 12:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="665593111673700363" id="message-665593111673700363">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Its not disappointing. It&#39;s been my whole dream to be here so here I am. Engine works are just... a different cadence. But the heart is... I can&#39;t believe I didn&#39;t know honestly.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 12:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="665599997173039118" id="message-665599997173039118">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Im not surprised.&quot; He began.  He decided to take the kitten for a bit but mostly just to pet and play with it.
+
+&quot;The ship is indeed magical, and that kind of magic requires something powerful.  Its all the fuel for the engines, the drive.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 01:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="665601676350324736" id="message-665601676350324736">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;It all makes sense. But in a large way it also doesn&#39;t. Still, I&#39;m glad I&#39;m here. Gives me way more chance to talk to people than I ever did before.&quot; <em>Keena smiles slightly</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 01:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="665605246550147083" id="message-665605246550147083">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Im glad too.&quot; He said simply meeting a smile for a smile.
+
+&quot;Imagine the kind of things youll be able to make given enough time.   What got you into mechanics if you dont mind me asking?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 01:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="665609521363812366" id="message-665609521363812366">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Short answer the clock tower did. I showed aptitude and I was working for them before I knew it... long answer, I&#39;ve pulled apart too many things I shouldn&#39;t have to justify me being &quot;not interested&quot;. I like knowing how things work or at very least why and I usually try to find out.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 01:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="665612576012500993" id="message-665612576012500993">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh, bit of the tinkerer then?&quot;  He was surprised, if she wasnt wearing a pair of overalls, he wouldnt have guessed.  
+
+&quot;You ever take a warforged apart, I always wanted to understand how they worked?&quot;  He settled the cat in the crux of his arm. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 01:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="665612988924821514" id="message-665612988924821514">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I focus on the larger stuff. I would like to see how they work, obviously, but they&#39;re always a little annoyed when you try.&quot; <em>She laughs at her own joke, shaking her head slightly</em> &quot;But ultimately... ships are what i get best.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">11-Jan-20 11:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="665764282901987369" id="message-665764282901987369">
+                <div class="chatlog__content">
+                    <div class="markdown">He joins her in her jovality, using a hand to cover his mouth a bit.  Keena was a delight when she wasnt so moody.
+
+&quot;I hate to even ask why join adventurers.  An airship technician could pretty much name their salary in House Talon military or House Mancers trade companies.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">14-Jan-20 04:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="666736292100309032" id="message-666736292100309032">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Well, my wages go to my family so adventuring gets me some for me. I don&#39;t need a lot and quite honestly it&#39;s nice to have an excuse to leave...&quot; <em>She takes a seat, very carefully petting the cat even in his arms</em> &quot;And, I probably could get the salary of any person on other ships but, I think I&#39;d hate being in charge... I... well it&#39;d be pretty stressful.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">15-Jan-20 12:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="667040581167480853" id="message-667040581167480853">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Working and a family woman.”&#160; That was actually quite rare he had to admit.&#160; Out of curiousity, he looked for a ring on her finger as she reached out.&#160; Not married, so that meant she probably had to care for her parents or siblings.&#160; Parcival nods. “Yes, you definitely learn more with your eyes then a book. How else would you get better.”
+
+She sits, as does she, and he releases the kitten to start exploring the contents of the table which weren’t much save some bowls and chairs.&#160; “It’s not easy.” He unfurled his robe and took a seat with her, his posture perfect, as an elves’ would be. “The burden of leadership has its perks, but you become responsible for others.&#160; Sometimes you cant trust them, and only a Diviner can figure out what could happen. You’re on the right path. Being the best that you are able. Learning as much as you are able. There’s success and pride in that.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">20-Jan-20 06:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="668758897091411971" id="message-668758897091411971">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Im not really a natural leader. I haven&#39;t really tried, I suppose, but I think i care too much about everything and I know I won&#39;t be able to let things go... but, that&#39;s hypothetical, I could be totally different to that.&quot;
+<em>Her smile softens slightly</em>
+&quot;I&#39;ve already learned quite a bit since getting here. I enjoy it...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">20-Jan-20 01:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="668876604298100739" id="message-668876604298100739">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Cares too much isn&#39;t normally a problem if you&#39;re smart about.  The world doesn&#39;t have enough of that.&quot;  He grins back.  &quot;Good.  I&#39;m glad.&quot;  He nods.  &quot;Made friends then?  Maybe someone a little closer.&quot;  He then chuckles and holds up a hand.  &quot;You don&#39;t have to answer that.  I&#39;m just getting used to seeing that happen.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">20-Jan-20 03:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="668897122141339648" id="message-668897122141339648">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I&#39;ve made a few friends, yeah, but not so much closer... It feels weird here but... I&#39;m not that... loose at all.&quot; <em>She shakes her head gently still smiling</em> &quot;Not to say I&#39;m not looking of course.&quot; <em>She sits back a little, relaxing</em> &quot;All those down in engineering are good people from who I&#39;ve met so far.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Jan-20 09:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="672259251133087755" id="message-672259251133087755">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Larami and that rather abrasive gnome?&quot;  He commented, pressing the issue and letting her reveal more in their discussion.  &quot;Im surprised you weren&#39;t put off by the labor force.  Not many get used to the... rather unusual staff we have.&quot;  He meant the zombies that acted as a labor force and general technicians.   &quot;Larami keeps them in good maintenance and order, Carmine is the necromancer whose magic keeps them moving.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">29-Jan-20 10:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="672270356609892373" id="message-672270356609892373">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;They don&#39;t tend to interfere with me. I focus in on the work I&#39;m doing and get a little lost sometimes...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">14-Feb-20 09:42 AM</span>
+
+            <div class="chatlog__message " data-message-id="677872247330832406" id="message-677872247330832406">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 10:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="749819682294333462" id="message-749819682294333462">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden her not been down here before. He was curious about he res tod the ship so visiting other areas of the ship seemed perfect. Taking his time he walks around aimlessly. Phantom at his side again as they curvet the different animals that are in the puns area.</em> &quot;Interesting place here phantom.&quot; <em>Warden casts speak with animals so he and phantom could talk together easier. Phantom looks up and gives what seems like a nod.</em> &quot;Yes dad. It smells funny. A lot of animals here.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 10:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="749820958059266098" id="message-749820958059266098">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The Butcherer&#39;s little radio-type device is currently playing a little tune, which accompanies the occasional sound of metal slashing apart flesh. There&#39;s an occasional grunt, and a rare chuckle. Warden could see The Butcherer clearly now, simply in his cell as he engages in his favorite pastime, butchering.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 10:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="749822740982136892" id="message-749822740982136892">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden stops and looks down at Phantom. Placing a hand on his sword hilt phantom takes a defensive position a little to the left of Warden. Apraoaching he looks into the cage at the butcher now. The animal that is being carved was obviously a pig. Looking over to Phantom the dogs eyes go large.</em> &quot;Mmm ham....&quot; <em>Warden shakes his head and clears his throat.</em> &quot;You are the Butcher I presume. I saw you in the arena. You fought well.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 10:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="749823988615741570" id="message-749823988615741570">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He dead stops. After some awkward silence, he slams the cleaver into the table as he whips around. He looks...less than pleased.</em>
+
+&quot;That...was my FAILURE! Shark would not DIE!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 10:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="749824643065708576" id="message-749824643065708576">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden takes a step back from the butcher. He knew he was safe behind the bars but he didnt want to take the chance.</em> &quot;Aye. The shark is strong. I lost my fight to him as well.&quot; <em>Warden looks over to the butchering and nods to it.</em> &quot;Is that your craft there?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 10:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="749825676596609114" id="message-749825676596609114">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He growls out softly, but nods as he turns to keep working. He eventually speaks again.</em>
+
+&quot;The Butcherer good at fighting. Better at butchering.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 11:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="749826275568517272" id="message-749826275568517272">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden nods and relaxes a little. Phantom sniffed a bit at the cage. Smelling the pork of it. He looks up to his dad and whispers.</em> &quot;Can I have some?&quot; <em>Warden took a moment and speaks up.</em> &quot;If there a way my pup can get a sliver of meat? I can pay if need be. Or trade.&quot; <em>The butcher seemed to be just happy to do his craft. Keep him on that task and less of yelling at Warden.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 11:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="749826707900334142" id="message-749826707900334142">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He whips around, thinking for a while...and eventually nods again. He sets the cleaver down more carefully, wiping his hands off of his butcher bib.</em>
+
+&quot;Good cuts. Ten gold for fine, large cut.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 11:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="749828532384956508" id="message-749828532384956508">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden reaches into his pouch and pulls out 20 gold.</em> &quot;I will take 2 from you then. One for me. One for the hungry pup... later.&quot; <em>Phantom was drooling all over the floor now. It accumulating in his floppy cheeks. He was even slightly whimpering.</em> &quot;He smells like food. I like food. I like him.&quot; <em>Warden chuckles a little and holds out his hand with the gold .Holding it out to the butcher he looks over his shoulder to the rest of the place.</em> &quot;Do you get a lot of business down here friend?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 11:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="749829239012065300" id="message-749829239012065300">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He shakily takes the gold from him, tightening his grip on the coins...really hard. Harder than he needs to. He puts them on his mattress for now, going back to his station to wrap up a few pieces of meat. He once again moves back to his bars, shakily handing over the pieces. Once out of his hands, he balls his fists up staring at him...but retracts them.</em>
+
+&quot;No. The Butcherer monster. People kill monster...but I kill them first!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-20 11:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="749834343345815705" id="message-749834343345815705">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden takes the meat from him. Putting it in his pack he stands back up. He was surprised to hear even on this ship the butcher was considered a monster. He understood it but was still surprised. Warden looked down to phantom and says</em> &quot;Are you scared of him boy? Do you think he is a monster?&quot; <em>Phantom looks him over for a moment then back to Warden. Shaking his head to make sure his point was across he was his tail as well.</em> &quot;He give food. Never a monster who gives food.&quot; <em>Warden looks up to the Butcher now and chuckles.</em> &quot;Phantom here seems to think different here. He says he likes ya. No monster at all.&quot; <em>He shakes his head.</em> &quot;I too was seen as a monster for many years.&quot; <em>He said it as almost a rhetorical question. He didnt want ot press anything. But he could see he  was scared. Warden decided to take a chance. Reaching his arm out in a beastmaster style to grab eachothers forearms.</em> &quot;From one monster to another. I am Warden.&quot; <em>He waits for the butcher to take his arm in return. Never letting his small smile leave his face.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 03:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="749886456259936339" id="message-749886456259936339">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The Butcherer growls again, stomping as he turns.</em>
+&quot;You... you no monster. You get to be out. I stay. Dangerous... KILL CAPTORS!&quot;
+<em>He sprints to the bars fast...</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 03:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="749889993119367189" id="message-749889993119367189">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden instantly takes his arms out of the bar. Stepping back he doesnt draw his blade. But instead just raises his hand. Phantom growls as Warden stands ina  ready position.</em> &quot;Butcher! Calm yourself! I am not your captor! I am a trying to help you!&quot; <em>Warden sighs and stands up fully again.</em> &quot;You like butchering yes?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="750581031458963526" id="message-750581031458963526">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Very...VERY MUCH! The Butcherer butcher anything he sees! LIKE YOU!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:40 AM</span>
+
+            <div class="chatlog__message " data-message-id="750590906931085373" id="message-750590906931085373">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden looks at the Butcher with hard eyes.</em> &quot;If you butcher me, then how will I be able to bring you animals I hunt to butcher?&quot; <em>Phantom was already in his defensive position. Ready to protect just in case. Bary on his head looking equally ready to sink his pin needle teeth into anyone&#39;s pinky toe. The monkey was already hiding on the other side of the room.</em> <span class="chatlog__edited-timestamp" title="02-Sep-20 01:41 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">03-Sep-20 07:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="751219776742752266" id="message-751219776742752266">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>A low rumble escapes him as he slowly calms down, his rapid panting slowing down. He lets go of the bars and with a snort, turns to go back to his work.</em>
+
+&quot;Bring...bring things to butcher. Make The Butcherer happy.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">03-Sep-20 11:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="751277543730184232" id="message-751277543730184232">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden steps to the cage and grunts</em> &quot;And I can do that for tou friend. But conditions. When I bring you something to butcher, a piece goes to phantom for free. The rest you can sell. However, if you try to hurt anyon or try to butcher someone other than what is given. We will have a discussion. Is that fair to you Butcher? They seem easy enough.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-20 12:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="752932000104710318" id="message-752932000104710318">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hmmphhh... cannot... guarantee. The Butcherer must Butcher. If no animals, must be people. It is my orders!&quot;
+
+<em>He growls out again, fists tightening until his knuckles turn white.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-20 07:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="753032495301394554" id="message-753032495301394554">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden nods. He didnt like this but if it would keep him from hurting someone then it was worth it.</em> &quot;Well then I guess we can drop off animals. I cna return in a day or so with something. Till then stay with your pig there butcher. Perhaps one day stay good you cna earn your freedom.&quot; <em>He didnt like that he said it was his orders. Perhaps he could get that out of him somday. He turns to exit before looking over.</em> &quot;Also Butcher, perhaps some money will go your way if you resist the urge to butcher people. More customers.&quot; <em>And he exits the pens.</em> <span class="chatlog__edited-timestamp" title="10-Sep-20 01:22 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 01:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="754207382074294274" id="message-754207382074294274">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The Butcherer merely mumbles and returns to work, leaving himself alone again. But as Warden&#39;s footsteps echo out, a new group of footsteps echo in...</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">12-Sep-20 01:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="754207397253218416" id="message-754207397253218416">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 03:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="754246624309411930" id="message-754246624309411930">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Jericho always expected this moment, but it surprised him to hear the news from his mages. His patron was no longer safe, and must be relocated. With few places left, they had to resort to the airship. Eventually, the four mages had entered the docking bay... two of them concentrating towards a large feathered creature. It stank of devilish influence, and... it&#39;s one of the major devils. As the mages, Jericho and his guards walked the halls of the ship towards the pens, it was obvious crew mates saw.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 03:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="754247381335277578" id="message-754247381335277578">
+                <div class="chatlog__content">
+                    <div class="markdown">the scent of a new devil caught the nose of Steel Hearts&#39; blood hunter. He stepped into the pens with his great sword &quot;what in the 9 hells have you brought on the guild ship, Jericho?&quot; Rok growls eyeing the crow reject. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 09:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="754337222354010222" id="message-754337222354010222">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>the metaphorical scent of Jericho being up to no good sent shivers down Kalas&#39; spine as he approached the pens</em>
+
+&quot;General Krow, have you lost your mind? You can bring <strong>him</strong> here. You are potentially dooming the entire ship and crew.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 04:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="754444922089635951" id="message-754444922089635951">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Two mages are focusing intently on the immobile devil as the other two guide them through. Jericho seems rather distant from Rok and Kalas, though.</em>
+
+&quot;The Raven Father will behave under my care, if he knows what is good for him. He is much, much safer here, dear crew mates.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 05:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="754446823602782308" id="message-754446823602782308">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok growls as he eyed the oversized turkey, he closed his grey eyes as he recalled his lessons in the order about fiends while using the hunter&#39;s bane. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 05:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="754447614199595078" id="message-754447614199595078">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Alor enters the pens. Feeling the presence of something very powerful suddenly appear on the ship. Upon entering she winces and immediately grabs her spear from her back.</em> &quot;What in the hells is that?&quot; <em>She didnt recognize the creature but knew it was not of this plane of existence.</em> <span class="chatlog__edited-timestamp" title="12-Sep-20 05:07 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 05:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="754449591201562625" id="message-754449591201562625">
+                <div class="chatlog__content">
+                    <div class="markdown">You know what this party needs more? People with Radiant damage and morals. Which honestly Celia hadn&#39;t sensed anything she just happened to walk in on whatever this nonsense was. &quot;Hmm? What is...going on here?&quot; She gazed past Alor and Rok toward the odd congregation and the...Raven Father, she appears confused but not uneasy. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 05:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="754452501167865906" id="message-754452501167865906">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>With the amount of traffic in here now, Vult and Hawk place themselves between the Devil and the crew mates. Jericho starts to bark out orders to the mages as they seem to settle in. And The Raven Father is glaring harshly, a few feathers sometimes falling off him.</em>
+
+&quot;Must everyone be here now? This is all technically classified... it is a Devil. One I have under control, what is the issue?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 05:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="754458115814195340" id="message-754458115814195340">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You forget that theres people who can ping otherworldlybeings and are trained to handle devils. Classified my ass&quot; Rok growled before looking at hawk and vult as if he was sizing them up </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 07:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="754483303821738064" id="message-754483303821738064">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;This is quite the odd thing to be doing here...I must say that even if it is...under control, perhaps you should have thought over alternatives here? One&#39;s that wouldn&#39;t possibly put your fellow guild mates at risk.&quot; Celia was smiling directly Jericho, nothing behind that smile, nothing at all. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 07:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="754487927530061825" id="message-754487927530061825">
+                <div class="chatlog__content">
+                    <div class="markdown">It took some time, but two more people came to the scene. One was Cheer the blue Tiefling bard, and the other Margot Ravenriver. They took a day to see what else was on the ship, and just so happened to come upon the pens when this was happening. Margot was the first to notice the big raven-shaped humanoid in the bunch. Then she saw Jericho.
+“So, Grand General,” Margot began to ask, half-heartedly. “Would that raven know something?”
+“Know what?” Cheer asked his current compatriot. “Also, what do you mean by Grand General?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 08:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="754501621223915582" id="message-754501621223915582">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Jericho eventually got his mages in order as they got settled in, the mages now beginning to manifest a cage of pure magic around the being. Jericho seemed to ignore a few questions, most likely on purpose. He seems as if he has something on his mind. The thing finally spoke though, with a deep and wretched voice.</em>
+
+&quot;Caged again... Insolent mortals, this cage will fall. One day.&quot;
+
+<em>Jericho seems displeased with his little taunt, raising his stub that could hold his demonic arm... and the Devil flinched, as if conditioned to do so.</em>
+
+&quot;Pathetic Devil... Now, I do believe bringing him here is the safest possible. Nowhere in Denoxia was safe since... unfortunate circumstances. Now if only this creature was more willing to part with its knowledge and power.&quot; <span class="chatlog__edited-timestamp" title="12-Sep-20 11:13 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-20 11:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="754547583736873052" id="message-754547583736873052">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Nowhere is safe for that old Devil, Krow. Especially not the pens of a <strong>massive fucking airship</strong>! You are endangering the entire crew with this! King Shal would be very disappointed.&quot;
+
+<em>Kalas looks at Jericho in disbelief, how sad of a man he is</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">13-Sep-20 12:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="754555081436823644" id="message-754555081436823644">
+                <div class="chatlog__content">
+                    <div class="markdown">“Jericho, I asked you a question!” Margot raised her voice to get the Grand General’s attention. “And hello to you, Kalas. Been a while.”
+Cheer makes moves towards the group.
+“Devil, you say?” Cheer rhetorically asked the group attending to the Raven Father. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">13-Sep-20 03:45 AM</span>
+
+            <div class="chatlog__message " data-message-id="754608642371616833" id="message-754608642371616833">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok remained silent before speaking up &quot;I wouldn&#39;t worry about the cr.....nah ravens are carrion eaters&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">13-Sep-20 07:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="754848217845465099" id="message-754848217845465099">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ravens are, that doesn&#39;t necessarily include those that are also classified as devils though.&quot; She said quite simply, merely looking about the room with her smile still. She just radiates happiness...it&#39;s concerning to say the least but not like anyone can stop it. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">14-Sep-20 01:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="754932237560053770" id="message-754932237560053770">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Jericho glanced towards Margot finally, seemingly out of his stupor.</em>
+
+&quot;I...apologize. Margot, this is the Raven Father. He knows plenty, sure, but most of it does not entertain me. What I am interested in is how he gains information...and that is something I wish to find out. And Kalas, this is as safe as can be. If the Raven Father can live deep within the Capital City, it can be here. And besides...he won&#39;t fight too much.&quot;
+
+<em>He turns to the group gathering as his mages scramble through some tomes and artifacts.</em>
+
+&quot;Everyone...for everyone who does not know, this is the Raven Father, a devil with high mastery of spying. You can tell why I wanted this creature, of course. Yet, despite him being in my care, I am only able to draw a small portion of his power...I wish to change that.&quot;
+
+<em>He suddenly holds up his stump, starting to summon his arm...and they finally see where it comes from. The Raven Father howls out in pain and fury as its left arm disappears in a bloody and feathery flash, now manifesting itself onto Jericho&#39;s stump. He balls the claws into a fist as he holds it up, then peers back to the Raven Father.</em>
+
+&quot;You will all bear witness to what my Patron could hold.&quot; <span class="chatlog__edited-timestamp" title="14-Sep-20 01:14 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">14-Sep-20 01:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="755122003022839979" id="message-755122003022839979">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;It is very nice to see you again as well, Miss Margot...now, Jericho, you must stop this. You are getting yourself involved in matters much too large for yourself. This is suicidal behavior and must be stopped immediately!&quot;
+
+<em>Kalas looks pissed. Doing this nearly contradicts what King Shal wanted in getting rid of Jericho. The Ex General was supposed to go into a quiet retirement, not... whatever in the hell&#39;s this is</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">14-Sep-20 02:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="755135997901144236" id="message-755135997901144236">
+                <div class="chatlog__content">
+                    <div class="markdown">“Woah, that was unexpected!” Cheer exclaimed in reaction to Jericho manifesting the Raven Father’s arm. “Um... I’d just like to talk with him, I guess.”
+“Same here.” Margot added.
+“However, we will not do it until the guy has calmed down.” Cheer said.
+“I just need everyone else out of here, that’s all.” Margot said. <span class="chatlog__edited-timestamp" title="14-Sep-20 02:41 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">14-Sep-20 02:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="755136662782345318" id="message-755136662782345318">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I would leave but unfortunately I can&#39;t, I have yet to greet everyone here.&quot; She looked toward Margot specifically with that same smile on her face. &quot;Speaking of which, I am Celia and it is a pleasure to meet you.&quot; And before The Light and all other crewmates is Margot then hugged without a chance for complaint. Ahh, it seems her intentions have been made clear...though why she&#39;s no longer concerned with the bird is anyone&#39;s guess. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">14-Sep-20 09:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="755236314005241867" id="message-755236314005241867">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Kalas...I am disappointed that you believe King Shal so blindly. You would only oppose me if you trust him. I trust him, I really do, as the King of Denoxia. Yet...his father held a vision, one I believe King Shal does not see. I promised King Oz to use this power to strengthen our Kingdom, and I WILL carry it out! The power within this creature can save our way of life, Kalas! Surely, King Shal can understand. Hah hah...making me ramble in front of our many guests here...I will answer all questions in due time. But this creature, The Raven Father...he owes me something.&quot;
+
+<em>He turns to the creature yet again, holding up his fiendish arm to the wounded creature. The mages are seemingly in position for something, channeling power of some sort. The Raven Father growls out, weakly moving its remaining arm to claw at the cage, screeching out in Infernal. Something is set in motion...</em> <span class="chatlog__edited-timestamp" title="14-Sep-20 09:21 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">15-Sep-20 01:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="755294391685349376" id="message-755294391685349376">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You leach power from this creature, you brought a possiple corrupting factor into the guild. You are a more pitiful creature then your bird&quot; Rok growled motioning to the fiend in the cage. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">15-Sep-20 09:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="755427378129272883" id="message-755427378129272883">
+                <div class="chatlog__content">
+                    <div class="markdown">“Yeah, I don’t know how I feel about the fact that the Devil here is suffering.” Cheer said. “Except I don’t like it. Can you stop?”
+Margot could care less about the Devil’s condition. She just wanted this event to be over with so she can get what she wanted from the Raven Father. That is, if he had anything of note in terms of vampirism. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">16-Sep-20 10:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="755793856578060318" id="message-755793856578060318">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Kalas scoffs at Jericho&#39;s claims</em>
+
+&quot;Fine, General. Do as you wish, just don&#39;t expect me to mop your remains off the floors.&quot;
+
+<em>Kalas takes a few steps back, standing against the wall. Ensuring that if something bad happens he&#39;ll be far enough away</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">17-Sep-20 12:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="756011500757450782" id="message-756011500757450782">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Alor was standing awe struck. How could someone be so delusional to not realize what they are bringing on this ship could ruin us all. Is cassius knew of this he would end it right now. Alor could however feel the Raven&#39;s power. Something familier felt of the dark aura around it. The way Jerico boasted his power reminded her of a memory she tried to forget. Of a person she tried to forget. Alor steps forward.</em> &quot;Keep that thing on a leash if you know what is good for this guild, soldier.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">17-Sep-20 06:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="756286013634117673" id="message-756286013634117673">
+                <div class="chatlog__content">
+                    <div class="markdown">Despite the wide array of things going on it would appear that Celia is still saying nothing. Though her focus for most of her magic is currently resting in her right hand, a comforting thought should things go awry. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">17-Sep-20 08:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="756313294058553384" id="message-756313294058553384">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The two mages were making slow, careful motions throughout a sort of chanting...until they violently throw their hands out, bursts of chaotic energy surging from the Raven Father to them. As blasts of pure malice course through their bodies, a thin line connects them to Jericho&#39;s fiendish arm. His arm glows harshly, seemingly glowing red hot. It does seem Jericho was going to say something to everyone, but he is interrupted by a great deal of supposed pain, buckling over as his form shudders. Hawk tries to reach out to him, but Vult grabs him to stop him before speaking out.</em>
+
+&quot;He knows what he&#39;s doing. Believe in him.&quot;
+
+<em>And a feminine voice chimes in, Eleanor cackling as she had fluttered away a bit.</em>
+
+&quot;I&#39;ll believe in him until he becomes a bubbling puddle!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">18-Sep-20 11:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="756723045942689872" id="message-756723045942689872">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;He needs to earn my trust and believing in him will only happen once he earns it&quot; Rok said narrowing his grey eyes at the old man </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">18-Sep-20 11:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="756726194036146278" id="message-756726194036146278">
+                <div class="chatlog__content">
+                    <div class="markdown">*Alor couldnt take this anymore. She was not here to watch someone take down the guild from the inside out like this. Turning away she growls. Little licks of ice tickling around her mouth. Before anythign else could happen she heads out of the area toward <span class="mention">#chapel</span> * </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/2afdc2192d207eec42563c0cd3eb33f4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Graves The Ranger#7024" data-user-id="315194495690080256" style="color: rgb(52,152,219)">Kor | Zed | Celia</span>
+
+
+        <span class="chatlog__timestamp">19-Sep-20 12:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="756726329986121830" id="message-756726329986121830">
+                <div class="chatlog__content">
+                    <div class="markdown">Considering what was occurring around her...Celia was going to leave the others to deal with whatever might come from this, leaving the area and instead following somewhat after Alor.
+
+[Exit to <span class="mention">#chapel</span> ] <span class="chatlog__edited-timestamp" title="20-Sep-20 02:13 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">19-Sep-20 09:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="756875345411440761" id="message-756875345411440761">
+                <div class="chatlog__content">
+                    <div class="markdown">Cheer felt he could wait for his chance to talk with this devil later. He went to Margot.
+“I’m going to just leave and head to the forge to get some stuff.” The Bard said.
+“Go on ahead.” Margot said.
+Cheer did so, heading to the <span class="mention">#steel-forge</span>. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-20 02:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="757846782385586226" id="message-757846782385586226">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Swirling energies flow into Jericho, some appearing as just red, fiendish energy, some appearing as black feathers. But as it appeared as if he could stand up, the Raven Father cawed out in a thunderous voice, bathing the pens in a violent black flash. Once everyone&#39;s sight recovers, The Raven Father seems...different. his feathers look slightly less shiny, as if he had aged. His breathing is slightly ragged, but his aura still reigns strong.</em>
+
+<em>Jericho however...wasn&#39;t there. Kneeling in his place was a man much younger, in wildly different clothing. Replacing his black overcoat, he wore a more colorful cowl, one that exposes his bare chest, revealing that he seemed rather fit. Upon standing up, it became more clear that this seemed to be an older Denoxian outfit among soldiers in the Coast of Tri. It&#39;s adorned with reds, greens, and blues along with multiple exotic feathers. His face is fairly handsome, sporting a five o clock shadow of sorts, but his piercing red eyes seem familiar. It all ends in his left arm being missing, ending in a stump a bit above the elbow. The man starts to shiver slightly, looking himself over in a panic.</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="757846937000083458" id="message-757846937000083458">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="the-pens.html_Files/DUrN25CXcAAHZQ1.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="the-pens.html_Files/DUrN25CXcAAHZQ1.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-20 04:40 AM</span>
+
+            <div class="chatlog__message " data-message-id="757884049917345842" id="message-757884049917345842">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok shielded his eyes with the cloak of displacement from Jericho&#39;s magical girl transformation lightshow. He lowered the pelt &quot;so you used the fiend to grow younger? is that your reason why you brought your <span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">tweety bird</span></span> aboard?&quot; he said in a deadpan tone. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-20 10:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="758159563370266694" id="message-758159563370266694">
+                <div class="chatlog__content">
+                    <div class="markdown">Huh. Jericho actually looks attractive.
+Margot did not feel like having an open relationship, though. If Feri could kick his ass, she would pay lots of gold for that. Not that she’d say anything.
+“Can I talk with the bird now?” Margot asked the ‘new’ Jericho. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">23-Sep-20 07:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="758476899088465920" id="message-758476899088465920">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Kalas scoffs and shakes his head, almost disappointed, but not as disappointed as he could&#39;ve been. At least the old bastard didn&#39;t turn to goo</em>
+
+&quot;Well done, Krow. Now what? Are you going to go back to perusing women now that you are young again?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">23-Sep-20 08:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="758478140149989387" id="message-758478140149989387">
+                <div class="chatlog__content">
+                    <div class="markdown">the blood hunter who has already thinks so low of the general turns to look at Kalas &quot;thats creepy&quot; Rok said in a cold tone of voice. <span class="chatlog__edited-timestamp" title="27-Sep-20 05:27 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">26-Sep-20 11:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="759617589353381928" id="message-759617589353381928">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Jericho takes a few more long moments to inspect himself, soon flourishing his exotic coat as he begins to speak in the same voice.</em>
+
+&quot;Hmph...you see this new form and immediately think I would do something so low. That is where we are very different, dear Kalas...I see this youth and I see potential for more power and knowledge. I feel this pure energy within me, and I think only of how much more I can do now. And Margot? The Raven Father is not so...kind towards mere mortals like us. You are lucky if he is even willing to address you. You are better off asking me as I attempt to view his knowledge.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">28-Sep-20 09:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="760134191529721896" id="message-760134191529721896">
+                <div class="chatlog__content">
+                    <div class="markdown">“Then probe him for what we talked about last time we met, and then relay it to me.” Margot requested of Jericho. “That might be the easiest way we could find answers to what I want to have answered.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">30-Sep-20 09:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="761039721941565511" id="message-761039721941565511">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Of course, Margot. I shall do that later, as I believe both me and The Raven Father need some alone time, time for us both to recover. I think this has been a wondrous day!&quot;
+
+<em>A low chuckle escapes him as he starts to depart, leaving with his guards in tow. The Raven Father is left a mess, giving weak growls...</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">30-Sep-20 09:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="761041698217656370" id="message-761041698217656370">
+                <div class="chatlog__content">
+                    <div class="markdown">in rok&#39;s hands, the veins went black. unknowingly the blood hunter cracked his knuckles unleashing his blood curse onto the general. the blood cure of bloated agony attacked the warlock&#39; joints making them swell temporarily. <span class="chatlog__edited-timestamp" title="30-Sep-20 09:50 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-20 12:43 AM</span>
+
+            <div class="chatlog__message " data-message-id="761085983613517824" id="message-761085983613517824">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot notices the swelling joints on Jericho. Where did that come from?
+“Well, let me know when I can.” Margot requested of her acquaintance, calling to him. “I’m going to go try to find more spells for my Spellbook. Also, your joints are swelling, and I don’t know why.”
+She then left the area without another word. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="the-pens.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">02-Oct-20 03:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="761487016129986560" id="message-761487016129986560">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 152 message(s)</div>
+</div>
+
+</body>
+</html>

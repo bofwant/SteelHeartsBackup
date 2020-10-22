@@ -1,0 +1,2395 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - hopes-requisition-services</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="hopes-requisition-services.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / hopes-requisition-services</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">16-Sep-19 09:43 AM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="623151945049440257" id="message-623151945049440257">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="hopes-requisition-services.html_Files/325abdddf27db74cdffabf35a03888e9.png">
+                                    <img class="chatlog__attachment-thumbnail" src="hopes-requisition-services.html_Files/325abdddf27db74cdffabf35a03888e9.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="623152552673804310" id="message-623152552673804310">
+                <div class="chatlog__content">
+                    <div class="markdown">A strange looking craft docks onto the Steel Heart right onto the top deck.  There is a little window that slides down revealing an entire ship full off various odds and ends, creations that defy description.  The colors are mind boggling, the designs inspiring.  The entire vessel drips of magic.  In fact the only thing that doesn&#39;t look wonderous is a hand drawn sign. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="623152823575773204" id="message-623152823575773204">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Hope&#39;s Wonderporium</strong></u>
+All sales final
+No haggling :(
+No stealing &gt;n&lt; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="623153794548629516" id="message-623153794548629516">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="hopes-requisition-services.html_Files/reindeer_girl_by_aosora_sky_daodmet-fullview.png">
+                                    <img class="chatlog__attachment-thumbnail" src="hopes-requisition-services.html_Files/reindeer_girl_by_aosora_sky_daodmet-fullview.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="623154507555143690" id="message-623154507555143690">
+                <div class="chatlog__content">
+                    <div class="markdown">A faun girl pops up, a little abacus in her hand.  &quot;Hi there, my names ish Hope Anawish.&quot;  She says, a little wave and a very nasally lisp.
+
+&quot;Im the Shteel Heartsh requshition officer.  Bashically, I shell magic shtuff!  I don&#39;t have alot right now, but give me a little bit and I get shum thingsh that will knock your shocks off!&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="623154634110009404" id="message-623154634110009404">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Armor and Clothing</strong></u>
+Armor of Gleaming - 200gp
+Cast-Off Armor - 200 gp
+Shield of Expression - 150 gp
+Smoldering Armor - 200 gp
+Adamantine Armor - 500gp
+Mariner&#39;s Armor - 400gp
+Mithral Armor -500gp
+Sentinel Shield -500gp
+Shield, +1 -400gp <span class="chatlog__edited-timestamp" title="25-Oct-19 07:25 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="623154723154952212" id="message-623154723154952212">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Weapons</strong></u>
+Moon-Touched Sword 100gp
+Unbreakable Arrow 200gp for 20
+Walloping Ammunition 200gp for 20
+Ghost Arrow. Goes through walls. 10 in stock, 20gp each
+Ammunition, +1 300gp for 20
+Javelin of Lightning - 400gp
+Sword of Vengeance - 400 gp
+Trident of Fish Command - 350gp
+Weapon of Warning - 350gp
+Weapon, +1 - 500gp <span class="chatlog__edited-timestamp" title="25-Oct-19 07:33 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="623154853149016064" id="message-623154853149016064">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Wands, Rods, n Spell junk</strong></u>
+Gloves of Lesser Amplification. First spell you cast each day uses a spell slot one level lower. 1100gp
+Wand of Magic Missile - 200gp
+Immovable Rod -300gp
+Rod of the Pact Keeper, +1  -400gp
+Staff of the Adder -350 gp
+Staff of the Python -350gp
+Wand of Magic Detection -500gp
+Wand of Secrets -300gp
+Wand of Web -300gp
+Wand of the War Mage, +1 -400
+Ring of Jumping -350 gp
+Ring of Mind Shielding -400 gp
+Ring of Swimming - 300gp
+Ring of Warmth -350gp
+Ring of Water Walking -250 <span class="chatlog__edited-timestamp" title="25-Oct-19 07:31 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="623154905414369290" id="message-623154905414369290">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Misc</strong></u>
+Bead of Nourishment - 100gp
+Bead of Refreshment - 100gp
+Boots of False Tracks - 100gp
+Candle of the Deep - 100gp
+Charlatan&#39;s Die - 100gp
+Cloak of Billowing - 100gp
+Cloak of Many Fashions - 100gp
+Clockwork Amulet - 100gp
+Clothes of Mending - 100gp
+Dark Shard Amulet - 100gp
+Dread Helm - 100gp
+Ear Horn of Hearing - 100gp
+Enduring Spellbook - 100gp
+Ersatz Eye - 100gp
+Hat of Vermin - 100gp
+Hat of Wizardry - 100gp
+Heward&#39;s Handy Spice Pouch - 100gp
+Horn of Silent Alarm - 100gp
+Instrument of Illusions - 100gp
+Instrument of Scribing - 100gp
+Lock of Trickery - 100gp
+Mystery Key - 100gp
+Orb of Direction - 100gp
+Orb of Time - 100gp
+Perfume of Bewitching - 100gp
+Pipe of Smoke Monsters - 100gp
+Pole of Angling - 100gp
+Pole of Collapsing - 100gp
+Pot of Awakening - 100gp
+Rope of Mending - 100gp
+Ruby of the War Mage - 100gp
+Talking Doll - 100gp
+Tankard of Sobriety - 100gp
+Veteran&#39;s Cane - 100gp <span class="chatlog__edited-timestamp" title="25-Oct-19 07:24 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="623154932941455362" id="message-623154932941455362">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Potion</strong></u>
+Oil of Slipperiness -100gp
+Wedding Night -200gp
+Philter of Love -200gp
+Potion of Animal Friendship -150gp
+Potion of Fire Breath -150gp
+Potion of Greater Healing -250gp
+Potion of Growth 150gp
+Potion of Hill Giant Strength 300gp
+Potion of Poison 200gp
+Potion of Resistance 200gp
+Potion of Water Breathing 100gp <span class="chatlog__edited-timestamp" title="25-Oct-19 07:27 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="623154959621423115" id="message-623154959621423115">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Scrolls</strong></u>
+Spell Scroll, 2nd Level -150 gp
+Spell Scroll, 3rd Level -300 gp <span class="chatlog__edited-timestamp" title="25-Oct-19 07:31 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 02:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="625396590021967892" id="message-625396590021967892">
+                <div class="chatlog__content">
+                    <div class="markdown">After Lucas took a long rest after his last job with his party, the first thing he did was to take a look around, since he wasn&#39;t too familiar with the airship yet. Eventually he checked most of the places in the airship, stumbling into the room called Hpe&#39;s Requisition, going inside as he wasn&#39;t sure what to expect once he would be inside. He immediately looked around, first looking out for people, checking to see if he could find anyone who could explain what this part of the ship was, before the blonde man would pay closer attention to the interior of the place, immediately letting out a long &quot;Woah&quot;, as he was rather impressed with it </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="625410752005668874" id="message-625410752005668874">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;He-hell-&quot;  <u><strong>BANG</strong></u> &quot;OUCH!!!&quot; Hopes antlers struck a dangling looking chandelier like object, causing it to start swinging, its glow stone setting casting off shadows on the rest of the room. 
+
+Setting it up right she sighed, and inspected it, checking for any damage.  She turns and notices Lucas.  She grines.
+
+&quot;Hopesh Wonderporium.  How can I help you?&quot;  The girl was a faun, barely five feet tall with reindeer antlers and daintly little deer hooves out the bottom of a dress.  She beamed a big smile as he spoke. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="625413174904094730" id="message-625413174904094730">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas was surprised after hearing a loud banging noise, immediately looking towards it&#39;s direction, which led him to notice the faun girl behind the counter, making him almost even chuckle a little after noticing her. Soon, Lucas walked up to her while putting on a charming look to his face, wanting to see what he could achieve with it
+
+&quot;Good afternoon! My name is Lucas, and I only came here to look around a bit...&quot; Afters saying it, he observed a bit more of the room before returning his attention to the girl with antlers, and soon continuing &quot;Can I ask what sort of items you deal with, miss?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="625414791267090472" id="message-625414791267090472">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hello Lucash, Im Hope.  But I guessh you knew that.&quot;
+
+She adjusted her glasses and folded her hands together.  &quot;Well, Im shponshored by the Clock Tower as one of their field merchantsh.  I shell all kindsh of things.  Potionsh, Magic Itemsh, Weaponsh and Armor, wandsh and shcrollsh and other thingsh.  Jusht look around.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625414858116169736" id="message-625414858116169736">
+                <div class="chatlog__content">
+                    <div class="markdown">//ill have this updated when I get back to a computer </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="625414957529432074" id="message-625414957529432074">
+                <div class="chatlog__content">
+                    <div class="markdown">//Omg she is the most precious thing in the world </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="625415475580371013" id="message-625415475580371013">
+                <div class="chatlog__content">
+                    <div class="markdown">//shes got a lisp </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="625416096207601666" id="message-625416096207601666">
+                <div class="chatlog__content">
+                    <div class="markdown">The guy on the other side of the counter seemed to have a pretty hard time understanding what she was saying at first, but he was slowly getting attuned to the way she was talking, unintentionally humming for a second after she finished, showing that he took things into consideration
+
+Then, Lucas crossed his arms, and rubbed his chin for a bit while he was thinking about what he could buy from the money he had on himself, though he had every bit of coin he had with him right now &quot;Hmm... That sounds pretty good actually, miss Hope... I was planning on doing some improvement armorwise, since mine just... It&#39;s barely enough sometimes, so I was planning on getting something light, but buffier than my current set...&quot; He then waved towards the armor on his body, which was the leather armor he wore before, showing off a few scratches here and there, though it was in a generally good condition </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 03:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="625417862542131202" id="message-625417862542131202">
+                <div class="chatlog__content">
+                    <div class="markdown">She looked over her glasses at him.  &quot;Light and buffier.  Shtudded Leather might do the trick.  But letsh start at shumpthing for an adventurer!&quot; She makes her way on a rack of clothings sliding one down and muttering to herself... &quot;shomthing thatd be really good at deflecting shwordsh...&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="625418129744330811" id="message-625418129744330811">
+                <div class="chatlog__content">
+                    <div class="markdown">Look at this... <a href="https://pin.it/qdenwamndeuo3d">https://pin.it/qdenwamndeuo3d</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,255,255,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://pin.it/qdenwamndeuo3d">
+                                                    <div class="markdown">medieval clothing men tunic - Google Search Clythius/Cyrus/Ryley m...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">medieval clothing men tunic - Google Search Clythius/Cyrus/Ryley maybe</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="hopes-requisition-services.html_Files/631e755810fd5bce3867401c477ae8df.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="hopes-requisition-services.html_Files/631e755810fd5bce3867401c477ae8df.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="625419051941756929" id="message-625419051941756929">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Here we go.  Classh Magic Studded Armor.  Itsh treated with black jade shoaked in with the dye.  Thish onesh named <em>Burglarsh Shunday Clothesh</em> named for the namelesh theif whoshe never been caught.  Item r
+Was&#39;h recovered from a raid.  Goesh for 350 gp?&quot; <span class="chatlog__edited-timestamp" title="22-Sep-19 04:06 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="625422405967413268" id="message-625422405967413268">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucas would then inspect the armor a lot more closely, checking the quality of the armorpiece, not even speaking for about half a minute while inspecting it, trying to see if there were any flaws, or added features to it that he wouldn&#39;t notice at first, but eventually he looked back at Hope, feeling rather satisfied with the piece of armor
+
+&quot;Okay, I like it... And well... 350 is a lot of money but... I guess that will be 350 pieces of gold well-spent...&quot; Then, Lucas took his puch out, counting te money down on the counter, feeling a little sad after feeling his pouch becoming depressively light again &quot;Oh and by the way, is it possible to give it a darker tint or something? Brown is fine but... Something that could be used to blend in the shadows would be even better...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="625424685420642307" id="message-625424685420642307">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ive noticeshed in my expierencsh that black shtands out more then brown, not good for people who wantsh to shtay unnotiched.  But if you want, color enchantmentsh are eashy.&quot;
+
+She folded out the piece on the counter and put her hands on it before speaking in sylvan to ask a few spirits for some favors, the clothing took on a slightly darker shade.
+
+&quot;There we go.  Thank you very much.&quot;  Shes smiled, her nose and cheeks a bright red.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">22-Sep-19 04:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="625426739379699753" id="message-625426739379699753">
+                <div class="chatlog__content">
+                    <div class="markdown">The blonde haired man was pretty much surprised after hearing her starting to speak in Sylvan again, feeling mostly satisfied after understanding every single word she spoke, knowing that she wasn&#39;t going to mess with him or anything, before he took the armor, putting it away for now
+
+&quot;Oh no, thank YOU so much, Hope! It&#39;s going to be quite useful for me actually... Oh, and by the way, do you take in old, non-magical equipment as well? I don&#39;t have a reason to keep my current armor, so I wouldn&#39;t mind selling it to you if you buy things like that...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">23-Sep-19 04:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="625793553926193152" id="message-625793553926193152">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh yes please.  I can take that off your hands.  Never know when someone else might need it.  The selling price is usually half market value.  20gp?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/33bb0344e8cdbb4c0429dfc8d8d8e253.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Gent#1427" data-user-id="501071529510043650" style="">Gent</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-19 10:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="626069969813241856" id="message-626069969813241856">
+                <div class="chatlog__content">
+                    <div class="markdown">After hearing her offer, Lucas closed his eyes, rubbing them for a second sleepishly, showing that he was waay too tired to haggle with the prices, so he quickly took it off of himself, soon putting it on the counter before having a great idea
+
+&quot;Hmm, 20 pieces of gold sounds good... Especially if you add a sweet smile to it~...&quot; The blonde man said it in a seductive voice, though he didn&#39;t really want to do anything bad with Hope right now, only wanting to tease her for now, and hopefully make her blush if he could </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="SexyRPstud#2515" data-user-id="608818618670645268" style="">SexyRPstud</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-19 10:53 AM</span>
+
+            <div class="chatlog__message " data-message-id="626431140890411038" id="message-626431140890411038">
+                <div class="chatlog__content">
+                    <div class="markdown">Suggi walked into the shop and quickly takes a look around at all of the items around the shop before she asks in a loud yet polite tone, &quot;Excuse me, Miss Hope but I am wondering if you stock small sized studded leather armours in here as I would like to upgrade my armour before my next job please?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 07:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="637433592665997355" id="message-637433592665997355">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Banging on a Cow Bell</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="637433647632220171" id="message-637433647632220171">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;New shhipment!  Get your magic itemsh here!&quot; <span class="chatlog__edited-timestamp" title="25-Oct-19 07:34 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="637433838557069312" id="message-637433838557069312">
+                <div class="chatlog__content">
+                    <div class="markdown">Look at the pinned posts, please bare in mind I didn&#39;t go through all of them so Ill have to approve purchases. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="637433862875643955" id="message-637433862875643955">
+                <div class="chatlog__content">
+                    <div class="markdown">Thank you <span class="mention" title="Belsthar#3885">@Belsthar</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 01:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="650208582276612106" id="message-650208582276612106">
+                <div class="chatlog__content">
+                    <div class="markdown">The morning after her return from the frozen mountains, Rini&#39;s feeling of success was now echoed by a feeling of physical renewal--the result of a long, hot, steamy bath and a good night&#39;s sleep in a warm bed snuggled up with a cat. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650208791408934922" id="message-650208791408934922">
+                <div class="chatlog__content">
+                    <div class="markdown">The redhead&#39;s traven clothes and leather armor bodice were looking a bit the worse for wear--though more for wear than from damag.e  There was some of that too though. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650208848694738944" id="message-650208848694738944">
+                <div class="chatlog__content">
+                    <div class="markdown">She stepped in and peekd aobut.  &quot;Good morning?&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650209274596950019" id="message-650209274596950019">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" style="color: rgb(155, 89, 182); background-color: rgba(155, 89, 182, 0.1);">@DM</span> (TAg) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 01:42 AM</span>
+
+            <div class="chatlog__message " data-message-id="650210050325086267" id="message-650210050325086267">
+                <div class="chatlog__content">
+                    <div class="markdown">The counter became filled with the smiling face of a little faun, or reindeer girl, her hooves tapping on the grating of her little personal ship.  She had a loose fitting rope on, a cup of coffee, and glasses on her nose.  She looked like she just woke up.  She seemed surprised that she got a customer.
+
+&quot;Oh!&quot;  She straightened herself up.  &quot;Oh hi!  My namesh Hope.  Welcome to Hopesh Requsihition.   How can I help you today?&quot;  She bowed, her little antlers glowing. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 01:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="650210958110883861" id="message-650210958110883861">
+                <div class="chatlog__content">
+                    <div class="markdown">The redhead&#39;s whole face lit up.  &quot;Nice to meet, you, Hope!&quot;  She gave the slightest happy.  &quot;oh i haven&#39;t met a fawn since i left hom.  This is exiting.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650211062645391360" id="message-650211062645391360">
+                <div class="chatlog__content">
+                    <div class="markdown">She offered her hand, spoke  aformal greeting in Sylvan, then finished &quot;My name is Rini Hostler.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 11:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="650542573282131978" id="message-650542573282131978">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Yeah!  Im a little weird.  I was&#39;h really good when it came to figuring shtuff out.  And numbers&#39;h sho, I ended up being a merchant.  Itsh alot more work, but itsh more fun.&quot;  She offered her hand back.  &quot;Niche to meet you Rini Hoshtler.   I have shome outfitsh that would look shuper cute on you!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">01-Dec-19 04:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="650608318041161738" id="message-650608318041161738">
+                <div class="chatlog__content">
+                    <div class="markdown">Rini dimpled.  &quot;Oh.  Maybe you can show me?  That sounds fun. But first...  I&#39;m getting tired of having to use all my spells healing myself mid fight.  Do you have an enchanted leather armor i could buy?  Maybe even hide...  
+
+&quot;If its cute all the better!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">01-Dec-19 02:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="650763377794351104" id="message-650763377794351104">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Shure do.  One shec okay?&quot;  Hope steps into her cluttered shop, she starts rummaging around the racks and the armor, she feels pulls out two pieces.  A piece of leather armor and hide,  +1 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650764663042342922" id="message-650764663042342922">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="hopes-requisition-services.html_Files/77559a6dad45c3319dfc480e030f832d.png">
+                                    <img class="chatlog__attachment-thumbnail" src="hopes-requisition-services.html_Files/77559a6dad45c3319dfc480e030f832d.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650764779740200990" id="message-650764779740200990">
+                <div class="chatlog__content">
+                    <div class="markdown">The Hide armor looks more like a cloak with sleaves, it seemed dyed and patterned in bright colors. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650765420101632031" id="message-650765420101632031">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="hopes-requisition-services.html_Files/7219b262355d6aa51e3e2818d97d922e.png">
+                                    <img class="chatlog__attachment-thumbnail" src="hopes-requisition-services.html_Files/7219b262355d6aa51e3e2818d97d922e.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650765767070973962" id="message-650765767070973962">
+                <div class="chatlog__content">
+                    <div class="markdown">The leather armor looks alot like cloth at first glance, elegant and flowing.
+Hope holds up each.  &quot;There we are, I have more kindsh if you like, if you want shomething.  I can alsho use an enchantment to adjusht to your shize and color.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">12-Dec-19 09:03 AM</span>
+
+            <div class="chatlog__message " data-message-id="654669720573837314" id="message-654669720573837314">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/139db001d3cef23a5b72a541c131a3c3.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Rhost#0217" data-user-id="144416804255694848" style="">Rhost</span>
+
+
+        <span class="chatlog__timestamp">12-Dec-19 09:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="654669940183400478" id="message-654669940183400478">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>After his most recent mission, Takeshi found himself in need of some finer edge. He made his way to the requisitions and looked around for a shopkeeper.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">12-Dec-19 09:13 AM</span>
+
+            <div class="chatlog__message " data-message-id="654672168701132801" id="message-654672168701132801">
+                <div class="chatlog__content">
+                    <div class="markdown">A fuan was humming to herself in the back as she spraying and polishing what appeared to be a mirror shield in the back of the store.
+
+He little reindeer tail is flicking and and her hind legs were tapping to a beat. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/139db001d3cef23a5b72a541c131a3c3.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Rhost#0217" data-user-id="144416804255694848" style="">Rhost</span>
+
+
+        <span class="chatlog__timestamp">12-Dec-19 09:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="654673048565186561" id="message-654673048565186561">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I require something made. Do you have a moment to spare?&quot; <em>he says, crossing his arms as he looks around the store</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">12-Dec-19 09:33 AM</span>
+
+            <div class="chatlog__message " data-message-id="654677133485932544" id="message-654677133485932544">
+                <div class="chatlog__content">
+                    <div class="markdown">A regular cornucopia of clothing weapons, shelves and shelves of knickknacks.
+
+The faun turned.  &quot;Oh, hello!&quot;  She said adjusting her glasses, a kind of nasaly voice.  &quot;My namesh Hope.  How can I help you?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/139db001d3cef23a5b72a541c131a3c3.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Rhost#0217" data-user-id="144416804255694848" style="">Rhost</span>
+
+
+        <span class="chatlog__timestamp">12-Dec-19 09:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="654679993552470036" id="message-654679993552470036">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He unstraps the blades tied to his arms and sets them in front of him on a table</em> &quot;I need.......sharper edges for these. They cut well, but I need them to cut better. Do you think you can either enchant these or make a new pair? Looking for something magical in nature for the metal.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">13-Dec-19 06:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="655177906603032586" id="message-655177906603032586">
+                <div class="chatlog__content">
+                    <div class="markdown">Rini&#39;s eyes lit up as she examined both eyes of armor.  &quot;The jacket really is extra cute. I&#39;ve been needing something sturdier I suppose. How much is it?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">13-Dec-19 06:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="655181632789020732" id="message-655181632789020732">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Rhost#0217">@Rhost</span> 
+She looks at the katars suggested, and she was a little curious more then anything else.  &quot;Oh, hmm... rare weaponsh.  Might be eashier to jusht make a new one, but but I do have shumpthing I remember... where wazh it?  Ahh.&quot;
+
+She presents him with a crackling piece of duel khatars. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="hopes-requisition-services.html_Files/b6e49f0f9207d23bbe7510726dfc2a3d.png">
+                                    <img class="chatlog__attachment-thumbnail" src="hopes-requisition-services.html_Files/b6e49f0f9207d23bbe7510726dfc2a3d.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="655182254313832448" id="message-655182254313832448">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Tenshi#5603">@Tenshi</span> 
+She looked at the tag for the more protective +1 Leather Armor.  &quot;This piech was actually worn by an Elvish scout who crosshed the Shtorm Giantsh Fallsh in three nightsh.  The act of bravery shupposedly changed the armor a nicsh blue.  Itsh fibers are Blue and Black Jade if you can believe it.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c4bfa636cd20bcc9ff9dfe64d3242b98.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Tenshi#5603" data-user-id="212687692767428609" style="">Tenshi</span>
+
+
+        <span class="chatlog__timestamp">13-Dec-19 07:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="655187465811787786" id="message-655187465811787786">
+                <div class="chatlog__content">
+                    <div class="markdown">Rini blinked. &quot;Okay. Wow. Now I don&#39;t know which I want. &quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">13-Dec-19 07:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="655188226914648096" id="message-655188226914648096">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Only Three hundred fifty gold.&quot;  She smiles. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">30-Dec-19 09:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="661204979557728256" id="message-661204979557728256">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">05-Aug-20 07:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="740716760902139954" id="message-740716760902139954">
+                <div class="chatlog__content">
+                    <div class="markdown">A faun girl pops up, a little abacus in her hand.  &quot;Hi there, my names ish Hope Anawish.&quot;  She says, a little wave and a very nasally lisp.
+
+&quot;Im the Shteel Heartsh requshition officer.  Bashically, I shell magic shtuff!  I don&#39;t have alot right now, but give me a little bit and I get shum thingsh that will knock your shocks off!&quot; She said with a smile. &quot;Alsho, I got new shtuff! Sho what do you need?&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="740716780170772631" id="message-740716780170772631">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Alloyeon#6911">@Warden - Nathan - Alor</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">05-Aug-20 07:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="740717575117209673" id="message-740717575117209673">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden stands dumbfounded for a moment. He had not seen many faun and this one was a lot at once. He chuckles a little and sighs. Phantom waited outside for Warden to finish.</em> &quot;Hello Hope. I am called Warden. I am here to purchase a magic item known as an item called a headband of intellect. I was told you qould be the one to talk to.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">05-Aug-20 09:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="740745251437805579" id="message-740745251437805579">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh!&quot; The girl jumped in excitement after hearing the name of the item.... <strong>Bang</strong>  &quot;Oweee...&quot; Sandly, her antlers hit a dangling glowing rock that was working as a chandelier.
+
+&quot;Ouch... Shorry about that...&quot; He said with a small blush while checking the spot where her antlers were attached to her head. &quot;Uhh, yesh, I have a reshent shipment of mashic itemsh... I think I have one of thoshe.&quot; She walked around the tiny ship, looking for something. &quot;Ha! Here it ish!&quot; She cheered a little after finding a closed wooden box. The fauwn tried to move it but it was obviously too heavy for her. She huffed and puffed her cheeks in frustration before she turned around and looked in at Warden, specially his muscles. &quot;Uhhh... You looksh shtrong, can you help me? I need to pull thish under the lamp or it won&#39;t open.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">05-Aug-20 11:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="740780505192071179" id="message-740780505192071179">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden winced and reached out instinctively and makes a face if concern</em> &quot;Are you alright?&quot; <em>He could tell this probably happened often. When she mentions she had such an item he smiles and nods. When she asks for help he chuckles and moves over to it. Lifting it up for her and nodding.</em> &quot;Just under the lamp?&quot; <em>He asks once again before walking and sitting it under said lamp. Taking a step back he smiles and waits.</em> <span class="chatlog__edited-timestamp" title="05-Aug-20 11:57 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c2c31bbea2dd71ec79609b09172ab072.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Dungeon Master#0000" data-user-id="740922322772295711" style="">Dungeon Master</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-20 09:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="740922323577602118" id="message-740922323577602118">
+                <div class="chatlog__content">
+                    <div class="markdown">The girl smiled pleased at the help from Warden. &quot;Yesh, Jusht under the lamp...&quot; She said as she clopped after him, her little hooves making her spteps louder than the giant&#39;s.
+
+&quot;Shank you....&quot; She told him after the box was placed in the proper place, then she raised her abacus and was about to start inputting numbers on it.... But she turned to look Warden again with a &#39;Turn around, I&#39;m not gonna show you my password&#39; look. &quot;Would you mind?&quot; She asked him in her soft, girly voice. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 09:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="740929747269320784" id="message-740929747269320784">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden nods and turns around away from her. He could understand the secrecy.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 10:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="740943805536010330" id="message-740943805536010330">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Clack... Clack... Clack</strong> the sounds of the guild movie the beads of the abacus was heard around the small ship&#39;s cabin and then a <strong>click</strong> sound was heard form the box being unlocked.
+
+&quot;Headband of Intellect you dhaid?&quot; She asked as she started to rummage through the box. &quot;Wanna be more shmart?&quot; Her soft voice reached Warden&#39;s ears, the gold obviously trying to make small conversation while she searched for the item. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 11:56 AM</span>
+
+            <div class="chatlog__message " data-message-id="740961515636654152" id="message-740961515636654152">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden remained turned around for the time. He chuckles and nods his head.</em> &quot;Aye. I&#39;d like to be a little bit smarter. It will help my job greatly to do so. This ship is making me do things I normally would never do. It has been an experience.&quot; <em>He motions to the box</em> &quot; What made you want to deal in magical items for the steel hearts?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c2c31bbea2dd71ec79609b09172ab072.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Dungeon Master#0000" data-user-id="740922322772295711" style="">Dungeon Master</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Aug-20 03:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="741018799104327692" id="message-741018799104327692">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Uhh... Owie... Ouch!&quot; She moaned in pain after handling a particularly spikey item. Then she pulled back and used some magic to make a pair of glasses appear on her face. &quot;What made mesh to work here?&quot;
+
+She adjusted her glasses and folded her hands together.  &quot;Well, Im shponshored by the Clock Tower as one of their field merchantsh.  I shell all kindsh of things.  Potionsh, Magic Itemsh, Weaponsh and Armor, wandsh and shcrollsh and other thingsh.  Jusht look around.&quot; She gestured to the place filled to the brim with magic items, &quot;I am really good with magicsh!&quot; She beamed at the Goliath before returning to the box of magic items, this time being able to see what she was looking for thanks to the glasses. 
+
+&quot;Ahah! Here it ish!&quot; She cheered and showed him the item. &quot;Ish thish what you wanted?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 05:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="741042950305218620" id="message-741042950305218620">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden chuckles</em> &quot;Honeslty. I really dont see what made me join on the ship. Guess I&#39;m still finding that out.&quot; <em>She mentioned weapons and he smiled a bit before seeing his item. A cowl of black to cover his head and a stretchy cloth mask. Each one can be worn separately or together by lowering them he gives a earnest nod.</em> &quot;If it is what I was looking for then yes that is perfect.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 08:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="741085634524872775" id="message-741085634524872775">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Good!&quot; Hope cheered. &quot;Gimme jusht a shecond!&quot; She told him and quickly went to retrieve a book from a small desk in the side of the cabin.
+
+The started to flip through the pages until be she obviously found what she was looking for and then adjusted her glasses while reading. &quot;Headband... Headband... Headband... Yesh! Here it ish! Headband of Intellect! Five hundred gold! Ish on discount!&quot; The faun girl told Warden with a smile. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">06-Aug-20 08:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="741092230416039957" id="message-741092230416039957">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden chuckles with excitment.</em> &quot;Before we finish. You mentioned weapons, do you have any bows or arrows for sale?* &quot;His eyes dart around the area for a moment to look around before resting back on the little Faun.* </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">07-Aug-20 04:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="741206107082588232" id="message-741206107082588232">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Uhhh... I don&#39;t think sho... But I can get a shipment if you wish! You need to place your order and give mesh a few daysh!&quot; Answered back the girl, she looked really eager to get another purchase. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">07-Aug-20 11:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="741322527455838239" id="message-741322527455838239">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden scratches his chin and nods.</em> &quot;Hm. Yes. I can come and check again later for items like thise. Do you by any chance also have something I heard stories about. Bracers of Archery? I hear that they are an item that cna help me. If not. What else do you have that you would consider interesting?&quot; <em>He was starting to get just as excited. He was somehow liking the shopping aspect of things. These items will help him greatly and he was really interested.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c2c31bbea2dd71ec79609b09172ab072.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Dungeon Master#0000" data-user-id="740922322772295711" style="">Dungeon Master</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">07-Aug-20 09:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="741470569756622899" id="message-741470569756622899">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Uhhhmmmm.... I don&#39;t know?&quot; Hope said/asked slowly. Before she blushed and covered her face with the abacus in obvious embarrassment. &quot;I&#39;m shorry! You are my firsht client in ages!!! I my inventory ish a mesh!! And I can&#39;t remember!!!&quot; She told him quickly while panicking. &quot;But... But!!!&quot; The rain girl had an idea and paused, quickly grabbing a parchment and some coal. &quot;If you leave what you want, I can find it!! Give me few daysh and I&#39;ll have items sho aweshome that will blow your hat away!!&quot; And offered him the items, so warden could place his order for the future. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">07-Aug-20 09:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="741474539346722896" id="message-741474539346722896">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden was surprised that he was one of her first clients in a while. He figured the steel hearts would want to get the items more often. He takes the parchment and smiles</em> &quot;Alright. I&#39;ll put down what I would like and come back later. But only because that means I get to come see you more often.&quot; <em>He gives her a wink and a smile to help her calm down. He writes down Bracers of Archery, any magic arrows, any enchanted bow. Returning the parchment he smiles</em> &quot;Now then. How much for the headband of intellect again?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c2c31bbea2dd71ec79609b09172ab072.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Dungeon Master#0000" data-user-id="740922322772295711" style="">Dungeon Master</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">08-Aug-20 08:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="741635870527848470" id="message-741635870527848470">
+                <div class="chatlog__content">
+                    <div class="markdown">Hope grabs the parchment back and adjusted her glasses before quickly scanning through it. Then she looked at Warden and beamed, &quot;Thank you! I will have shome of theshe before you even realize it!!&quot; Then she heard his question and jumped a little. &quot;Oh! Right! Five hundred gold! Cash only, full payment and all the pricesh are final! Sho no haggling pleashe!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">08-Aug-20 09:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="741655089751785483" id="message-741655089751785483">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Warden nodded and smiled</em> &quot;Trust me. I&#39;m not the one to haggle.&quot; <em>He pulls out his 500 gold in a sack and places it onto the counter. Taking the headband/cowl he puts the hood on his head. The the hood peeking forward a bit to cover his face and the cloth mask even more so. He pulls down the mask though so he can speak eadier.</em> &quot;Thank you hope, I will return if I hear of your arrival back to the ship.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/c2c31bbea2dd71ec79609b09172ab072.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Dungeon Master#0000" data-user-id="740922322772295711" style="">Dungeon Master</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">08-Aug-20 10:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="741660214301950043" id="message-741660214301950043">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You&#39;re welcome!! Pleashe return soon to Hope&#39;sh wonderporium!!&quot; The faun girl waved him off as he went away. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">11-Aug-20 09:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="742731481029410837" id="message-742731481029410837">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">29-Aug-20 05:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="749383977671983245" id="message-749383977671983245">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok steps into the strange ship &quot;excuse me, anyone here? I&#39;m looking to purchase a headband of inteligence if you have one on stock?: </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 01:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="750043710829494272" id="message-750043710829494272">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>A little fawn girl was currently admiring a small statue in her hand. The statue seemed to be gold and shines beautiful light. She was completly under its spell when she heard Rok call onto her ship. Looking down from the balcony she smiles and exclaims.</em> &quot;Ooo! Another cushtomer. Pleashe pleashe come in. My name is Hope Anawish. I shell magic! You are looking for magic yes? Headband of inteligence? I just might have one more!&quot; <em>She seemed to be bouncing with joy at the sight of Rok. Her faun legs almost skipping down the steps to the main floor where Rok was. At the bottom however she stumbles a little. Looking up her cheeks go instantly crimson. Shaking her head she regains her composure but a little less out there. Moving to a chest that was semi open sheclaps her hands together and begins rummaging around. Moving items out of the way she eventually finds a box. Looking at the runes on the side as if writing she stands up and places it on a table not too far away.</em> &quot;Ish this what you are looking for? Shold another to a big one not too long ago. Popular yes. Need to get more.&quot; <span class="chatlog__edited-timestamp" title="31-Aug-20 01:58 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750044223054675998" id="message-750044223054675998">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="bayani0#2572">@Pendragon, Rok, Hero</span> (I got you homie) <span class="chatlog__edited-timestamp" title="31-Aug-20 01:29 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 04:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="750085953309114439" id="message-750085953309114439">
+                <div class="chatlog__content">
+                    <div class="markdown">the half orc looks to the little fawn girl, that he&#39;s possily dwarfing with his height &quot;ah yes please&quot; he said before going over and seeing if she&#39;s ok. Seeing that she&#39;s ok and placing the chest on the counter, rok opens it and see&#39;s the headband in the form of a bandana covered in arcane runes &quot;yes, this is perfect. how much does it cost?&quot; he ask &quot;don&#39;t worry about me haggling. I&#39;m from arkham, haggleing gets you stab&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 07:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="750136958159814698" id="message-750136958159814698">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Hope chuckles and picks up what seems to be a magical dagger and makes small jabs while whispering.</em> &quot;Stabby stabby.&quot; <em>under her breath.</em> &quot;Yesh. No haggle and no returnsh. All shales final. Thish will be 500 gold!&quot; <em>She does to put the knife down and it slips out of her hand and impaled to the floor. Jumping back she yelps a little. Looking back to Rok she chuckles nervously.</em> &quot;I meant to do that.&quot; <em>Leaving the dagger in the ground she pulls out another small chest with a lock on it.</em> &quot;Pleashe put all coinsh in here.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 07:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="750138104114970664" id="message-750138104114970664">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;right&quot; Rok said taking out small pouches of 100 gold coins  from his coin pouch and empty 500 into it. &quot;you should be careful with such equipment miss hope. you&#39;re apart of the guild&quot; he said tying the bandana around his head so it covers his greying hair </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 10:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="750174940954624161" id="message-750174940954624161">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Hope closes the hatch and lifts the chest. Letting it drop a little in clanks to the deck of the ship. Standing back up she begins putting away the box that held the equipment.</em> &quot;Oh dont worry friend. Shee up there?&quot; <em>She points to the main ship.</em> &quot;No one will dare steal from me. Mr Casshius will not let me. I&#39;m very safe. No needsh to worry. Now the item will take one hour to attune to you. Onsh that done then you will be shmart at one of them Wizardsh!&quot; <em>She finishes what she is doing then leans onto the table.</em> &quot;Ish there anything elsh you need?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 11:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="750197849865846814" id="message-750197849865846814">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I didn&#39;t mean any thievery, you might get hurt or trigger something and blow something up&quot; he said. Rok scratched his head &quot;an hour, alright. thank you again Hope. be seeing you&quot; Rok heads out. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 11:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="750199364919492608" id="message-750199364919492608">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Hope laughs a little and calls to Rok as he leaves.</em> &quot;Thank you for the purchashe. Come back if you need anyhting else.&quot; <em>As Rok leaves he can hear a bump and something fall. A small squeak and a</em> &quot;shun of a-&quot; <em>Befoe he is out of earshot.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="hopes-requisition-services.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">31-Aug-20 11:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="750199456229752905" id="message-750199456229752905">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 89 message(s)</div>
+</div>
+
+</body>
+</html>

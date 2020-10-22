@@ -1,0 +1,4088 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - womens-bath</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="womens-bath.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / womens-bath</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Aug-19 12:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="617039708320694327" id="message-617039708320694327">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="womens-bath.html_Files/4dcdadd8c44df76c0f6b9d069ed788c7.png">
+                                    <img class="chatlog__attachment-thumbnail" src="womens-bath.html_Files/4dcdadd8c44df76c0f6b9d069ed788c7.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617039761135108106" id="message-617039761135108106">
+                <div class="chatlog__content">
+                    <div class="markdown">The bath is steaming hot, and seems to section off the room into three, though, a thick wall prevents one from peaking in on another.  Still voices could be heard.
+
+The water itself seems to be herb treated... and....hmm, thicker then normal water. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617039891036897309" id="message-617039891036897309">
+                <div class="chatlog__content">
+                    <div class="markdown">This is for women only, and has toilets and sinks for their use. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617041204684783626" id="message-617041204684783626">
+                <div class="chatlog__content">
+                    <div class="markdown">Larami was currently using this bath, a towel around her body up to her chest, though she was scrubbing another figure, though this one looked dread.  
+
+A naked zombie girl was splashing in the water, while Larami scrubbed the gore off of her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 09:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="617343265041022976" id="message-617343265041022976">
+                <div class="chatlog__content">
+                    <div class="markdown">The door to the bath creaked open and Ambrosia&#39;s dress covered head peaked open. She had tired out from all her running by the point she made it to this room, as indicated by the slight panting coming from her, and seeing that this room was free of any charming succubus (but had a tranquil atmosphere to boot) the tiefling contently pushed her way inside, closing the door with a nudge of her tail and sitting down a few feet from the door. It would be at this point that she&#39;d sit down not far from the entrance and take the time to fold her acquired dresses and put them into a small stack that was more reasonable to carry, smiling at the two occupants once her face was free of clothing, her tail was still however twitching angrily despite her positive expression. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 09:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="617349684134150154" id="message-617349684134150154">
+                <div class="chatlog__content">
+                    <div class="markdown">The blond woman gave her an inquisitive look.  The zombie girl smiled a child like smile and waved at her lazily.  Zombies were simple things.
+
+The woman was wringing out a cloth.  &quot;Never saw you before.&quot;  She said.  &quot;One of the new guys?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 09:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="617351974446170114" id="message-617351974446170114">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Mhmmm, I would hope so~&quot; Ambrosia shifted to onto her knees and her twitching tail seemed to calm down as she eyed the zombie, the prescence of such a cute creature smoothing out her coiled mood. Her tail instead resigned to curling around herself as she shoved the now properly folded dresses in her bag, once she was done with that she rested the bag to the side and scooted towards the edge of the bath, eyeing the zombie with a hint of doting maliciousness as she gripped her hands on the side of the bath, like a child watching a cute animal at the zoo. &quot;I&#39;m assuming I stumbled upon a public bath? Is that right?&quot; <span class="chatlog__edited-timestamp" title="31-Aug-19 09:37 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 11:35 AM</span>
+
+            <div class="chatlog__message " data-message-id="617381870669398018" id="message-617381870669398018">
+                <div class="chatlog__content">
+                    <div class="markdown">The woman looked at her score, rather surprised she had a whole bunch of particularly nice looking attire, at least at that instance.  A long spiked tongue darted out of her mouth in a moment of fercious desire... for fashion.  She tucked it back in.  
+
+&quot;Yep, womans side.&quot;  She pointed to two walls,  &quot;mens, unisex.  For everything we have, not enough space for private baths.&quot;  She sighed.
+
+She began going back to scrubbing the woman, particularly her chest.  &quot;Larami Clay.  Ships Engineer and foreman, keep the... help in operation.&quot;
+
+The zombie girl &quot;Gleeeeeee...&quot;  she tilts her head back and forth. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="617382944113295360" id="message-617382944113295360">
+                <div class="chatlog__content">
+                    <div class="markdown">Look at this... <a href="https://pin.it/j25dxmvnryaej2">https://pin.it/j25dxmvnryaej2</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(230,0,35,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://pin.it/j25dxmvnryaej2">
+                                                    <div class="markdown">Artbook DIGITAL - #7 Level Up? my old drawing | CREEPY PASTA ART |...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Read #7 Level Up? my old drawing from the story Artbook DIGITAL by elpheltel_ (ღE l u) with 3,626 reads. creepycute, cr...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="womens-bath.html_Files/2bca35fdd27a858630e594e014781d0a.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="womens-bath.html_Files/2bca35fdd27a858630e594e014781d0a.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="617382970948452393" id="message-617382970948452393">
+                <div class="chatlog__content">
+                    <div class="markdown">Zombie girl </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 12:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="617390350746648587" id="message-617390350746648587">
+                <div class="chatlog__content">
+                    <div class="markdown">That adorable head tilt was the pushing point for Ambrosia, her tail uncoiled itself around her and began to wag excitedly as she sat up and began to stretch her hand across the water, but not being able to reach even halfway across to the zombie, she retracted her arm and quickly pulled herself free of her newly acquired dress, she then ran away, amazingly taking the time to quickly clean herself off properly before running back and dipping her tail in the water to test its heat. Bracing herself for the warmth, she gingerly stepped her legs one after the other into the water, undettered by its unusual texture as she crouched down up to her chest in the thick water. Finally reaching the zombie, she reached a hand out to rub her hand ontop of its head, the end of her tail rising dripping out of the water and doing its usual happy shake of adoring. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 12:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="617394754656927757" id="message-617394754656927757">
+                <div class="chatlog__content">
+                    <div class="markdown">The zombie follows her hand and attempts to bite her.... but its not hard, merely just wanting to put something in her mouth, her little tongue just tapping it.
+
+Larami then swatted at her.  &quot;Georgia!  No out of your mouth!&quot;  She winced and then released her fingers with a soft whine, but then kind of put her hair up into Ambrosia&#39;s hand, it made little enjoyable noises.  Coos, and purrs.  She was a monster, a cute lil monster
+
+&quot;Sorry about that.  I know zombies are different these days, but its hard to get some of the instincts out of them now.  Too damn alive for an undead.&quot; <span class="chatlog__edited-timestamp" title="31-Aug-19 12:41 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 12:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="617398929767792660" id="message-617398929767792660">
+                <div class="chatlog__content">
+                    <div class="markdown">Ambrosia only smiled with a giggle at being bitten, upon release she continues with her original motive of patting the undead. &quot;Ooh~ Its okay, I don&#39;t mind being bitten here and there by such a cutie little zombie~&quot; She talked in a childish voice like the zombie was a pet. &quot;Little Georgia&#39;s no trouble if she hurts me a little bit!&quot; Her hand curled around to her back, pulling the zombie away from her master abruptly into a cuddly hug, cooing happily as her wagging gets more fervent with the zombie&#39;s face smooshed into her chest. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 03:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="617444934148030474" id="message-617444934148030474">
+                <div class="chatlog__content">
+                    <div class="markdown">Soft little coos and laughs come from Georgia.  She seems to rub her face into her chest, feeling the softness of her tiefling body and the warmth of the living.
+
+Larami watched on, a soft smile as she sat in the tub.  &quot;If you want to wash her, be my guest.  She&#39;ll probably follow you around.  Just be careful of-&quot;
+
+<em>NOM</em> Her mouth opened and latched onto Ambrosias left breast, the zombie pinched the skin, rolled it over her tongue and even made a sucking motion, more and more pulled into her mouth as the zombie mimicd her, putting her arms around the tiefling and embracing her sweetly. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 06:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="617479427231580170" id="message-617479427231580170">
+                <div class="chatlog__content">
+                    <div class="markdown">Ambrosia&#39;s eyes light up at the sudden nom on her flesh, her pale cheeks turning pink as she looked down at the nibbler. Her tail had stopped its wag, now pointed up in exclamation. Yet Ambrosia just <em>&quot;aaaaaaww&quot;</em>ed and hugged the zombie tighter into her with her tail. Following the suggestion of Larami, the woman retrieved a rag of soap and began running it along the nibblet&#39;s shoulders, clearly too entranced by cuteness to mind any pain the zombie brought her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-19 10:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="617540580318380042" id="message-617540580318380042">
+                <div class="chatlog__content">
+                    <div class="markdown">The coating of her with water and soap made the zombie... moan a little bit, but it was like a childs, something as if they were wrapping up in warm blankets and just wanted to cuddle.  
+
+She kept her mouth on her, the movements pulling the skin as she sucked the inside curve of her breast and nestled between them... meanwhile her hands rubbed up and down her back.
+
+&quot;Hmm.  Not going to lie, is pretty cute.  Edgar did an experiment.  The more someone spends time with them, the smarter they get.  Maybe she might be back to her old self with enough pampering like that.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-19 05:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="617657556717928475" id="message-617657556717928475">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Mhm~ Then I shall have Georgia a fighting fit in mind games soon!&quot; *The busty tiefling exclaimed, stopping to squeeze her with more cuddles. Looking up she briefly managed to draw her attention elsewhere and landed it in Larami. Excitedly, she waddled closer to the zombie commander with Georgia still in her lap.
+&quot;Its Ms. Ambrosia, Ms. Clay! ...Would you like to be &#39;pampered&#39; too?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:56 AM</span>
+
+            <div class="chatlog__message " data-message-id="618006344372322306" id="message-618006344372322306">
+                <div class="chatlog__content">
+                    <div class="markdown">Laramis eyes kind of looked at her questioningly.  &quot;Uuhh?  What?&quot;  She asked finding out more.
+
+Georgia was suckling now, her little mouth and tongue squeezing on the skin, rolling and putting her face now at the center of it.  Her teeth seized Ambrosias nipple though just to hold it in place while the fleshy muscle circled around it.   She was like a succling babe.
+
+Larami considered the invitation.  &quot;Well, i do like to keep them fully functional.&quot;  She looked at Georgia at her breast, her white eye and brown looking up at them.  It did look, oddly nice.  &quot;I guess I wouldnt mind.&quot;  Larami took a shoulder next to the tiefling.  &quot;She can follow orders, tell her anything.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="618019729621123093" id="message-618019729621123093">
+                <div class="chatlog__content">
+                    <div class="markdown">Ambrosia cooed at being sucked on, suppressing the lewdness so that a sense of caring bubbled up as she doted on the zombie. &quot;Raise your arms~!&quot; She commanded, and assuming the zombie did so she&#39;d proceed to soap and clean her off, pecking the top of her head delightfully once she was done and in turn patting it afterwards. &quot;All done~!&quot;
+Ambrosia turned her head to Larami, gently grasping at her hand so she could pull her arm spread out and begin dowsing her in soap. &quot;So, I kinda ran off before anyone could tell me anything... do we get out own rooms? I kinda need somewhere to put all my stuff~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="618021269023227914" id="message-618021269023227914">
+                <div class="chatlog__content">
+                    <div class="markdown">The zombie looked at Ambrosia for a minute before she smiled innocently and raised her hands.  &quot;Ggllleeeee.&quot; She cheered when given the all done.  
+
+Larami looked less excited and more embarrassed by the idea before she thought about it and removed her towel.  She was covered in stitching too, her skin pale.  Her breasts hand sized and her body shapely.  &quot;A weird day.&quot;  She let ambrosia do what she wanted.  &quot;Yes, we all do.  Share the bath but ill get you one.  Where&#39;d you get all that, they look... expensive.  You a diva or something?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 08:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="618052817072029699" id="message-618052817072029699">
+                <div class="chatlog__content">
+                    <div class="markdown">She pressed her back to the tiefling feeling the warmth of her rack. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 08:40 AM</span>
+
+            <div class="chatlog__message " data-message-id="618062691990503424" id="message-618062691990503424">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh, those pretty things? Got them due to a psuedo-penalty of sorts before I got pulled up onto this ship. But no-&quot; she laughs at the question, &quot;I&#39;m not really a diva I don&#39;t think! I just like to dress up and look good while I&#39;m working, nothing wrong with that right?&quot;
+Ambrosia gives Georgia&#39;s hair a run through with her hands before she turns back to Laramia, letting her rest against her for a moment before nudging her off to begin washing her back, taking care to clean as close to the stitching as she can without disturbing them.
+&quot;Once I get set up in a room I could make you something similar if you&#39;d like? I&#39;m practiced in needlework, all I need is a bit of material to work with...&quot;
+Once Ambrosia is done with her back, she pulls Laramia back against her and loops her arms around to get at her front, cleaning at her chest with the same delicacy, surprisingly not intentionally agitating any lewdful desires as the rag goes over Laramia&#39;s small breasts. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618063640796594186" id="message-618063640796594186">
+                <div class="chatlog__content">
+                    <div class="markdown">She sniffs the air, &quot;what&#39;s this water mixed with? Some kind of salt, gel?&quot; <span class="chatlog__edited-timestamp" title="02-Sep-19 08:49 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 09:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="618068144380051457" id="message-618068144380051457">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Nice haul.  I can tell from here.&quot;  She said with a noticable ease as Ambrosia went about her work.  The woman was so thorough, so vigorous, it was almost like she was getting a massage.   A smile plastered on her face.  &quot;MMmmm, thanks for this.&quot;  
+
+The suggestion turned the womans head slightly.  &quot;The <span class="mention">#steel-forge</span>  has a loom in it if you want to use it.  I use that room all the time to repair the workers like Georgia.&quot;  She leaned back against her new friend.  Allowing her to be bathed by her.  &quot;Ahh, thanks, that feels good.  Let me know if you want me to return the favor.  Its good to have someone so... cordial around here for a change.&quot;  
+
+And suddenly Ambrosia would feel a rag at her own back.  Georgia was copying her, a rag in her hand, running down from her shoulder to the base of her tail.  She was watching intently and wanted to do the same, her shoulder down her arm, over her back and thighs.  She was slow but the pressure would be relaxing.
+
+&quot;Smell, oh, yeah theres some herbs we keep in here but you probably smell cherry.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618068548090331137" id="message-618068548090331137">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="womens-bath.html_Files/tumblr_p77hblqO9Y1x9a68wo1_250.png">
+                                    <img class="chatlog__attachment-thumbnail" src="womens-bath.html_Files/tumblr_p77hblqO9Y1x9a68wo1_250.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618068782044413955" id="message-618068782044413955">
+                <div class="chatlog__content">
+                    <div class="markdown">Suddenly there  is a bump up in the water with a pair of green eyes.  A little bubble pops out from on top.  &quot;Chu?&quot;  the creature says.
+
+Larami groans.  &quot;No we didn&#39;t call you Cherry.  Dont be scared, shes just a blue slime we keep in the bath.  Helps with keeping the water debris and bacteria free.  Shes harmless.&quot; <span class="chatlog__edited-timestamp" title="02-Sep-19 09:07 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 09:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="618072207528165376" id="message-618072207528165376">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ooh, I prefer my own work space though.&quot;
+The tiefling suddenly felt soft and leaned her head back, accidently covering Georgia in her dark hair as she melts from being cleaned. &quot;I think the cutie has that taken care of actually.&quot; Regaining some composure, Ambrosia begins work on Laramia&#39;s hair, soaping it up and then rinsing it out with a small bucket of water. &quot;You added cherries? I&#39;ve nev- oh!&quot; Ambrosia&#39;s eyes widen as she spots the little bump, &quot;aaaww, she&#39;s adorable!&quot; Her tail lifted out of the water again and booped the side of the slime&#39;s face, &quot;well with a colorful cast of cutie monsties working on this ship, I can already see the outlook of my time being here as pleasurable~!&quot; Ambrosia hums happily to herself, &quot;that&#39;s the impression I&#39;m getting anyways, what with being rescued by the silk of a cave dweller, and seeing a man that looked kinda see through like a ghost, and of course your mention of-&quot; Ambrosia&#39;s tail pulled away from the slime and gently tapped Georgia&#39;s head, &quot;little Georgy here~&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 11:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="618111632098197504" id="message-618111632098197504">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Understandable.  They aren&#39;t luxury rooms mind you but I can appreciate your desire for privacy.  Just let me know if you need anything.  There&#39;s nothing that goes on here I don&#39;t know about.&quot;  Georgia tried to squeeze between, work on her stomach,  water and soap running over her.
+
+She laughed when Ambrosia seemed to appreciate everything, even Cherry.  The boop rippled over the slime who tilted its little eyes and squeeled a meak.  &quot;Chuu.&quot;  A tentacle of water rose up and boop&#39;d her nose in response.  She was friendly as well.
+
+She looked over her shoulder.  &quot;Why don&#39;t I show you around?  Introduce you.  Might be fun before we got back to work.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="618176815764078707" id="message-618176815764078707">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali found herself hiding in here, knees up against her chest as she just laid in the baths.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="618177115380252729" id="message-618177115380252729">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Chu?&quot;
+A little voice came from the water itself. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="womens-bath.html_Files/tumblr_p77hblqO9Y1x9a68wo1_250%20%281%29.png">
+                                    <img class="chatlog__attachment-thumbnail" src="womens-bath.html_Files/tumblr_p77hblqO9Y1x9a68wo1_250%20%281%29.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618177169545232395" id="message-618177169545232395">
+                <div class="chatlog__content">
+                    <div class="markdown">A pair of eyes was looking at her from the water. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="618177291780096016" id="message-618177291780096016">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali looked curiously from between her legs.</em> &quot;Huh?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="618177443018047490" id="message-618177443018047490">
+                <div class="chatlog__content">
+                    <div class="markdown">Its head tilted a little bit. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618177512693956833" id="message-618177512693956833">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Chuuu...&quot;  A little tentacle patted her on the shoulder. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618177545229041665" id="message-618177545229041665">
+                <div class="chatlog__content">
+                    <div class="markdown">Empathetic. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="618178643398754304" id="message-618178643398754304">
+                <div class="chatlog__content">
+                    <div class="markdown">Ambrosia was giddy from the attention she was getting, &quot;of course I&#39;d enjoy a tour! Would be nice to know who my new family is before I went off on an adventure for them!&quot; She finished up cleaning Laramia before standing up out of the water, patting Georgia one last time as she scanned for a towel, &quot;I imagine the others I came with are already preparing to depart for somewhere too, so its best we get started while we have a chance!&quot; Ambrosia flashed Sarali a smile as she stood amongst the bath in all her nude glory, giving her a light wave of her tail to acknowledge her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="618179392253722644" id="message-618179392253722644">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>It was freaking adorable. She didn&#39;t move to stop it. She just thought on everything. Noticing the other girl she waved back shyly, a smile on her face.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="618181021594157064" id="message-618181021594157064">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Chu~&quot;  The slime creature moves to her side  and reclines with her.  Its essentially just there to offer her a bit of companionship.
+
+A blonde woman is getting her towel on.  She&#39;s following the Tiefling.  &quot;Hey.  Hey, didn&#39;t you here.  You&#39;re on the job.... Wait, Sarali.  You look awful.&quot;  
+
+This was Larami Clay, an engineer.  She&#39;s always followed by a gaggle of nice zombies. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="618181502139891712" id="message-618181502139891712">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ugh, why do boys gotta be so awful? I like him... but he&#39;s so pushy and it&#39;s obvious what he wants. Stop thinking with your dick, there&#39;s an actual person in here... someone who can take care of herself.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="618182219776786499" id="message-618182219776786499">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Let me guess, one of the guys is getting all cuddly for no reason?  Think you&#39;re weak just cause you got a pair of tits.   Tell his dumb ass to get off your back.  If you need back up, me and Viola will castrate him if we need to.&quot;
+
+&quot;This guy named Lucas, cause seriously he&#39;s a silver tongued snake.  Plays with your head.&quot; <span class="chatlog__edited-timestamp" title="02-Sep-19 04:35 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="618184347220049946" id="message-618184347220049946">
+                <div class="chatlog__content">
+                    <div class="markdown">Ambrosia raises an eyebrow, her smile turning to an intrigued smirk as she wraps a towel around herself. &quot;Boy troubles? Oh there&#39;s a fairly easy solution for that!&quot; The pale tiefling props her arm to her side, extends to fingers from her hands, and blows a quick kiss to Sarali, winking as she does so.
+&quot;Just leave them breathless~ ❤&quot;
+She then erupted into bubbly giggles, a inside joke to herself and those who had been on the receiving end on her attacks. Fluffing out her wet hair, she looks back down to Sarali and grins, &quot;seriously, a man can&#39;t do much if you give them a kiss that leaves them reeling, leaves them feeling powerless and sometimes flustered too~ Great for the ballsy ones, I could demonstrate if you really want?&quot; There&#39;s a joking smirk as she looks down on Sarali with an evil glint in her eye. <span class="chatlog__edited-timestamp" title="02-Sep-19 04:44 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="618184918190522379" id="message-618184918190522379">
+                <div class="chatlog__content">
+                    <div class="markdown">Larami gives Ambrosia a look, confused and a little disagreeable.  &quot;Uhh... I think thats sending the wrong signals.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="618184988030009539" id="message-618184988030009539">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;W-what?!&quot; <em>She looked incredibly flustered.</em> &quot;T-that&#39;s possible?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="618186434226159616" id="message-618186434226159616">
+                <div class="chatlog__content">
+                    <div class="markdown">She winks, &quot;its also a decent muffler for surprise knockouts.&quot;
+Ambrosia looks to Larami, &quot;oh, only if she takes it the wrong way, way I see it you can weaponize anything not expected to be weaponized, why, where do you think scythes came from? Farming of course! What&#39;s a little dancing and smooching in a fight if it leaves some unsuspecting fools down for the count?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="618186921277128718" id="message-618186921277128718">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She thinks hard, it&#39;d shut him up for sure. Might very well be worth it.</em> &quot;I think I&#39;d like to learn please.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 04:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="618187488107823124" id="message-618187488107823124">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Its not the craziest idea  I ever heard.&quot;  She nodded to Sarali, stepping back.  &quot;Going to get changed, don&#39;t take too long.  We got heroing and crap to do.&quot; <span class="chatlog__edited-timestamp" title="02-Sep-19 04:58 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="618188420488888320" id="message-618188420488888320">
+                <div class="chatlog__content">
+                    <div class="markdown">That evil look in Ambrosia&#39;s eyes gets more sinister as she looks back at Sarali, only acknowledging what Larami said with a nod. She removes the towel and sets it to the side again, descending back down to the water in front of Sarali where she rests her hands on Sarali&#39;s knees and stares hungrily into her eyes, &quot;since we&#39;re in a bit of a rush, I&#39;m just going to give you a taste and then we&#39;ll talk later, &#39;kay dear?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="618188987819098126" id="message-618188987819098126">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali&#39;s breathing slowed, electricity running through her wherever Ambrosia touched. She had just confessed moderate interest in a boy yet she can&#39;t help but be turned on. She blushed heavily at Ambrosia&#39;s hungry eyes.</em> &quot;O-okay.&quot; <em>She still had no idea if this is what she wanted, but she wouldn&#39;t be hurt if Sarali doesn&#39;t show up afterwards would she?</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="618193720675926024" id="message-618193720675926024">
+                <div class="chatlog__content">
+                    <div class="markdown">Ambrosia&#39;s smirk turned to a rather soft smile and she began to push forward, parting Sarali&#39;s legs and closing her eyes as she arched her lips to Sarali&#39;s, connecting her plush crimson lips to the smaller tiefling&#39;s. She was taking this slower than usual, giving Sarali a moment to feel her inching her hands up on her stomach before she began to <em>push</em> her lips onto hers and devour her lips roughly. Her hands meanwhile began to push hard onto her lungs, forcing her to evacuate her air and suffocating her with no allowed moment of recovery as she began to lay her weight on top of Sarali. But after roughly five seconds had passed, the tiefling backed off, only lingering a hand near Sarali&#39;s mouth to wipe off the smidge of liptstick that was left behind. Ambrosia examined the lipstick on her finger before looking up to Sarali and smiling, &quot;well then, I think you might understand what that&#39;s about now!&quot; With a serene look on her face she stood up and started to make her way back to her towel. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 05:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="618194914395553802" id="message-618194914395553802">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The motion had passed so quickly, she was left shaking... her body vibrating as the kiss was more intense than originally anticipated. It had hurt, however, it was a good pain that caused electricity to volt through her body and a strange tug to happen in her stomach. He didn&#39;t know if she could pull off the same effect but didn&#39;t really want to. She was exhausted, however, her body finally calmed down and she decided it best to go seek amends with Zel. She got out of the water, grabbing her towel and sliding it over her slim figure.</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618195878410321945" id="message-618195878410321945">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Finally dressed she runs out.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/3e9c29c4748388db69070cf2c8c2f070.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Ms. Pantsu#5951" data-user-id="589492868025024542" style="">Ms. Pantsu</span>
+
+
+        <span class="chatlog__timestamp">03-Sep-19 04:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="618368453123899392" id="message-618368453123899392">
+                <div class="chatlog__content">
+                    <div class="markdown">Ambrosia quickly dries off and wraps the towel back around herself before stepping out of the bath to meet Larami with her things in tow. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">26-Sep-19 11:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="626804808677851139" id="message-626804808677851139">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali comes walking in, dropping her clothes and leaving a towel prepared this time around. She walked over and slid gently into the water.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">27-Sep-19 10:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="627327361830092801" id="message-627327361830092801">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Opal steps in carrying her own basket of cleaning items and a towel wrapped around her small body. With a small nibble on her bottom lip she studies Sarali&#39;s head before stepping up to the edge of the water, sitting down with a nervous sigh and dipping her feet in.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">28-Sep-19 12:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="627367517106733056" id="message-627367517106733056">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali just laid there, trying her best to pretend like she didn&#39;t notice the little halfling dip in right next to her.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">29-Sep-19 02:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="627933587672530974" id="message-627933587672530974">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Slowly, the sweat from their encounter was being washed away. Sarali gently massaged and lathered her body as she lay there in the water.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 05:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="628711516522414081" id="message-628711516522414081">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Winds of Hope#4209">@Winds of Hope</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 06:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="628715863557668874" id="message-628715863557668874">
+                <div class="chatlog__content">
+                    <div class="markdown">A small pair of hands gently grasped onto one of Sarali&#39;s and pulled it away from her, Opal had entered the fray and had decided to get to work cleaning inbetween each little finger with a soaped rag, focusing on the task a little too intensely and hugging her elbow to her stomach to keep her close. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 06:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="628717438518820864" id="message-628717438518820864">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh <img class="emoji " alt="♡" title="♡" src="https://twemoji.maxcdn.com/2/72x72/2661.png">&quot; <em>Sarali jerked, the unexpected movement pulling her down.</em> &quot;I thought maybe...&quot; <em>She stopped, leaning forward to plant a kiss on Opals brow. Pulling back, her hand gently ran across her face.</em> &quot;Shall we clean each other then?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 09:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="628764395178295297" id="message-628764395178295297">
+                <div class="chatlog__content">
+                    <div class="markdown">Opal pauses cleaning, already worried she was hurting Sarali as she flinched. Yet it was Opal that flinched as her lips landed on her brow, her entire progress towards wanting to kiss seeming to have been reset. She opened her eyes and focused on Sarali&#39;s hands again with a shy blush, &quot;I-I figured, sorry if I shouldn&#39;t have a-assumed...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 09:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="628765821967269889" id="message-628765821967269889">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;No, it&#39;s alright. I just... you seemed shut down. Locked after we got so close. I figured... well, that I might&#39;ve gone too far and you didn&#39;t like me anymore.&quot; <em>She shyly turned away, a hand gently grasping for Opals.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 09:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="628769161153347596" id="message-628769161153347596">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;No, I didn&#39;t want to... do that... I just- got...&quot; Opal&#39;s eyes look upwards as she tries to figure out the right word, &quot;...emberressed. It w-was like, the wild of it all just came flooding at me at once and I don&#39;t know...&quot; Opal gives out a relieved sigh as Sarali&#39;s hand comes for her&#39;s and she releases the cleaning rag to float in the water besider her body as she engulfs Sarali&#39;s lower arm with a full body hug. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 09:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="628770281330311198" id="message-628770281330311198">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;...&quot; <em>Sarali lay in silence, moving herself so she can hug Opal herself. Quiet sniffling coming from up above, Sarali was trying her best to hold back her crying.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 11:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="628974718879268914" id="message-628974718879268914">
+                <div class="chatlog__content">
+                    <div class="markdown">Opal of course let the hug happen closing her eyes and breathing easy in the warmth of Sarali&#39;s embrace. She blinked her eyes open at the sound of Sarali&#39;s sniffling, looking up she frowned with worry, already forgetting about her own concerns for her social health and worrying about Sarali, &quot;wh-what-? Sarali... are you crying?&quot; Her hands were already moving to grip onto her, pulling herself slightly along as she seemingly readied to climb up along her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 11:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="628976917751529473" id="message-628976917751529473">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She held no clue as to what Opal was planning, only feeling skin being tugged as she was gripped onto. With full trust she released her grip slightly for ease of movement so Opal can accomplish what she was trying to do.</em> &quot;I thought-I was scared.&quot; <em>She choked a laugh, euphoria washing over her.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 11:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="628978575009382430" id="message-628978575009382430">
+                <div class="chatlog__content">
+                    <div class="markdown">Opal&#39;s small body crawled along Sarali&#39;s her hands being gentle and doing so easily with the aid of the water giving her bouyancy. When she was finally eye level with Sarali she connected their noses and rested her eyes again, gently rocking her head side to side.
+&quot;I just got flustered is all, it was the first time I had ever been nude in front of anyone outside of the bath. S-sorry, I didn&#39;t mean to scare you like that...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 11:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="628979479284547621" id="message-628979479284547621">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Saralis arms swooped under, her foremarms resting against Opals bum so she was more sitting up against her. Her eyes closed as well, rubbing noses against each others.</em> &quot;I&#39;m sorry for getting emotional. That was just my first time as well... shouldn&#39;t expect you to feel the same about it as me. That was my fault.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 11:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="628983080207646770" id="message-628983080207646770">
+                <div class="chatlog__content">
+                    <div class="markdown">Opal took a moment to just breathe and gently continue to nuzzle nose to nose with Sarali. Her grip loosened with the aid of Sarali&#39;s arms holding her up and she smiled peacefully, she was happy that they had quickly talked it out, now at least things wouldn&#39;t be so awkward. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 12:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="628984691898187809" id="message-628984691898187809">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She held her there, swaying back and forth in the water. She quickly reached in on instinct, connecting their lips for a second as Sarali pecked her.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 12:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="628989648907141140" id="message-628989648907141140">
+                <div class="chatlog__content">
+                    <div class="markdown">Opal&#39;s face inches away from the peck as her smile grows bigger, her little dimples showing off her little rosy cheeks. A hint of a giggle escapes her as she cracks her eyes open, looking into Sarali&#39;s eyes and asking quietly, &quot;we should probably get cleaned up soon, huh?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 12:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="628990372101750784" id="message-628990372101750784">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Her horns flared, Sarali blushed gently towards Opals little giggle.</em> &quot;Y-yeah, we probably should...&quot; <em>Her excitement dissipating, she gave one more final look towards Opal.</em> &quot;One more kiss though?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="632863193555009536" id="message-632863193555009536">
+                <div class="chatlog__content">
+                    <div class="markdown">Opal gently nodded, that smile being her only defence against cracking down into a flustered state. Closing her eyes again she leaned forward and booped her nose to Sarali&#39;s, gently leaning her lower head forward and brushing her little little lips against Sarali&#39;s in anticipation of her meeting her halfway. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 11:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="632963999138447371" id="message-632963999138447371">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali gently lowered her arms over her. Taking a second to feel Opals face beat against her. Closing her own eyes, leaning forward she met Opal halfway. Her lips invited her, soft and pudgy from anticipation. Sarali nearly melted again, her body going loose as she hung there.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 12:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="632971467688116254" id="message-632971467688116254">
+                <div class="chatlog__content">
+                    <div class="markdown">With the clash of cushiony reddened flesh, Opal tightened her arms around Sarali&#39;s nexk in a hug and hummed pleased into Sarali. She let the moment last for not too long, cutting it short after a monent and pulling away, just to shift so her right cheek was pressed against Sarali&#39;s dotingly. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 01:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="632991769671368744" id="message-632991769671368744">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She gently rubs their cheeks as Opal lovingly presses them.</em> &quot;...&quot; <em>She grabs onto Opal&#39;s cleaning rag, floating in the middle of the water. Thankful it didn&#39;t float away. With the soaked rag, Sarali began to gently scrub Opal&#39;s arm. Making gentle circles tantalizingly.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 02:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="633006861943308315" id="message-633006861943308315">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali&#39;s cheek would begin to tingle magically as their faces frictioned between them, Opal&#39;s magic cleaning her off naturally from the pure interaction. Her legs curled up alongside Sarali&#39;s chest and she sighed as she felt the rag rub along her, her cheeks steadily growing ever more red.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 02:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="633010150105546772" id="message-633010150105546772">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali went from the shoulders, gradually and slowly moving down. Letting Opal cling to her, she focused on the intimacy. Once she reached down far enough, one of her hands held onto Opals. The other gingerly scuffing in between her fingers. Her breath came out baited, knowing what to expect she so badly wanted to nom on Opals cute little fingers.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 03:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="633021022936760355" id="message-633021022936760355">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Her hand opened up willingly to Sarali&#39;s cleaning probing, unaware of the dastardly thoughts Sarali had for them. While Sarali worked away with the rag, Opal gently stretched out her other hand to reach behind Sarali&#39;s back as she continued to nuzzle her. Her hands gently reached up the back of Sarali&#39;s head and began to slowly scritch at her scalp like a pet, her hair sparkling with a small jingle as the magic worked away any dirt, grime, or sweat that ended up in her hair.</em>
+&quot;...its still kind of funny to think about.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 03:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="633021963278876685" id="message-633021963278876685">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Hmm?&quot; <em>She turned curiously, having finished up with her hand but not quite letting go yet.</em> &quot;What&#39;s that?&quot; <em>She prodded.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 03:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="633023707534852107" id="message-633023707534852107">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;The girlfriend thing. Its just-&quot; <em>Opal gently rested her head down on Sarali&#39;s shoulder, withdrawing her hand from Sarali&#39;s hair and looping it under her armpit,</em> &quot;I&#39;ve just never had someone else that was... one. Honestly, I kinda thought if anything I&#39;d end up with a man.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 03:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="633024855553605692" id="message-633024855553605692">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;That is the common way of things isn&#39;t it?&quot; <em>Seeing Opal going in for cuddles, Sarali couldn&#39;t resist. She leaned her head against her, wrapping her arms in warm embrace.</em> &quot;I&#39;ve only ever seen guys with girls. So I thought it was going to be the same with me as well. But... I don&#39;t know. I love everything in this world, there&#39;s just some things I love more.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 03:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="633029566398595087" id="message-633029566398595087">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Spending time with you in that dungeon, I really felt like I go to know you. And I ended up thinking about you... even at the most awkward of times.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="633032571244118016" id="message-633032571244118016">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The returned cuddling sealed the deal for Opal and she did her best to latch onto Sarali as tight as she could like the little blue-eyed teddy bear that she was, she would not be persuaded to let go so easily now. Her little legs uncurled and instead spread to pinch at Sarali&#39;s sides, slightly squeezing her at steady intervals equal to Sarali&#39;s heavy breathing.</em> &quot;I was actually going to ask... why? Why me? All I did was heal you, and you kinda berated me for some of the things I suggested so clearly I wasn&#39;t too helpful...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="633035065861079057" id="message-633035065861079057">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You were the only reason I didn&#39;t punch everything in sight. Calmed me down, forced me to strategize. I&#39;ve never met someone who cared so much that they would abstain from violence... It&#39;s a different way of thinking but it made me think how strong you are. I could never be that strong... It-I admire you.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="633039964749430814" id="message-633039964749430814">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Opal squeezes Sarali fully with her entire body after a moment of thought.</em> &quot;And I thank you for keeping me safe. Though you did give me quite a scare when you said we were surrendering.&quot; <em>She sighs,</em> &quot;guess I&#39;m so gullible that I&#39;d fall for a friend&#39;s lie.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="633041164513181732" id="message-633041164513181732">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;It wasn&#39;t a lie.&quot; <em>Sarali closes her eyes, thinking to back then. Her grip tightened as well, stifling a choke.</em> &quot;I was so scared then. All I thought about was that maybe surrendering was the better option the further along we were dragged through those traps. But, I couldn&#39;t just quit on my partner...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="633043380749991936" id="message-633043380749991936">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;...&quot;
+<em>Another squeeze and Opal&#39;s magic began to leak off magical Virtue into Sarali for a few seconds as she spoke her simple words,</em> &quot;w-well thank you for being the one to show courage. I love you for that Sarali.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="633043871672303646" id="message-633043871672303646">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Says the girl who managed to take care of two kobolds without raising a sword.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="633044286547427360" id="message-633044286547427360">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Opal chuckled nervously as her eyes looked off to a corner of the bath shyly,</em> &quot;um, yeah, lets say that&#39;s what happened.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 04:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="633046285309444117" id="message-633046285309444117">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>A hand gently ran through Opal&#39;s fluffy hair. Of course Sarali had seen and heard what actually happened. It&#39;s part of the reason she was forced to use Stelli as a hostage. As her hands moved to lock with Opals, she planted a kiss on her brow. Their fingers connected, Sarali brought their hands up in promise.</em> &quot;I will always protect you. With all of my ability to do so.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 05:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="633049569264926720" id="message-633049569264926720">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Her breath grew heavy, there was that feeling again. Warm joy spread from her heart as Sarali brought her hand up and in that moment she sporadically wanted to devote herself to Sarali as she looked into her eyes with that slightly confused look. So it shouldn&#39;t have been a surprise when Opal shut her eyes with a smile and lunged all of her tiny body back onto Sarali in a hug, letting her feelings of joy go free as well as her magic and unintentionally flooding Sarali with an intense surge of healing in the form of a shower of hearts as the little woman wiggled delightfully against her in a nuzzle.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 05:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="633050571670159401" id="message-633050571670159401">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;O-opal?!&quot; <em>Sarali was held back, surprised at the sudden actions.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 05:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="633057553936547870" id="message-633057553936547870">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The cuddly little chocolate bunny started to dig her nose into the side of Sarali&#39;s neck to try and slather herself conpletely in her warmth when she stopped, her eyes opening in realization before she tried to hop of Sarali with her hands covering her mad blush of a face,</em> &quot;s-sorry!&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">13-Oct-19 06:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="633062485750185987" id="message-633062485750185987">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ehhh?!&quot; <em>Once Opal hopped off, crashing into the water... Sarali fumed. Clamping her fists.</em> &quot;That&#39;s no fair, we weren&#39;t done! Bully! Meanie! Dummie!&quot; <em>She spat whatever non-harsh words came to mind. Completely flustered at being left along. Sarali lunged for Opal, not thinking and collapsed on top of her. Crashing into the water below.</em> <span class="chatlog__edited-timestamp" title="13-Oct-19 06:10 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">14-Oct-19 04:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="633220100895539201" id="message-633220100895539201">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The smaller woman shrieked as Sarali&#39;s weight came down on her and she was completely submerged, not taking long for her to begin panicingly reaching up for Sarali on top of her and trying desperately to push her off to little physical effect other than smooshing her chest as bubbles floated out from her mouth to the surface above.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">14-Oct-19 11:24 AM</span>
+
+            <div class="chatlog__message " data-message-id="633324325776130088" id="message-633324325776130088">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She opened her eyes, the heated water stinging the sides but she found herself otherwise alright (no chemicals). Opal was letting out more bubbles than necessary... but she also looked so cute like this. There was only one way to keep things as they are. Sarali moved down a little, her face over top of Opals. She leaned in and connected their lips, sealing off the water surrounding. She drew out any water in Opals mouth and pumped her own Oxygen supply steadily for her.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">14-Oct-19 11:37 AM</span>
+
+            <div class="chatlog__message " data-message-id="633327411823640655" id="message-633327411823640655">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Opal&#39;s eyes were shut to prevent water from getting in them, so she didn&#39;t see what Sarali was doing as she leaned her face down. She originally flinched feeling the lips encompass her own, but with the breath of warm yet breathable air coming into her mouth she happily sucked in every last bit that Sarali gave her hungrily after accidently depleting the air in her lungs in her panic. Instantly she showed a 180 in her behavior and stopped pushing on Sarali and instead pushed her own lips against her desperately, her shut eyes conveying their worry through the upward tilting of her eyebrows.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">14-Oct-19 12:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="633345775765684224" id="message-633345775765684224">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Feeling the returning air warming up, she knew it getting close to time to come up for air. She twisted, her feet planting to the ground and lifting them both up. Sarali held onto Opal, her forarms up against her back and planted against her cheeks. As they sputtered out of the water, Sarali broke contact with the lips; worrying for her. Her veins in her eyes were popping out from the pain they endured, thankfully again there was no chemicals so she wouldn&#39;t be blinded.</em> &quot;Opal... I...&quot; <span class="chatlog__edited-timestamp" title="14-Oct-19 12:53 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">14-Oct-19 01:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="633349838582579260" id="message-633349838582579260">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Opal remained stuck to Sarali&#39;s lips voluntarily until Sarali broke contact herself, the little halfling letting her head roll off Sarali&#39;s face and onto her shoulder where she panted tirelessly. Her little hands reached up and she once again hugged onto Sarali, this time for comfort and stability.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">14-Oct-19 01:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="633355956746453003" id="message-633355956746453003">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali leaned into her, keeping them snuggled together.</em> &quot;Opal, I like you. So, it&#39;s alright to do cute things with me. I like it when you blush while doing what you want to me.&quot; <em>Her grip tightened, drops of salty water pecking Opal&#39;s back.</em> &quot;So, please never leave me!&quot; <em>She didn&#39;t yell, but passion was in her voice.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-19 07:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="633633186903228426" id="message-633633186903228426">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Opal&#39;s response came after a moment more of panting, a simple tilt of her head into Sarali&#39;s neck.</em>
+&quot;And... I would be okay with whatever you want to do to me too. Just maybe be careful if you jump on me like that again.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-19 11:13 AM</span>
+
+            <div class="chatlog__message " data-message-id="633683775405948928" id="message-633683775405948928">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Opal...&quot; <em>She smiled into her shoulder, absentmindedly taking a whiff...</em> &quot;Nom&quot; <em>Sarali takes full control of those words. She begins to lick and suck gently at the nape of Opal&#39;s neck.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-19 02:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="633728171090640906" id="message-633728171090640906">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Opal&#39;s body visibly cringes in reflex, but she makes no move to get Sarali off her. Instead, she does similarly, gripping abit of the side of her neck in her lips and rolling the tiny bit of flesh between the lips, her body feeling that weird tingling in her heart.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-19 02:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="633737645788233758" id="message-633737645788233758">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Sarali is jostled, she wasn&#39;t expecting Opal to open up so furiously. Still together she meanders to a more shallow edge of the waters, laying down so she didn&#39;t have to focus on standing. Opal was more standing in her lap now, Sarali&#39;s grip gone. She was completely relaxed and sunk into the moment. As Opal continued to nom, Sarali&#39;s own noms came out weaker. More and more, sweet moans escaped.</em> <span class="chatlog__edited-timestamp" title="15-Oct-19 10:27 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">20-Oct-19 10:43 AM</span>
+
+            <div class="chatlog__message " data-message-id="635488194779152405" id="message-635488194779152405">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Winds of Hope#4209">@Winds of Hope</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 04:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="640655504087187456" id="message-640655504087187456">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>With briyola in tow he leads her to the women&#39;s bath, just out the entrance.</em> &quot;And here we are.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 04:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="640656303655616512" id="message-640656303655616512">
+                <div class="chatlog__content">
+                    <div class="markdown">“Thank you! You’ve been a big help, truly. I would have gotten very, VERY lost other wise. Say, care to have a bath with me? I’ve heard this place has those fancy mixed baths that are all the rage these days. Good way to get to know each other after all!” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="640657203954712576" id="message-640657203954712576">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Umm.&quot; <em>Faust&#39;s face turns a shade purple at the blunt invitation, badly hiding the shy scrunch on his face</em> &quot;A-are you sure? Though... Yeah it would be really nice to know more about one another...&quot; <em><strong>Sniff</strong></em> &quot;Come to think of it i also need a bath.&quot; <em>He sheepishly says</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="640657561259081739" id="message-640657561259081739">
+                <div class="chatlog__content">
+                    <div class="markdown">(Crap i think the unisex baths are still in use.) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="640657711851241474" id="message-640657711851241474">
+                <div class="chatlog__content">
+                    <div class="markdown">(Yikes) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="640658438820724746" id="message-640658438820724746">
+                <div class="chatlog__content">
+                    <div class="markdown">(I’ll ask for a unisex bath 2) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="640658442427826179" id="message-640658442427826179">
+                <div class="chatlog__content">
+                    <div class="markdown">(umm... I think they woudn&#39;t mind if we use this place?) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="640658493065527358" id="message-640658493065527358">
+                <div class="chatlog__content">
+                    <div class="markdown">(Or that, yes nice thinking!) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="640661117491740682" id="message-640661117491740682">
+                <div class="chatlog__content">
+                    <div class="markdown">(I’m just waiting now, hopefully a new one will open soon) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="640661618946211867" id="message-640661618946211867">
+                <div class="chatlog__content">
+                    <div class="markdown">(Hopefully, yes. I&#39;m trying to fight the urge to read briyola&#39;s sheet. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="640661715645628436" id="message-640661715645628436">
+                <div class="chatlog__content">
+                    <div class="markdown">(You can if you wish, it’s up for reference) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="640662071410688015" id="message-640662071410688015">
+                <div class="chatlog__content">
+                    <div class="markdown">(Hmm... I&#39;ll blot out the stuff i shoudn&#39;t know so meta knowledge doesn&#39;t affect our interaction, your char looks really fun and interesting!) <span class="chatlog__edited-timestamp" title="03-Nov-19 05:31 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="640662434482356224" id="message-640662434482356224">
+                <div class="chatlog__content">
+                    <div class="markdown">(Thanks!) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="640669765093949448" id="message-640669765093949448">
+                <div class="chatlog__content">
+                    <div class="markdown">(Heck it, let’s just use these) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="640670374622658601" id="message-640670374622658601">
+                <div class="chatlog__content">
+                    <div class="markdown">“Actually...let’s throw in some risk, eh? I’m sure no one will mind...too much...”
+<em>Bri giggles and grabs Faust’s hand and pulls him into the baths with her, and she then finds a seemingly well hidden corner</em>
+“I’ll get undressed, you should probably do the same!” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 05:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="640670634120183853" id="message-640670634120183853">
+                <div class="chatlog__content">
+                    <div class="markdown">(Gotcha!) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="640671423735529473" id="message-640671423735529473">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faust doesn&#39;t resist in being pulled in but he really thinks it&#39;d be a bad idea if he gets caught...well screw it.</em> &quot;Hopefully there aren&#39;t anyone else but us.&quot; <em>Realizing what he said grows more self conscious.</em>
+
+<em>Faust takes off his robes but the black scarf on his neck stays,only his undergarment remains.Turning around he makes sure his eyes don&#39;t wander.</em>
+(can we see each other?) <span class="chatlog__edited-timestamp" title="03-Nov-19 06:03 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="640671726849753118" id="message-640671726849753118">
+                <div class="chatlog__content">
+                    <div class="markdown">(Yeah, but Bri turned around, she’s currently undressing) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="640671907674456065" id="message-640671907674456065">
+                <div class="chatlog__content">
+                    <div class="markdown">(Saving that descript for faust&#39;s body then) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="640672355345235973" id="message-640672355345235973">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Bri is turned around, and she drops her travel jacket and manages to slip out of her one piece harness. From behind, her body is firm and well toned, with several sizable scars along her back here and there. She then turns around and looks at Faust up and down</em>
+“So, ready to go in?” <span class="chatlog__edited-timestamp" title="03-Nov-19 06:03 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="640673876241678341" id="message-640673876241678341">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faust stares at her scars and her well toned back, another shade of purple occupies his face as he fails trying to look away... An impulsive urge to gently touch the scars come but it quickly ebbs away.</em>
+
+<em>As you turn around you can see faust openly staring, His body is athletic and slender a contrast to his height, his chest collarbone and arms are littered with scars that only add to his rogueish charm</em>
+
+<em>Quickly realizing that he&#39;s staring he averts his eyes and shakily answers</em> &quot;Y-yes, right...&quot; <em>He walks to bri&#39;s side as to enter the same time</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="640675070699765773" id="message-640675070699765773">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She smirks at the boyish charm he displays, almost as if he’s never seen a woman before. Nonetheless, she finds it kinda cute. She enters the water and gets comfy, so that her chest is above water. She didn’t exactly have the bigger rack, but a C cup still satisfies, right? She leans back to make sure they’re in view and begins to talk</em>
+“So, what’s a guy like you doing on a ship like this?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="640676363908415548" id="message-640676363908415548">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faust see&#39;s the smirk on bri&#39;s face and immediatelt knows that she knows, that only further serves to make his already red face go purple in embarrassment, she is a cute girl afterall...and its normal, yes normal...he tries to rationalize still resisting to look, only to fail again as she spoke.</em> &quot;Would it be odd if i said i joined this crew to regain my memories? I could ask the same though... You have... Quite the nice scars.&quot; <em>He says, as his eyes slowly gravitate down to her chest.</em> <span class="chatlog__edited-timestamp" title="03-Nov-19 06:23 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="640677924265132042" id="message-640677924265132042">
+                <div class="chatlog__content">
+                    <div class="markdown">“I’m just a scrapper in need of some shelter. Nothing really special about me. I used to live in the wastes, and now I’m here, ready to duke it out for money. These scars are just from my fights, no big deal, really...”
+<em>Bri wouldn’t move, but suddenly Faust felt a warm hand on his scars, slowly tracing them</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="640679185999724544" id="message-640679185999724544">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I see, not that i&#39;m saying their ugly they just... Kind of compliment you.&quot; <em>He sincerely says, his dark-green eyes staring at hers.</em> &quot;And i&#39;m happy to say you&#39;ve found the right place, ignoring the one loud brute i met i can say you can fit in here fast the captain was even kind enough to give me a new pair of armo-&quot; <em>Faust shivers and almost lets out a sound from the unexpected touch, he doesn&#39;t move or resist, still trying to process the unfamiliar but...pleasant feeling</em> &quot;.....&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="640679691375607851" id="message-640679691375607851">
+                <div class="chatlog__content">
+                    <div class="markdown">“A new pair of what?”
+<em>as she speaks, the feeling drifts ever downward, slowly but surely on a treacherous path to gold...</em>
+“You feeling ok there?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="640681080445337601" id="message-640681080445337601">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;A-armor.&quot; <em>he shakily says, he takes deep breathes trying hard not to show that he&#39;s bothered by it, if anything it just stirs a certain impulse in him... It doesn&#39;t help that the water&#39;s hot as he visibly sweats, the moisture dripping down his toned body.</em> &quot;Is...is that you.&quot; <em>He says trying to hold in his impulses</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="640682020321624123" id="message-640682020321624123">
+                <div class="chatlog__content">
+                    <div class="markdown">“Is what me? You’ll have to be more specific...”
+<em>The feeling finally makes it way toward gold, and a feeling of a soft hand gently wraps itself along his length, just barely touching</em>
+“What’s the matter, a nice body too much for ya?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 06:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="640683338830577684" id="message-640683338830577684">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faust bites his lip to stifle a moan but its too much, bucking his hips as he gives bri a look</em> &quot;Is that you touching me...cause if yes, its only fair i return the favor no?&quot; <em>He says, with a grin. waiting. Waiting for the signal.</em> <span class="chatlog__edited-timestamp" title="03-Nov-19 06:50 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 07:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="640687235372548117" id="message-640687235372548117">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Bri smirks</em>
+“Aww shucks, guess you caught on, huh?”
+<em>as she says this, the hand becomes visible, almost like a semi-translucent shadow slowly stroking his length</em>
+“Feels good? And I guess you can touch me, I don’t really mind...” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 07:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="640689984130777122" id="message-640689984130777122">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I know i lack common sense but it just be insulting you if i didn&#39;t.&quot; <em>He says, still biting his own lips to calm himself down</em> &quot;Yes it does, now don&#39;t mind me and tell how it feels.&quot; <em>He says as he moves towards bri, circling around her till he&#39;s behind. His left hand goes for breast, squeezing and groping while his nimble fingers focus on her nipples circling it with his thumb and gently twisting it around, his right hand slowly but surely trails down her stomach, very clear to where its headed...stopping just above her clit as if asking for permission.</em>
+
+<em>You can feel faust&#39;s heat coming from his chest</em> &quot;Do you usually do this or am i a special case? Its hell trying to look away when your teasing me too much you know?&quot; <span class="chatlog__edited-timestamp" title="03-Nov-19 07:15 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 07:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="640691329231487016" id="message-640691329231487016">
+                <div class="chatlog__content">
+                    <div class="markdown">“Ya know, normally I would have just jumped your bones. By this time I would have made sure you had pumped me full at least once, but I figured I might as well give foreplay a try. Seems like you’re enjoying it quite a bit huh?”
+<em>As Faust is teasing her, she sighs a bit, relaxing into it as the hand continues it work, stroking him more and more teasingly, trying to get him to where he couldn’t take it</em>
+“But, if you prefer... I could always just use my mouth...”
+<em>as she says this, she moves Faust’s hand down to its target, placing his fingers directly on her clit</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 07:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="640693528829362186" id="message-640693528829362186">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I don&#39;t jump to assumptions unless i eas sure, but i should least buy you dinner and wine before i fuck you senseless right?&quot; <em>He enunciates the word &#39;Senseless&#39;as his finger and thumb plays with her clit pushing,squeezing and rolling it around as his left hand is still focused on her chest, Squeezing her nipples upward as if trying to milk her.</em>
+<em>Faust curses out a moan and bites into her neck to stiffle it, nibbling along. pre-cum drips from his lenght and girthy shaft coating the hand with transparent liquid, his shaft rock solid.</em>
+&quot;Do what you want as long as you enjoy it.&quot; <em>He huffs before biting down again</em> <span class="chatlog__edited-timestamp" title="03-Nov-19 07:30 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 07:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="640696865393999894" id="message-640696865393999894">
+                <div class="chatlog__content">
+                    <div class="markdown">“Senseless huh? Bold claims! We will have to see if you can even last 10 minutes! 
+<em>Her breath hitches as he plays with her clit, and she gently cups his face as she replaces the translucent hand with a kiss on the tip, then engulfing the length in her mouth, taking it all the way to the base as she deepthroats it on the first try. The translucent hand gently cups his balls and begins to play with them</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 07:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="640700881893064715" id="message-640700881893064715">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh fuck!? <em>Faust hangs his head back from the pleasure and almost coming then and there, trying to divert the and hold it in he rakes his claws on his chest letting the pain take control, with a feral roar he carries bri while she&#39;s still sucking on his hot rod, rotating her around with both his hands leaving marks on her thighs, using at leverage. His face leveled on her cunt</em>
+
+&quot;Don&#39;t think i won&#39;t fight back!&quot; <em>He says in a competetive tone breathing hard before he goes ahead and licks bri&#39;s cunt flicking her clit before lapping away at her folds with his long tongue.</em>
+
+<em>Bri can feel a steady and thick dose of pre-cum flow out.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 08:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="640701917860986930" id="message-640701917860986930">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Bri let’s out a moan around the length in her throat as she’s picked up, and she wraps her legs around Faust’s head as He laps at her folds, holding him there almost as a challenge. She keeps working on his cock, savoring the taste of the precum and searching for more, her right throat squeezing against his cock</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 08:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="640704486721191945" id="message-640704486721191945">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The pleasure is numbing his mind as he voluntarily bucks his hips at bri&#39;s throat unintentionally hilting his cock as he thrusts into her mouth, the pressure that&#39;s build inside is unbearable as his instincts beg him to come.</em>
+
+<em>Still lapping and licking bri&#39;s pussy with fervor he goes on and bites her clit and sucks on, making sure his hot breath was  hitting it at as he cums hard coating bri&#39;s throat and mouth with stupidly thick and sticky cum at large rate, steadily flowing.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 08:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="640706312040349696" id="message-640706312040349696">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>As Faust cums in Bri’s throat, a profound sense of  surprise runs through her. She didn’t think she was THAT good, but hey, it works! She takes care to swallow every last drop, then pulls away with a pop. She gives his balls a pat and a kiss as she hold his head to her lips, determined to get her pleasure too</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 08:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="640707409962336256" id="message-640707409962336256">
+                <div class="chatlog__content">
+                    <div class="markdown">(Would you mind if i passed out for now? Sorry i&#39;m reallly on the verge.) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">03-Nov-19 08:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="640708913729372200" id="message-640708913729372200">
+                <div class="chatlog__content">
+                    <div class="markdown">(It’s ok! I’m gonna hit the hay anyway) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 02:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="640975103970246677" id="message-640975103970246677">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faust rotates her back upright,shaking from the pleasure and quickly pulls her in with an intense kiss. his hands that have left a red mark on bri&#39;s thighs are now on her firm yet supple ass roughly squeezing and puller her in. His cock is still raging hard.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 02:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="640982878712496138" id="message-640982878712496138">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She kisses her new lover back, proud of the feat she’s accomplished, and the translucent hand disappears. She gently caresses his face with her hand</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 02:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="640984184474828801" id="message-640984184474828801">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faust is still kissing her, his mind hazy and his instincts urging him on. his hands now traildown her back. tracing along her scars and his left hand goes ahead and affectionately holds her waist.</em>
+<em>He momentarily breaks the kiss and gives bri an adoring gaze</em> &quot;Tell this little devil what he should do to a cute rabbit like you?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/9459753073600d683057b390e235f689.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Okami#6636" data-user-id="424255282382635012" style="">Okami</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 03:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="640998796691505163" id="message-640998796691505163">
+                <div class="chatlog__content">
+                    <div class="markdown">“Cute rabbit huh? Well then, I’ll tell you what. Rabbits are very, VERY good at multiplying. But seeing as this is our first little rodeo together, you’re gonna have to be content with the hand for now”
+<em>She giggles and kisses his nose</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 04:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="641008637573333024" id="message-641008637573333024">
+                <div class="chatlog__content">
+                    <div class="markdown">Opal the smol of Pandas RedToday at 7:36 AM
+&quot;It... is also my master&#39;s troubles...&quot; Opal&#39;s head sunk slightly back onto Sarali&#39;s shoulder, a hint of a nibble on her skin before she continued, &quot;she&#39;s gone, and I&#39;m told I don&#39;t have all the time in the world to find her. I- the problem is, I don&#39;t know where she is exactly, just that she&#39;s very far away.&quot;
+ 
+Sarali | Rasmus (Phylia)Today at 7:50 AM
+Her arms slid up, gently grabbing ahold of her shoulders. As she brought her back, her head tilted. Slipping in she snuck a peck on her lips until Opals full body was Halfling arms length away. A hand pulled away from her shoulder. Sarali began to gently groom Opal; parting hair out of her face, and wiping any water close to her eyes or tears that fell down. &quot;If you don&#39;t know where she is... then you&#39;re already doing the best thing for her. Together we will find her, but for now let&#39;s continue adventuring until we find a clue. It may not be the best option, I&#39;d want to find her right away if it&#39;d make you happy. But... there&#39;s nothing I can do. Nothing to punch.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641008656695033858" id="message-641008656695033858">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="Winds of Hope#4209">@Winds of Hope</span> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641008769974665217" id="message-641008769974665217">
+                <div class="chatlog__content">
+                    <div class="markdown">// Also, there&#39;s a boy in the Baths now. I think it&#39;s that time to kick some ass. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/c6c35a09357c38e1af829a1b9ef98697.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Coal#0982" data-user-id="195700932242046976" style="">Coal</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 05:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="641021569610678272" id="message-641021569610678272">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Hearing the commotion and the sound of a guy&#39;s voice. Sarali takes instant Alert. She scoops up Opal against her breast, jumps out and throws a Towel over the both of them. She then picked up her clothes and Opals, slinging them over herself before making headway out.</em> &quot;Fucking pervert, this is the Women&#39;s Bath.&quot; <em>She flicks a dart out of her pocket and at the creepy pervert as she dashes them out of the baths.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/6e4e7fafb6726ff74f775fd5679c1f12.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Winds of Hope#4209" data-user-id="528930150037848064" style="">Winds of Hope</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 05:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="641026049458569251" id="message-641026049458569251">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Mhm!?&quot; <em>Opal&#39;s eyes widen, being taken by surprise by Sarali&#39;s sudden movement as she had somehow not noticed the other occupants in the room and with her vision obscured by smothering warmth that fact wouldn&#39;t change. She did get a hint though as to why Sarali was upset when she spoke, and the halfling&#39;s hidden face quickly heated up as a result, her body locking up and gripping Sarali tightly as she was carried off.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/1d3d6b708e3278064799c246ec5b2bad.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Faust#6717" data-user-id="382346653983834112" style="">Faust</span>
+
+
+        <span class="chatlog__timestamp">04-Nov-19 05:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="641028213404991488" id="message-641028213404991488">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faust, though with glazed eyes sees something move, its a dart. And its headed for them. He quickly with no hesitation catches it with his body as to not bring harm to bri.</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="641028834849980477" id="message-641028834849980477">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;...I think we should move somewhere... More quieter, or then again you might have gotten hungry, your choice.&quot; <em>He says with a smile. ignoring the minor wound, Not really bothering him.</em> <span class="chatlog__edited-timestamp" title="04-Nov-19 05:43 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">16-Dec-19 07:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="656279222460874762" id="message-656279222460874762">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> <span class="chatlog__edited-timestamp" title="25-Mar-20 07:20 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">17-Aug-20 01:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="744793676655624244" id="message-744793676655624244">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Alor needed a rest from the last mission. Seeing her ally perish in front of her eyes and barely escaping with her life from that ice zombies infested halls still made her quake a bit. She decided a hot bath was the perfect thing to do. After dropping off her items in her room, including setting the turquoise she had found on the mantle, she heads to the baths. Carefully making sure not to ruin anything she removes her underclothes once she gets in the room. Humid and already warm she carefully let&#39;s herself sink in. Her ice dragon self revolting a little form the sudden heat but it was welcome at the same time. Eventually her body and mind both relax and she let&#39;s out a deep sigh. Letting the pool drain away everything.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/094529f3b72bd510efecd7bef06381c1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Alloyeon#6911" data-user-id="557033936459661314" style="color: rgb(155,89,182)">Warden - Nathan - Alor</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-20 09:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="748722737635262564" id="message-748722737635262564">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Alor finishes her bath and gets dressed. Heading towards the chapel now to say her prayers before going to sleep</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="748722779494547576" id="message-748722779494547576">
+                <div class="chatlog__content">
+                    <div class="markdown">(Exit to <span class="mention">#chapel</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">12-Sep-20 05:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="754452176444850317" id="message-754452176444850317">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">20-Sep-20 05:42 AM</span>
+
+            <div class="chatlog__message " data-message-id="757174939756396617" id="message-757174939756396617">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Abby arrived at the bathhouse not too long after her conversation with the guild master, she was holding back tears, it felt like a dream to actually have a bath after being deprived of her humanity for so long... Looking around the luxurious bathhouse she went into the changing room to remove her clothes, her body was grimy and covered in cuts and dirt, she was surprised to have not died from infection, she sighed, grabbing a sponge and soap from her bag as she stepped into the main bath area and tipped into bath water, the hot water was almost like a warm embrace as she slipped into the water, it was a sensation that Abby thought she would never feel ever again. Surreal was an understatement at this point, it was scary the fact that she got more hospitality from monsters than from humans, it was always like that, always...</em>
+<em>With a heavy heart and heavy mind she began the long and arduous progress of cleansing herself, a chef needed to be clean in order to safe to cook for people, she would be thorough, every inch of skin, every strand of hair, every crooked nail, she was focused, not noticing the amount of dirt that was coming off her body.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">21-Sep-20 04:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="757513620308623401" id="message-757513620308623401">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Abby finishes cleaning herself up, her skin was lightly tanned but now cleansed of dirt, she knew that couldn&#39;t just stick around here forever she had work to do, she got out of the bath drying herself off quickly and going into her bag to pull out her chef uniform, she had kept in a plastic bag, to protect until her skills could be used. With a heavy breath, she put the uniform on and look into the mirror, she looked similar to how she came to this world, but she felt withered in a way, she looked down before puffing up her chest, &quot;Come on Abby you can do this...&quot; She would grab her belongings and with the guidance of direction sign would head to the mess hall</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="757513680085712927" id="message-757513680085712927">
+                <div class="chatlog__content">
+                    <div class="markdown">(Leaving to <span class="mention">#mess-hall</span> ) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="womens-bath.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">23-Sep-20 01:54 AM</span>
+
+            <div class="chatlog__message " data-message-id="758204504549621772" id="message-758204504549621772">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 165 message(s)</div>
+</div>
+
+</body>
+</html>
