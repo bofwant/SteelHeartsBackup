@@ -1,0 +1,2743 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - cockpit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="cockpit.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / cockpit</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 09:45 AM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="618079080268562458" id="message-618079080268562458">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="cockpit.html_Files/dushyant-agarwal-air-030-cockpit-01.png">
+                                    <img class="chatlog__attachment-thumbnail" src="cockpit.html_Files/dushyant-agarwal-air-030-cockpit-01.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618079244026642432" id="message-618079244026642432">
+                <div class="chatlog__content">
+                    <div class="markdown">This is where it all happens.  The command deck for the ship.  Several chairs lined up to review systems with of course, the main wheel. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618079596637847592" id="message-618079596637847592">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="dewy#5704">@dewy</span> Would be set up in the corner, near the communication pipes.  The pilot, Viola Clay would use these to not only give announcements but actually set up music to play for the rest of the crew.  The young man had his own hammack, personal effects, and other things.  He practically lived in this room, but the rest of the ship was his to explore. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618080633574522968" id="message-618080633574522968">
+                <div class="chatlog__content">
+                    <div class="markdown">Viola Clay, the pilot went to the <span class="mention">#mess-hall</span>  to get a drink, leaving him to play the music for a while. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c8993220aae2675b3d28f22c3286db44.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="dewy#5704" data-user-id="338572024748310528" style="">dewy</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 09:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="618082455093510156" id="message-618082455093510156">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Wollen observing his new space with a smile takes a look around his surroundings. Just slowly humming a beat as he sets up his drums and starts to do a pretty relaxing beat making it echo through. The goliath seems to smile as he plays hoping the like the music. After a couple minutes he changes the beat into a more slow that picks up in tempo it sounds more energetic as the song goes on. Wollen does seem to dance slightly while playing enjoying his music. He would normal stay still while playing but being alone gave him a bit more pride.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c8993220aae2675b3d28f22c3286db44.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="dewy#5704" data-user-id="338572024748310528" style="">dewy</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 10:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="618087005586194482" id="message-618087005586194482">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Feeling a bit good about himself he decides to take a little break after giving the music all he has got for about thirty minutes and tries to see who is standing out side the hallway to say hello</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 02:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="618150881912815662" id="message-618150881912815662">
+                <div class="chatlog__content">
+                    <div class="markdown">Viola brings Ash into the cockpit.   &quot;This is where the magic happens.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 02:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="618151564338790401" id="message-618151564338790401">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash gives a confused look, thinking for a moment that she was making a euphinism. He then shook his head and looked around,&quot;This is most impressive, is this where you want me to play?&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 02:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="618152582967459855" id="message-618152582967459855">
+                <div class="chatlog__content">
+                    <div class="markdown">She nods her head.  &quot;Over here.&quot;  She points to a wall of tubes. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="618152589954908181" id="message-618152589954908181">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="cockpit.html_Files/image002.png">
+                                    <img class="chatlog__attachment-thumbnail" src="cockpit.html_Files/image002.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618152759123902484" id="message-618152759123902484">
+                <div class="chatlog__content">
+                    <div class="markdown">There is a set of drums, a flute, a lute, a gramophone and other musical devices and implements next to a wall of  tubes.  She demonstrates. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618152877512327179" id="message-618152877512327179">
+                <div class="chatlog__content">
+                    <div class="markdown">Putting her mouth over the tube.  <span class="mention">#steel-forge</span> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618153104717643790" id="message-618153104717643790">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;We&#39;re beginning our descent.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618153156269965533" id="message-618153156269965533">
+                <div class="chatlog__content">
+                    <div class="markdown">She then leans back.  &quot;See, easy peasy.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 02:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="618153963228889088" id="message-618153963228889088">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>&quot;So you power the ship with music?&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 02:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="618154657956626529" id="message-618154657956626529">
+                <div class="chatlog__content">
+                    <div class="markdown">She laughs a bit at that.  &quot;Well, in a matter of speaking.  Here, one sec.&quot;  She plays with the gramaphone and opens one of the tube ports. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618154832393666591" id="message-618154832393666591">
+                <div class="chatlog__content">
+                    <div class="markdown">Music plays throughout the ship </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618154837137293392" id="message-618154837137293392">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://www.youtube.com/watch?v=yo3bxtkaR8E">https://www.youtube.com/watch?v=yo3bxtkaR8E</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/user/ThePrimeCronus">ThePrimeCronus</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=yo3bxtkaR8E">
+                                                    <div class="markdown">Tartalo Music - The Flight of Iolar [Heroic, Uplifting, Emotional,...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">✖ Follow Me on Facebook: <a href="http://fbl.me/ThePrimeCronus">http://fbl.me/ThePrimeCronus</a> ✖ Follow Me on G-Plus: <a href="http://goo.gl/EJXouj">http://goo.gl/EJXouj</a> ✖ Subscribe to my Backup Channel: <a href="http://goo.gl/P5T9gI">http://goo.gl/P5T9gI</a> ✖ Su...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="cockpit.html_Files/maxresdefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="cockpit.html_Files/maxresdefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="618154854824804352" id="message-618154854824804352">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" style="color: rgb(52, 152, 219); background-color: rgba(52, 152, 219, 0.1);">@Player</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 02:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="618157007588818960" id="message-618157007588818960">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;See, so I make music and play it through the ship through the speaker tubes.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="618158653962453008" id="message-618158653962453008">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash nods and opens a port for his lute, then proceeds to play</em> ((sorry afk)) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="618158924977143840" id="message-618158924977143840">
+                <div class="chatlog__content">
+                    <div class="markdown">//Feel free to start playing music </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="618159497847767060" id="message-618159497847767060">
+                <div class="chatlog__content">
+                    <div class="markdown">((I was gonna post a song)) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618159840472072192" id="message-618159840472072192">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://youtu.be/2zVvAyWWmG0">https://youtu.be/2zVvAyWWmG0</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCO0dwrNxoUrXn9PJ5qXdtMA">Lyrics Creator</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://youtu.be/2zVvAyWWmG0">
+                                                    <div class="markdown">James Taylor Sweet Baby James</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">copyrighted by its holders</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="cockpit.html_Files/hqdefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="cockpit.html_Files/hqdefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128076;" title="&#128076;" src="cockpit.html_Files/1f44c.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="chatlog__message " data-message-id="618160041320775680" id="message-618160041320775680">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>After or before playing, Ash turns to Viola,&quot;Should I go to the Planning Room too?&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="618160403179896863" id="message-618160403179896863">
+                <div class="chatlog__content">
+                    <div class="markdown">Viola taps her head a little bit.  &quot;Thats not bad Bull Boy.  Yeah you can go, but just come back when your done.  You should meet <span class="mention" title="dewy#5704">@dewy</span>  Wollen too.  I bet we could jam together.  Be safe out there.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 03:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="618160533861826601" id="message-618160533861826601">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash nods and heads to the planning room</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="618205435115208918" id="message-618205435115208918">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash enters the cockpit, he looks around for viola,&quot;Cap&#39;n, are you here? I have someone here who is looking to board the ship.&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="618205605638701066" id="message-618205605638701066">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She follows into</em> &quot;Board may be a little late.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="618206744010555403" id="message-618206744010555403">
+                <div class="chatlog__content">
+                    <div class="markdown">Viola is already going through the motions of descending the ship, alot of pulleys and gears and wheels whirling and steam hissing.
+
+Shes a white haired woman with pale skin and black dress on.  Doesnt look like an airship pilot.  She turns in her chair, addressing the new woman.  &quot;Shes right, and taking a new comer right to the nerve center of the ship.  Not very bright bull boy.  What if she was a spy.  Carmine in the planning room, Cassius can be called on the speaker tubes.  They deal with the newbies.&quot;
+
+&quot;Diplomat, merchant, or adventurer?&quot;  She asks the newcomer. <span class="chatlog__edited-timestamp" title="02-Sep-19 06:13 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="618206843470217216" id="message-618206843470217216">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>&quot;Well, whatever you call it, wild Minotaur here. Forgive me for not having a strong grasp on what things are called.&quot;</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="618206925708066847" id="message-618206925708066847">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Better learn quick.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="618207019488378893" id="message-618207019488378893">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I&#39;d go with adventurer, for this one. Although, I haven&#39;t been in a city or such in over 100 years so my chances of being a spy are rather slim.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="618207101965172738" id="message-618207101965172738">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash frowns,&quot;No, I&#39;m typically not, sorry. I told here I didn&#39;t know where to take her.&quot; He says as he leaves the room, literally with his tail between his legs.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="618207923008700429" id="message-618207923008700429">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh come on!&quot;  She shouts.  &quot;I was playing.&quot;
+
+She looks to Alana.  &quot;I wasnt playing.&quot;  She grinned.  &quot;Okay, so welcome to the Steel Heart, home of the Steel Hearts.  Were new to the scene.  Howd you get all the way up here?  Thought we had anti air...&quot;  she checks a panel... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="618208206765948938" id="message-618208206765948938">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I have friends who gave me a lift.&quot; <em>She gestures to a window where a few eagles fly along with the ship</em> &quot;Of course, that&#39;s a favour repaid so I can&#39;t exactly get down without help.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="618209455510913035" id="message-618209455510913035">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Interesting.  Well, youre in luck, start things with a bang.  The rest of the company should be in a big room right down the hall.  But here.&quot;
+
+She shows her <span class="mention">#old-job-board</span> .  &quot;Theyre getting ready for their first adventure.  If you want in, pick one.  Youll see a regal looking girl with ghostly glow, shes Carmine Lilly, she and the guild master, Cassius Clay, a creepy skeleton in a top hat are in charge.  Im just Viola Clay, the pilot.  But yeah im always here if you have questions.&quot; <span class="chatlog__edited-timestamp" title="02-Sep-19 06:24 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="618209752228429906" id="message-618209752228429906">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She looks over the board and then back to her</em> &quot;This all seems well. Where exactly will I be staying for the duration?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="618210617282527235" id="message-618210617282527235">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Theres a room.  Uuuh... 18C.  Ill get someone.&quot;  She goes to a wall of tubes.  &quot;Edger?&quot;
+
+A male voice echoes back.  &quot;Yah Vi.&quot;
+
+&quot;New girl.  Shes with me.  Got to drop her stuff off.&quot;
+
+&quot;Yeah Ill head up.  Hey Miss.  Welcome.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="618210820320526339" id="message-618210820320526339">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She nods</em> &quot;Greetings. I don&#39;t have much gear. If you would show me the way it would be appreciated.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="618212476420620308" id="message-618212476420620308">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Landing without crashing isnt exactly easy, so hang tight.&quot; She sat back in her seat.
+
+Itd be maybe another minute when I young man entered.  Edger Clay <span class="mention">#npc-list-steel-heart</span> 
+
+Hes wiping his hands but he stands in the door way looking at Alana for a second.  Perhaps a little surprised, she looked so regal. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="618212547924983810" id="message-618212547924983810">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh uh hey Miss.  Im Edger.  Ships beastmaster.&quot;
+
+He grins widely <span class="chatlog__edited-timestamp" title="02-Sep-19 06:36 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="618212663452893194" id="message-618212663452893194">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash had stopped in the doorway, he was curious as he was never shown any of this, as far as he could remember. He watched the exchange but remained silent.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="618212740418502676" id="message-618212740418502676">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Right. Well, hello to you.&quot; <em>She clears her throat as he looks over her</em> &quot;You were to lead me to my room?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="618213521011769344" id="message-618213521011769344">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="RoyalUtard#6704">@RoyalUtard</span>
+
+He steps in and nearly walks into Ash, &quot;oh. Shoot sorry.  Hey youre new too right?  You need a room.&quot;
+
+He looks back to Alana.  &quot;Yeah, follow me, and stay close.  This place is like a maze sometimes.&quot;
+
+He leads them to the <span class="mention">#quarters-deck</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/465f89cdbe8986591ab7fd0c9be688d7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Cap&#39;n#1696" data-user-id="224933184926646272" style="">Cap&#39;n</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="618213613991231591" id="message-618213613991231591">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She follows, giving a thankful nod to the captain</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/c361951e8ae8f5a83df3a0ba010f59fe.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="RoyalUtard#6704" data-user-id="290001523407192064" style="">RoyalUtard</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-19 06:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="618213859366404148" id="message-618213859366404148">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Ash nods,&quot;That would be nice, inwas locked in a broom closet for a few days. I don&#39;t remember what happened before that or why I ended up here. Thank you.&quot; He says as he follows.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">27-Nov-19 04:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="649350279484932106" id="message-649350279484932106">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Following her his ego boosted by the slight complement or complement in his eyes.</em>
+
+&quot;Well, those that don&#39;t see good opportunity and take it are the ones that will never rise up.&quot;
+
+<em>He looked around a bit trying to remember his way through the ship so he didnt look like an idiot later having to ask for directions to get back. Turning to look at the women in front of him.</em>
+
+&quot;I hope I never am seen foolish by someone in the position you are in. It would brake my burn heart.&quot;
+
+<em>He joked about his firey nature laughing a bit.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Nov-19 10:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="649982606028308492" id="message-649982606028308492">
+                <div class="chatlog__content">
+                    <div class="markdown">The cockpit was strewn with the usual things.  Panels.  Valves.  Levers.   Switches.  Pipes, wires, and even odd windows that show the exterior of the ship.  There were more speaking tubes here then anywhere else on the ship.  It was the control center of the entire ships...
+
+But there were other things here.  Clothing was strewn about, mostly undergarments.  Empty bottles, some remains of treats and dirty dishes.  It looked like someone lived here.  Finally there was all manner of musical instrument tucked into one of the corners.  A guitar leaning on a new cushioned chair seemed to the most touched thing in the room.
+
+&quot;Forgive the mess.&quot;  She said before she goes to the main control, her hands going over some of the levers and she checks a few of the dials.  She taps ones a bit, before banging on it.  &quot;So whats your story, Lucy?&quot;  She asks while her chair swivels. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">29-Nov-19 10:45 AM</span>
+
+            <div class="chatlog__message " data-message-id="649984345544720395" id="message-649984345544720395">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>His yellow eyes scanned the area unsure what to make of all of it mixed with the mess of a being living in the space. Fidgeting in the spot he tried to keep his eyes away from the thrown around garments. His mind squealing to clean up but knew not to. He quickly scurried over to the tubes to start flipping them open. He barely caught their words snapping back from his inner thoughts.</em>
+
+“Oh it’s fine. Seen worse.”
+
+<em>He lied figuring this was what a normal room looked like.</em>
+
+“Woe there these things arent fragile are they? And my story? Just usual I guess. Wanted to become adventurer and here I am. “
+
+<em>He was vague not knowing how she would take a well know noble fancy prissy guy on her ship. Figured it wouldn’t matter he would work just as hard if not harder then his counter part.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 11:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="650534084379934730" id="message-650534084379934730">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Boring.&quot;  She said, sitting flat in her favorite chair, her leg going up on a nearby table and unintentionally giving him a look up her skirt if he so desired. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="cockpit.html_Files/34218cc91560b6981e66d19c4bd790c9.png">
+                                    <img class="chatlog__attachment-thumbnail" src="cockpit.html_Files/34218cc91560b6981e66d19c4bd790c9.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="650534651378663424" id="message-650534651378663424">
+                <div class="chatlog__content">
+                    <div class="markdown">She grabbed her guitar and slung it across her lap as she began to strum on the strings, she barely seemed to give him more then a glance as she tuned.  &quot;You become an adventurer for a reason.  What, you hoping for the rush of killing something?  You want to get rich.  Theres always something.&quot;  She pulls a guitar string off and begins to restring it.
+
+&quot;Everyones got a story, and I like to trade one for one.  Maybe it&#39;d be worth drinking over.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">30-Nov-19 11:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="650543141035966485" id="message-650543141035966485">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Lucy&#39;s hair flared up a bright blue as did his eyes and mouth as he gasped at them calling him boring his ego taking a blow. Slicking his hair back is slowly returned to its casual black amber flecked normal. He glanced down at them his ashen toned skin turning red as he adverted his eyes his noble raising kicking in instead of staring at the lacey black bowed undergarments. He looked everywhere else but at her trying his damnest to not peek... Which he refused to admit he did a few times. He saw movement and looked at the guitar resting in her lap loving the tunes as he tried to focus on opening all the tubes.</em>
+
+&quot;I am not in it for the slaughter. If I wanted blood shed I would buy a ticket for an arena show. I am also not in it for money. I could easily get any if need be. Some join simply for the change do they not? Bad home environment or possibly misunderstanding leading to wishing for something different. My story is not one of woe and sorrows only looking for a different path then the one given to me. If you wish for my story then you will have to have time to spare as it is one complex but it seems you have. Do you till wish to learn the bore of a story?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">01-Dec-19 03:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="650776756357431296" id="message-650776756357431296">
+                <div class="chatlog__content">
+                    <div class="markdown">//will respond later// </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#127481;" title="&#127481;" src="cockpit.html_Files/1f1f9.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128065;️" title="&#128065;️" src="cockpit.html_Files/1f441.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#127480;" title="&#127480;" src="cockpit.html_Files/1f1f8.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128076;" title="&#128076;" src="cockpit.html_Files/1f44c.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">02-Dec-19 09:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="651056106923360256" id="message-651056106923360256">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh, boredom.&quot;  <em>Strum</em>  &quot;I can relate.&quot;
+
+She begins to gently play a simple song. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="651056356572266515" id="message-651056356572266515">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://www.youtube.com/watch?v=W5ntNwS76WM">https://www.youtube.com/watch?v=W5ntNwS76WM</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UCjzHeG1KWoonmf9d5KBvSiw">Soothing Relaxation</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=W5ntNwS76WM">
+                                                    <div class="markdown">3 Hours of Relaxing Guitar Music for Meditation, Sleep, Relaxation...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Relaxing guitar music that can be used for meditation, sleep, study and relaxation (3 hours), composed by Peder B. Helland. Soothing Relaxation is a music ch...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="cockpit.html_Files/maxresdefault%20%281%29.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="cockpit.html_Files/maxresdefault%20%281%29.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="651056691265404928" id="message-651056691265404928">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Please.  I&#39;m providing background music.&quot;  she grinned.  There was a noticable change in her demeanor.  She seemed more relaxed, more content and happy.  The music seemed to help.  &quot;I got stories too.&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="651057239716528167" id="message-651057239716528167">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Alot of stories.  I&#39;m older then you by a long long time.  I&#39;ve been there.  Done that.  Immortality is boring, but the last thing Im going to do is waste away in some coffin.&quot;  She looked to the windows.  &quot;Theres a gloss on the glass that even lets me see the sun.  Its not a bad place.  Gramps takes care of little things like that.&quot;  She shrugged.  &quot;Sorry, keep going then.&quot;  
+
+An apology, she hardly seemed the type. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">02-Dec-19 01:51 PM</span>
+
+            <div class="chatlog__message " data-message-id="651118178314879006" id="message-651118178314879006">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Lucy guessed boredom was the best way to put it. Sure other factors but felt like even the more relaxed pretty women would not care of mishaps. Moving to her right to prevent the view of up her skirt sitting on the floor preferring it to other sitting spots.</em>
+
+&quot;Ha, yeah I hope I don&#39;t ever live forever that would be hell. I don&#39;t know where to start really. I guess ill start from beginning as it did start from young age. I grew up blessed to have my parents in my life. It is far and few between for a genasi to have both parents to be raised. We were a noble family that was well respected. The symbol of the flame in our town and many surrounding it. As a kid I grew up pampered I will not lie. Never a thought really crossed my mind of need or desire. The toll for that was strict regulations. No going outside unaccompanied. No retaliation to towns peoples disgust at my appearance. There was a lot. They found it unnatural for a humanoid flame to be walking around yet there were so many other exotic people around every corner sadly genasi are rare all around. I attended every meeting and every discussion as my mind wandered. I had over heard about forbidden to me magic and science. Things I didn&#39;t need for plain life doing my duty as a noble yet as I got older crossing by shops that had enchanted objects or teaching how to cast. I wanted that but couldn&#39;t have it. I use to sneak out at night throwing water on myself to extinguish my flame as to not be seen. It felt like death but it worked every time. I went to those teachings and made beautiful art. People saw me as a human instead of the noble being paraded around town collecting money for the land. I..&quot; </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="651118192407740425" id="message-651118192407740425">
+                <div class="chatlog__content">
+                    <div class="markdown">.
+<em>He looked down steam rising from his eyes as they dimmed to a dull yellow. He felt pathetic forcing his head up from his chest swiping his skin and clearing his throat not even going to try simmer down the flicking blue hair around his head. He knew people had it worse then him so his feels should not be this bad. He choked as he tried to continue unable to push past the fear and guilt. He had so much to say and explain but felt it die in his throat trying to talk about it. Assortment of noises later he decided to just sit quietly simply stating.</em>
+
+&quot;It just ended and I became an adventure. What&#39;s yours?&quot;
+
+<em>His voice sounded crackly like a bonfire and tried to seem cheerful despite the past catching up to him way to hard as he usually forced down those moments before becoming a traveling adventure.</em> <span class="chatlog__edited-timestamp" title="02-Dec-19 01:51 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">03-Dec-19 06:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="651547128014831636" id="message-651547128014831636">
+                <div class="chatlog__content">
+                    <div class="markdown">Viola listened on, making little comments as she continued the soft strums of her strings.
+
+&quot;Fire.  Hah I get it.&quot;
+&quot;The Sheltered Rich Kid.&quot;
+&quot;Okay, makes sense.&quot;
+&quot;Yeah I would too.&quot;
+&quot;Ouch, water really that bad for you?  Pff, you should try sunlight sometime, thats a bitch.&quot;
+
+He didn&#39;t give her the whole story.   She flared her nose, looking confused.  &quot;That&#39;s it.  You have to work on your endings Lulu.&quot;  A pet name maybe.  She looked at her guitar, she played with the frets and stiffened her lip.  &quot;Hmm?  Here, let me show you how its done.&quot;
+
+&quot;You probably don&#39;t know anything about the Clays do you?  Would you be surprised if we were a bunch of Necromancers?  Yeah, big friggin shocker right?  Never members of the noble family but we were rich enough to have a nice place of our own.   Our claim to fame was shipping.  We kept the roads, the ships, and eventually the skies open for trade into the country.  No one suspected for a long time that our labor force were a bunch of skeletons in body suits.  We were in real good with noble houses.  And then the Pendragons showed up.  We kept up our industry, but the real money was in power.  Dead power.   And that&#39;s where I come in.&quot;
+
+She paused for questions, follow ups. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">05-Dec-19 11:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="652169830350454804" id="message-652169830350454804">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Lucy chuckled uncomfortably not knowing what to say he shoved down the urge to keep rambling. He took into consideration their comments giving a few laughs here in there. Shaking his head  as his story telling was criticized. Turning he went into listening mode eyes wide and blinking slowly. Shaking no he did not know who the clays were he was surprised they were a delivery system family. Just didn’t match up with her persona or the way she held herself. He would admit that he didnt know much about necromancing messengers but they just didnt seem like the type to be adventurous. Trying to process it all his face crinkled up.</em>
+
+“So you delivered mail and packages? Hm. I can say i probably have used your system when mailing my official letters or transport of good. How did you go from shipping to adventurer babysitting?”
+
+<em>He chuckled at his joke shifting around eyeing her from side of his eye sight. Darting his eyes away he pulled out his wax stamp press fiddling with it figuring he would ask her if she recognize it later.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">19-Dec-19 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="657287233203863582" id="message-657287233203863582">
+                <div class="chatlog__content">
+                    <div class="markdown">“Yeah I know.”&#160; She said kind of chuckling herself.&#160; “Its not exactly the most exciting story, but-“&#160; She gives a little shrug as she continues. “You have people that produce, the people that make, and the people that sell.&#160; Its commonly overlooked how one thing get to another but there’s alot of money in it obviously.” She crosses her legs as she leans back, her chair twisting to look out the window, sunlight pouring in.
+
+“It all started with great gramps, Cassius.&#160; I think he was an adventurer or at least he was at some point.&#160; Typical bookworm type, and way smarter than most people figured.&#160; He was part of an ancestor cult, and apparently a legit one. They dealt with proper burial rites and customs, aiding ghosts into the various after lifes.&#160; Then there was some kind of schism. Some holy war to make sure gods got worshipped rather then ghosts. He was among the funerists who was raising the dead to protect the living.&#160; &#160; Guess he learned first hand that even ‘the dark arts’ can be put into productive means. I think that was when he became an adventurer himself.”
+
+“From the stories he told me as a girl, that was where he really lived.&#160; Meeting my great grandma, others who would help build his caravans and make his connections.&#160; Made the company when he retired, and I guess he just didn’t want to give it up.” She was looking at the ceiling. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">22-Dec-19 12:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="658341992572387338" id="message-658341992572387338">
+                <div class="chatlog__content">
+                    <div class="markdown">Lucy was beyond baffled with how the family business lead up to this point. He had never took the time to think about how his letters or gifts were taken across the world. He guessed some wizard had just poofed it to the right place in the world or something. Then to add raising the dead he was more confused by the end of it then at the beginning. 
+
+&quot;All that going all over the place it must have been hard to make friends. I can&#39;t imagine dealing with the dead. I know the goddess or god  stuff is real but I thought they dealt with all the passing problems. Sheltered life prevented me from going out to places were those kind of rituals or magic were happening I guess. Cults also were a thing of fairy tails in my mind. Are they bad as people make them out to be? You&#39;re past makes them seem not that bad when look at it from an outsiders point of view.&quot;
+
+<em>He went silent after that twirling the small wax press. He didn&#39;t... no couldn&#39;t grasp the idea that he had no knowledge of any of these things that seem like basic knowledge. His hair flared up a slight aqua color as he reminisced about all the things he probably missed out of or didn&#39;t know. Shaking his head he tried to clear his mind and listen to her fully. It was rude to not listen to a little lady when they spoke.</em>
+
+&quot;This may mean nothing coming from me but it sounds amazing. You have probably seen things or know about places I can&#39;t even imagine. I mean your past has character to it. It wasn&#39;t slaying gods turning evil, dragons, or beholders but it has spirit to it. I couldn&#39;t name one thing about my parents past if it was dependent on my life. You have had a life suiting of the best of hearted. Cassius sounds like the man I only wish to have been or could have been. They raised something so amazing from dirt and ashes. He knew the system and got above it. Making a legacy for himself despite not many knowing of it.&quot; <span class="chatlog__edited-timestamp" title="22-Dec-19 12:49 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">27-Dec-19 02:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="660188920868503552" id="message-660188920868503552">
+                <div class="chatlog__content">
+                    <div class="markdown">Cults have a bad annotation because a cult is just a group of worshippers.&#160; A cult can be anything. Its usually called that into its sanctioned. But-“&#160; She had to be realistic. “They can be the exact opposite or way way worse then you know.”&#160; She began, taking a drink from a glass nearby. There was something... strangely serene, saccharin about her now.&#160; She liked to talk or to teach. Lucy had made her run her mouth, and she strangely seemed to enjoy it more then she let on.&#160; Maybe she was just lonely. “I mean, the Order of the Final Dusk is technical a cult, but they only tend to family altars and make sure ancestors are remembered.&#160; I hung out with them. Depressing, but they loved their music.”
+His praise was met with a little smirk by her.&#160; She needed to think a minute on how to respond to him as he raved like essentially a little kid.&#160; It was, kind of refreshing to her. “Heh, I didn’t even get to myself yet. This all happened before I was born.&#160; Hundreds of years ago.” 
+
+She listened to him, putting the guitar away as she leaned forward, her legs wide, as if she neither noticed, nor cared that her frilly panties could be seen underneath her open skirt.&#160; “Well, I guess that might be the point of all this. When you’re immortal, your greatest enemy is boredom, that and losing your humanity. Gramps seems to be ignoring that. He’s dead, a metal skeleton, but he’s always been surrounded by family.&#160; Its why some of us agreed to go with him. Take the step to live forever, in our own weird ways. Maybe he wants to spread the love. He calls the guild family. Maybe one of you guys can use this to make something more of yourself. Its not a bad thought really.”&#160; She shrugs. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/f6ebfcbf19b333d19a4bf6dd875d6312.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Probably Jinx#1777" data-user-id="393130554201210892" style="">Probably Jinx</span>
+
+
+        <span class="chatlog__timestamp">28-Dec-19 09:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="660656200060239894" id="message-660656200060239894">
+                <div class="chatlog__content">
+                    <div class="markdown">(Why is this in the character channel?) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">28-Dec-19 09:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="660660025907347466" id="message-660660025907347466">
+                <div class="chatlog__content">
+                    <div class="markdown">//must have been dragged by accident </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">29-Dec-19 09:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="661015110629720086" id="message-661015110629720086">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="YCLM#5774">@YCLM</span>// Dont worry about it// </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">29-Dec-19 09:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="661018055412809738" id="message-661018055412809738">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He eyes tracked her movement to the drinking without much input besides the occasional hmmm or raised eye brow.</em> 
+
+“I can understand the misunderstand with the reputation of a organization being a“cult”. From what you tell me it seems more like well as cheesy as it is family. It doesn’t seem to have that darker under tone of harm for harms sake of the legend of bad cults. I do not know if its because of how you described it or it is as it is but it seems fun.”
+
+<em>Seeing the smirk he rolled his eyes playfully chuckling tucking his crossed legs closer to his body.</em>
+
+“The Final Dusk sound a bit creepy will not let a lie run but im sure they have good intent to their madness. Even if it wasnt you it was your “family” line. A mans... or women’s line can tell a lot about a person or so I have been told. I believe it does. I believe you made a good choice. I mean look at where you are now. Your “gramps” offer has lead you to a path where you can branch off into endless excitement and boredom no where in the near future.”
+
+His thought died on his tongue as he glanced back up face glowing red and snapped his head to the side so quick to the side his bones popped. Coughing to try seem like he was just covering up that instead of staring at the women’s undergarments.
+
+“ I mean I am here just for the fun. We do not live long as some species. Best make the best of it and move along better then we were. I-“
+
+<em>He couldn’t pretend to carry on the conversation glancing back he got another view flaring up his flames before looking up.</em>
+
+“ I did not wish to tell you earlier rather not making the room tense but you are flashing a bit more then you would probably prefer.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 01:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="662706765133250570" id="message-662706765133250570">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Uh huh.  Im from the weird songs at night kind of cult, not the sacrifice babies kind.&quot;  She rolled her eyes, hoping he got the distance.  She nods.  &quot;Yeah it kind of was.  Youd learn how to play drums, she quiped.
+
+He complimented in his flowery way and she was beside herself.  He was good company.  A little foppish but ehh,.   &quot;Its been reasonably more interesting lately.  I just hope I dont become a skeleton.&quot;  
+
+She did notice he was getting a little blushie and for a moment, she didnt know what he was talking about.  She then realized.  &quot;Oh yeah.  I havent had to be ladylike for a while.&quot;  She crossed her legs on his behalf.  &quot;Come on I bet youve seen plenty.&quot;  She hardly seemed miffed, the conversation now leading to relationships. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">03-Jan-20 01:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="662715010346123285" id="message-662715010346123285">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>His face went fiery blue mortified reverting to his teaching of how to handle unsavory situations. He being called quiet the player although he couldn’t deny such facts. Primping his hair before speaking deciding on standing up to avoid farther embarrassment.</em>
+
+“I did not mean to insinuate that you are not lady like. Simply stating such decorated items were eye catching in the least. As for my amount of times seeing such are far beyond I would like to admit in such company. I believe i am not the only one with a history of seeing many people behind closed doors.”
+
+<em>He snuffed out his embarrassing blue hair with a quick swipe over the head with the less then witty prim proper worded come back.</em>
+
+“Plus this is a place of adventures I’m sure if everyone wasn’t so clean it would reek worse then a call house. No one seems to be dedicated to anyone that ive seen around here and gods and goddesses above thats how I prefer it. Hostile possession is the worst enemy among groups. You probably think I’m simple a fancy cheeky whore fighter with yourself being so catty about it.”
+
+<em>Huffing he kept picking to fix something in his embarrassment so use to being a big shot being called out knocked him down a few pegs off his ego horse.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 12:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="664504262549569558" id="message-664504262549569558">
+                <div class="chatlog__content">
+                    <div class="markdown">She leans back as he goes off on his tangent.&#160; Did she call him a player? Probably. She thought it was a compliment.
+
+“You seem a little sensitive about it.”&#160; She concluded from his demeanor and his monologues.&#160; “Either that means you dontmaybe there was a special someone.”&#160; She then decided it might be best to be a little clear. “If you’re not after a cheap roll in the hay, I’d say that makes you all the better.”&#160; She looks over at the speaking tubes. “No one turns the tubes off, so I get to listen to the bump and grind day and not. It gets to the point that it almost becomes meaningless.”
+
+She bristled a little, her face stiffening a little bit.&#160; She had to think about whether she had insulted him at some point.&#160; But she waved a hand and shrugged a little bit not know why he got on the defensive.&#160; “Catty? Yeah you’re probably right.” She chuckled despite herself. “What’s wrong with a proper professional becoming a personal relationship?&#160; I’ve lived long enough to be fucked up down left and sideways. All the ass the world don’t mean shit without the heart ya know.” He pats her chest a little.&#160; “Get to be my age, and thats the shit you remember the most. The ones you leave behind. The ones you never wanted to. You learn to live in the moment, otherwise you end up going pretty crazy.”
+
+“Yeah I’m a romantic.&#160; Shutup.” She said preemptively.&#160; “It helps me write music.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">08-Jan-20 01:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="664524166548029440" id="message-664524166548029440">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Seeing no malice in her words he backed down a bit</em>
+
+&quot;I did not mean to come off sensitive. It is not something talked about.. ever in home area.&quot;
+
+<em>Humming softly he settled down his antics and leaned to one side of his body hip popped out.</em>
+
+&quot;I am all for a &#39;roll in the hay&#39; but I wouldn&#39;t consider paying cheap for it. I had someone in my sights when I was younger. Stood me up. Long story not enough time in the world.&quot;
+
+<em>He huffed as if it was work just to think about it. Turning to glance back at the tubes he cocked an eye brow up. He would have to remember to close any near his door. He did not want her hearing him getting it on.</em>
+
+&quot;It must not be fun hearing all that why don&#39;t you just stuff the tube with cloth till they are done?  As for my previous statement I may have been the one being catty. I apologize. I am not use to the relaxed nature of this... yet. I am trained to be wound up and ready.&quot;
+
+<em>He tutted trying to think of a good way to put what he wished to say before shrugging.</em>
+
+&quot;When you allow yourself to become close to someone you have. The harder time you have when they unavoidably leave you.&quot; <em>His eyes and flames darkened and his face morphed from polished thinking to a hair-raising hallow look.</em> &quot;You of all people should know nothing worth its self is forever. The heart is the thing that keeps us alive but it is also the thing that stops keeping us alive even as we still walk the earth. You could live less then a year and already be dead inside or a million years and still be alive depending on how much you protect yourself.&quot;
+
+<em>He blinked and his normal looking cheeky smile returned. He was trying to warn her of what people become when they allow them self to love to much. He really did enjoy their manner of thinking but saw what he thought as the unavoidable flaw in it.</em>
+
+&quot;Much better to have fun and leave it as that, but who needs a pretentious little genasi to tell them what to do?&quot; <span class="chatlog__edited-timestamp" title="08-Jan-20 01:42 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">09-Jan-20 03:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="664912712903426058" id="message-664912712903426058">
+                <div class="chatlog__content">
+                    <div class="markdown">“Gotcha.&#160; Again. Live long enough and nothing is sacred anymore.”&#160; She listened to him, seeming like he was going to mention something, go into a bit more of history but he decided against it.&#160; She looked over at the dozens of tubes on the wall. “It gets annoying. I imagine half of them aren’t even doing it right.” She snorts a little, getting a mental image.&#160; It was a cute snort. She mentioned patching. “Never know when somethings going to happen. We had to break up a lovers quarrel the other day. Figures its the time that most people wouldn’t want to be interrupted.&#160; Fight breaks out, call in the idiot Dawn to break it up.”
+
+He apologized and she appreciated it with a wave of his hand.&#160; He went off on a moment of self reflection. Whoever the girl was really must have hurt him to make him so, embittered by the thought of.&#160; It was enough that she leaned against the back of her chair and put her foot up on the edge of it. She could tell him he was preaching to the choir but in a moment of profound maturity she let him vent, get it off his chest if silently.&#160; Her eyes drifted to the window.
+“Yeah.&#160; I remember when I felt like that.”&#160; She said in agreement. She nestled her head against her knee, getting a nice dreamy sparkle in her eye and a smile on her face.&#160; She held up a finger, it starts slowly going round and round in a corner. “Its why immortality sucks. The pain doesnt go away, it never does.&#160; Not unless you kill part of yourself. But eventually it comes back. If the hole doesnt get bigger, you’re trying to close it back up. Filling it with anything.&#160; Im sorry Lucy. She must have been really something.” She comments.&#160;&#160;
+She laid her head against the knee, her piercing eyes looking up at him.&#160; “Is that what you want? To have fun with me? Be done with it?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">09-Jan-20 04:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="664921845623029793" id="message-664921845623029793">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Going silent he fiddled with his seal figuring it was better to tuck it away. Focusing on her words he looked around at the tubes going to tap one. Jerking back he heard the snort giving her a small chuckle. It was kind of adorable he could admit. Just didn&#39;t expect her to do it. Intentional or not.</em>
+
+&quot;If you can&#39;t block the tubes you could just yell at them to close it. If that doesn&#39;t work I can&#39;t imagine what to do about those scamps.&quot;
+
+<em>He looked to the window trying to keep his emotions settled and from flaring up. He knew he was being over baring with his words but better to be seen as stuck up and over baring then knowing he didn&#39;t try to warn them. Looking over to the immortal he recognized the look in her eyes. His own eyes fluttered dimming a bit as he thought about the one love he had. His throat seemed to almost burn with licks of flames despite knowing it wasn&#39;t truly flames. Hearing her apologize he blinked back into reality jerked from the dream of dances and love land.</em>
+
+&quot;What? Do not apologize for things beyond your control. Fire and lava do not mix surprisingly she is nothing to me now. I am fine and simply as you put it &#39;trying to close it back up.&#39;&quot;
+
+<em>Turning he caught their eyes as she looked at him his body tensing at their question body turned halfway away from them shoulder .</em>
+
+&quot;It was not my first thought when seeing you but you oddly do have an allure. How you word it makes it seem like I am looking for a fuck toy to toss afterwards. Do not get an idea that I am looking for commitment. Simply I do like our talks.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">17-Jan-20 02:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="667790254677426219" id="message-667790254677426219">
+                <div class="chatlog__content">
+                    <div class="markdown">She smirks when he mentioned what she should do.&#160; “Trust me, I get my revenge. That music you hear sometimes-&#160; The tubes carry my spells. If something bad happens, maybe its bad luck, or maybe its the <strong>Bane</strong> I used on someone.”&#160; She laughs, the thought would make everyone so paranoid. Lucy would be the first to know that their lives were in the hands of a vindictive vampire bard.
+She huffs.&#160; “Ill show sympathy if I damn well please.”&#160; She says with an aloof attitude, making it very apparent that she didn’t care much if he accepted it or not.&#160; “I relate so I sympathize.” It was human after all. It was like she needed to stay in practice less the tedium of immortality make her cold and stale like her grandfather.
+“Oddly?”&#160; She questioned.&#160; “I still think I look pretty damn good.”&#160; She put her arms around her head as she leaned back in her chair.&#160; “That’s pretty much what I was getting at. But of course it would be the other way round.”&#160; Like she’d ever be the toy in any relationship. Faun over a partner. “Agreed. If I threw you out, I’d lose probably the only person lately that bothered conversation for so long.&#160; Good. Look but don’t touch then.” And that seemed the end of it. She was thirsty for something more then Lucy was willing to give. Friends she could use.
+She looked at the window.&#160; A thought on her lips. “You ever fly before?”&#160; She said, a change in tone, in conversation. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/6b855ac1e7b8b500fac051ab0799ecdf.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="YCLM#5774" data-user-id="501550509401047053" style="">YCLM</span>
+
+
+        <span class="chatlog__timestamp">17-Jan-20 03:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="667813045074001949" id="message-667813045074001949">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Eyes quickly stealing a glance at the lovely being next to him when they admitted that they cast spells on people... Lip pressed together firmly he snipped his mouth shut a bit tighter. He did not want to have to deal with a curse or what ever. Hearing the slight nonfriendly tone he stayed still silently still trying to read her body language. He didn&#39;t care if she agreed or not with his veiw but her previous statement had him ready to attack if threatened. Rubbing his hand against his pants he gathered his thoughts enough to respond to her.</em>
+
+&quot;I did not mean you have odd allure by looks. A slut could be a Lovely maiden or an old hag doesn&#39;t mean they don&#39;t get laid. Some people just simply have personality that are attractive and others not so much. As such I admit mine is more likely the later.... Other way around? I do not follow your meaning. No matter that is not a conversating of my business.&quot;
+
+<em>He silenced down when they admitted that he was good company to speak with. He was glad that he had at least been good to talk to in one way or another. Stepping sub consously towards the door he looked over to her fully.</em>
+
+&quot;Have I ever fly before? I mean yes in crafts but if you mean only with my own body no. I do not think fire genasi have that ability.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">01-Apr-20 07:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="695047527543734282" id="message-695047527543734282">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="731938908425683064" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">12-Jul-20 02:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="731938908773810226" id="message-731938908773810226">
+                <div class="chatlog__content">
+                    <div class="markdown">It wasn’t long before Hal found the cockpit—the place where the ship’s pilot would ‘live’. On a small table, she saw a note: 
+
+<em>Taking a brief holiday. Will be back soon. Ship is on autopilot. Don’t touch anything!</em>
+
+<em>-Viola Clay</em>
+
+“Viola Clay?” Hal stated inquisitively. “Another of My Clay’s family, I’m guessing.” The girl heaved a sigh and looked at Garg. “At least we’re have the place to ourselves. So, what are all these controls? And how does the sextant work?” she asked. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Jul-20 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="731938997013839985" id="message-731938997013839985">
+                <div class="chatlog__content">
+                    <div class="markdown">( <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span> ) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="731938908425683064" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">12-Jul-20 03:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="731957498441105469" id="message-731957498441105469">
+                <div class="chatlog__content">
+                    <div class="markdown">Garg walked into the cockpit following Hal&#39;s lead, half paying attention to where they were going and half just watching her hips move as she walked. &quot;Oh fuck...&quot; He grumbled as soon as the view of the cockpit registered in his mind. 
+
+Garg took a step forward, letting Hal to read the note as he just started to look bat every little detail. Ok, he will admit that the was fucking impressed and only could figure out the controls thanks to his... Errr, wide knowledge on ships. Not because he was a ship nerd that spent days and weeks researching as much as he could each time he visited a city with his parents while he was a pup... And even while he was doing his internship with the kraken.
+
+&quot;This shadow girl...&quot; He started while grabbing the main wheel, not caring about this Viola fucker. &quot;Who&#39;s would be the direction wheel... Only this one you can pull back or push forward to tip the nose of this giant fucker...&quot; Even his growly voice wasn&#39;t as angry as usual, even carrying a few tones of wonder in it. 
+
+&quot;This other...&quot; He grabbed the one at his left and turned it around a little, &quot;Controls the altitude.&quot; And just like he said, the ship gained a little altitude, the change was shown in the instrument neat that wheel. &quot;Those two little fuckers control how much wind the sails are catching on each side of the ship, this one for the port side and this for the starboard side.&quot; He explained but didn&#39;t touch those, instead he stepped aside and extended a hand towards Hal so she would join him at the wheel. &quot;Come here shadow girl... And bring the sextant.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="731938908425683064" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">12-Jul-20 07:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="732019051605393408" id="message-732019051605393408">
+                <div class="chatlog__content">
+                    <div class="markdown">Hal’s eyes widened momentarily when Garg pushed aside the note from Viola and, instead, started gushing over everything he saw. At first, she worried the Clays might be angered, that they were intruding or possibly something worse!
+
+“Viola won’t mind? I... I’ve not met her,” Hal admitted, though she peered over Garg’s shoulder to get a better view of just what it was he was doing. The shark was like a schoolboy. Excited and eager and all too ready to delve into the gadgetry displayed before them. Though Hal worried a little about the Clay who’d left that note, she decided to focus the majority of her attention on Garg and what he was showing her. 
+
+There was a lot to learn. And even more to prepare for. But Hal wanted this and would do her best. She took Garg’s offered hand and joined him, holding out the bag he’d given her and then took out the sextant. She eyed the contraption, paying particular attention to the piece that looked like a scope of some kind. “So how do I use this exactly?” she asked, her thoughts hoping this Viola wouldn’t return for a while. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="731938908425683064" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">12-Jul-20 10:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="732060287527813120" id="message-732060287527813120">
+                <div class="chatlog__content">
+                    <div class="markdown">Garg just grinned and took the bag out of Hal&#39;s hands and put it on the floor besides them. &quot;You need both hands for this... At least in the beginning.&quot; He growled before stepping behind her and guiding her hands to she could see how to properly use the device.
+
+After Hal was grabbing the sextant in the correct way he guided it to her eyes. &quot;Can you see the two different images? You need to view the horizon with the left one, use it as your guide. And now you move this until the celestial body you are using as reference is properly aligned...&quot; He explained as he showed her how to use the thing.
+
+It was barely nightfall, the sky was still a light purple and the starts were starting to show up. He growled in frustration because it was not the proper time to use it but then he had an idea. Thumping his tail against the ground he used his magic to change the view in front of them, showing a perfect night filled with stats and the moon at its highest, perfect for Hal to use it as reference. &quot;Find the moon and align it with the fucking horizon and the sextant will show you our latitude.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="731938908425683064" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">13-Jul-20 08:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="732388291210510357" id="message-732388291210510357">
+                <div class="chatlog__content">
+                    <div class="markdown">Hal gasped, as she peered through the scope of the sextant. It was odd see two different images, and odder still when she moved the bar and caused half of the image to move. Eventually, the moon was kissing the horizon line in the distance. When it did, she immediately stopped and pulled back, her eyes wide with wonder. “That was so strange!” she exclaimed, glancing down to see where the bar ended up. “Did I do it right, Captain?” she asked, though her sweet smile showed that hope she felt bubbling up inside. 
+
+With excitement plastered all over her face, Hal showed Garg how she’d moved the bar. How the bar had indicated a number. A reading. She bit down on her lip, waiting to see what he’d say, an eagerness to know if she’d done well or poorly. Regardless, she was aware she needed to study more to get the hang of it. But she so hoped to have at least managed a little. She needed to if she was to be of proper use when they went back for Keth. His life depended on it. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="731938908425683064" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">13-Jul-20 09:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="732406309168873512" id="message-732406309168873512">
+                <div class="chatlog__content">
+                    <div class="markdown">Garg chuckled at Hal&#39;s eagerness to learn and see if she was doing things in the right way. It was refreshing to have someone useful around. &quot;Aye, you did shadow girl m... Look&quot; He growled in her hear while turning nher body around so she could see some instruments on the right side of the cockpit.
+
+He tapped one of them what was showing a number, &quot;This ship has a Magical Positioning System... Fuck, I thought those were only myths and theories but these fuckers have one. With this one you don&#39;t need those other instruments since this uses magical points around the world as reference to always know the current ship coordinates.&quot; He explained, still amazed by the ship... Everything.
+
+And just like he told her, what Hal had calculated with the sextant was almost the same coordinate that the MPS was showing on the little display. &quot;The thing you need to remember in that to use the sextant, you need to use a celestial body at its fucking highest and even then only experience can help you to correct any fucking deviations... But you did good for your first time.&quot; He told her with a grin before he pushed his face close to hers and grabbed her hips pulling her a little closet to him. &quot;Looks like you always do well in your first times shadow girl...&quot;
+
+Then he moved a few inches closer and bumped his nose against hers before moving back with a laugh and dismissing the illusion in front of them, the view returning to the one just after sunset. &quot;Well, anything else you would like to know how to use?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="731938908425683064" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">15-Jul-20 06:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="732901883974254602" id="message-732901883974254602">
+                <div class="chatlog__content">
+                    <div class="markdown">”I’m uncertain, Captain, since I’m not entirely sure what all of these various devices do.” A heat rose to Hal’s cheeks, the pale flesh of her neck darkening to a pretty rosy color. “Though I’m glad to be doing well enough so far. I’ll continue the studies,” she went on, that heat traveling along her body and settling somewhere between her legs. Garg’s strong presence and manner somehow always making her thighs start to quiver. “Though if there’s anything more I should know before next lesson, please do tell me.”
+
+Hal looked up into Garg’s eyes and gave him a pretty smile. Most might be frightened of him, still others bothered by his manner. But he pulled her in, like the predator he was, and she didn’t mind this at all. Not one little bit. The shark made her feel more alive than she’d ever had, as one of those spies for the Phiarlan House. The Baron has depleted her soul, drained her, took everything away that she possibly could. But this sharkin. He was able to replenish it all, and most of all make her feel loved. Love? Was that what this was in its own strange sort of way? As the girl gazed upon her Captain, the only conclusion she could come to was... yes. Yes, she did love him. And she always would. 
+
+In that moment of realization, Hal felt her tummy flutter, her heart begin to speed up. Face feeling hot, she felt hope and happiness deep deep into her blood. The girl peered into Garg’s strange eyes then, needing to see those same things and wanting him to see just how deep all of this between them truly went. “I... I want you happy, Captain.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="731938908425683064" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">15-Jul-20 10:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="732973637786927244" id="message-732973637786927244">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Ah, don&#39;t worry shadow girl, you learned enough for now... Just practice making some fake routes.&quot; He turned around and gestured towards all the strange devices around the cockpit. &quot;This shit... Is the stuff of legends and theories... I have no idea how these fuckers got these but it&#39;s fucking mind blowing.&quot; Even if a sentient cursed galleon was still way better for the sharkin, he could give some credit where it was due. Whoever this Viola fucker was, she sure has a fun time handling the ship, he thought with a laugh.
+
+Then he turned around to look at Hal once again and a grin appeared on his shark face at her words. &quot;What a good first mate I have found...&quot; He growled lowly whole moving closer and wrapping a big arm around her waist to pull her against his cool body. &quot;... Always wanting to please her captain...&quot; He growled teasingly and licked the fresh marks around her neck. He had a lot of fun being with Hal and while he wasn&#39;t sure if she just liked all the fucking they did, it was hard to find such a perfect crew member so he was not to let her escape him like all the others had done in the past. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="731938908425683064" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">15-Jul-20 08:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="733111830481993749" id="message-733111830481993749">
+                <div class="chatlog__content">
+                    <div class="markdown">When Garg licked her wounds, Hal couldn’t help but shiver, her knees nearly ready to give out. Without realizing it, she groaned softly, hands clutching onto him, his own pulling her close to his body. The girl looked up at him then, cheeks rosy and bright, eyes shining. “Y-yes, Captain,” she whispered, already breathless, their hips somehow fitting together where they stood. “I... I hope you don’t mind.” She smiled then, making shy noises, as the blush worked its way along the rest of her body. 
+
+Hal honestly couldn’t even remember life before the sharkin had entered it. Though, she wondered what he’d have thought of her had he seen how she’d been back in the Feywild. Back when she’d been under the Baron’s thumb. Or worse, back when she’d allowed herself to be manipulated by the elven nobility and the fairy courts of old. Looking back, it was embarrassment... to her brother, her friend, to her parents. And how she missed them both!
+
+“I plan to be the best, Captain,” Hal went on. “Need to set precedent for your crew.” She bit down on her lip. “Plus...” She paused a moment, swallowing hard. “You... you deserve no less than that, Captain. So I’ll help make that happen.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="731938908425683064" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">15-Jul-20 11:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="733166011338981432" id="message-733166011338981432">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Good.&quot; The sharkin growled and gave Hal another slow lick before he pulled back. He was still grinning as he bumped his nose against her again. &quot;A pirate deserves nothing but has everything to take.&quot; He growled in answer to her words. &quot;Just like I took my ship... And now you.&quot; That was his way of life. He took what he wanted, when he wanted as long as he was able to do it and don&#39;t die like a idiot in the process. 
+
+&quot;With you as the first mate and me as the captain... Our crew will be the most feared one, not only in the sea but in all the planes.&quot; His growly voice was very serious as he told her that. It was his goal after all, to become a legend. The most feared pirate. The fucking Boogeyman of the Sea.
+
+&quot;For now, we know what&#39;s the first step. Get some fucking firepower.&quot; He loosened his hold on Hal but didn&#39;t move away, his hands just resting on her hips, happy to let her cling to him and enjoy her warmth. He raised his head though, looking over her into the dark sky on the other side of the glass, &quot;Once we have that, the shadow squid will be a proper raiding ship.&quot; He growled, mostly to himself and then shook his head, looking down at Hal again. &quot;So what you wanna do now shadow girl? Not everything is work in a pirate&#39;s life.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/56416710a576b1e7f0c96f4fd6368f6b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Halanaestra Ellorenthi d’Phiarlan#0000" data-user-id="731938908425683064" style="">Halanaestra Ellorenthi d’Phiarlan</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">16-Jul-20 08:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="733305707767529492" id="message-733305707767529492">
+                <div class="chatlog__content">
+                    <div class="markdown">A wave of heat washed over Hal, making her tummy flutter and that spot between her legs throb. She lowered her gaze, nodding all the while, only to look back up into Garg’s eyes once more. “Well...” she started, stammering just a bit. The girl recalled what had happened back on that job. How that swim had nearly destroyed her. Never again did she want to fear the water, especially now that Garg was her... she wasn’t quite sure how to define it. She knew what she felt and she was now fairly certain the sharkin felt the same. Was there a word for such things? She wasn’t sure. It hadn’t been something she’d considered before leaving behind her home and everything that had been familiar. 
+
+“Well, would you mind helping me learn how to better cope in the water. I think there’s a pool on board, though I... I’ve never been. And I admittedly have avoided after, well, what happened on <em>that</em> job.” Again, Hal looked away, almost ashamed to look into Garg’s red eyes. “I don’t want to be a weak link on a job,” she explained, shaking her red head. “I... I had been among the best when I was a spy for my House.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b3bfe9e22d7071c0b1fbb5013c6e2601.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Garg DreadStorm#0000" data-user-id="731938908425683064" style="">Garg DreadStorm</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">16-Jul-20 03:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="733399519890374736" id="message-733399519890374736">
+                <div class="chatlog__content">
+                    <div class="markdown">Garg looked at Hal for a second before laughing in his strange growly way. &quot;Ha! Don&#39;t worry shadow girl, I&#39;ll make a true pirate put if ya!&quot; Nothing was better for a sharkin than spend some time in the water.
+
+The sharkin wrapped an arm around the elf shoulders and pulled her away towards the <span class="mention">#pool</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="cockpit.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">17-Jul-20 01:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="733743034822426705" id="message-733743034822426705">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 92 message(s)</div>
+</div>
+
+</body>
+</html>

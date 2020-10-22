@@ -1,0 +1,2961 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - alchemy-lab</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="alchemy-lab.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">The Steel Heart / alchemy-lab</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-19 11:06 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="626615625061629954" id="message-626615625061629954">
+                <div class="chatlog__content">
+                    <div class="markdown"><em><strong>Wesley&#39;s Personal lab</strong></em>
+If you desire how to learn to make mundane potions and poisons, or manage to convince Wesley to teach you to make certain more exotic concoction, or offer to be his guinea pig to test out his potions this is his personal lab/home. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="alchemy-lab.html_Files/e33bd90678c115395268b2a45e8f30d1.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="alchemy-lab.html_Files/e33bd90678c115395268b2a45e8f30d1.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">25-Sep-19 11:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="626617925704482826" id="message-626617925704482826">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">30-Sep-19 03:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="628315743892668434" id="message-628315743892668434">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>When Tsu entered he would see where the light was coming from. In this large room was a glass dome ceiling that allowed the natural light of the sun illuminate the large room, more various books in a library against the wall and an assortment of plants growing under the warm light of the sun. In the center of the lab was a desk covered in bubbling and steaming vials and other mechanical tools</em> <strong>&quot;Welcome to my lab, why don&#39;t you have a seat and i&#39;ll get us some tea.&quot;</strong> <em>Near where the library was a lavished cushioned couch and a small table in front of it.</em> <span class="mention" title="zzo#8946">@zzo</span> <span class="chatlog__edited-timestamp" title="30-Sep-19 03:43 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">30-Sep-19 03:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="628317595992457246" id="message-628317595992457246">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Tsuzuto was taking a deep breath before he&#39;d realized it. The smell of freshly growing plants playing tricks on his senses. His eyes, mostly closed over and obscured by his lashes, had been flung open; their uncanny strawberry shape and deep color glint in the refracted sunlight, trying to take in as much of the scene as they could at once.</em>
+&quot;My...word...&quot; <em>he breaths, then would look to Wesley with his unbridled surprise for a moment.</em>
+&quot;Y-yes, that would be most appreciated, Mr. Wesley...&quot;
+<em>Tsu manages to get ahold of himself, eyes closing back over as he meanders his way to the couch, still quite taken aback.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">30-Sep-19 04:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="628323697744150560" id="message-628323697744150560">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>He&#39;d even nearly forgotten to lay down Kibamaru, his very long wooden sword, so awed was he at the very, very curious meeting of nature growing in the sky...
+That would have been--embarrassing...</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">30-Sep-19 04:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="628327290081902612" id="message-628327290081902612">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Wesley walked to the sink and the counter where the pot of tea was ready, he poured to cups and mixed in a bit of honey and mint leaves in the tea. He then walked back over to Tsu, smirking proudly as he watched the young druid&#39;s shocked and baffled expression. Her let out a small snicker and held out the cup to Tsu</em> <strong>&quot;From the look on you face I&#39;m assuming you rather like my alchemy lab&quot;</strong> <em>After handing him the tea, he sat down on the cushion next to Tsu crossing his legs and resting on arm behind the sofa</em> <strong>&quot;I thought you might appreciate it. I have a strong believe that nature and technology can coexist in harmony and i try to reflect that belief in my lab decor.&quot;</strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">30-Sep-19 04:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="628329316522000403" id="message-628329316522000403">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;...I do not--<em>dislike</em> it...&quot; <em>Tsuzuto replies, graciously accepting the tea and bowing his head in thanks.</em>
+&quot;And you would certainly be the first man I&#39;ve known outside of children&#39;s tales, to grow plants in the sky...&quot;
+<em>The thought was so whimsical that it brought back his smile, and he sipped the tea. Tsuzuto enjoys the sweetened contrast of hot liquid paired with the unique aroma and cool sensation of the mint as it goes down.
+All of a sudden, Tsu&#39;s face resembled that of a man who&#39;d just had a painful thorn removed from his foot, very relieved.</em>
+&quot;I will cheer you on in this endeavor, Mr. Wesley...though I am a trifle curious, as to from where does the power for all of this come from?&quot; <em>He queries, then takes another sip.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 10:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="628593291625103361" id="message-628593291625103361">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Wesley chuckled and he looked up proudly at his &#39;plants in the sky&#39; as Tsu called it, then back at the Yuan Ti&#39;s face as he was smiling. Wesley was confident her had choose correctly when picking a third party supplier. The alchemists brought the tea to his lips and took a generous sip as a smirk curled at the end of his mouth.</em> 
+<strong>&quot;A combination of the arcane, natural magic and technology my friend. Given the proper knowledge and tools it can be combined to make art&quot;</strong> <em>Wesley said confidently as she waved his arms to gesture his lab. He then took another snip of his tea before resting it down in the table and leaning back to rest his head into his palm</em> <strong>&quot;So I have heard you have already volunteered for a job assisting the Steel Hearts. Are you hoping to join us?&quot;</strong> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">01-Oct-19 11:17 AM</span>
+
+            <div class="chatlog__message " data-message-id="628611468744589323" id="message-628611468744589323">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Tsuzuto&#39;s tea cup lowers to rest in his hands, in his lap, and the young man took a moment to ponder the question in earnest. The ambient sciency sounds of the lab took over, and it brought a sort of--dread, to him.</em>
+&quot;...It is a curiosity, this place. I am unsure if staying here, out of my domain, where my Mother and Father are not, is such a good idea...&quot;
+<em>His eyebrows furrow and he looks into his tea cup. A taught energy fills the air.</em>
+&quot;It has become more difficult down there...my parents depend on me, but they may not for very long, should things continue as they are.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 08:56 AM</span>
+
+            <div class="chatlog__message " data-message-id="628938293341585408" id="message-628938293341585408">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Wesley gave Tsu a sympathetic and understanding smile as he reached out and gently patted the man on the shoulder</em>
+<strong>&quot;We tend to grow the wisest when he are hurled into the unknown and come out with experiences. You should stick around here Tsu. You have a lot of potienal and I can make sure you are given the opportunity to support your family and a place to stay. Theres so much you can do with your abilities and I would like see them used to their full potential&quot;</strong> <em>Wesley used his index finger to point to the direction of what looked to be a red wooden door just between the book shelves of the personal library</em> <strong>&quot;I have a spar room if you decidee you&#39;d like to stay. And there is a job board for any financial needs you might have&quot;</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="628938310944817162" id="message-628938310944817162">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="zzo#8946">@zzo</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 09:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="628940939729305646" id="message-628940939729305646">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Tsuzuto followed Wesley&#39;s finger to the door with his eyes, and looks at it. Notes the way the paint saturates with color from the way the sunlight hits it, tiny flecks of shadows from the various plants interposing here and there...It was quite pretty. There is a pronounced moment of silence.</em>
+&quot;--I shall have to ask to contemplate your offer, Mr. Wesley.&quot; <em>Tsuzuto&#39;s head falls in a show of humility.</em>
+&quot;I...apologize, for scrutinizing your boundless hospitality...&quot; <em>His head rises again somewhat, though his chin still pointed at the cup in his lap.</em>
+&quot;Perhaps, may I withhold my decision until the completion of this upcoming, ehm, job?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 09:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="628946838090678272" id="message-628946838090678272">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Welsey just gave him a few more pats on his shoulder.</em> <strong>&quot;Take as much time as you need lad this is an open offer. But think about what I said. There is alot to experience and things to learn if you give yourself a chance to do it&quot;</strong> <em>Wesley leaned back against the cushion. Sipping his tea and taking in a deep breath, enjoying the calming aroma of the plants and that littered his lab. It was a moment of calm and serene silence before they would both hear a loud.</em> <em><strong>SLAM CLUNK CLUNK</strong></em> <em>The sound of the front almost being slammed open by the hindges and heavy metal foot steps creaking the floor above them. Wesley let out an audible sigh as he closed his eyes</em> <strong>&quot;Why must she alwasy send her...&quot;</strong> <em>he took another deep breath before reluctantly hoisting himself up</em> <strong>&quot;Yelp i better go say hi before that damn toy of hers ruins my shop&quot;</strong> <em>he stood up and looked to Tsu and shrugged his shoulders</em> <strong>&quot;please don&#39;t let this next encounter reflect your opinions of us up here in the skies&quot;</strong> <em>Wesley warned with a chuckled before waving for Tsu to follow him back up the steps</em> <span class="chatlog__edited-timestamp" title="02-Oct-19 09:30 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/47a0728e3bb1f5c484e5ddd70a4ea774.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="zzo#8946" data-user-id="565852129483554816" style="">zzo</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 09:42 AM</span>
+
+            <div class="chatlog__message " data-message-id="628949938536972298" id="message-628949938536972298">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>His eyebrows had gone up in surprise at the clatter, sat up pin straight even, trying to identify what in the world could produce such a racket from out of nowhere. Alas, it was to no avail, so Tsuzuto would wordlessly set down the tea cup and stand.</em>
+<em>He grabs up Kibamaru, and holds it like it were a walking stick, then follows Wesley with his curiosity, and trepidation, nearing their peak.</em>
+&quot;As you wish, Mr. Wesley...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">02-Oct-19 09:47 AM</span>
+
+            <div class="chatlog__message " data-message-id="628951214897365004" id="message-628951214897365004">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention">#wesleys-wonders-alchemy-shop</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f217be9b6108aaeec891d728c685f3c7.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="❀Lilia#4390" data-user-id="133123120528752640" style="color: rgb(52,152,219)">Lilia</span>
+
+
+        <span class="chatlog__timestamp">01-Dec-19 11:07 AM</span>
+
+            <div class="chatlog__message " data-message-id="650714567588053002" id="message-650714567588053002">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/0397ff2f34bca9d9496998899def8bce.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Siobhan#4254" data-user-id="243243526911950858" style="">Siobhan</span>
+
+
+        <span class="chatlog__timestamp">30-Dec-19 11:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="661414848667582475" id="message-661414848667582475">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="ShwiggityShwah#6420">@ShwiggityShwah</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Dec-19 11:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="661414902912778240" id="message-661414902912778240">
+                <div class="chatlog__content">
+                    <div class="markdown">Yes </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="661414945065402389" id="message-661414945065402389">
+                <div class="chatlog__content">
+                    <div class="markdown">//i forget why there are 2 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/91f51c60cb032d2623e43934daa9545b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="NervousNoobz#9926" data-user-id="300437718041886732" style="">NervousNoobz</span>
+
+
+        <span class="chatlog__timestamp">30-Dec-19 11:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="661415573925789729" id="message-661415573925789729">
+                <div class="chatlog__content">
+                    <div class="markdown">//one is Wesley shop the other is the actual lab </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/d2f5b580e24e7125c7604f848950cc2c.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ShwiggityShwah#6420" data-user-id="429043165119512582" style="">ShwiggityShwah</span>
+
+
+        <span class="chatlog__timestamp">30-Dec-19 11:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="661416834695823370" id="message-661416834695823370">
+                <div class="chatlog__content">
+                    <div class="markdown">//ahh </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="661416865331019797" id="message-661416865331019797">
+                <div class="chatlog__content">
+                    <div class="markdown">Pox makes her medicine here </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">03-Apr-20 02:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="695708199407583323" id="message-695708199407583323">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 08:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="712457625266290778" id="message-712457625266290778">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>A lovely little dwarf soon made her way inside the lab, eying up...well, everything! Everything that bubbled or boiled, she stares at it with interest.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 10:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="712490364967059486" id="message-712490364967059486">
+                <div class="chatlog__content">
+                    <div class="markdown">The door creaked open causing a ray of light to stab its way through the otherwise dimly lit room. The slight breeze caused by the entry of the... customer... caused the fire-lit torches to flicker. Just a little. At that moment, a pale face popped up from behind a rather messy counter. At least, it would only look messy to the non-scientifically inclined. To Carol, and those of like mind, it was discovery in the making. 
+
+“Can I help you?” Carol asked quizzically, standing fully upright then, one hand moving to smooth her skirt, while the other ruffled her very pale hair. <span class="chatlog__edited-timestamp" title="19-May-20 10:23 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="712490425583403090" id="message-712490425583403090">
+                <div class="chatlog__content">
+                    <div class="markdown">( <span class="mention" title="EpicDuck909#9440">@Sethy (Faith,Jericho,Butcherer)</span> ) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 10:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="712494034257575938" id="message-712494034257575938">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faith jumps a bit in surprise, then quickly swivels her head over. She gently waves, then approaches. She tries to think for a moment...then makes makes a movement like opening a book, pretending to read through it. She then makes motions towards all the potions and potions to be.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 10:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="712494760740388914" id="message-712494760740388914">
+                <div class="chatlog__content">
+                    <div class="markdown">Carol quirked a brow before narrowing her strange-looking eyes. The girl’s pale flesh seemed to glisten in the torchlight, her pale hair shimmering about her pretty, pouty face. 
+
+“Interested in my potions, are you?” Carol then asked. The girl stretched then, cracking her neck, her back. She seemed a bit groggy, as if abruptly woken from a late morning nap. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 11:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="712503707723628564" id="message-712503707723628564">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She nods quickly, looking around for something...unable to find it.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 11:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="712506850112962632" id="message-712506850112962632">
+                <div class="chatlog__content">
+                    <div class="markdown">Carol continued to watch the peculiar dwarf, her eyes squinting due to the extra light filtering into the room. She yawned then and leaned against the table, head propped against her palms. “Anything in particular?” she prodded, starting to wonder why she was the only one speaking. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 11:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="712507954003312720" id="message-712507954003312720">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Oh right, she wouldn&#39;t know! The dwarf suddenly realizes this, then reaches into her pack. Eventually, she hands over a pamphlet with a bow. Let&#39;s see...Her name is Faith, she&#39;s mute for religious reasons...but she loves fun and learning new things!</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 11:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="712509841179934832" id="message-712509841179934832">
+                <div class="chatlog__content">
+                    <div class="markdown">A soft sigh rolled over Carol’s lips, her strange eyes sliding to the paper the dwarf held out for her to read. The girl’s lips moved, while she read. “Faith... mute... religious... learning.” Once done, she stood upright again and peered down at this Faith, lips pursed into a fine, thin line. “So you choose not to talk, eh?” she rambled, starting to pace. “Funny choice, but I suppose it’s your own.” It was clear that the girl was confused, but that she also didn’t seem to mind. “So, Faith,” she continued. “I’m Carol Giligan. Captain Clay has entrusted me with this space on board his ship.” The girl smiled then, her expression far off and dream-like. “So! Potions. I’ve all sorts here.” 
+
+At that, Carol turned on her heels and, in what would appear as a too quick manner, she moved to a nearby shelf. Bottles began clinking, her delicate hands grabbing and holding what she could. “We have healing potions. Antidotes... poisons...” She turned to look back at Faith, gauging her reactions. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 12:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="712519101633003612" id="message-712519101633003612">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>The masked one eyes up each potion, but she seems unimpressed. After enough standing and swaying, she makes more motions. She wanted to make it less awkward, but...she made a circle with her left thumb and index finger, then moved her right index finger into the hole, over and over. She blushes slightly as she stops the motions, then points towards the potions.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 12:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="712522327337730109" id="message-712522327337730109">
+                <div class="chatlog__content">
+                    <div class="markdown">“Really....” Carol states, her interest suddenly piqued. She set down her bottles and grabbed a creaky old stool and leaned against it. “Wished you’d talk more,” she rambled. “Sounds like you’ve some gossip to share.” The girl’s face went dreamy again. “Been a while since I heard about anything interesting. The Clays are eccentric. Sure. But they don’t get out much.” She snorted a bit, as a strange sort of chuckle passed over her lips. Smiling, her teeth seemed to glint a bit in soft fire light, something seemingly amiss though nothing looked strange. “So who’s the guy?” she merely blurted, getting up to head to another shelf—one with potions custom made to prevent... pregnancy. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 12:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="712523083013160991" id="message-712523083013160991">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Faith shakes her head upon hearing guy, trying to think again... She finds a solid surface, then uses a cantrip to place a male symbol. She then crosses it out with a finger, then replaces it with a female symbol. She then motions towards herself, mostly towards her nether regions. Unable to think of a better way to do it, she just places her finger near her crotch, wiggling it about a bit. She seems really embarrassed...</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 12:40 AM</span>
+
+            <div class="chatlog__message " data-message-id="712525087655591997" id="message-712525087655591997">
+                <div class="chatlog__content">
+                    <div class="markdown">“Ohhoohhh!!” Carol exclaimed, clapping her hands and abandoning her search. Once again, she took a seat on the creaky old stool. Sitting there, the girl’s eyes went wide with expectation, her smile growing all the more. “Exotic tastes,” she then said. “I see. There definitely are all sorts on board the Steel Heart. Make no mistake.” She paused a moment. “But Captain Clay seems to pride himself on just how much variety is actually present among the ship’s residents.” 
+
+Carol’s legs swung freely, while she sat there. “So. Okay. Not a guy, but an exotic beauty able to please in more than one way.” She nodded then, bringing a finger up to her lips. Suddenly, she bit down on the tip of it, before releasing the digit, her hand falling gently to her lap. “Still gossip. So, tell me about this person. They special?” she prodded further, curious about the romantic ongoings on board. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 12:42 AM</span>
+
+            <div class="chatlog__message " data-message-id="712525599192645694" id="message-712525599192645694">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She shakes her head with the exotic beauty bit, making the motions towards her own breasts, seeing if that gets it through. Regardless, when asking about if they&#39;re special? She nods quickly and jumps up and down a few times! She&#39;s excited! But as she does, she looks behind her to check out the other potions, since this must be where they keep the more lewd kinds.</em> <span class="chatlog__edited-timestamp" title="20-May-20 12:50 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:03 AM</span>
+
+            <div class="chatlog__message " data-message-id="712530981655150593" id="message-712530981655150593">
+                <div class="chatlog__content">
+                    <div class="markdown">Tapping her chin, Carol wasn’t sure what to think. But it hardly mattered. It was nice to see one of Clay’s guild members actually happy and possibly on the brink of something new and exciting. “Hrmm... well...” she went on, seemingly lost in thought. “I’m guessing you and your lady friend...” she paused a moment to see if she’d gotten it right this time. A part of her hoped the guessing could continue. She hadn’t had this much fun in a while. Plus it was an added perk learning about who liked who. “Have some special things planned. We do have shelves of all sorts of potions.” At that, the girl got back up and gestured that Faith follow her. “We have oils that give your skin a slippery feel. Some are even enchanted to make you feel heat or cold.” She let her fingers brush along the rows of bottles, carefully looking at the various labels. “They tend to be rather popular. We also have your standard oils, good for greasing up anything at anytime. And...” She leaned towards another shelf. “Scented oils for that aromatic atmosphere. Those can really heighten the mood. This one...” She held up a bottle with a drawing of a sprig of lilacs on it. “Is highly sought after. But have a looksee. I’m sure you’ll find what you’re after.” <span class="chatlog__edited-timestamp" title="20-May-20 01:04 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="712531431481409566" id="message-712531431481409566">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She nods softly, gazing upon the contents. She searches quickly, sad she can&#39;t properly ask. She attempts to find a potion that would a woman...different parts.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="712532241506631753" id="message-712532241506631753">
+                <div class="chatlog__content">
+                    <div class="markdown">As Carol watched Faith, she suddenly frowned. It seemed like she was having trouble finding what she was after. And that was just unacceptable by her standards. “Are you... are you perhaps looking for something that allows temporary shape shifting?” she asked, recalling some of the more obscure potions the Clays had in their stores. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:12 AM</span>
+
+            <div class="chatlog__message " data-message-id="712533067507695667" id="message-712533067507695667">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She gives a slight nod, bluntly pointing towards her crotch. She traces along (not against) her womanly parts, then makes that finger wriggling motion again.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="712534720621314089" id="message-712534720621314089">
+                <div class="chatlog__content">
+                    <div class="markdown">“Aha, I see...” Carol said, almost studying the motions Faith was making. The girl nodded her head then and escorted the dwarf to another shelf. She reached up to the top level and pulled a bottle down. The label donned a simple outlined image of a woman beside an arrow pointing away from her. The arrow itself pointed to an almost exact duplicate image of the silhouette, but with one noticeable difference. The words on the bottle clearly read: Sexual Transformation. In fine print, it mentioned how just a few drops upon a sexual organ would allow it to be temporarily transformed into its opposite counterpart. “I believe this is what you seek. Yes?” She handed it to Faith to further inspect. “The transformation lasts about an hour,” she explained. “And a little goes a long way.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:25 AM</span>
+
+            <div class="chatlog__message " data-message-id="712536528919986217" id="message-712536528919986217">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>She looks it over, then nods quickly and happily. She digs through her bag, pulling a coin purse. She then tilts her head as she holds it.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:28 AM</span>
+
+            <div class="chatlog__message " data-message-id="712537228454395975" id="message-712537228454395975">
+                <div class="chatlog__content">
+                    <div class="markdown">Carol just grins, her odd teeth gleaming a bit brighter than was normal. She then held up her hand and shook her head, pale hair swish softly about her face. “No. Not today. Today’s is on the house.” The girl just continued smiling and headed back towards the other side of the counter. <span class="chatlog__edited-timestamp" title="20-May-20 01:28 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="712537469337206875" id="message-712537469337206875">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Oh absolutely not, she gets interrupted by a hug from the adorable dwarf! She even bounces all the while!</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="712538243056271371" id="message-712538243056271371">
+                <div class="chatlog__content">
+                    <div class="markdown">“Oh! Oh my...” Carol suddenly finds herself in the tight embrace of Faith’s. She had to admit, the charming dwarf was a lot stronger than she’d appeared. “Well, you’re quite welcome. I’m glad I could help and you’re welcome back at any time.” At that, she hugged Faith back. <span class="chatlog__edited-timestamp" title="20-May-20 01:33 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44567aedeb5140cfdd77e60e37032f83.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="EpicDuck909#9440" data-user-id="269891878722207754" style="color: rgb(155,89,182)">Sethy (Faith,Jericho,Butcherer)</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="712539212540543097" id="message-712539212540543097">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Yay for hugs! Once she finishes up, she gives an excited wave, and skips off.</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-May-20 01:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="712539714313256983" id="message-712539714313256983">
+                <div class="chatlog__content">
+                    <div class="markdown">Carol, still grinning, waves farewell to Faith. Once the dwarf leaves, she cheerily steps back behind the counter and yawns, slowly sliding back into the pile of blankets she kept stashed there for much needed naps. It was rough working these day shifts... when your biology beckoned you rise in the moonlight. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">20-May-20 01:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="712539738585956423" id="message-712539738585956423">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 01:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="729392590042169416" id="message-729392590042169416">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot entered the Alchemy Lab from the event, having promised to bring a pet with her. A familiar, rather. Hopefully, there was something here that could be of use to her.
+She waited by the doorway to wait for someone to notice her. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 02:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="729403293394272258" id="message-729403293394272258">
+                <div class="chatlog__content">
+                    <div class="markdown">The door slowly creeps open slightly to prevent outside sunlight outas if and carol  peered out &quot;can I help you please?&quot; She ask, her voice was soft like morning mist. Carol looked like she sleeping. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 03:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="729418368968294462" id="message-729418368968294462">
+                <div class="chatlog__content">
+                    <div class="markdown">“Yes.” Margot said. “Do you have anything to help me make a familiar?”
+Margot took her dark tome out.
+“I have the list of materials required in here that I can read to you, if you need a reminder.” She explained. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 05:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="729442230334652467" id="message-729442230334652467">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Come in, it&#39;ll be rude of me to do this through the door&quot; she said letting margot in. The room was dimly lit with a few candles, alchemical tintures and supplies were in labled bottles. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">05-Jul-20 05:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="729449698955624449" id="message-729449698955624449">
+                <div class="chatlog__content">
+                    <div class="markdown">Oh. Right.
+Margot walked in revealing her gloomy appearance.
+“As I said before, the tome I have here could help us find me a familiar, if you need it.” The Half-Elven Wizard said. “I just need the materials to cast the spell.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 03:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="729785897293447229" id="message-729785897293447229">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You need incense and charcoal correct?&quot; carol asked &quot;do you need a certain amount?&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 06:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="729824920481169439" id="message-729824920481169439">
+                <div class="chatlog__content">
+                    <div class="markdown">“And herbs.” Margot said, reading from the abyssal-written book. “I need only enough for 10 gold’s worth.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 06:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="729826335782076457" id="message-729826335782076457">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Any kind of herbs? I have so many&quot; she joked while grabbing a step stool to collect the charcoal and incense </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 10:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="729891164056191036" id="message-729891164056191036">
+                <div class="chatlog__content">
+                    <div class="markdown">“Just your best.” Margot said. “And then a brass brazier on top of it all.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 12:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="729924157352968233" id="message-729924157352968233">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Heres some nice smelling herbs&quot; she said  placing the herbs with the components. &quot;Brass brazier? I think you may need to check with hope, or rikka. I think i might not have one, ill have to check.: </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 09:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="730046999482728459" id="message-730046999482728459">
+                <div class="chatlog__content">
+                    <div class="markdown">“Well, check first.” Margot said. “If you don’t have it, I’ll just go to one of those two places to get one.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 07:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="730199330010562564" id="message-730199330010562564">
+                <div class="chatlog__content">
+                    <div class="markdown">In a unnatural speed, she searched the lab before producing the brazier &quot;here you go&quot; she said in a perky tone </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 08:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="730214880937771068" id="message-730214880937771068">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot smiled. Finally, a good opportunity to torch these materials in the brazier and have a little bat friend come out of the fire.
+“I can take things from here.” Margot said. “I don’t intend to put on a show, so I’ll just do it here.”
+She took the brazier, set it down, and put the needed materials in. She then pointed a finger upwards to create a a purple wisp of fire.
+“Can’t be a show without a large audience.” Margot said. She then set the materials on fire with a Fire Bolt. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">07-Jul-20 11:30 PM</span>
+
+            <div class="chatlog__message " data-message-id="730264398077362197" id="message-730264398077362197">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;oh please don- oh too late&quot; she said with a sigh as the wizard started the ritual &quot;the lab was just cleaned last night. its gonna leave a strange smell&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 12:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="730282412474499115" id="message-730282412474499115">
+                <div class="chatlog__content">
+                    <div class="markdown">“Oops.” Margot said. She then sat down.
+“Well, time to start the ritual.” Margot continued. Dark spell circles emanated from the brazier as magic did its work to create the familiar. With her tome in her left hand, and an outstretched palm in her other, her Abyssal chantings continued to drive the ritual along. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 06:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="730554172671262722" id="message-730554172671262722">
+                <div class="chatlog__content">
+                    <div class="markdown">carol frowned as Margot began her ritual, she calmly left and returned with a wine glass with crimson liquid. the alchemist watched the ritual with annoyance </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 06:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="730555678409883699" id="message-730555678409883699">
+                <div class="chatlog__content">
+                    <div class="markdown">“I’ll be a considerate person today and likely clean this up for you.” Margot said as she continued the ritual. “And maybe the smell as well.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">08-Jul-20 08:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="730578663430422548" id="message-730578663430422548">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;thank you&quot; she said sipping on the glass. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">09-Jul-20 07:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="730935050824056964" id="message-730935050824056964">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot’s ritualistic flames, after some time, started to rise up and turn red.
+“How this magic works is that when a Fey is on the way, the flames turn pink.” Margot explained. She was bored. “Celestials, gold. These red flames beckon upon a fiend to come into my hands. Just a little thing my teacher decided to do with his version of the spell.”
+Margot looked up from the ritual.
+“By the way, can I have some of that wine when I’m done, too?” Margot asked the vampire. “I need a little spiking up to make today less boring. And I had to deal with a flirtatious Tiefling at the party going on right now.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">12-Jul-20 03:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="731958921853665402" id="message-731958921853665402">
+                <div class="chatlog__content">
+                    <div class="markdown">Carol remained silent as she was magexplained with a simple spell &quot;heh, this is the type of wine you shouldn&#39;t really drink&quot; she said </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">12-Jul-20 04:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="731967001173557300" id="message-731967001173557300">
+                <div class="chatlog__content">
+                    <div class="markdown">“Why not?” Margot asked the wine wielder. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">12-Jul-20 05:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="731985621794553957" id="message-731985621794553957">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Its blood&quot; she said in a deadpan tone </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">12-Jul-20 07:18 PM</span>
+
+            <div class="chatlog__message " data-message-id="732013016953913404" id="message-732013016953913404">
+                <div class="chatlog__content">
+                    <div class="markdown">“Oh.” Margot said, disappointed. “Do you have any actual wine around, though?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">13-Jul-20 05:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="732344023590895650" id="message-732344023590895650">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;second shelf to your right&quot; she said pointing to a bottle marked with a dragon guarding grapes </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">13-Jul-20 05:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="732352961744994424" id="message-732352961744994424">
+                <div class="chatlog__content">
+                    <div class="markdown">“Good.” Margot said. “Also, ritual’s done.”
+As if on queue, the pyre flared up one last time before it simmered to embers and sparks. Margot looked around the brazier to find a slumbering male bat behind it. He mostly looked like a fruit bat, but the fur was far darker, causing the innocent eyes to blend in. He then woke up after a few seconds, crawling onto his master’s hand when she held it out beside it.
+“I think I’ll call him Libra.” Margot said. “Kind of just came up with the name, no real meaning.” </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="alchemy-lab.html_Files/image0.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="alchemy-lab.html_Files/image0.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">13-Jul-20 06:14 PM</span>
+
+            <div class="chatlog__message " data-message-id="732359330661269564" id="message-732359330661269564">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;congrats on your sky puppy, he&#39;s a cutie&quot; she said </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">13-Jul-20 08:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="732400074499293226" id="message-732400074499293226">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot tries to get Libra to hang from her finger, and he does just that. She smiles. When she looks back to the vampire, she reverts back to her neutral face.
+“So, is there a specific method to clean this mess?” Margot said. “I will Prestidigitate it away, if I can.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">14-Jul-20 07:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="732743470170767451" id="message-732743470170767451">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;You can or grab a towel and bucket&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">14-Jul-20 07:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="732746761747300452" id="message-732746761747300452">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot went to work using her Prestidigitation to clean up the mess, letting Libra crawl on her left shoulder.
+“You know, I have heard of many undead through my necromanctic studies, but I have heard little of vampires.” Margot said. “That is, if you are one. The blood seems to say so.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 08:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="733119316740014111" id="message-733119316740014111">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;No, I&#39;m just allergic to sunlight and enjoy the taste of blood&quot; she said sarcastically. &quot;Yes I am a vampire, if you havent notice  most of the crew are undead&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 08:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="733124326500597820" id="message-733124326500597820">
+                <div class="chatlog__content">
+                    <div class="markdown">“I have.” Margot said as she continued cleaning. “I probably should have realized that there could have been a vampire or two around. But you definitely seem to be treated differently from other undead in the Hermitage I came from. Necromancy there mostly had to do with zombies, ghouls, wights, and the like. And there were mentions of lichhood, too. What separates a vampire from those that Necromancers would mostly ignore them?” <span class="chatlog__edited-timestamp" title="16-Jul-20 07:32 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 02:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="733202856647065682" id="message-733202856647065682">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I&#39;m not sure, most don&#39;t think of obvious solutions&quot; she replied while silently greatful of margot not just opening a window to air out the room. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 09:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="733307591387643964" id="message-733307591387643964">
+                <div class="chatlog__content">
+                    <div class="markdown">“More obvious solutions to what?” Margot asked. She continued to Prestidigitate the mess away before opening the window to air the smell out. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 04:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="733414354040520776" id="message-733414354040520776">
+                <div class="chatlog__content">
+                    <div class="markdown">Carol quickly moved to avoid the sunlight &quot;the easiests solution to complicated problems&quot; she said </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 05:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="733433141531901981" id="message-733433141531901981">
+                <div class="chatlog__content">
+                    <div class="markdown">“And what complicated problems do you speak of?” Margot asked. She sighed after feeling the annoyance in her head.
+“I’m sorry, Carol.” Margot apologized. “I just get frustrated when I don’t have a clear vision of things. Do you know of what I speak?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 05:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="733436290967797791" id="message-733436290967797791">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Yes, to properly answer your question from before. Necromancer can&#39;t control vampires, unlike the undead they create and control. Vampires are senient and have power&quot; she said </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 05:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="733437464579932213" id="message-733437464579932213">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot had a curious question to respond to this in mind.
+“So, would becoming a Vampire make you a more powerful Necromancer?” Margot asked. “Becoming a powerful Necromancer was one of my goals coming onto this ship. What would I have to sacrifice other than becoming undead?” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 05:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="733437790255317029" id="message-733437790255317029">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Your humanity&quot; she said flatly </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 05:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="733439263630426265" id="message-733439263630426265">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot was silent for a second.
+“What do you mean, my humanity?” She asked the vampire. She now assumed that, yes, it would make her a powerful Necromancer. But what part of her humanity would she sacrifice?
+“Well, better question,” Margot continued, “What part of humanity would I lose? I am only half human, but that’s still important.” </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/a0f6d24f9352776f112436cca51fe199.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Azure the Scale Tipper#0819" data-user-id="560856045212401685" style="color: rgb(52,152,219)">Az (Cheer/Margot/Lott)</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 08:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="733484678576865284" id="message-733484678576865284">
+                <div class="chatlog__content">
+                    <div class="markdown">Margot then holds her finger up, as though she was preemptively hushing the vampire alchemist in her place.
+“Actually, don’t answer that.” Margot said. “I can find that myself. In the library. It was good talking with you, but I came here from the wedding. So, if you’ll excuse me...”
+Then, she walked off with Libra on her shoulder, leaving everything as is. Her destination today was now the <span class="mention">#mingling</span> area reserved for the wedding. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">16-Jul-20 11:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="733528658274156574" id="message-733528658274156574">
+                <div class="chatlog__content">
+                    <div class="markdown">Carol struggled to shut the windows &quot;rude&quot; she muttered </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">16-Jul-20 11:41 PM</span>
+
+            <div class="chatlog__message " data-message-id="733528669703766046" id="message-733528669703766046">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">26-Jul-20 06:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="737076277504114758" id="message-737076277504114758">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>A yellow hoodling that belongs to a certain Lewd Overlady would Approach the alchemist lab, carry a hammer a nail and a piece of Parchment. Said Minion goes over to the door of the alchemy lab and nails the piece of paper to the door before running away into the darkness.</em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="737077728926367764" id="message-737077728926367764">
+                <div class="chatlog__content">
+                    <div class="markdown">The writing on the Paper.
+<div class="pre pre--multiline nohighlight">To the Alchemists and Artificers of Steel Hearts, the Noble Lady Delielah requests your appearance in &lt;#618156916664958980&gt; to discuss a recent technological discovery. The Mistress is looking for bright sparks and inventive minds to reverse engineer the technology she witnessed.</div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">27-Jul-20 06:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="737437153646215228" id="message-737437153646215228">
+                <div class="chatlog__content">
+                    <div class="markdown">Rok walked up the alchemy lab to practice his alchemist skill to forget the scene that happen with margot &quot;the hell is this?&quot; the half orc said tearing off the parchment &quot;where is #618156916664958980?&quot; he said </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/ebd6435d0f1b630f0f4073b4cbb01fa4.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="bayani0#2572" data-user-id="636678034149343232" style="color: rgb(155,89,182)">Pendragon, Rok, Hero</span>
+
+
+        <span class="chatlog__timestamp">27-Jul-20 07:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="737455931754938559" id="message-737455931754938559">
+                <div class="chatlog__content">
+                    <div class="markdown">The blood hunter puts the post back up and leaves it alone while complaining like an old man <span class="chatlog__edited-timestamp" title="27-Jul-20 07:55 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">27-Jul-20 07:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="737455944056701038" id="message-737455944056701038">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/2ae791d61c7c5a426039d276cd8fc49f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ThatoneJinx#7752" data-user-id="151750802136891392" style="color: rgb(52,152,219)">Delielah/Abby</span>
+
+
+        <span class="chatlog__timestamp">28-Jul-20 10:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="737676579756572764" id="message-737676579756572764">
+                <div class="chatlog__content">
+                    <div class="markdown">( <span class="mention" title="bayani0#2572">@Pendragon, Rok, Hero</span> <span class="mention">#planning-room</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 02:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="738461574661931148" id="message-738461574661931148">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>after many hours of sleeping and researching the new surroundings, Volya took a step into the alchemy lab. Searching the area trying to find some of the plants and other ingredients that he had seen in the books he had read.</em>
+
+&quot;Just a couple of ingredients and I&#39;m sure I can make pain killers easily...damn this common, shit&#39;s so hard to read sometimes.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 02:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="738461724424011938" id="message-738461724424011938">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker moonwalks very badly into the alchemy lab. Not even ironically- they&#39;re the only one beside Volya on this God forsaken planet who knows all those dead ass memes, and as far as they&#39;re aware, he isn&#39;t in here. 
+&quot;Peritt&#243;s I <em>will</em> teach you to dance to Michael Jackson songs one of these days. Mark my words. It&#39;ll happen.&quot;
+The Griffin rolls her eyes and, being the first to see the artificer, chirrups and walks over to him casually. She sniffs his odd collection curiously. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 03:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="738472807809286144" id="message-738472807809286144">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Oh Peri, aren&#39;t you a...smooth criminal.&quot;
+
+<em>Volya shifts his head to Parker and makes perfect eye contact with the Bard, Volya for once actually having two eyes, despite one being a prosthetic</em>
+
+&quot;Aren&#39;t you cool. Moonwalkin&#39; and shit. I wish I could do that, but I have two left feet when it comes to dancing. By the way, just in case, did you take medication before you were sucked away here? I could try to make some for you. Currently I&#39;m trying make what is essentially ibuprofen but it won&#39;t damage your liver if you take too many, I&#39;m sure this could come in use if I have to get roughed up.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 03:38 PM</span>
+
+            <div class="chatlog__message " data-message-id="738480557612073091" id="message-738480557612073091">
+                <div class="chatlog__content">
+                    <div class="markdown">Parker stops moonwalking immediately, face turning red as they laugh a little awkwardly. &quot;Oh. Uh, thanks. I don&#39;t really dance but it&#39;s kinda fun to be dumb sometimes.&quot; They give him an odd look. Well, he hasn&#39;t had as much opportunity to get accustomed to magic as the bard, so that tracks well. &quot;I mean. I guess if there&#39;s no healing potions around, that&#39;d be a good idea. I carried around some migraine meds, but it was cuz I was constantly on my phone. Hasn&#39;t bothered me for months.&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">30-Jul-20 04:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="738494927347908658" id="message-738494927347908658">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;I guess that&#39;s some good news, huh.&quot;
+
+<em>He grabs the note inspecting it closely</em>
+
+&quot;For Artificers...that&#39;s like magic and tech right? Take a look at this.&quot;
+<em>He hands the note to Parker and continues to search for ingredients as they look over it</em> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 12:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="738621794335850539" id="message-738621794335850539">
+                <div class="chatlog__content">
+                    <div class="markdown">&quot;Yeah,&quot; they nod and take it. &quot;Might be worth seeing what Delielah found, and I already said I&#39;d introduce you to the Miss... Planning room? Eh, the ship will show the way. I think you can put your things away for now, nobody will bother them. Miss will want to meet you sooner than later.&quot; 
+The bard certainly seems to like this woman a lot. It&#39;s hard to tell what exactly makes her worth the fuss, but they&#39;re quite introduce the two. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/44848579980a32870a97a9b965bb26bb.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jade.Nav#9522" data-user-id="352900473348554762" style="color: rgb(52,152,219)">Jad (: (Armi, Kalas, Volya)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 12:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="738801256000127128" id="message-738801256000127128">
+                <div class="chatlog__content">
+                    <div class="markdown"><em>Volya throws what he collected back up on the shelf and takes a mental note of what it was, before picking up Peritt&#243;s and carrying her like a cat</em>
+
+&quot;Lead the way Parker, I&#39;m ready for some real work.... hopefully I&#39;ll get paid...&quot; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/7f135d7f24e45110b94ab480084d7fcd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Reese-A-Rooni#8514" data-user-id="533381905358258178" style="color: rgb(52,152,219)">Reese (Thrin✨Tomara✨Parker)</span>
+
+
+        <span class="chatlog__timestamp">31-Jul-20 08:33 PM</span>
+
+            <div class="chatlog__message " data-message-id="738917411503341652" id="message-738917411503341652">
+                <div class="chatlog__content">
+                    <div class="markdown">They nod and laugh at Peritt&#243;s, all squished into the artificer&#39;s arms, and make their way toward wherever Delielah happened to be in the moment. Which happened to be the <span class="mention">#planning-room</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="alchemy-lab.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">31-Jul-20 09:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="738936656979034252" id="message-738936656979034252">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 106 message(s)</div>
+</div>
+
+</body>
+</html>
