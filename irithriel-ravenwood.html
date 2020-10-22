@@ -1,0 +1,1442 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - irithriel-ravenwood</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="irithriel-ravenwood.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Character Profiles1 / irithriel-ravenwood</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-19 07:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="621843343621488640" id="message-621843343621488640">
+                <div class="chatlog__content">
+                    <div class="markdown">—Information—
+<strong>Character sheet Url:</strong> <a href="https://www.dndbeyond.com/profile/merrylaine/characters/10887261">https://www.dndbeyond.com/profile/merrylaine/characters/10887261</a>
+<strong>Name:</strong> Irithriel Ravenwood
+<strong>Orientation:</strong> Heterosexual 
+<strong>Class:</strong> Glamour Bard
+<strong>Race:</strong> Mark of the Shadow Elf
+<strong>Level:</strong> 3
+<strong>Armor Class:</strong> 14
+<strong>HP:</strong> 24
+<strong>His/Her Kinks:</strong> BDSM (submissive, D/lg), being tied up/immobilized, sensory play (blindfolds, heat/ice), marking (bite/scratch mark, light bruises, possibly a tattoo), vaginal (receiving), anal (receiving), oral (giving/receiving), rough sex, gentle sex, consensual, monogamy, romance.
+<strong>His/Her Kinks Limits:</strong> Scat, most bathroom-related stuff, vomit, hyper-anything, true non con, face slapping, cheating, poly/nonmonogamy.
+<strong>Non Con Limit (y/n)</strong>: Yes, will only use non con as a plot device, will not write out full blown real rape situations, consensual non con is fine. 
+<strong>PvP In Game (y/n)</strong>: Yes, so long as there is no character death. 
+<strong>His/Her PvP Limits</strong>: No character death; do not take something ic and suddenly make it ooc. 
+<strong>Gender:</strong> Female
+<strong>Age:</strong> 50
+<strong>Alignment:</strong> Chaotic Good
+<strong>Personality Traits:</strong> Sweet, charming innocence. She has no concept of what true danger is and finds beauty in almost everything. She’s also quite curious and mischievous, and therefore has a penchant for sneaking around in the shadows as a means to expose herself to new and wonderful things she hadn’t been allowed to experience under the watchful eyes of her parents. <span class="chatlog__edited-timestamp" title="04-May-20 09:51 AM">(edited)</span></div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(18,18,18,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.dndbeyond.com/profile/merrylaine/characters/10887261">
+                                                    <div class="markdown">Irithriel Ravenwood</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">D&amp;D Beyond Character Sheet</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="irithriel-ravenwood.html_Files/636906806454343507.jpeg">
+                                            <img class="chatlog__embed-thumbnail" src="irithriel-ravenwood.html_Files/636906806454343507.jpeg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="621843459489398821" id="message-621843459489398821">
+                <div class="chatlog__content">
+                    <div class="markdown">—Backstory—
+<strong>Backstory:</strong> Irithriel grew up in the Feywild, the daughter of elven nobility. She lived a carefree life, given free rein to roam anywhere she chose. The capricious girl found comfort in music, listening to all the skilled musicians play and entertain as often as she could. She became utterly enamored and, while her family spent most of its time on matters of safety and security, she would run wild and play, her days filled with music and dance and even some magic. She became known as the ‘Wild Princess’ among the people and as a ‘nuisance’ to those at court. Though she was beloved by her family, they became frustrated with her lackadaisical ways, always putting things off for tomorrow or another day entirely. One day, they were traveling to a neighboring kingdom when she accidentally slipped and fell and magically transported through the crossing—the portal between the Feywild and the mortal world. Lost and unable to get home, she decides to make it on her own, proving she’s got more worth than the stuffy court gave her credit for. 
+<strong>Occupation:</strong> None yet, merely wandering. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621843514082328607" id="message-621843514082328607">
+                <div class="chatlog__content">
+                    <div class="markdown">—Appearance—
+<strong>Height:</strong> 5’0”
+<strong>Weight:</strong> 105lbs
+<strong>Picture or face claim:</strong> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="irithriel-ravenwood.html_Files/image0.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="irithriel-ravenwood.html_Files/image0.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-19 08:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="621869331894239242" id="message-621869331894239242">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Consumables Tracker:</strong></u>
+• <s>75gp</s> <s>475gp</s> <s>430gp</s> <s>429gp</s> 379gp (200gp belongs to Mors)
+• 45hp
+• 20 arrows
+• 5 candles
+• 5 days rations
+• Filled waterskin (currently filled with water)
+• 1 bottle of Pox’s potion
+• 1 vial antitoxin <span class="chatlog__edited-timestamp" title="27-Apr-20 12:37 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621869454913175591" id="message-621869454913175591">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Friends, Acquaintences, etc.:</strong></u>
+<em>Has been introduced in some way to-</em>
+• Cassius Clay - invited her into the Steel Hearts promising her experiences that she believes will earn her favor once more with her family and the Feywild.
+• Carmine Lilly Clay - unsure yet; figures she’s a Clay so most likely someone to trust. 
+• Mimi - unsure yet; likes that she speaks Sylvan. 
+• Zzo’olo - unsure yet. 
+• Efra - unsure yet.
+• Mors - despite his sour and cross exterior, she sees a sad man needing to laugh, smile and find contentment; she likes that he seems fond of her singing; she finds his little minions to be absolutely adorable; he calls her ‘little moon’.
+• Juma - is impressed by her skills and hopes to know her better. 
+• Warden (and Phantom) - is impressed by his skills; is enamored by the sweet relationship he has with his pet dog, Phantom; hopes he might become good friends with her Mors; thinks Phantom is darling. 
+• Carric - has a lot of respect for the wizard and is impressed with his skills both magical and scholarly.
+• May - unsure, doesn’t get why she is so defensive. 
+• Alex - unsure, thinks he should speak up more. 
+• Copper - finds her amiable. 
+• Jonny - finds him amiable and is impressed with his willingness to help out his guild mates without any expectations for reward.
+• Lonehunter - finds him amiable and is pleased he gets along so well with Mors.
+• Shadja - too early to tell yet. 
+• Vivian - too early to tell yet. 
+• Delielah - too early to tell yet. <span class="chatlog__edited-timestamp" title="16-May-20 06:07 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621869555618152448" id="message-621869555618152448">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Long Term Goals:</strong></u>
+• Prove to herself and her family that she actually has worth.
+• To be loved and accepted for who she is.
+• To learn everything she can about Mors and to be his other half while achieving his noble goals that have now also become her own goals.
+• To plan her wedding with Mors. <span class="chatlog__edited-timestamp" title="06-Apr-20 05:01 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621869633523417089" id="message-621869633523417089">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Short Term Goals:</strong></u>
+• To settle in on board the Steel Hearts. 
+• To become acquainted with others on board the Steel Hearts.
+• To make some flower jewelry/accessories for Juma. 
+• To get treats for Phantom. 
+• To ensure her Mors and Warden become good friends/buddies. <span class="chatlog__edited-timestamp" title="06-Nov-19 03:17 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621869745263869953" id="message-621869745263869953">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>OOC History Reveals:</strong></u>
+• She is originally from the Feywild, born into a noble family. 
+• Her family couldn’t accept her for who she was, always disappointed with her and focusing on her flaws and shortcomings.
+• She hopes her family one day can just love her for who she is.
+• Her family abandoned her.
+• Her older brother’s name was Vaegon (Vae); her family had planned for her to marry Evindal (son of another favored noble family who was close to her own).
+• Evindal was not a good person. <span class="chatlog__edited-timestamp" title="17-Oct-19 03:28 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621869846283681792" id="message-621869846283681792">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>IC History Reveals:</strong></u>
+• She loves to sing and dance and play. 
+• She is very curious in nature. 
+• She loves when others are happy and smiling.
+• She loves sweets and human fairytales.
+• She lost her virginity to Mors and is now his mate.
+• Her older brother is Vae (short for Vaegon).
+• Evindal was her primary dance partner and hopeful intended. She did not love him. <span class="chatlog__edited-timestamp" title="17-Oct-19 03:37 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621870010960183312" id="message-621870010960183312">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>In Game Acquired Items:</strong></u>
+• Clothes, cold weather
+• Studded Leather Armor (purchased for 45gp, see PHB), 15 AC
+• Weavers Tools (purchased for 1gp, see PHB)
+• Longbow (purchased for 50gp, see PHB)
+• 5lbs webbing (for making spider silk)
+• Pair of sending stones
+• Ring of Spell Storing <span class="chatlog__edited-timestamp" title="27-Aug-20 01:47 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="621870382479179813" id="message-621870382479179813">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Relationships:</strong></u>
+• She is the mate of <span class="mention">#mors</span>.
+• She is pregnant with <span class="mention">#mors</span> child (both are aware and know it’s a son; chosen name - Aeran).
+• She and <span class="mention">#mors</span> have gained a pet fox named Fen. He originally lived in the <span class="mention">#gardens</span> . <span class="chatlog__edited-timestamp" title="07-Jul-20 08:21 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">12-Sep-19 09:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="621880799154929699" id="message-621880799154929699">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Learned Information:</strong></u>
+TBD </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 01:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="637349633122762762" id="message-637349633122762762">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Potential NPCs:</strong></u>
+• Vaegon - Irithriel’s older brother; elitist, strategist, fighter, thinks his sister is a nuisance; abused his sister and was the one who ensured she was left behind.
+• Evindal - son of elven nobles who had been intended for Irithriel; elitist, bully, fighter; abused Irithriel. <span class="chatlog__edited-timestamp" title="08-Nov-19 02:35 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">10-Nov-19 07:57 AM</span>
+
+            <div class="chatlog__message " data-message-id="643056594086658078" id="message-643056594086658078">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Current RP Status:</strong></u>
+• On airship - <span class="mention">#med-bay</span>; Self DM - NA.
+• On job <s>16, 24</s>
+• In bedroom - Free.
+• Event - NA. <span class="chatlog__edited-timestamp" title="15-Sep-20 09:47 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">28-Nov-19 08:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="649763988548222988" id="message-649763988548222988">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Level Gains:</strong></u>
+• Level 4 - Magic Initiate (Bard) Feat; 31hp
+• Level 5 - gained True Strike cantrip, Cure Wounds spell, Clairvoyance level 3 spell; 38hp
+• Level 6 - gained Dispel Magic level 3 spell; Countercharm; Mantle of Majesty; Font of Inspiration; 45 hp
+• Level 7 - gained Charm Monster level 4 spell; 52 hp
+• Level 8 - gained Pass Without Trace level 2 spell; Ability Improvement: Cha +2; 59 hp <span class="chatlog__edited-timestamp" title="30-Aug-20 09:04 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">05-Dec-19 11:48 AM</span>
+
+            <div class="chatlog__message " data-message-id="652174375537344536" id="message-652174375537344536">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Weavers Tools:</strong></u>
+<em>also posted in <span class="mention">#approved-homebrew-archive</span></em> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="652174395174944809" id="message-652174395174944809">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="irithriel-ravenwood.html_Files/WeaversTools.pdf">
+Attachment: WeaversTools.pdf (2.61 MB)                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">24-Apr-20 12:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="703282000420798554" id="message-703282000420798554">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Visual References:</strong></u>
+
+<a href="https://www.pinterest.com/merediths0131/irithriel-ravenwood-dd-5e/?invite_code=2323a3c1a19349e08cf220cc009febf8&sender=650137033616046401">https://www.pinterest.com/merediths0131/irithriel-ravenwood-dd-5e/?invite_code=2323a3c1a19349e08cf220cc009febf8&amp;sender=650137033616046401</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.pinterest.com/merediths0131/irithriel-ravenwood-dd-5e/?invite_code=2323a3c1a19349e08cf220cc009febf8&amp;sender=650137033616046401">
+                                                    <div class="markdown">32 Best Irithriel Ravenwood - D&amp;D 5e images | Fantasy photography, ...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Explore merediths0131&#39;s board &quot;Irithriel Ravenwood - D&amp;D 5e&quot; on Pinterest. See more ideas about Fantasy photography, Ethereal photography and Long sleeve lace gown.</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="irithriel-ravenwood.html_Files/6aaa1f5acfb7ca54174e76be98e72d0d.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="irithriel-ravenwood.html_Files/6aaa1f5acfb7ca54174e76be98e72d0d.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-May-20 03:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="713466837148499980" id="message-713466837148499980">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>The Ravenwoods History:</strong></u>
+<em>(contains spoilers)</em>
+
+<span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">The Ravenwoods married into the Phiarlan family. The most notable Ravenwood family included the daughter of the founding Phiarlan Patriarch and a noble high elf considered worthy to breed with those marked by the shadow. Secret plots brewed to one day set this particular pair upon the Phiarlan Throne, albeit secretly, so as not to anger the currently ruling Baron Elvinor Ellorenthi. The pair had two children--Vaegon and Irithriel. Vaegon had all the features and manner of his Phiarlan family (white/blonde hair, pale skin, gray/blue eyes), and while Irithriel also bore the features of her noble Phiarlan family, she was considered more of a wildling, at least by those attending court.</span></span>
+
+<span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">Vae was groomed to one day lead the Phiarlan family, several hopeful to see him take back the power and sit on the throne. Oblivious to politics, Irithriel roamed wild, learning magic, dance, music, and art. Due to Irithriel’s growing disposition as one considered a nuisance and laughing stock of the Phiarlan name, her parents quickly made arrangements to marry her off to someone from the Shol family--Evindal. Evindal was also best friends with Irithriel’s older brother, Vae, the two men always bullying her and tormenting her at every turn. Evindal had originally accepted the betrothal to the one nicknamed ‘the wild princess’ since his own family supported Vae taking the throne, thinking such a match would secure them power. But eventually Evindal could no longer bear the whispers, so he renounced the engagement, angering the girl’s entire family including her brother. For, it would fall on Vae to take care of her should she not find a suitable husband and continue breeding their family bloodline and the worry was that it would be hard for him to marry and bear heirs with such a sister underfoot.</span></span> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="713466850041659463" id="message-713466850041659463">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">It did not take long for Vae to come up with a plan to rid the family of Irithriel and her reputation. When called to gather by the High Elves of the Feywild (as a war between the Seelie and Unseelie Courts was brewing, all manner of elves and sylvans caught in the crossfire), he seized the opportunity to abandon his sister mid journey. Being naive and very unaware of things, the girl ended up lost and accidentally crossing into the Material Plane, finding herself in the Kingdom of Eire.</span></span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">28-Jun-20 04:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="726890886859980961" id="message-726890886859980961">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Milestones:</strong></u>
+• Major - In a romantic relationship with <span class="mention">#mors</span>; awarded by @ShwiggityShwah#6420
+• Major - Defeating the boss without suffering injuries on job 16; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span> 
+• Minor - Defeated wolf pack on job 16; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• Minor - Making Taff help and for making the puzzle easier on job 16; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• Minor - Solving the mountain challenge on job 16; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span> 
+<u><strong>ACHIEVED LEVEL 4</strong></u>
+• Minor - Helping Taff to figure out her magic on job 16; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• Major- Job16 completed, the party managed to successfully complete the quest; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span> 
+• Minor - The party managed to deliver Taff uninjured for her wedding on job16; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• 4 milestones - first checkpoint on job 24 (fought wild apes, fought poisonous spiders, helped crocs get back their babies, attempted communication with green minions and found clues they might be connected to Mors); awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+<u><strong>ACHIEVED LEVEL 5</strong></u>
+• 2 milestones for completing job 24; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• Recruiting a group to rescue <span class="mention">#mors</span> !
+• Finding a sewing mentor in <span class="mention">#warden</span> !
+• Finding out her pregnancy and the sex of the baby in <span class="mention">#med-bay</span> !
+<u><strong>ACHIEVED LEVEL 6</strong></u>
+• 1 For showing a new guild mate around and introducing him to more of his kind! Awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• 1 for beating the battle master’s deathly challenge. Awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• 1 for sharing a meal and sharing their past with fellow guild mates in <span class="mention">#mess-hall</span> 
+• 1 for planning and getting ready for the wedding and planning their future with <span class="mention">#mors</span>  in <span class="mention">#unisex-baths</span> / <span class="mention">#gardens</span> 
+• 1 for helping <span class="mention">#mors</span> with his new powers and finding a new friend/pet in the <span class="mention">#gardens</span> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="726890936113692822" id="message-726890936113692822">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Milestones (contd):</strong></u>
+<u><strong>ACHIEVED LEVEL 6 (contd)</strong></u>
+<strong>• 1 for playing <span class="mention">#carol-giligan-alchemist</span> in <span class="mention">#alchemy-lab</span></strong> (DM)
+<u><strong>ACHIEVED LEVEL 7</strong></u>
+• Scene in <span class="mention">#mors-and-irithriels-room</span> - naming her and Mors’ child, and planning their future as a family.
+• WEDDING EVENT: scene in <span class="mention">#mingling</span> - getting married to <span class="mention">#mors</span> .
+<strong>DM Milestones - Intros (2); Intros (1)</strong>
+• WEDDING EVENT: Scene in <span class="mention">#entertainment</span> - attending the talent show.
+• WEDDING EVENT: Scene in <span class="mention">#entertainment</span> - participating in the talent show.
+• WEDDING EVENT: Scene in <span class="mention">#arena</span> - attended the tournament.
+• WEDDING EVENT: Scene in <span class="mention">#arena</span> - reconnecting with <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span> .
+• WEDDING EVENT: Scene in <span class="mention">#arena</span> - a reunion of cousins with <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span> and <span class="mention">#selaphiel-rookwood</span> .
+• WEDDING EVENT: Scene in <span class="mention">#dining</span> - attending the eating contest.
+<u><strong>ACHIEVED LEVEL 8</strong></u>
+• Scene in <span class="mention">#mors-and-irithriels-room</span> - planning a raid/rescue and to overthrow a kingdom with <span class="mention">#bofwant</span>, <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span>, <span class="mention">#garg-dreadstorm</span>, <span class="mention">#selaphiel-rookwood</span>, and <span class="mention">#mors</span>.
+• Scene in <span class="mention">#med-bay</span> - visiting Barachiel with <span class="mention">#bofwant</span>, <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span>, <span class="mention">#garg-dreadstorm</span>, <span class="mention">#selaphiel-rookwood</span>, and <span class="mention">#mors</span>.
+• Scene in <span class="mention">#med-bay</span> - becoming a mom. <span class="chatlog__edited-timestamp" title="27-Sep-20 06:55 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 08:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="729855862054846468" id="message-729855862054846468">
+                <div class="chatlog__content">
+                    <div class="markdown">Tupperbot: ++Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/c2d35c68961dbdf04f618a1408864f87.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Irithriel Ravenwood#0000" data-user-id="729855894116106351" style="">Irithriel Ravenwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Jul-20 08:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="729855894468165662" id="message-729855894468165662">
+                <div class="chatlog__content">
+                    <div class="markdown">Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 08:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="729858035769671695" id="message-729858035769671695">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="irithriel-ravenwood.html_Files/image0.png">
+                                    <img class="chatlog__attachment-thumbnail" src="irithriel-ravenwood.html_Files/image0.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">10-Jul-20 05:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="731259085227425883" id="message-731259085227425883">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Market History:</strong></u>
+• Current Money - 379 gp
+• Musical Instruments Salary - 120 gp
+• Musical Instruments Salary - 115 gp
+• Solo Practice Salary (Weaver’sTools) - 110 gp
+• Musical Instruments Salary - 70 gp
+• Musical Instruments Salary - 135 gp
+• Musical Instruments Salary - 120 gp
+• Musical Instruments Salary - 35 gp
+• Musical Instruments Salary - 45 gp
+• Musical Instruments Salary - 85 gp
+• Musical Instruments Salary - 120 gp
+• Musical Instruments Salary - 50 gp
+• Musical Instruments Salary - 70 gp
+• Musical Instruments Salary - 90 gp <span class="chatlog__edited-timestamp" title="09-Oct-20 10:08 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">11-Jul-20 09:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="731505484426903672" id="message-731505484426903672">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Tools Etc Proficiency Gains:</strong></u>
+• 100 xp towards Weaver’s Tools - lesson by <span class="mention">#warden</span> in <span class="mention">#gardens</span>
+• 110 xp towards Weaver’s Tools - solo practice <span class="chatlog__edited-timestamp" title="25-Jul-20 05:16 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">27-Sep-20 07:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="759912335753740339" id="message-759912335753740339">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(248,74,139,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.webp" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+Iri | Sela | Hal - FERTILE                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Irithriel Ravenwood gains 3 Milestone!</div>
+                                        </div>
+
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Current Milestones</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">35</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Next Level: 9</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">39 <em>(4 remaining)</em></div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="irithriel-ravenwood.html_Files/637039094581817878.jpeg">
+                                            <img class="chatlog__embed-thumbnail" src="irithriel-ravenwood.html_Files/637039094581817878.jpeg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+View Milestones with !milestone | Add Milestones with !milestone # | Remove Milestones with !milestones -# | Set Milestones with !milestone set #
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">03-Oct-20 05:09 AM</span>
+
+            <div class="chatlog__message " data-message-id="761877642298785822" id="message-761877642298785822">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Tool/Skill/Etc Proficiencies:</strong></u>
+• Music (pan, dulcimer, viol) [performance check + prof + d4; +7 + d4]
+• Dice Set [sleight of hand check + prof; +9]
+• Languages: Common, Elvish, Sylvan [int mod + prof; +3 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="irithriel-ravenwood.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">09-Oct-20 10:08 AM</span>
+
+            <div class="chatlog__message " data-message-id="764127095889592330" id="message-764127095889592330">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(212,175,55,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="irithriel-ravenwood.html_Files/f7616812a6de9055c00376186991a057.webp" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+Iri | Sela | Hal - FERTILE                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Irithriel Ravenwood adds 90 gp to their Coin Pouch!</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">0 cp
+0 sp
+0 ep
+1,589 gp
+0 pp</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="irithriel-ravenwood.html_Files/auM9MBe.png">
+                                            <img class="chatlog__embed-thumbnail" src="irithriel-ravenwood.html_Files/auM9MBe.png" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+For help managing your Coin Pouch, see !coins ?
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 30 message(s)</div>
+</div>
+
+</body>
+</html>

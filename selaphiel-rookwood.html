@@ -1,0 +1,1995 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - selaphiel-rookwood</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="selaphiel-rookwood.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Character Profiles1 / selaphiel-rookwood</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">15-Sep-19 10:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="622978172996288523" id="message-622978172996288523">
+                <div class="chatlog__content">
+                    <div class="markdown">—Information—
+<strong>Character sheet Url:</strong> <a href="https://www.dndbeyond.com/profile/merrylaine/characters/15563075">https://www.dndbeyond.com/profile/merrylaine/characters/15563075</a>
+<strong>Name:</strong> Selaphiel Rookwood
+<strong>Orientation:</strong> Heterosexual
+<strong>Class:</strong> Rogue Scout
+<strong>Race:</strong> Mark of Shadow Elf
+<strong>Level:</strong> 3
+<strong>Armor Class:</strong> 14
+<strong>HP:</strong> 24
+<strong>His/Her Kinks:</strong> BDSM (submissive, D/lg), being tied up/immobilized, sensory play (blindfolds, heat/ice), marking (bite/scratch mark, light bruises, possibly a tattoo), vaginal (receiving), anal (receiving), oral (giving/receiving), rough sex, gentle sex, consensual, monogamy, romance.
+<strong>His/Her Kinks Limits:</strong> Scat, most bathroom-related stuff, vomit, hyper-anything, true non con, face slapping, cheating, poly/nonmonogamy.
+<strong>Non Con Limit (y/n)</strong>: Yes, will only use non con as a plot device, will not write out full blown real rape situations, consensual non con is fine. 
+<strong>PvP In Game (y/n)</strong>: Yes, so long as there is no character death. 
+<strong>His/Her PvP Limits</strong>: No character death ; do not take something ic and suddenly make it ooc. 
+<strong>Gender:</strong> Female
+<strong>Age:</strong> 50
+<strong>Alignment:</strong> Chaotic Good
+<strong>Personality Traits:</strong> Beneath the paranoid exterior lurks the heart of a poet and writer. Quiet, shy, kind, she worries that her past will one day hurt others and she hopes no one ever experiences such heartache or loss. She finds joy in quietly helping others oftentimes at her own expense. Since she’s lost everything and thinks it’s both dangerous and impossible for her to be loved, she lives in the moment, pushing her limits, not afraid to face death. <span class="chatlog__edited-timestamp" title="17-Nov-19 12:32 AM">(edited)</span></div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(18,18,18,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.dndbeyond.com/profile/merrylaine/characters/15563075">
+                                                    <div class="markdown">Selaphiel Rookwood</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">D&amp;D Beyond Character Sheet</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="selaphiel-rookwood.html_Files/637021090741112470.jpeg">
+                                            <img class="chatlog__embed-thumbnail" src="selaphiel-rookwood.html_Files/637021090741112470.jpeg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="622978197272789042" id="message-622978197272789042">
+                <div class="chatlog__content">
+                    <div class="markdown">—Backstory—
+<strong>Backstory:</strong> Selaphiel and her twin brother—Barachiel—lived a lonely and isolated life with their parents. The two children were often neglected. And the times that they weren’t, they were oftentimes beaten or worse. So the two found their best friend in each other, knowing that they’d always have an ally, a friend. Someone who’d forever have their back no matter the cost. One fateful night however, Selaphiel awoke hearing blood curdling screams. Screams she recognized—the sounds of her mother. Something had happened. Something terrible. Unforgivable. The loud stomps also awoke Barachiel. Terrified, the twins followed the sounds of the screams, only to see their father’s head in one corner of the room, his body in another. Their mother was lying on the floor in a pool of blood, her words no longer coherent, but a garbled mess instead. They watched their mother die, a great beast watching on in glee. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622978311965900800" id="message-622978311965900800">
+                <div class="chatlog__content">
+                    <div class="markdown">The creature eyed the two, grabbing Selaphiel first. The young elf girl thrashed and fought, desperate to get free from the beast’s clutches. But she wasn’t strong enough. So Barachiel interceded, freeing his sister and being captured in return. The young elf girl charged after the creature, though he merely batted her away, slicing up her face as a reminder. Lying on the floor, unable to move, she watched the mammoth beast stalk off with her brother. Her other half. His shouts still sounded in her ears—awake, dreaming, she’d always hear that oni’s voice in her mind and whatever force of nature that caused him to destroy what little happiness she had. Determined to one day reunite with her brother, despite his chances for survival being next to nothing, she went into hiding, honing what little skills she had, knowing she bore a dark mark. A cursed mark. When it became clear that she’d never see her twin again, she became reckless, testing her fate, pushing her limits. After all, she had nothing more to live for. Nothing more to love. And no one could love someone so broken and haunted. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622978426101563393" id="message-622978426101563393">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Occupation:</strong> None yet.
+
+—Appearance—
+<strong>Height:</strong> 5’2”
+<strong>Weight:</strong> 110lbs
+<strong>Picture or face claim:</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622978469734776853" id="message-622978469734776853">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image0.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image0.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">15-Sep-19 10:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="622983707380154369" id="message-622983707380154369">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Consumables Tracker:</strong></u>
+• <s>24hp</s> 31hp
+• <s>200gp, 1sp</s>; <s>850gp, 1sp</s>; <s>805gp, 1sp</s>; 1005gp, 1sp
+• <s>20 arrows</s> 18 arrows
+• 1000 ball bearings 
+• 5 candles
+• 1 flask holy water
+• 3 flasks oil
+• 10 pitons
+• 5 days rations
+• 4 wooden stakes
+• 3 torches
+• Filled waterskin (currently filled with water)
+• 2 healing potions
+• 1 healers kit (<s>10 uses</s> 9 uses) <span class="chatlog__edited-timestamp" title="25-May-20 09:24 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622983729693851648" id="message-622983729693851648">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Friends, Acquaintences, etc.:</strong></u>
+<em>Has been introduced in some way to-</em>
+• Rand - has known the dwarf for a little while; trusts him and finds his skills to be quite useful in the mountain wilds. 
+• Rini - appreciates her willingness to aid in finding her brother and ridding Pioneer of the giant; is glad to have a magic user among the group. 
+• Efra - appreciates her willingness to aid in finding her brother and ridding Pioneer of the giant; finds her mechanical skills quite useful. 
+• Ambrosia - appreciates her willingness to aid in finding her brother and ridding Pioneer of the giant; worries a little about her clothing impracticality, but gets a good vibe nonetheless.
+• Barachiel - her twin brother and other half; she adores him and would die for him.
+• Bofwant - she likes him very much and feels safe whenever he is around. She finds him very easy to talk to and share things with.
+• Vit - is impressed with his scouting skills.
+• Rok - once again, she is shown that not all monsters are evil and unkind through the half orc.
+• Jericho - <s>she is terrified of him and his demonic bird</s>, sees him now as her warlock mentor.
+• Hal - she is so happy to have a cousin in the guild and hopes to become good friends eventually.
+• Garg - she is glad her cousin found another to share her life with.
+• Vanilor - finds him amiable and hopes he, Bofwant, and herself will truly be able to help each other as Cassius predicted. <span class="chatlog__edited-timestamp" title="18-Jul-20 07:53 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622983828876820500" id="message-622983828876820500">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Long Term Goals:</strong></u>
+<s>• To get revenge against the giant who attacked her home and took her twin brother away.</s>
+<s>• To find her twin brother, Barachiel (even though he’s presumed dead).</s>
+• To defeat the hag that kidnapped and cursed her brother. 
+• To break the oni curse her brother endures.
+• To manage her own inner demons. <span class="chatlog__edited-timestamp" title="10-Dec-19 03:25 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622983893078900737" id="message-622983893078900737">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Short Term Goals:</strong></u>
+• To acclimate to life on board the Steel Hearts. 
+• To make friends within the guild. 
+• To make sure her brother heals up. <span class="chatlog__edited-timestamp" title="10-Dec-19 03:24 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622983953854365707" id="message-622983953854365707">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>OOC History Reveals:</strong></u>
+• Her parents are dead; her relationship with them was not the best. 
+• She has/had a twin brother, Barachiel, who sacrificed himself for her.
+• Her parents were horrible people who beat and abused both she and her brother.
+• Her father sexually abused her.
+• She has ties to darker, demonic magics. <span class="chatlog__edited-timestamp" title="16-May-20 06:09 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622984030249287708" id="message-622984030249287708">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>IC History Reveals:</strong></u>
+• She is currently staying in the mountain town of Pioneer. 
+• She is concerned about the giants in the area around Pioneer, especially one whose description matches the one who’d taken her brother.
+• Her parents are dead and her brother was kidnapped by a giant.
+• Barachiel was kidnapped by a hag and cursed. Now he takes the form of an oni every new moon. He suffered the curse to protect her.
+• Once on board Steel Hearts, Sela is granted her own room, while Barachiel was given a space in <span class="mention">#med-bay</span> (a safe place where he can be observed and helped should the transformation take hold).
+• She and her brother had been forbidden to use their titles of d’Phiarlan. 
+• She is schooled in dance. 
+• She likes sweet things, especially strawberries.
+• She was abused, particularly by her father.
+• She has feelings for Bofwant. <span class="chatlog__edited-timestamp" title="12-Dec-19 04:05 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622984101242208268" id="message-622984101242208268">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>In Game Acquired Items:</strong></u>
+• Clothes, cold weather
+• 4 days rations
+• Bloody kitchen knife
+• 2 healing potions
+• Tracker&#39;s Pelt (Wondrous item, Uncommon, Requires attunement) - When worn, this item makes tracking another creature magical.  When making tracking rolls against anyone not using magic to cover their tracks, roll with advantage.
+• Studded Leather Armor (purchased for 45gp, see PHB), 15 AC
+• Healers Kit
+• Figurine of Wondrous Power: Bronze Griffon <span class="chatlog__edited-timestamp" title="27-Aug-20 01:48 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622984163791863808" id="message-622984163791863808">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Relationships:</strong></u>
+• Barachiel is her twin brother.
+• She is romantically involved with <span class="mention">#bofwant</span>... her protector, teacher, lover and life partner.
+• She is pregnant with <span class="mention">#bofwant</span> ‘s child (unaware of condition).
+• She met her cousin <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span> and is elated to know she has more family out there. <span class="chatlog__edited-timestamp" title="18-Jul-20 07:51 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="622984232783839244" id="message-622984232783839244">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Learned Information:</strong></u>
+• An all seeing hag actually kidnapped her brother and cursed him to turn into an oni. He accepted the curse to protect his sister.
+• Has met <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span> and has learned the two are cousins via the Ellorenthi bloodline. Sela’s mother was Hal’s father’s sister. <span class="chatlog__edited-timestamp" title="06-Jul-20 05:52 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-Oct-19 02:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="637351102454431754" id="message-637351102454431754">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Potential NPCs:</strong></u>
+• Barachiel - twin brother to Selaphiel; they were very close.
+• Unknowns - elves and/or fey affiliated with House Phiarlan; parents had betrayed their house though Sela and her twin do not know this nor are they aware of what the affiliation with Phiarlan fully means. <a href="https://eberron.fandom.com/wiki/House_Phiarlan">https://eberron.fandom.com/wiki/House_Phiarlan</a> <span class="chatlog__edited-timestamp" title="21-Nov-19 06:22 AM">(edited)</span></div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://eberron.fandom.com/wiki/House_Phiarlan">
+                                                    <div class="markdown">House Phiarlan</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">House Phiarlan is an elven dragonmarked house known throughout Khorvaire, although they are now based in Sharn, Breland due to their former base of operation in Cyre having been destroyed in the...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="selaphiel-rookwood.html_Files/latest">
+                                            <img class="chatlog__embed-thumbnail" src="selaphiel-rookwood.html_Files/latest" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">10-Nov-19 07:57 AM</span>
+
+            <div class="chatlog__message " data-message-id="643056760067850250" id="message-643056760067850250">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Current RP Status:</strong></u>
+• On airship - <span class="mention">#med-bay</span>; Self DM - NA.
+• On job <s>12, 11, 32</s>
+• In bedroom - Free.
+• Event - NA. <span class="chatlog__edited-timestamp" title="15-Sep-20 09:49 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-Nov-19 02:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="646771998059528197" id="message-646771998059528197">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Level Gains:</strong></u>
+• Level 4 Rogue - Skulker Feat; 31hp
+• Level 1 Warlock - Fiend patron (Jarreth the herald of darkness); Dark One’s Blessing; Eldritch Blast cantrip; poison spray cantrip; burning hands spell; hellish rebuke spell; 38 hp
+• Level 2 Warlock - Agonizing Blast; Devil’s Sight; Protection from evil and good spell; 45 hp
+• Level 5 Rogue - Uncanny Dodge; 52 hp
+• Level 3 Warlock - Pact of the Tome: Fire Bolt cantrip, Message cantrip, Sacred Flame cantrip; Pass Without Trace level 2 spell; 59 hp <span class="chatlog__edited-timestamp" title="30-Aug-20 09:26 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">20-Nov-19 03:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="646800651250040841" id="message-646800651250040841">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Barachiel:</strong></u>
+<em>(notes for DMs)</em>
+• Twin brother to Selaphiel.
+• He and Sela were very close growing up, he often protected her from their parents’ cruelty. 
+• He sacrificed himself to save his sister (though she went looking for him to bring him back ‘home’).
+• Sela often refers to him as ‘her other half’... it’s a twin thing. 
+• He is kind and caring, protective of those he loves. He’s very protective of his twin sister. 
+• He wears a locket that matches the one Sela wears. 
+• He suffers a transformation curse. He was kidnapped by a hag and cursed to transform into an oni. 
+• The curse - Barachiel turns into an oni at every new moon, the horns form the day before the full transformation, he loses time and memory when he transforms, the oni he turns into goes by the name Berolutunn and has blue skin. <span class="chatlog__edited-timestamp" title="21-Nov-19 06:13 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="646800696787599411" id="message-646800696787599411">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image0%20%281%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image0%20%281%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">22-May-20 03:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="713466364307701872" id="message-713466364307701872">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>The Rookwoods History:</strong></u>
+<em>(contains spoilers)</em>
+
+<span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">Selaphiel and Barachiel’s mother was a noble of house Phiarlan, specifically of the Ellorenthi family and therefore first cousin to the Phiarlan Matriarch. Their father was of an unfavorable family, considered bad elven blood for further breeding those marked by the shadow. Their parents, by some stroke of fate, happened to meet and connect in a way that compelled both to meet again in secret and succumb to carnal pleasures. The result of this secret meeting was that their mother became pregnant with an unfavorable’s child. She knew she could not remain with her noble family, especially since she was Ellorenthi, of the ruling family of the shadow marked. As a result, she fled with her lover and the two secretly married and remained hidden until she surprisingly gave birth to twins. Immediately, the mother saw this as a bad omen, but their father did not.</span></span>
+
+<span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">Over the years, while the twins grew, the parents began to grow distant from one another. The mother was missing her luxurious life at court and growing both jealous and disgusted at watching her husband fall in love with their daughter. As a result, she grew very bitter towards Selaphiel, exhibiting both psychological and verbal abuse towards the girl. Meanwhile, the father was sexually abusive towards Selaphiel, exploiting the girl’s beauty not just for his own pleasure, but for his friends as well. These behaviors often caused Barachiel to intervene and protect his sister. Typically, this results in her brother getting beaten or worse.</span></span> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="713466377859498056" id="message-713466377859498056">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">One of the ways, Selaphiel’s mother attempted to cope was by dabbling in the darker arts. The woman’s hope was to bring herself and her husband closer together and try to find a way for them to return to life with the Phiarlan family. Though Selaphiel did not know it, she was their pawn during all of this, their means of luring otherworldly beings to assist them in their task. Terrified of what her parents were doing, she kept this whole ordeal secret from her brother, though he always suspected something more was going on. Later on, Selaphiel has blocked out most of her memory of what happened, but from time to time she will have nightmares or experience triggering events that remind her of that horrific connection to the demonic world.</span></span>
+
+<span class="spoiler spoiler--hidden" onclick="showSpoiler(event, this)"><span class="spoiler-text">The twins did their best to cope with their horrible life until one night everything changed forever. An oni attacked their home, killing both parents and attempting to kidnap Selaphiel. Barachiel intervened and ended up kidnapped instead. Selaphiel tried to save her brother, but ended up being too weak, injured terribly and left with a horrible scar across her face. She then set out to rescue him, in hopes to reunite with him once more.</span></span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">25-May-20 03:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="714565923562061824" id="message-714565923562061824">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,111,104,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.webp" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+Irithriel | Selaphiel | Hal                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Selaphiel Rookwood gains 3 Milestone and levels up to 5th level!</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Don&#39;t forget to update your sheet with your proper experience total and level and <span class="pre pre--inline">!update</span>.</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Current Milestones</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">9</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Next Level: 6</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">14 <em>(5 remaining)</em></div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="selaphiel-rookwood.html_Files/637034055353515197.jpeg">
+                                            <img class="chatlog__embed-thumbnail" src="selaphiel-rookwood.html_Files/637034055353515197.jpeg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+View Milestones with !milestone | Add Milestones with !milestone # | Remove Milestones with !milestones -# | Set Milestones with !milestone set #
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">25-May-20 03:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="714567117923418124" id="message-714567117923418124">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Warlock Path:</strong></u>
+<a href="https://www.dndbeyond.com/profile/merrylaine/characters/28446633">https://www.dndbeyond.com/profile/merrylaine/characters/28446633</a>
+Note: swapped Int and Cha of original build. </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(18,18,18,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.dndbeyond.com/profile/merrylaine/characters/28446633">
+                                                    <div class="markdown">Selaphiel Rookwood Warlock</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">D&amp;D Beyond Character Sheet</div>
+                                        </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">09-Jun-20 02:16 AM</span>
+
+            <div class="chatlog__message " data-message-id="719797017412370433" id="message-719797017412370433">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Visual References:</strong></u>
+<a href="https://www.pinterest.com/merediths0131/selaphiel-rookwood-dd-5e/?invite_code=9dfbc8caa7c74ff9bd6741d3915eee34&sender=650137033616046401">https://www.pinterest.com/merediths0131/selaphiel-rookwood-dd-5e/?invite_code=9dfbc8caa7c74ff9bd6741d3915eee34&amp;sender=650137033616046401</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.pinterest.com/merediths0131/selaphiel-rookwood-dd-5e/?invite_code=9dfbc8caa7c74ff9bd6741d3915eee34&amp;sender=650137033616046401">
+                                                    <div class="markdown">9 Best Selaphiel Rookwood - D&amp;D 5e images in 2020 | Character portr...</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">May 19, 2020 - Explore merediths0131&#39;s board &quot;Selaphiel Rookwood - D&amp;D 5e&quot; on Pinterest. See more ideas about Character portraits, Fantasy characters, Character art.</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="selaphiel-rookwood.html_Files/41deecd0c76868dd99e81ed81a06e486.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="selaphiel-rookwood.html_Files/41deecd0c76868dd99e81ed81a06e486.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">14-Jun-20 02:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="721618115158474782" id="message-721618115158474782">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Patron:</strong></u>
+<em>Herald of Darkness, also known as the Lord of Mist and Shadow. Name - Jarreth.</em>
+
+Link: <a href="https://www.5esrd.com/gamemastering/monsters-foes/monsters-by-type/fiends/herald-of-darkness-3pp/">https://www.5esrd.com/gamemastering/monsters-foes/monsters-by-type/fiends/herald-of-darkness-3pp/</a>
+
+A stunningly tall and beautiful fiend, the herald of darkness resembles a dark-haired fey wearing a cloak and armor glittering with dark light and often surrounded by a nimbus of pale blue or green fire. The herald of darkness speaks in fluid tones and sings with the voice of an angel, but his heart is foul and treacherous. The herald of darkness is a companion and sometimes master to the shadow fey, seeking to draw many others into his orbit with wild promises of great power, debauchery, and other delights. This spiral into chaos is what allows him to feed on his prey, leaching their magic where able. The stronger his chosen victim’s magic, then the more he’ll want to feed on it, going so far as to create binding pacts to ensure he can siphon what he desires. He is a rival to the herald of blood and bitter foe to all angels of light, able to walk in dreams, invoke nightmares and fear, his means of pushing his victims into a state where he can indulge in their natural magic to his heart’s content.
+
+Though oftentimes the herald of darkness appears to be a beautiful fey creature, it can take on another appearance entirely, disappearing into insubstantial shadows and unveiling an evil majestic form that leaves those who see it shaken and weak-and often blind. Speaking of this form is difficult, but poets and bards trying to describe it have said it resembles an apocalyptic horror built of chained souls and the slow death of children carried along in a glacial river, rushing to an inevitable doom. It is the stuff of nightmares, haunting the soul and mind for eternity. It is this rumor that has many believing this alternate form to be his natural state, while his alluring beauty is merely illusory at best. <span class="chatlog__edited-timestamp" title="07-Jul-20 07:55 AM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image0%20%282%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image0%20%282%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image1.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image1.jpg" alt="Attachment">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image2.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image2.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.5esrd.com/gamemastering/monsters-foes/monsters-by-type/fiends/herald-of-darkness-3pp/">
+                                                    <div class="markdown">Herald of Darkness – 5th Edition SRD</div>
+                                                </a>
+                                        </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">14-Jun-20 08:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="721876966457737279" id="message-721876966457737279">
+                <div class="chatlog__content">
+                    <div class="markdown">Patron’s True Form: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image0%20%283%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image0%20%283%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 08:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="729853404804939871" id="message-729853404804939871">
+                <div class="chatlog__content">
+                    <div class="markdown">Selaphiel - Warlock </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image0%20%284%29.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image0%20%284%29.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 08:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="729855969135427586" id="message-729855969135427586">
+                <div class="chatlog__content">
+                    <div class="markdown">Tupperbot: $$Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/552dfbf2420b40de054089a22de8716e.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Selaphiel Rookwood#0000" data-user-id="729856009148956704" style="">Selaphiel Rookwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Jul-20 08:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="729856009853599827" id="message-729856009853599827">
+                <div class="chatlog__content">
+                    <div class="markdown">Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 09:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="729864910988640359" id="message-729864910988640359">
+                <div class="chatlog__content">
+                    <div class="markdown">Tupperbot: }}Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/1bb44e91d88967a6e613dbde2c239acd.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jarreth the Fey#0000" data-user-id="729856009148956704" style="">Jarreth the Fey</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Jul-20 09:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="729864939820286032" id="message-729864939820286032">
+                <div class="chatlog__content">
+                    <div class="markdown">Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 09:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="729864994845360211" id="message-729864994845360211">
+                <div class="chatlog__content">
+                    <div class="markdown">Tupperbot: ))Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/652331979f8deea2b4279bd02e071e0a.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Jarreth the Fiend#0000" data-user-id="729856009148956704" style="">Jarreth the Fiend</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">06-Jul-20 09:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="729865022129438741" id="message-729865022129438741">
+                <div class="chatlog__content">
+                    <div class="markdown">Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">06-Jul-20 09:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="729868526495465512" id="message-729868526495465512">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="selaphiel-rookwood.html_Files/image0.png">
+                                    <img class="chatlog__attachment-thumbnail" src="selaphiel-rookwood.html_Files/image0.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">10-Jul-20 05:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="731263717261574195" id="message-731263717261574195">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Market History:</strong></u>
+• Current Money - 1005 gp, 1 sp
+• Thieves’ Tools Salary - 140 gp
+• Thieves’ Tools Salary - 100 gp
+• Thieves’ Tools Salary - 125 gp
+• Thieves’ Tools Salary - 135 gp
+• Thieves&#39; Tools Salary - 105 gp
+• Thieves’ Tools Salary - 110 gp
+• Healer’s Kit Salary - 60 gp
+• Healer’s Kit Salary - 100 gp
+• Healer’s Kit Salary - 55 gp
+• Healer’s Kit Salary - 90 gp
+• Healer’s Kit Salary - 60 gp
+• Healer’s Kit Salary - 55 gp
+• Healer’s Kit Salary - 30 gp
+• Healer’s Kit Salary - 100 gp for helping <span class="mention">#bofwant</span> deliver <span class="mention">#irithriel-ravenwood</span> ‘s baby <span class="chatlog__edited-timestamp" title="03-Oct-20 04:33 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">21-Aug-20 06:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="746503419723907072" id="message-746503419723907072">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Tools Etc Proficiency Gains:</strong></u>
+• 60 xp Healer’s Kit - solo
+• 100 xp Healer’s Kit - solo
+• 55 xp Healer’s Kit - solo
+• 90 xp Healer’s Kit - solo
+• 60 xp Healer’s Kit - solo
+• 55 xp Healer’s Kit - solo
+• 30 xp Healer’s Kit - solo
+• 100 xp Healer’s Kit - helping <span class="mention">#bofwant</span> deliver <span class="mention">#irithriel-ravenwood</span> ‘s baby
+<strong>Proficiency Achieved - Healer’s Kit 550 xp</strong> <span class="chatlog__edited-timestamp" title="03-Oct-20 04:31 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">16-Sep-20 08:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="755952258495283231" id="message-755952258495283231">
+                <div class="chatlog__content">
+                    <div class="markdown">Tupperbot: &gt;&gt;Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/4d4f7978a8a113047616aec4da54b957.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Barachiel Rookwood#0000" data-user-id="729856009148956704" style="">Barachiel Rookwood</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">16-Sep-20 08:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="755952276337590272" id="message-755952276337590272">
+                <div class="chatlog__content">
+                    <div class="markdown">Hello! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">25-Sep-20 06:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="759175850926538773" id="message-759175850926538773">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(212,175,55,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.webp" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+Iri | Sela | Hal - FERTILE                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Selaphiel Rookwood Warlock adds 55 gp to their Coin Pouch!</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">0 cp
+1 sp
+0 ep
+2,140 gp
+0 pp</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="selaphiel-rookwood.html_Files/auM9MBe.png">
+                                            <img class="chatlog__embed-thumbnail" src="selaphiel-rookwood.html_Files/auM9MBe.png" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+For help managing your Coin Pouch, see !coins ?
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">27-Sep-20 06:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="759911327195725834" id="message-759911327195725834">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Milestones:</strong></u>
+• Major - has victoriously braved through the wilderness of Pioneer, even surviving and tracking through a furious blizzard, in Job 12!; awarded by @zzo#8946 on job 12. 
+• Major - has solved the mystery of Selaphiel&#39;s long lost brother! Reunited and it feels so good!; awarded by @zzo#8946 on job 12. 
+• Major - has earned respect and clout among the giantkin of Pioneer for their show of strength &amp; fortitude, bringing several of them to heel!; awarded by @zzo#8946 on job 12. 
+<u><strong>ACHIEVED LEVEL 4</strong></u>
+• Minor - having found her brother, now faces a new challenge: remove his oni curse...but how?; awarded by @zzo#8946 on job 12. 
+• Minor - I&#39;m a philanthropist! I would never leave a person in financial anguish if I can help it!; awarded by @zzo#8946 on job 12.
+• Milestone - teaming up with <span class="mention">#bofwant</span> in their first training battle in <span class="mention">#training-hall</span>; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• 2 milestones for being a part of job 11; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• 1 milestone for finding love with <span class="mention">#bofwant</span>; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span> 
+• 2 Milestones for completing job 32; awarded by <span class="mention" title="EpicDuck909#9440">@Sethy (Faith,Jericho,Butcherer)</span> 
+• 1 milestone for figuring out Jericho&#39;s fiendish influence first. And managing to power through the job, despite her past; awarded by <span class="mention" title="EpicDuck909#9440">@Sethy (Faith,Jericho,Butcherer)</span>
+<u><strong>ACHIEVED LEVEL 5</strong></u>
+• 2 for asking <span class="mention">#jericho-krow</span> for help and taking control of her darkness.
+<strong>• 3 for playing <span class="mention">#cassius-clay-guild-master</span> for the new characters!</strong> (DM)
+<u><strong>ACHIEVED LEVEL 6</strong></u> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="759911346304188478" id="message-759911346304188478">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Milestones contd:</strong></u>
+• Scene in <span class="mention">#bofwants-room</span> - discussing Sela’s new contract with herald of darkness, Jarreth.
+• WEDDING EVENT: scene in <span class="mention">#mingling</span> - fleshing out backstories while getting to know more guild mates.
+• WEDDING EVENT: scene in <span class="mention">#mingling</span> / <span class="mention">#arena</span> - meeting her cousin and guild mate <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span> .
+• Scene in <span class="mention">#mess-hall</span> - bound fates crossing and setting the stage for a future job with <span class="mention">#bofwant</span> and <span class="mention">#vanilor</span> .
+• WEDDING EVENT: scene in <span class="mention">#arena</span> - being kept calm by <span class="mention">#bofwant</span>, while he also explains the sparring matches.
+• WEDDING EVENT: scene in <span class="mention">#mingling</span> - attending the actual wedding of <span class="mention">#mors</span> and <span class="mention">#irithriel-ravenwood</span> .
+<strong>• DM milestones - NPC Carmine Lily (1)</strong>
+<u><strong>ACHIEVED LEVEL 7</strong></u>
+• Training exercise with  <span class="mention">#juma-lynara</span> <span class="mention">#vanilor</span> <span class="mention">#selaphiel-rookwood</span> <span class="mention">#bofwant</span> in the <span class="mention">#training-hall</span>
+• Scene in <span class="mention">#bar-lounge</span> - a gathering of guild mates and preparing for an upcoming job.
+• WEDDING EVENT: Scene in <span class="mention">#entertainment</span> - attending the talent show.
+• WEDDING EVENT: Scene in <span class="mention">#arena</span> - attended the tournament.
+• WEDDING EVENT: Scene in <span class="mention">#arena</span> - a reunion of cousins with <span class="mention">#irithriel-ravenwood</span> and <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span> .
+• WEDDING EVENT: Scene in <span class="mention">#dining</span> - attending the eating contest.
+<strong>DM Milestones: NPC <span class="mention">#carmine-lilly-clay-first-mate</span> (1); Intro (1)</strong>
+<u><strong>ACHIEVED LEVEL 8</strong></u> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="759911464478834689" id="message-759911464478834689">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Milestones contd:</strong></u>
+• Scene in <span class="mention">#mors-and-irithriels-room</span> - planning a raid/rescue and to overthrow a kingdom with <span class="mention">#bofwant</span>, <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span>, <span class="mention">#garg-dreadstorm</span>, <span class="mention">#irithriel-ravenwood</span>, and <span class="mention">#mors</span>.
+• Scene in <span class="mention">#med-bay</span> - visiting Barachiel with <span class="mention">#bofwant</span>, <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span>, <span class="mention">#garg-dreadstorm</span>, <span class="mention">#irithriel-ravenwood</span>, and <span class="mention">#mors</span>.
+• Scene in <span class="mention">#med-bay</span> - helping to deliver the son of <span class="mention">#irithriel-ravenwood</span> and <span class="mention">#mors</span>.
+<strong>• DM Milestones - Intro (2)</strong> <span class="chatlog__edited-timestamp" title="29-Sep-20 07:20 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="759911499149344785" id="message-759911499149344785">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight">Place Holder</div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="759911509165473863" id="message-759911509165473863">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight">Place Holder</div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="759911519357501470" id="message-759911519357501470">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight">Place Holder</div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="759911529696591912" id="message-759911529696591912">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight">Place Holder</div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="759911549657153569" id="message-759911549657153569">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight">Place Holder</div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">29-Sep-20 07:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="760641918253662259" id="message-760641918253662259">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(97,176,217,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.webp" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+Iri | Sela | Hal - FERTILE                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Selaphiel Rookwood Warlock gains 2 Milestone!</div>
+                                        </div>
+
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Current Milestones</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">34</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Next Level: 9</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">39 <em>(5 remaining)</em></div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="selaphiel-rookwood.html_Files/1581111423-28446633.jpeg">
+                                            <img class="chatlog__embed-thumbnail" src="selaphiel-rookwood.html_Files/1581111423-28446633.jpeg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+View Milestones with !milestone | Add Milestones with !milestone # | Remove Milestones with !milestones -# | Set Milestones with !milestone set #
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="darkangel76#8091" data-user-id="269956194242658306" style="color: rgb(26,188,156)">Iri | Sela | Hal - FERTILE</span>
+
+
+        <span class="chatlog__timestamp">03-Oct-20 05:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="761878727642185748" id="message-761878727642185748">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Tool/Skill/Etc Proficiencies:</strong></u>
+• Thieves’ Tools [dex mod + prof + expertise; +9]
+• Healer’s Kit [medicine check + prof; +4]
+• Languages: Common, Elvish, Infernal, Thieves’s Cant [int mod + prof; +3] </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="selaphiel-rookwood.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">09-Oct-20 10:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="764127787208015872" id="message-764127787208015872">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(212,175,55,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="selaphiel-rookwood.html_Files/f7616812a6de9055c00376186991a057.webp" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+Iri | Sela | Hal - FERTILE                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Selaphiel Rookwood Warlock adds 90 gp to their Coin Pouch!</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">0 cp
+1 sp
+0 ep
+2,360 gp
+0 pp</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="selaphiel-rookwood.html_Files/auM9MBe.png">
+                                            <img class="chatlog__embed-thumbnail" src="selaphiel-rookwood.html_Files/auM9MBe.png" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+For help managing your Coin Pouch, see !coins ?
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 50 message(s)</div>
+</div>
+
+</body>
+</html>

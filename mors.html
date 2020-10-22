@@ -1,0 +1,1703 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DnD 18+ Steel Hearts - mors</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="mors.html_Files/cb703495fc321302aab8949d25c7bdb1.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">DnD 18+ Steel Hearts</div>
+        <div class="preamble__entry">Character Profiles1 / mors</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">24-Sep-19 06:21 PM</span>
+
+            <div class="chatlog__message " data-message-id="626181370649116682" id="message-626181370649116682">
+                <div class="chatlog__content">
+                    <div class="markdown">Character Information Template
+—Information—
+Character sheet Url: <a href="https://dicecloud.com/character/2Eq6gPr4P2mdssTd9/Mors">https://dicecloud.com/character/2Eq6gPr4P2mdssTd9/Mors</a>
+
+<strong>Name:</strong> Mors
+<strong>Orientation:</strong> Heterosexual
+<strong>Class:</strong> Overlord
+<strong>Race:</strong> Goliath
+<strong>Level:</strong> 3
+<strong>Armor Class:</strong> 18
+<strong>HP:</strong> 35
+<strong>His/Her Kinks:</strong> Dom/sub, dd/lg play, vanilla stuff, monogamy.
+<strong>His/Her Limits:</strong> bathroom related stuff, gore, cheating, non-monogamy.
+<strong>Non Con Limit (y/n):</strong> Yes.
+<strong>PvP In Combat (y/n):</strong> Yes.
+<strong>His/her PvP limits:</strong> No limits, everything is fair against him. But keeping things <strong>In Character</strong>, no bragging outside of it, not even jokes.
+<strong>Gender:</strong> Male
+<strong>Age:</strong> unknown ( around 30)
+<strong>Alignment:</strong> Chaotic neutral
+<strong>Personality Traits:</strong> He tries to be an imposing scary Overlord, but inside he&#39;s just a soft guy looking for the love he never had ( or lost he doesn&#39;t remember), he cares for his subjects but doesn&#39;t like to show it to the public.
+Sometimes he&#39;s just tired of life and wants a little happiness for himself but never seems to find peace ( mostly because his minions keep screwing his life but with the best intentions at heart). <span class="chatlog__edited-timestamp" title="16-Nov-19 03:48 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="626182505611132928" id="message-626182505611132928">
+                <div class="chatlog__content">
+                    <div class="markdown">—Backstory—
+
+He doesn&#39;t remember much from before, only the darkness and the feeling of drowning.
+
+When he became awake again he was surrounded by them, strange little creatures that comuicated in some sort of giberish language.
+
+He spent years on that island, he was a giant compared to them and after helping them a little bit here and there e became some sort of deity for those strange little creatures that he now calls minions.
+
+It as a stormy day when it happened, he was away on some empty cave, they meant well but they just couldn&#39;t stop getting on his nerves, he only wanted a little of peace for himself, and beacuse of that he paid the price.
+
+When he returned everything was destroyed, the little hive of minions on fire, an utter massacre... He saw them on the beach (he was looking for survivors after finding five little guys hiding under a hollow tree) and he remembered, the pirate king Eivikir, he sank his ship and left Mors to die on the sea. Now he left him with noting again? No he will have his due... <strong>And conquer he world while he&#39;s on it, so the ones under his comand never suffer again.</strong> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="626182732720111628" id="message-626182732720111628">
+                <div class="chatlog__content">
+                    <div class="markdown">Occupation:
+•Ex ship( Sea) Capitan
+•Currently unemployed
+
+—Appearance—
+Height: 8 ft.
+Weight: 540 lbs.
+Picture or face claim: <span class="chatlog__edited-timestamp" title="25-Jul-20 11:00 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/Mordekaiser_3.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/Mordekaiser_3.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="626183168122290178" id="message-626183168122290178">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Blue Minions</strong> <span class="chatlog__edited-timestamp" title="19-Aug-20 06:10 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/108898772.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/108898772.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">10-Oct-19 02:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="631734263250944020" id="message-631734263250944020">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Relationships:</strong></u>
+• <strong>Mate: <span class="mention">#irithriel-ravenwood</span></strong>
+
+• <strong>Subjects:</strong> 
+- 2 Blue minions and a hive of green ones.
+- Miklos McDead
+
+• <strong>Friendly:</strong> <span class="mention">#uthal-lonehunter-katho-olavi</span> , <span class="mention">#warden</span>, <span class="mention">#juma-lynara</span>, <span class="mention">#delielah</span>, <span class="mention">#melmie-kelfa</span> <span class="chatlog__edited-timestamp" title="19-Aug-20 06:09 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">30-Oct-19 11:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="639304117558312984" id="message-639304117558312984">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Tokens!</strong></u> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/token_6.png">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/token_6.png" alt="Attachment">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/token_7.png">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/token_7.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">10-Nov-19 11:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="643290737860935682" id="message-643290737860935682">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Dark Overlord Armor</strong></u> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/unknown.png">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/unknown.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">02-Dec-19 11:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="651087816037761036" id="message-651087816037761036">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/BlueMinion.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/BlueMinion.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">10-Dec-19 05:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="654074183487324170" id="message-654074183487324170">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Mors future stronghold:</strong></u> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/23833f87837d5509972d89c4c5d29736.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/23833f87837d5509972d89c4c5d29736.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">03-May-20 11:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="706705092178477167" id="message-706705092178477167">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Green Minions:</strong> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/Screenshot_20200503-231126_Pinterest.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/Screenshot_20200503-231126_Pinterest.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="blah" title="blah" src="mors.html_Files/626178548482441217.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">19-May-20 02:37 AM</span>
+
+            <div class="chatlog__message " data-message-id="712192227946004534" id="message-712192227946004534">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Mors voice:</strong></u>
+
+<a href="https://youtu.be/AwmNY50SUtc">https://youtu.be/AwmNY50SUtc</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(255,0,0,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+                                                        <a class="chatlog__embed-author-name-link" href="https://www.youtube.com/channel/UC0NwzCHb8Fg89eTB5eYX17Q">SkinSpotlights</a>
+                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=AwmNY50SUtc">
+                                                    <div class="markdown">Voice - Mordekaiser [SUBBED] - English</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">This is the voice for the new reworked Mordekaiser in English.
+Purchase RP here (Amazon Affiliate - NA): <a href="https://amzn.to/2qZ3Bmv">https://amzn.to/2qZ3Bmv</a>
+
+For League of Legends Related News Check Out Surrender@20:
+<a href="http://www.surrenderat20.net/">http://www.surrenderat20.net/</a>
+
+Feel Free to Follow me on Twitter as well:
+<a href="https://twitte">https://twitte</a>...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="mors.html_Files/maxresdefault.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="mors.html_Files/maxresdefault.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">22-May-20 04:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="713490428757934151" id="message-713490428757934151">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">16-Jun-20 02:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="722335440526639124" id="message-722335440526639124">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Mors without helmet</strong></u> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/Screenshot_20200615-202327_Pinterest.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/Screenshot_20200615-202327_Pinterest.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">10-Jul-20 12:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="731180960141279285" id="message-731180960141279285">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Market history:</strong></u>
+• +200gp for job 16
+• +20gp for Navigation salary on 7/10/2020
+•+100 for Navigation salary on 7/17/2020
+•-50gp for a longbow
+•+25gp for Navigate salary on 7/25/2020
+• +1000gp for 5 DM Milestones
+• -900gp for Full plate armor
+• -25gp for spell focus for Irithriel&#39;s clairvoyance spell.
+• +100gp for Navigate salary on 8/4/2020
+• +120 for Interrogation salary on 8/13/2020
+• +50 for Navigation tools salary on 8/21/2020
+• +65 for Navigation tools salary on 8/28/2020
+• +100 for Navigation tools salary on 9/5/2020
+• +80on Intimidation (Interrogation) salary on 10/2/2020
+
+Total: 950gp <span class="chatlog__edited-timestamp" title="02-Oct-20 04:11 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 01:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="733011392822771762" id="message-733011392822771762">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Fancy Armor</strong></u> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/20200715_132424.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/20200715_132424.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">15-Jul-20 01:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="733016185389580288" id="message-733016185389580288">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Fancy Token</strong></u> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/token_1_19.png">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/token_1_19.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">25-Jul-20 05:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="736508278758178836" id="message-736508278758178836">
+                <div class="chatlog__content">
+                    <div class="markdown"><s><u><strong>Goal to learn longbow proficiency 500:</strong></u></s>
+<s>• 100gp - Class received by  <span class="mention">#uthal-lonehunter-katho-olavi</span> in <span class="mention">#the-top-deck</span></s>
+
+<s>Total: 100/500</s> <em>Not needed due to class change to paladin.</em> <span class="chatlog__edited-timestamp" title="19-Aug-20 06:01 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">29-Jul-20 08:47 AM</span>
+
+            <div class="chatlog__message " data-message-id="738014764168511512" id="message-738014764168511512">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Mors Hammer:</strong></u> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/e186e36dd031e52ad58328fed349134c.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/e186e36dd031e52ad58328fed349134c.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">19-Aug-20 06:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="745764677178622116" id="message-745764677178622116">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> </div>
+<u><strong>Class change to: Oathbreaker Paladin</strong></u>
+<em>Due to changes in the overlord class.</em>
+<div class="pre pre--multiline nohighlight"> </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">19-Aug-20 06:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="745767022125645864" id="message-745767022125645864">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Miklos McDead:</strong>
+• Small: Wight CR 3
+• Big: Wraith CR 6
+
+<em>Current Form: Small</em> <span class="chatlog__edited-timestamp" title="19-Aug-20 06:12 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/a0756be147b13f5a596c4fdfbc548975.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/a0756be147b13f5a596c4fdfbc548975.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="745767025338482799" id="message-745767025338482799">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/c15fc04b1a89334abd1a77edb05bfe92.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/c15fc04b1a89334abd1a77edb05bfe92.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">19-Aug-20 06:22 PM</span>
+
+            <div class="chatlog__message " data-message-id="745769726940020915" id="message-745769726940020915">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/Miklos.png">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/Miklos.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">19-Aug-20 07:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="745788388354949200" id="message-745788388354949200">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Find Steed Mount</strong></u>
+
+<em>Type: Fiend</em>
+<em>Stats: Warhorse</em>
+<em>Picture:</em> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/eb8d2ad2eb1e529ef21fc2274b412617.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/eb8d2ad2eb1e529ef21fc2274b412617.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-20 07:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="748685425668784247" id="message-748685425668784247">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Magic Items:</strong></u>
+
+• Helm of Teleportation.
+<em>From: Wedding event.</em> <span class="chatlog__edited-timestamp" title="27-Aug-20 08:28 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">27-Aug-20 08:35 PM</span>
+
+            <div class="chatlog__message " data-message-id="748702384053551144" id="message-748702384053551144">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Helm of the Overlord</strong></u>
+<em>Helm of teleportation</em>
+
+Every Overlord needs to be able to move around with his generals and army. After all, the dramatic entrance is the biggest part of destroying the enemies morale. Also a strategic retreat or quick return to the evil fortress is a must for every decent Big Bad Evil Guy.
+
+<span class="mention">#cassius-clay-guild-master</span> and <span class="mention">#iron-tower-battlemaster</span> managed to enhance <span class="mention">#mors</span> helmet by transmuting it into an item that could channel the Overlord dark aura and use those dark powers to use Teleport magic. However doing so 3 times in a row, unbalance the dark energies on the metal, so in order to be able to work again, the Overlord must wait until next dawn, to allow the natural powers of the sun balance the magic inside the helmet. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="mors.html_Files/4b0024f33beb73e78356debbf9381a69a6828b5dr1-1378-13.jpg">
+                                    <img class="chatlog__attachment-thumbnail" src="mors.html_Files/4b0024f33beb73e78356debbf9381a69a6828b5dr1-1378-13.jpg" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/b4926b52f7f1c966e01e25f0b33253f1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(129,134,137)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">30-Aug-20 10:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="749817304891523124" id="message-749817304891523124">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(145,147,135,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+Mors                                                </span>
+                                        </div>
+
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Goliath Paladin 9
+<strong>Proficiency Bonus</strong>: +4
+<strong>AC</strong>: 20
+<strong>HP</strong>: 94/94
+<strong>Initiative</strong>: -1
+<strong>STR</strong>: 14 (+2) <strong>DEX</strong>: 8 (-1) <strong>CON</strong>: 18 (+4)
+<strong>INT</strong>: 10 (+0) <strong>WIS</strong>: 10 (+0) <strong>CHA</strong>: 15 (+2)
+<strong>Save Proficiencies</strong>: Wisdom +6, Charisma +8
+<strong>Skill Proficiencies</strong>: Athletics +6, Insight +4, Intimidation +6, Perception +4, Stealth -1 (dis)
+<strong>Senses</strong>: passive Perception 14</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Attacks</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown"><strong>Longsword</strong>: Attack: +6 to hit. Hit: 1d8 + 2 + 4 [slashing] damage.
+<strong>Whip</strong>: Attack: +6 to hit. Hit: 1d4 + 2 + 4 [slashing] damage.
+<strong>Warhammer</strong>: Attack: +6 to hit. Hit: 1d8 + 2 + 4 [bludgeoning] damage.
+<strong>Warhammer2</strong>: Attack: +6 to hit. Hit: 1d10 + 2 + 2 [bludgeoning] damage.
+<strong>Longsword2</strong>: Attack: +6 to hit. Hit: 1d10 + 2 + 2 [slashing] damage.
+<strong>Longbow</strong>: Attack: -1 to hit. Hit: 1d8 + -1 [piercing] damage.</div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1%20%281%29.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1%20%281%29.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="749817317000478760" id="message-749817317000478760">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(221,156,183,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+Mors                                                </span>
+                                        </div>
+
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Mors knows 12 spells.</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">DC</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">14</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Spell Attack Bonus</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">6</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Spell Slots</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown"><span class="pre pre--inline">1</span> ◉◉◉◉
+<span class="pre pre--inline">2</span> ◉◉◉
+<span class="pre pre--inline">3</span> ◉◉</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">1st Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown"><em>Wrathful Smite</em>, Bless, Command, Detect Magic, Hellish Rebuke, Inflict Wounds</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">2nd Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown"><em>Crown of Madness</em>, Darkness, Find Steed</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">3rd Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">Animate Dead, Bestow Curse, Dispel Magic</div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1%20%281%29.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1%20%281%29.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+An italicized spell indicates that the spell is homebrew.
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="chatlog__message " data-message-id="749817352262123521" id="message-749817352262123521">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(70,62,211,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+                                                <img class="chatlog__embed-author-icon" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.webp" alt="Author icon">
+
+                                                <span class="chatlog__embed-author-name">
+Mors | Garg | Bof                                                </span>
+                                        </div>
+
+                                        <div class="chatlog__embed-title">
+                                                <div class="markdown">Mors is currently 9th level!</div>
+                                        </div>
+
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Current Milestones</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">39</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Next Level: 10</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">61 <em>(22 remaining)</em></div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1%20%281%29.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="mors.html_Files/f00da0a49fc0120bc2c0a5039aca5da1%20%281%29.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+View Milestones with !milestone | Add Milestones with !milestone # | Remove Milestones with !milestones -# | Set Milestones with !milestone set #
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="mors.html_Files/6acb40278dd17b1bd2b7806f0df59ec1.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Mors | Garg | Bof</span>
+
+
+        <span class="chatlog__timestamp">28-Sep-20 04:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="760232180730298439" id="message-760232180730298439">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>LvL 3 Milestones:</strong></u>
+• Major - escaped the feywild; awarded by @ShwiggityShwah#6420 
+• Major - In a relationship with <span class="mention">#irithriel-ravenwood</span>; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+• Minor - Defeating the wolves in <span class="mention">#job16-giants-howl</span>; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+•Major - Fighting a Boss by himself and despite being tired and without his minions, he managed to force the Boss into a enraged state; awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+
+ <u><strong>Lvl 4 milestones:</strong></u>
+
+4 Milestones:
+
+The rescue group managed to reach the heart of Moe&#39;s jungle while looking for the lost overlord. They fought whild apes, giant deadly spiders and managed to reach a deal with the guardians of the river by recovering their missing babies!! The Steel Hearts mercenaries even managed to find (and almost convinced to join them) a green minion who they are sure is working for the lost Mors!! Now they have some solid clues and found a base camp where they can rest while looking for Iri&#39;s love and surviving the deadly (and gross) jungle!!
+Awarded by @Mors | Garg | Bof </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="760232230986448956" id="message-760232230986448956">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Level 5 milestones</strong></u>
+
+•2 for finishing job24. And a <strong>Stone of sending</strong> 
+Awarded by <span class="mention" title="Bofwant#0381">@Mors | Garg | Bof</span>
+
+• Meeting Jericho And not killing him in the <span class="mention">#library</span> 
+• Getting some of his memory back and finding out he&#39;s gonna be a daddy!
+
+• 2 Milestones for beating the battlemaster Deathly&#39;s challenge!
+
+<strong>Milestones lvl 6:</strong>
+• 1 for sharing a meal and sharing their past with fellow guild mates in <span class="mention">#mess-hall</span> 
+• 1 for planning and getting ready for the wedding and planning their future with <span class="mention">#irithriel-ravenwood</span>   in <span class="mention">#unisex-baths</span> / <span class="mention">#gardens</span> 
+• 1 for safely figuring out his new powers and finding and helping <span class="mention">#irithriel-ravenwood</span> find a new friend/pet in the <span class="mention">#gardens</span>
+• 4 DM milestones
+
+<u><strong>Lvl 7 Milestones:</strong></u>
+
+• Scene in <span class="mention">#mors-and-irithriels-room</span> - naming his and Iri’s child, and planning their future as a family.
+• WEDDING EVENT: scene in <span class="mention">#mingling</span> - getting married to <span class="mention">#irithriel-ravenwood</span> .
+• Scene on <span class="mention">#the-top-deck</span> - getting an archery class from <span class="mention">#uthal-lonehunter-katho-olavi</span> .
+• 5 DM Milestones.
+
+<u><strong>Lvl 8 Milestones:</strong></u>
+
+• 3 Milestones for DMing job 37.
+• WEDDING EVENT: Scene in <span class="mention">#entertainment</span> - attending the talent show.
+• WEDDING EVENT: Scene in <span class="mention">#entertainment</span> - Participating in the talent show.
+• WEDDING EVENT: Scene in <span class="mention">#arena</span> - attended the tournament.
+• WEDDING EVENT: Scene in <span class="mention">#arena</span> - participated in tournament.
+• WEDDING EVENT: Scene in <span class="mention">#dining</span> - attending the eating contest.
+• WEDDING EVENT: Scene in <span class="mention">#dining</span> - joining in the shadow elf plotting.
+• 1 DM Milestone for Wedding event. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="760232322636972064" id="message-760232322636972064">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Lvl 9 Milestones:</strong></u>
+
+• Scene in <span class="mention">#mors-and-irithriels-room</span> - planning a raid/rescue and to overthrow a kingdom with <span class="mention">#bofwant</span>, <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span>, <span class="mention">#garg-dreadstorm</span>, <span class="mention">#irithriel-ravenwood</span>, and <span class="mention">#selaphiel-rookwood</span>.
+• Scene in <span class="mention">#med-bay</span> - visiting Barachiel with <span class="mention">#bofwant</span>, <span class="mention">#halanaestra-ellorenthi-d’phiarlan</span>, <span class="mention">#garg-dreadstorm</span>, <span class="mention">#irithriel-ravenwood</span>, and <span class="mention">#selaphiel-rookwood</span>.
+• Scene in <span class="mention">#med-bay</span> - becoming a dad. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="760232370543919175" id="message-760232370543919175">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> Milestone placeholder </div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="760232373694103633" id="message-760232373694103633">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> Milestone placeholder </div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="760232376491835392" id="message-760232376491835392">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> Milestone placeholder </div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="760232378899103784" id="message-760232378899103784">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> Milestone placeholder </div> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="760232381012639744" id="message-760232381012639744">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="pre pre--multiline nohighlight"> Milestone placeholder </div> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 36 message(s)</div>
+</div>
+
+</body>
+</html>
