@@ -1,0 +1,1964 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Horologium: 18+ D&amp;D 5e with RP - dicecloud-guide</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="dicecloud.html_Files/bb1e51dd4bba0430e45f34f4dbd99b65-F156C.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Horologium: 18+ D&amp;D 5e with RP</div>
+        <div class="preamble__entry">Character Maker / dicecloud-guide</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 04:20 PM</span>
+
+            <div class="chatlog__message chatlog__message--pinned" data-message-id="766395096634622013" id="message-766395096634622013">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Dicecloud</strong></u>
+
+Link: <a href="https://dicecloud.com/">https://dicecloud.com/</a>
+
+Dicecloud is an online character sheet for DnD 5e. Like Gsheet, it allows for easy browser use (Works amazing in both mobile and PC), real time changes and even multiple people with edit permissions for the same sheet.
+
+It&#39;s based on the idea to track where each number comes from, and allow for easily changes on the fly. Let&#39;s look at a hypothetical example.
+
+You need to swim through a sunken section of dungeon to fetch the quest&#39;s Thing.
+You&#39;ll need to take off your magical Plate Armor of +1 Constitution to swim without sinking, of course. Taking it off will change your armor class, your speed and your constitution, which in turn changes your hit points and your constitution saving throw. Working out all those changes in the middle of a game will drag the game to a halt.
+Fortunately you have a digital character sheet, so it&#39;s a matter of dragging your Plate Armor +1 Con from your &quot;equipment&quot; box to your &quot;backpack&quot; box and you&#39;re done. Your hitpoints change correctly, your saving throws are up to date, your armor class goes back to reflecting the fact that you have natural armor from being a dragonborn. Your character sheet keeps up and you ultimately get more time to play the game. Huzzah!
+
+And all of these changes are synced with Avrae by using the <span class="pre pre--inline">!update</span> command! </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766396596778696744" id="message-766396596778696744">
+                <div class="chatlog__content">
+                    <div class="markdown"><u><strong>Creating a sheet</strong></u>
+
+After signing in to Dicecloud, first select the &quot;Characters&quot; tab on the left menu, then, click on the &quot;+&quot; button at the bottom right corner. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-2FD95.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-2FD95.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766396778596663307" id="message-766396778596663307">
+                <div class="chatlog__content">
+                    <div class="markdown">Then, from the popup menu, select &quot;New Character&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-70F6B.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-70F6B.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766397092398104636" id="message-766397092398104636">
+                <div class="chatlog__content">
+                    <div class="markdown">A new box asking for some basic info about the character, after filling those fields, click on the &quot;Add&quot; button and create the new sheet. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-DCB10.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-DCB10.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766397412087693372" id="message-766397412087693372">
+                <div class="chatlog__content">
+                    <div class="markdown">In this example, we will be making the sheet for <span class="mention">#tsunade-senju-the-doctor</span> , so she will be a variant human female. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-67B9D.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-67B9D.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766398283592499250" id="message-766398283592499250">
+                <div class="chatlog__content">
+                    <div class="markdown">We will be sent to the basic empty sheet. The first step will be filling up the Race info, adding bonus stats, proficiencies, features, etc.
+
+<strong>Filling up the Race:</strong>
+First, we need to select the &quot;Journal&quot; tab where we will add(and/or modify) the info about the race and class(Or classes) </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-5D85A.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-5D85A.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766398722703229018" id="message-766398722703229018">
+                <div class="chatlog__content">
+                    <div class="markdown">Once there, we will see the Race that was inputted at the moment of the sheet creation. We need to click on the Race to open up the editor. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-E4954.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-E4954.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766399059547783198" id="message-766399059547783198">
+                <div class="chatlog__content">
+                    <div class="markdown">A popup window will appear showing the info about the race, right now we will have nothing on it, so we need to enable the editor to start adding things. 
+
+For this, we click on the top right corner of the popup. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-0DA0F.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-0DA0F.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766399960400789554" id="message-766399960400789554">
+                <div class="chatlog__content">
+                    <div class="markdown">Once enabled, we will be able to edit the Race name and add the extra bits needed.
+
+We will start with the basic stats like Speed and abilities scores. For this, we need to click on &quot;Add Effect&quot; to add each one of them. <span class="chatlog__edited-timestamp" title="15-Oct-20 04:40 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-957E8.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-957E8.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766400287279546429" id="message-766400287279546429">
+                <div class="chatlog__content">
+                    <div class="markdown">A secondary popup will appear, showing us all the different options we can add as an effect for the race.
+
+For speed, we will select &quot;Stat&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-1F5BD.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-1F5BD.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766400645535367238" id="message-766400645535367238">
+                <div class="chatlog__content">
+                    <div class="markdown">A secondary menu will appear under the &quot;Stats&quot; showing us all the different options. So we will chose &quot;Speed&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-10092.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-10092.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766401090723512341" id="message-766401090723512341">
+                <div class="chatlog__content">
+                    <div class="markdown">Then, we will scroll up a little and on the right sub-menu, we will select &quot;Base Value&quot; and in the value input, we will add the Race base speed. In this case is 30.
+
+Note: In the value section we will only add the number in feets, no need to add the &quot;ft&quot; after the number. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-14979.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-14979.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766401357824786472" id="message-766401357824786472">
+                <div class="chatlog__content">
+                    <div class="markdown">Once everything is set up properly, we will click the back arrow at the top left corner to save the changes. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-74E1D.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-74E1D.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766401554541969408" id="message-766401554541969408">
+                <div class="chatlog__content">
+                    <div class="markdown">Now we will see that our race not only has the name but now it shows the speed too. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-4863F.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-4863F.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766402508703662102" id="message-766402508703662102">
+                <div class="chatlog__content">
+                    <div class="markdown">Next, we need to add the ability scores. Variant human gives one point in two different stats. For her we will add one point in Wisdom and another point in Strength.
+
+For each point, we need to add an extra effect.
+
+Once we click on &quot;Add effect&quot;, we will select &quot;Ability scores&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-4031B.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-4031B.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766403033088262184" id="message-766403033088262184">
+                <div class="chatlog__content">
+                    <div class="markdown">Then we will select the Stat (In this case Strength), on the sub menu at the right side, we will select &quot;Add&quot; since these are extra ability scores, and then we will add the value on the value input. At last we will save by clicking on the arrow at the top left corner, just like we did with speed. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-EDA81.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-EDA81.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766403214001700894" id="message-766403214001700894">
+                <div class="chatlog__content">
+                    <div class="markdown">Now we will see our next effect added to the Race. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-CADCD.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-CADCD.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766403452468854794" id="message-766403452468854794">
+                <div class="chatlog__content">
+                    <div class="markdown">Next, we will repeat the process and add the extra wisdom point. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-8E996.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-8E996.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766403694027210752" id="message-766403694027210752">
+                <div class="chatlog__content">
+                    <div class="markdown">Once that&#39;s done, we will have all something like this: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-C4D62.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-C4D62.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766404052602454087" id="message-766404052602454087">
+                <div class="chatlog__content">
+                    <div class="markdown">Next we need to add the extra skill proficiency and languages. For that we will click on &quot;Add Proficiency&quot;
+
+A new area will appear where we can select the proficiency. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-96E39.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-96E39.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766404315417149491" id="message-766404315417149491">
+                <div class="chatlog__content">
+                    <div class="markdown">First we will select, &quot;Skill&quot; and then we will select which one of the skills: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-4FF05.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-4FF05.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766404401073618944" id="message-766404401073618944">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-978C4.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-978C4.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766404474331725894" id="message-766404474331725894">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-6E696.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-6E696.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766404956419784754" id="message-766404956419784754">
+                <div class="chatlog__content">
+                    <div class="markdown">Next, we need to add the languages. For that, we will also add another proficiency, this time, in the &quot;Stat Group&quot; we will select &quot;Language&quot; and in the &quot;Name&quot; input, we will write the language we are adding. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-098B5.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-098B5.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766405520545415168" id="message-766405520545415168">
+                <div class="chatlog__content">
+                    <div class="markdown">In the end we will have something like this, and to save it, we will click on the checkmark at the top right corner of the popup. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-7A74D.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-7A74D.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 05:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="766408131303178271" id="message-766408131303178271">
+                <div class="chatlog__content">
+                    <div class="markdown">Now we will have almost everything set up: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-1E66F.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-1E66F.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766408408856395776" id="message-766408408856395776">
+                <div class="chatlog__content">
+                    <div class="markdown">To add the extra features (An extra feat in the case of human variant) we will move back and go to the &quot;Features&quot; tab of the sheet. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-59A41.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-59A41.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766409131594088458" id="message-766409131594088458">
+                <div class="chatlog__content">
+                    <div class="markdown">This is what we will find. To add a new feature, we will click on the button at the bottom right corner. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-C02CE.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-C02CE.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 06:03 PM</span>
+
+            <div class="chatlog__message " data-message-id="766420902085918721" id="message-766420902085918721">
+                <div class="chatlog__content">
+                    <div class="markdown">We will have another popup where we can input the feat description and any additional effect, proficiency, or attack they may add to our character. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-D0E91.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-D0E91.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766421192995241984" id="message-766421192995241984">
+                <div class="chatlog__content">
+                    <div class="markdown">For our example, we will add the healer feat and then save it by clicking on the checkmark at the top right corner. <span class="chatlog__edited-timestamp" title="15-Oct-20 06:04 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-6FF7E.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-6FF7E.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766421371374010378" id="message-766421371374010378">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-3C540.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-3C540.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766421572315512903" id="message-766421572315512903">
+                <div class="chatlog__content">
+                    <div class="markdown">Once we go back, we will have our feat added to our sheet and our race will be done. <span class="chatlog__edited-timestamp" title="15-Oct-20 06:05 PM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-CAE70.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-CAE70.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766422336504725504" id="message-766422336504725504">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Adding ability scores:</strong>
+
+In the features tab, we will find a pre-created feature called &quot;Base Ability Scores&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-51EC4.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-51EC4.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766424048783327242" id="message-766424048783327242">
+                <div class="chatlog__content">
+                    <div class="markdown">Once we click it, we will see a simple Feature with effect added, we will need to edit the values to add our base ability scores. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766424103602356247" id="message-766424103602356247">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-9ED99.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-9ED99.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766424176235511828" id="message-766424176235511828">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-BAE50.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-BAE50.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766424244182974495" id="message-766424244182974495">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-2EA19.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-2EA19.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766424621465468958" id="message-766424621465468958">
+                <div class="chatlog__content">
+                    <div class="markdown">In the end we will have something like this: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-BCF26.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-BCF26.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766424665182437407" id="message-766424665182437407">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-70231.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-70231.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766425457201381426" id="message-766425457201381426">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Adding a class:</strong>
+
+Now, to add a class, we need to go to the journal tab and click on the &quot;+&quot; button: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-95D85.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-95D85.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766425754526810113" id="message-766425754526810113">
+                <div class="chatlog__content">
+                    <div class="markdown">We will be shown another very similar popup like the ones before, only this one has a field for the level of the class: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-47C0B.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-47C0B.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766425973091991554" id="message-766425973091991554">
+                <div class="chatlog__content">
+                    <div class="markdown">For our example, we will make our character a lvl 10 cleric: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-02AFB.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-02AFB.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766427538511233055" id="message-766427538511233055">
+                <div class="chatlog__content">
+                    <div class="markdown">Next we will start adding the effects, such as hit dice and hit points. 
+
+Here we will have two options. Add the number manually and edit each time we level up, or use the the Dicecloud variables to have the sheet change the number automatically depending on our class level. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-16FF0.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-16FF0.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766427626037575748" id="message-766427626037575748">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-61AAD.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-61AAD.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766428077060128778" id="message-766428077060128778">
+                <div class="chatlog__content">
+                    <div class="markdown">In this case, the variable is &quot;Clericlevel&quot;, this works for any class we add, it doens&#39;t matter if it&#39;s a homebrew one. The variable always being &quot;Classlevel&quot;
+
+For example:
+Warlock -&gt; Warlocklevel
+Druid -&gt; Druidlevel
+Maid -&gt; Maidlevel
+Overlord -&gt; Overlordlevel </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766428501778759711" id="message-766428501778759711">
+                <div class="chatlog__content">
+                    <div class="markdown">The same variable can be used to input the complete HP formula so the Sheet will automatically add the HP every time we level up.
+
+Note: There is no need to add the Constitution modifier since the sheet will automatically add that to the final HP value. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-EE020.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-EE020.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766428621597310977" id="message-766428621597310977">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-706A4.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-706A4.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 06:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="766432315903180811" id="message-766432315903180811">
+                <div class="chatlog__content">
+                    <div class="markdown">In the end we will have something like this: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-C80CD.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-C80CD.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766432356193009665" id="message-766432356193009665">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-1A5B4.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-1A5B4.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 06:56 PM</span>
+
+            <div class="chatlog__message " data-message-id="766434244850876436" id="message-766434244850876436">
+                <div class="chatlog__content">
+                    <div class="markdown">To add the starting equipment, we will go to the inventory tab and start adding every item. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-01629.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-01629.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766434376695152646" id="message-766434376695152646">
+                <div class="chatlog__content">
+                    <div class="markdown">The easiest way is to add the items from the library: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-BBF35.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-BBF35.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766434613966012457" id="message-766434613966012457">
+                <div class="chatlog__content">
+                    <div class="markdown">We can use the search bar, select the item and then add it to the inventory: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-A1A04.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-A1A04.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766436343793319946" id="message-766436343793319946">
+                <div class="chatlog__content">
+                    <div class="markdown">Once we have them all, we need to start equipping them. For that there are two methods. Dragging the item to the &quot;Equipped&quot; container, or editing the item and selecting the equipped switch. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766436356284481556" id="message-766436356284481556">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-61949.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-61949.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766436480155254824" id="message-766436480155254824">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-EAED9.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-EAED9.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766436982209380385" id="message-766436982209380385">
+                <div class="chatlog__content">
+                    <div class="markdown">We can also create containers to keep our items organized: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-6EC8B.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-6EC8B.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 07:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="766440136694431794" id="message-766440136694431794">
+                <div class="chatlog__content">
+                    <div class="markdown">Then, we go back to the features tab and add all the class features. In the end we will have something like this: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-9F209.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-9F209.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766440193397489684" id="message-766440193397489684">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-F1FE4.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-F1FE4.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766440392006041632" id="message-766440392006041632">
+                <div class="chatlog__content">
+                    <div class="markdown">We can add a little color and organization by clicking on the paint icon of each feature: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-36A3F.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-36A3F.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766440692263682068" id="message-766440692263682068">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-19533.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-19533.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766441229806207016" id="message-766441229806207016">
+                <div class="chatlog__content">
+                    <div class="markdown">Next are the spells. For this, we go to the Spells tab and need to create a new spell list. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-F3186.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-F3186.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766441481551872011" id="message-766441481551872011">
+                <div class="chatlog__content">
+                    <div class="markdown">We need to edit the variables to make sure we are using our spell casting ability stat. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-0F75F.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-0F75F.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766441745352228884" id="message-766441745352228884">
+                <div class="chatlog__content">
+                    <div class="markdown">In this example, we are making a cleric, they use Wisdom for spellcasting </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-DEDFA.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-DEDFA.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766442144868204544" id="message-766442144868204544">
+                <div class="chatlog__content">
+                    <div class="markdown">Now we can start adding the spells and cantrips.
+
+Dicecloud provides a library of SRD spells. However any spell (Even homebrew ones) can be added manually if it&#39;s not in the list. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-9FC6E.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-9FC6E.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 07:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="766445540695080978" id="message-766445540695080978">
+                <div class="chatlog__content">
+                    <div class="markdown">In the end, we will have our list filled with our prepared spells: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-C3DAD.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-C3DAD.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766445937718460457" id="message-766445937718460457">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Adding the background:</strong>
+
+For the background, we go to the &quot;Persona&quot; tab, in there we will find all the fields to add both the background info and the overall description for our character. </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-FEDC0.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-FEDC0.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 07:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="766448637630349343" id="message-766448637630349343">
+                <div class="chatlog__content">
+                    <div class="markdown">In the end we will have something like this: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-C2953.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-C2953.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766449076903608341" id="message-766449076903608341">
+                <div class="chatlog__content">
+                    <div class="markdown"><strong>Last step, enable public reading access to the sheet:</strong>
+
+To do that, we need to click on the dots button at to top right corner of the sheet: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-A0309.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-A0309.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766449154401501194" id="message-766449154401501194">
+                <div class="chatlog__content">
+                    <div class="markdown">Select Share: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-1D128.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-1D128.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766449473060470804" id="message-766449473060470804">
+                <div class="chatlog__content">
+                    <div class="markdown">And we enable &quot;Reading only&quot; and &quot;Anyone with link&quot; </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-56F31.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-56F31.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766449652656373771" id="message-766449652656373771">
+                <div class="chatlog__content">
+                    <div class="markdown">Like that, our sheet will be done and we can add it to avrae: </div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="dicecloud.html_Files/unknown-2D1FF.png">
+                                    <img class="chatlog__attachment-thumbnail" src="dicecloud.html_Files/unknown-2D1FF.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766449705810919444" id="message-766449705810919444">
+                <div class="chatlog__content">
+                    <div class="markdown">!dicecloud <a href="https://dicecloud.com/character/FZ24CEN2NSwuEjcLu/Tsunade-Senju">https://dicecloud.com/character/FZ24CEN2NSwuEjcLu/Tsunade-Senju</a> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/b4926b52f7f1c966e01e25f0b33253f1-FACCB.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(96,125,139)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">15-Oct-20 07:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="766449706057334794" id="message-766449706057334794">
+                <div class="chatlog__content">
+                    <div class="markdown">Loaded and saved data for Tsunade Senju! <span class="chatlog__edited-timestamp" title="15-Oct-20 07:57 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="766449709245923359" id="message-766449709245923359">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(145,113,104,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+Tsunade Senju                                                </span>
+                                        </div>
+
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Human (Variant) Cleric 10
+<strong>Proficiency Bonus</strong>: +4
+<strong>AC</strong>: 18
+<strong>HP</strong>: 63/63
+<strong>Initiative</strong>: +2
+<strong>STR</strong>: 14 (+2) <strong>DEX</strong>: 14 (+2) <strong>CON</strong>: 12 (+1)
+<strong>INT</strong>: 8 (-1) <strong>WIS</strong>: 20 (+5) <strong>CHA</strong>: 10 (+0)
+<strong>Save Proficiencies</strong>: Wisdom +9, Charisma +4
+<strong>Skill Proficiencies</strong>: Athletics +6, Insight +9, Intimidation +4, Medicine +9, Persuasion +4, Stealth +2 (dis)
+<strong>Senses</strong>: passive Perception 15</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Attacks</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown"><strong>Mace</strong>: Attack: +6 to hit. Hit: 1d6 + 2 [bludgeoning] damage.
+<strong>Light hammer</strong>: Attack: +6 to hit. Hit: 1d4 + 2 [bludgeoning] damage.
+<strong>Sacred Flame</strong>: 2d8 [radiant] damage.</div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="dicecloud.html_Files/f137275520d1ff531e3741667ca4b4a4-893D8.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="dicecloud.html_Files/f137275520d1ff531e3741667ca4b4a4-893D8.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 07:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="766449720985387039" id="message-766449720985387039">
+                <div class="chatlog__content">
+                    <div class="markdown">!sb </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/b4926b52f7f1c966e01e25f0b33253f1-FACCB.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Avrae#6944" data-user-id="261302296103747584" style="color: rgb(96,125,139)">Avrae</span>
+
+            <span class="chatlog__bot-tag">BOT</span>
+
+        <span class="chatlog__timestamp">15-Oct-20 07:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="766449721593036801" id="message-766449721593036801">
+                <div class="chatlog__content">
+                    <div class="markdown"> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill" style="background-color: rgba(40,100,77,255)"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+                                        <div class="chatlog__embed-author">
+
+                                                <span class="chatlog__embed-author-name">
+Tsunade Senju                                                </span>
+                                        </div>
+
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">Tsunade Senju knows 30 spells.</div>
+                                        </div>
+
+                                        <div class="chatlog__embed-fields">
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">DC</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">17</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Spell Attack Bonus</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">9</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field chatlog__embed-field--inline">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Spell Slots</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown"><span class="pre pre--inline">1</span> ◉◉◉◉
+<span class="pre pre--inline">2</span> ◉◉◉
+<span class="pre pre--inline">3</span> ◉◉◉
+<span class="pre pre--inline">4</span> ◉◉◉
+<span class="pre pre--inline">5</span> ◉◉</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">Cantrips</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">Guidance, Light, Resistance, Sacred Flame, Thaumaturgy</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">1st Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">Bless, Cure Wounds, Guiding Bolt, Healing Word, Sanctuary, Shield of Faith</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">2nd Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">Continual Flame, Enhance Ability, Hold Person, Lesser Restoration, Prayer of Healing, Spiritual Weapon, Warding Bond</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">3rd Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">Beacon of Hope, Dispel Magic, Glyph of Warding, Magic Circle, Revivify</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">4th Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown"><em>Aura of Life</em>, Banishment, Death Ward, Guardian of Faith</div>
+                                                        </div>
+                                                </div>
+                                                <div class="chatlog__embed-field ">
+                                                        <div class="chatlog__embed-field-name">
+                                                            <div class="markdown">5th Level</div>
+                                                        </div>
+
+                                                        <div class="chatlog__embed-field-value">
+                                                            <div class="markdown">Hallow, Mass Cure Wounds, Raise Dead</div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="dicecloud.html_Files/f137275520d1ff531e3741667ca4b4a4-893D8.jpg">
+                                            <img class="chatlog__embed-thumbnail" src="dicecloud.html_Files/f137275520d1ff531e3741667ca4b4a4-893D8.jpg" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                                <div class="chatlog__embed-footer">
+
+                                        <span class="chatlog__embed-footer-text">
+An italicized spell indicates that the spell is homebrew.
+
+                                        </span>
+                                </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="dicecloud.html_Files/6acb40278dd17b1bd2b7806f0df59ec1-B5E7C.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Bofwant#0381" data-user-id="278456623159050241" style="color: rgb(241,196,15)">Rokkor | Malon | Ragdor</span>
+
+
+        <span class="chatlog__timestamp">15-Oct-20 07:58 PM</span>
+
+            <div class="chatlog__message " data-message-id="766450028654100490" id="message-766450028654100490">
+                <div class="chatlog__content">
+                    <div class="markdown">Pinned a message. </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 77 message(s)</div>
+</div>
+
+</body>
+</html>
